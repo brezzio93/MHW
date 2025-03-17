@@ -1,0 +1,6 @@
+::ng-deep .dx-datagrid-content .dx-datagrid-table .dx-row .dx-command-edit {
+    text-overflow: clip;
+    width: 20px !important;
+    min-width: 20px !important;
+    white-space: nowrap;
+}

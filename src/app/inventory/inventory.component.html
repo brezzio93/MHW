@@ -1,0 +1,24 @@
+<dx-data-grid
+    [dataSource]="materials"
+    [showBorders]="true"
+    [rowAlternationEnabled]="true"
+    [showRowLines]="true"
+    (onCellPrepared)="paintCellTable($event)"
+    (onEditingStart)="onEditingStart($event)">
+
+    <dxo-search-panel [visible]="true" [highlightCaseSensitive]="false"></dxo-search-panel>
+    <dxo-scrolling mode="infinite"></dxo-scrolling>
+    <dxo-editing
+        mode="popup"
+        [allowUpdating]="true"
+        [allowAdding]="false"
+        [allowDeleting]="false"
+    >
+        <dxo-popup [title]=popupTitle [showTitle]="true"></dxo-popup>
+        <dxo-form>
+            <dxi-item dataField="quantity"></dxi-item>
+        </dxo-form>
+    </dxo-editing>    
+    <dxi-column allowEditing="false" dataField="name"></dxi-column>
+    <dxi-column dataField="quantity" [width]="80"></dxi-column>
+</dx-data-grid>
