@@ -3,20 +3,22 @@
     [showBorders]="true"
     [rowAlternationEnabled]="true"
     [showRowLines]="true"
-    [columnAutoWidth]="true">
+    [columnAutoWidth]="true"
+    (onCellPrepared)="paintCellTable($event)"
+    >
     
     <dxo-search-panel [visible]="true" [highlightCaseSensitive]="false"></dxo-search-panel>
     <dxo-scrolling mode="infinite"></dxo-scrolling>
     
     <dxi-column dataField="armor" caption="Armor"></dxi-column>
-    <dxi-column dataField="crafted" caption="Crafted"></dxi-column>
+    <dxi-column dataField="crafted" [width]="80" caption="Crafted"></dxi-column>
 
     <dxo-master-detail [enabled]="true" template="detail"></dxo-master-detail>
     <div *dxTemplate="let material of 'detail'">
         <dx-data-grid [dataSource]="material.data.materials">
             <dxi-column dataField="material" caption="Material"></dxi-column>
-            <dxi-column dataField="needed" caption="Needed"></dxi-column>
-            <dxi-column dataField="owned" caption="Owned"></dxi-column>
+            <dxi-column dataField="needed" [width]="70" caption="Needed"></dxi-column>
+            <dxi-column dataField="owned" [width]="70" caption="Owned"></dxi-column>
         </dx-data-grid>
     </div>    
 
