@@ -15,7 +15,16 @@
 
     <dxo-master-detail [enabled]="true" template="detail"></dxo-master-detail>
     <div *dxTemplate="let material of 'detail'">
-        <dx-data-grid [dataSource]="material.data.materials">
+        <button 
+            [disabled]="
+                material.data.craftable == 0 || 
+                material.data.crafted == 4" 
+            (click)="forge(material.data)"
+        > Forge </button>
+        <dx-data-grid 
+        [dataSource]="material.data.materials"
+        (onCellPrepared)="paintInnerCellTable($event)"
+        >
             <dxi-column dataField="material" caption="Material"></dxi-column>
             <dxi-column dataField="needed" [width]="70" caption="Needed"></dxi-column>
             <dxi-column dataField="owned" [width]="70" caption="Owned"></dxi-column>

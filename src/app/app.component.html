@@ -1,9 +1,12 @@
-<h1>{{title}}</h1>
+<h1>{{ title }}</h1>
 
-<button (click)="goTo('ItemBox')">ItemBox</button>
-<button (click)="goTo('Armors')">Armors</button>
-<button (click)="goTo('Weapons')">Weapons</button>
+<button style="width: 98%" (click)="goTo('Log')">Mission Log</button>
 
-<app-inventory *ngIf="selected=='ItemBox'"></app-inventory>
-<app-armors *ngIf="selected=='Armors'"></app-armors>
-<app-weapons *ngIf="selected=='Weapons'"></app-weapons>
+<button style="width: 28%" (click)="goTo('ItemBox')">ItemBox</button>
+<button style="width: 28%" (click)="goTo('Armors')">Armors</button>
+<button style="width: 28%" (click)="goTo('Weapons')">Weapons</button>
+
+<app-inventory *ngIf="selected == 'ItemBox'"></app-inventory>
+<app-armors *ngIf="selected == 'Armors'"></app-armors>
+<app-weapons *ngIf="selected == 'Weapons'"></app-weapons>
+<app-mission-log *ngIf="selected == 'Log'"></app-mission-log>

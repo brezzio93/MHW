@@ -2,11 +2,15 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { DxDataGridModule } from 'devextreme-angular';
 import { DataService } from '../service/data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-inventory',
   standalone: true,
-  imports: [CommonModule, DxDataGridModule],
+  imports: [
+    CommonModule,
+    DxDataGridModule,
+  ],
   templateUrl: './inventory.component.html',
   styleUrl: './inventory.component.css'
 })
@@ -21,7 +25,6 @@ export class InventoryComponent {
   ) { }
 
   ngOnInit(): void {
-    console.log("TEST");
     this.materials = this.ds.materials;
   }
 

@@ -6,7 +6,10 @@ import { DataService } from '../service/data.service';
 @Component({
   selector: 'app-armors',
   standalone: true,
-  imports: [CommonModule, DxDataGridModule],
+  imports: [CommonModule,
+    DxDataGridModule,
+  ],
+  providers: [],
   templateUrl: './armors.component.html',
   styleUrl: './armors.component.css'
 })
@@ -20,6 +23,10 @@ export class ArmorsComponent implements OnInit {
 
   ngOnInit() {
     this.armors = this.ds.armors;
+    this.setOwned();
+  }
+
+  setOwned() {
     this.armors.forEach((armor: any) => {
       armor.craftable = 100;
       armor.materials.forEach((material: any) => {
@@ -30,23 +37,36 @@ export class ArmorsComponent implements OnInit {
     });
   }
 
-  /**
-   * cambia el color de las celdas según semáforo
-   * @param e evento de componente tabla
-   * @param itemID ID de activeItem
-   */
   paintCellTable(e: any) {
     if (e.rowType === "data") {
       if (e.data.crafted < 4 && e.data.craftable == 0) e.cellElement.style.cssText = "background-color: #f5c6cb";
-      //=AND((K2<$C$2),(L2=0))
       if (e.data.craftable + e.data.crafted < 4 && e.data.craftable > 0) e.cellElement.style.cssText = "background-color: #ffecbf";
-      //=AND((craftable + crafted < players),( craftables > 0))
       if (e.data.craftable + e.data.crafted >= 4) e.cellElement.style.cssText = "background-color: #d4edda";
-      //=(craftable + crafted >= players)
+    }
+  }
+
+  paintInnerCellTable(e: any) {
+    if (e.rowType === "data") {
+      if (e.data.owned < e.data.needed) e.cellElement.style.cssText = "background-color: #f5c6cb";
+      else e.cellElement.style.cssText = "background-color: #d4edda";
     }
   }
 
   forge(e: any) {
+    let auxArmor = this.armors.find((x: any) => x.armor == e.armor);
+    auxArmor.crafted++;
+
+    auxArmor.materials.forEach((material: any) => {
+      this.ds.materials.forEach((itemBox: any) => {
+        if (material.material == itemBox.name) {
+          itemBox.quantity -= material.needed;
+        }
+      })
+    });
+
+    this.ds.updateArmor(auxArmor).subscribe((response) => {
+      this.setOwned();
+    })
 
   }
 

@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -450,5 +452,15 @@ export class DataService {
     { "name": "Azure Rathalos Wing", "quantity": 0 }
   ]
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  updateArmor(armor: any): Observable<any> {
+
+    //DATA TO UPDATE:
+    //-armor name
+    //-amount crafted
+    //-materials qty
+    return this.http.get('https://es.marvelcdb.com/api/public/cards/?encounter=1');
+  }
+
 }
