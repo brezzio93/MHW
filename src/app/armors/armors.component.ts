@@ -39,16 +39,16 @@ export class ArmorsComponent implements OnInit {
 
   paintCellTable(e: any) {
     if (e.rowType === "data") {
-      if (e.data.crafted < 4 && e.data.craftable == 0) e.cellElement.style.cssText = "background-color: #f5c6cb";
-      if (e.data.craftable + e.data.crafted < 4 && e.data.craftable > 0) e.cellElement.style.cssText = "background-color: #ffecbf";
-      if (e.data.craftable + e.data.crafted >= 4) e.cellElement.style.cssText = "background-color: #d4edda";
+      if (e.data.crafted < 4 && e.data.craftable == 0) e.cellElement.style.cssText = "background-color: #f5c6cb; text-align: center;";
+      if (e.data.craftable + e.data.crafted < 4 && e.data.craftable > 0) e.cellElement.style.cssText = "background-color: #ffecbf; text-align: center;";
+      if (e.data.craftable + e.data.crafted >= 4) e.cellElement.style.cssText = "background-color: #d4edda; text-align: center;";
     }
   }
 
   paintInnerCellTable(e: any) {
     if (e.rowType === "data") {
-      if (e.data.owned < e.data.needed) e.cellElement.style.cssText = "background-color: #f5c6cb";
-      else e.cellElement.style.cssText = "background-color: #d4edda";
+      if (e.data.owned < e.data.needed) e.cellElement.style.cssText = "background-color: #f5c6cb; text-align: center;";
+      else e.cellElement.style.cssText = "background-color: #d4edda; text-align: center;";
     }
   }
 
@@ -56,6 +56,7 @@ export class ArmorsComponent implements OnInit {
     let auxArmor = this.armors.find((x: any) => x.armor == e.armor);
     auxArmor.crafted++;
 
+    //Esto se actualiza en el endpoint
     auxArmor.materials.forEach((material: any) => {
       this.ds.materials.forEach((itemBox: any) => {
         if (material.material == itemBox.name) {

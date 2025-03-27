@@ -38,9 +38,9 @@ export class InventoryComponent {
    */
   paintCellTable(e: any) {
     if (e.rowType === "data") {
-      if (e.data.quantity < 4) e.cellElement.style.cssText = "background-color: #f5c6cb";
-      if (e.data.quantity >= 4 && e.data.quantity < 12) e.cellElement.style.cssText = "background-color: #ffecbf";
-      if (e.data.quantity >= 12) e.cellElement.style.cssText = "background-color: #d4edda";
+      if (e.data.quantity < 4) e.cellElement.style.cssText = "background-color: #f5c6cb; text-align: center;";
+      if (e.data.quantity >= 4 && e.data.quantity < 12) e.cellElement.style.cssText = "background-color: #ffecbf; text-align: center;";
+      if (e.data.quantity >= 12) e.cellElement.style.cssText = "background-color: #d4edda; text-align: center;";
     }
   }
 

@@ -1,1 +1,41 @@
-<p>weapons works!</p>
+<dx-select-box
+    [dataSource]="weaponsType"
+    valueExpr="name" 
+    displayExpr="name"
+    [value]="chosenType" 
+    (onValueChanged)="selectType($event.value)">
+</dx-select-box>
+
+<dx-data-grid
+    [showBorders]="true"
+    [rowAlternationEnabled]="true"
+    [showRowLines]="true"
+    [dataSource]="weapons"
+    (onCellPrepared)="paintCellTable($event)"
+>
+    <dxo-search-panel [visible]="true" [highlightCaseSensitive]="false"></dxo-search-panel>
+    <dxo-scrolling mode="infinite"></dxo-scrolling>
+
+    <dxi-column dataField="name" caption="Weapon"></dxi-column>
+    <dxi-column dataField="tree" caption="Tree"></dxi-column>
+    <dxi-column dataField="crafted" [width]="80" caption="Crafted"></dxi-column>
+
+    <dxo-master-detail [enabled]="true" template="detail"></dxo-master-detail>
+    <div *dxTemplate="let material of 'detail'">
+        <button 
+            [disabled]="
+                !material.data.craftable || 
+                material.data.crafted" 
+            (click)="forge(material.data)"
+        > Forge </button>
+        <dx-data-grid 
+        [dataSource]="material.data.materials"
+        (onCellPrepared)="paintInnerCellTable($event)"
+        >
+            <dxi-column dataField="name" caption="Material"></dxi-column>
+            <dxi-column dataField="needed" [width]="70" caption="Needed"></dxi-column>
+            <dxi-column dataField="owned" [width]="70" caption="Owned"></dxi-column>
+        </dx-data-grid>
+    </div>    
+
+</dx-data-grid>
