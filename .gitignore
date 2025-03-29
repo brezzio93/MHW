@@ -40,3 +40,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+#Json Key
+mhw-db-455000-7628e6edfaa5.json

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../service/data.service';
 import { CommonModule } from '@angular/common';
+import { DataService } from '../services/data.service';
 import { DxDataGridModule, DxSelectBoxModule } from 'devextreme-angular';
 
 @Component({
@@ -45,7 +45,7 @@ export class WeaponsComponent implements OnInit {
     this.weapons.forEach((w: any) => {
       w.craftable = true;
       w.materials.forEach((material: any) => {
-        material.owned = this.ds.materials.find(x => x.name == material.name)?.quantity;
+        material.owned = this.ds.materials.find(x => x.materialName == material.name)?.materialQuantity;
         material.craftable = (Math.floor(material.owned / material.needed) > 1);
         if (!material.craftable) w.craftable = false;
       });
@@ -60,8 +60,8 @@ export class WeaponsComponent implements OnInit {
       //Esto se actualiza en el endpoint
       auxWeapon.materials.forEach((material: any) => {
         this.ds.materials.forEach((itemBox: any) => {
-          if (material.name == itemBox.name) {
-            itemBox.quantity -= material.needed;
+          if (material.name == itemBox.materialName) {
+            itemBox.materialQuantity -= material.needed;
           }
         })
       });

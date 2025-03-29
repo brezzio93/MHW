@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
 import { DxDataGridModule } from 'devextreme-angular';
-import { DataService } from '../service/data.service';
 
 @Component({
   selector: 'app-armors',
@@ -30,7 +30,7 @@ export class ArmorsComponent implements OnInit {
     this.armors.forEach((armor: any) => {
       armor.craftable = 100;
       armor.materials.forEach((material: any) => {
-        material.owned = this.ds.materials.find(x => x.name == material.material)?.quantity;
+        material.owned = this.ds.materials.find(x => x.name == material.material)?.materialQuantity;
         material.craftable = Math.floor(material.owned / material.needed);
         if (material.craftable < armor.craftable) armor.craftable = material.craftable;
       });
@@ -60,7 +60,7 @@ export class ArmorsComponent implements OnInit {
     auxArmor.materials.forEach((material: any) => {
       this.ds.materials.forEach((itemBox: any) => {
         if (material.material == itemBox.name) {
-          itemBox.quantity -= material.needed;
+          itemBox.materialQuantity -= material.needed;
         }
       })
     });

@@ -1,8 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { DataService } from '../services/data.service';
 import { DxDataGridModule } from 'devextreme-angular';
-import { DataService } from '../service/data.service';
-import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-inventory',
@@ -18,7 +17,8 @@ export class InventoryComponent {
 
   materials: any;
   popupTitle: string | undefined;
-
+  addedAmount = 0;
+  loading: boolean = false;
 
   constructor(
     private ds: DataService,
@@ -28,8 +28,25 @@ export class InventoryComponent {
     this.materials = this.ds.materials;
   }
 
-  substract(material: any) { }
-  add(material: any) { }
+  add(addedAmount: any) {
+    this.addedAmount += addedAmount;
+  }
+
+  update(material: any) {
+    this.loading = true;
+    let params = {
+      idMaterial: material.idMaterial,
+      idCampaign: material.idCampaign,
+      addedAmount:this.addedAmount
+    }
+
+    this.ds.updateItem(params).subscribe((res)=>{
+      material.materialQuantity += this.addedAmount;
+      this.addedAmount = 0;
+      this.loading = false;
+    })
+  }
+
 
   /**
    * cambia el color de las celdas según semáforo
@@ -38,14 +55,14 @@ export class InventoryComponent {
    */
   paintCellTable(e: any) {
     if (e.rowType === "data") {
-      if (e.data.quantity < 4) e.cellElement.style.cssText = "background-color: #f5c6cb; text-align: center;";
-      if (e.data.quantity >= 4 && e.data.quantity < 12) e.cellElement.style.cssText = "background-color: #ffecbf; text-align: center;";
-      if (e.data.quantity >= 12) e.cellElement.style.cssText = "background-color: #d4edda; text-align: center;";
+      if (e.data.materialQuantity < 4) e.cellElement.style.cssText = "background-color: #f5c6cb; text-align: center;";
+      if (e.data.materialQuantity >= 4 && e.data.materialQuantity < 12) e.cellElement.style.cssText = "background-color: #ffecbf; text-align: center;";
+      if (e.data.materialQuantity >= 12) e.cellElement.style.cssText = "background-color: #d4edda; text-align: center;";
     }
   }
 
   onEditingStart(event: any) {
-    this.popupTitle = event.data.name;
+    this.popupTitle = event.data.materialName;
   }
 
 

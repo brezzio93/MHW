@@ -8,17 +8,15 @@
 
     <dxo-search-panel [visible]="true" [highlightCaseSensitive]="false"></dxo-search-panel>
     <dxo-scrolling mode="infinite"></dxo-scrolling>
-    <dxo-editing
-        mode="popup"
-        [allowUpdating]="true"
-        [allowAdding]="false"
-        [allowDeleting]="false"
-    >
-        <dxo-popup [title]=popupTitle [showTitle]="true"></dxo-popup>
-        <dxo-form>
-            <dxi-item dataField="quantity"></dxi-item>
-        </dxo-form>
-    </dxo-editing>    
-    <dxi-column allowEditing="false" dataField="name"></dxi-column>
-    <dxi-column dataField="quantity" [width]="80"></dxi-column>
+
+    <dxi-column allowEditing="false" dataField="materialName"></dxi-column>
+    <dxi-column dataField="materialQuantity" [width]="80"></dxi-column>
+
+    <dxo-master-detail [enabled]="true" template="detail"></dxo-master-detail>
+    <div *dxTemplate="let material of 'detail'">
+        <button [disabled]=" material.data.materialQuantity == 0" (click)="add(-1)" > - </button>
+        <button (click)="add(1)" > + </button>
+        <button [disabled]="loading" (click)="update(material.data)"> Update </button>
+        <span style="font-size: 250%; font-weight: 600;"> {{addedAmount}} </span>
+    </div>    
 </dx-data-grid>
