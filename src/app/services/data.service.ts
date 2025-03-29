@@ -7,7 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
 
-  armors = [
+  private apiUrl = ' http://localhost:5230/api/'; // Replace with actual URL
+
+  armors: any = [];
+  // weapons: any = [];
+
+  recipeArmors = [
     {
       "armor": "Alloy Helm",
       "crafted": 0,
@@ -1051,8 +1056,6 @@ export class DataService {
     // { "name": "Azure Rathalos Wing", "quantity": 0 }
   ]
 
-  private apiUrl = ' http://localhost:5230/api/'; // Replace with actual URL
-
   constructor(private http: HttpClient) { }
 
   getItems(): Observable<any> {
@@ -1063,11 +1066,19 @@ export class DataService {
     return this.http.post(this.apiUrl + 'itemBox/updateItembox', e);
   }
 
+  getArmors(): Observable<any> {
+    return this.http.get(this.apiUrl + 'armors/getArmors');
+  }
+
   updateArmor(armor: any): Observable<any> {
     //DATA TO UPDATE:
     //-armor name
     //-materials needed
-    return this.http.get(this.apiUrl + 'itemBox/getItemBox');
+    return this.http.get(this.apiUrl + 'armors/updateArmor');
+  }
+
+  getWeapons(): Observable<any> {
+    return this.http.get(this.apiUrl + 'weapons/getWeapons');
   }
 
   updateWeapon(weapon: any): Observable<any> {
@@ -1075,7 +1086,7 @@ export class DataService {
     //DATA TO UPDATE:
     //-weapon name
     //-materials needed
-    return this.http.get(this.apiUrl + 'itemBox/getItemBox');
+    return this.http.get(this.apiUrl + 'itemBox/updateWeapon');
   }
 
 }

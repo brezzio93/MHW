@@ -7,9 +7,9 @@
 <!-- <button style="width: 28%" (click)="goTo('Weapons')">Weapons</button> -->
 
 @if(!loading){
-     <!-- <app-mission-log *ngIf="selected == 'Log'"></app-mission-log> -->
-     <!-- <app-armors *ngIf="selected == 'Armors'"></app-armors>
-     <app-weapons *ngIf="selected == 'Weapons'"></app-weapons> -->
+    <app-mission-log *ngIf="selected == 'Log'"></app-mission-log>
+    <app-inventory *ngIf="selected == 'ItemBox'" ></app-inventory>
+    <app-armors *ngIf="selected == 'Armors'"></app-armors>
+    <app-weapons *ngIf="selected == 'Weapons'"></app-weapons>
 
-    <app-inventory ></app-inventory>
 }

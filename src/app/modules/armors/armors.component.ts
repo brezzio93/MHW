@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../services/data.service';
+import { DataService } from '../../services/data.service';
 import { DxDataGridModule } from 'devextreme-angular';
 
 @Component({
@@ -16,13 +16,18 @@ import { DxDataGridModule } from 'devextreme-angular';
 export class ArmorsComponent implements OnInit {
 
   armors: any;
+  loading: boolean = true;
 
   constructor(private ds: DataService) {
-
   }
 
   ngOnInit() {
-    this.armors = this.ds.armors;
+    this.loading = true;
+    this.ds.getArmors().subscribe((res) => {
+      this.armors = this.ds.armors;
+      console.log(this.armors)
+    });
+
     this.setOwned();
   }
 

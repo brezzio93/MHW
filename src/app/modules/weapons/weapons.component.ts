@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DataService } from '../services/data.service';
+import { DataService } from '../../services/data.service';
 import { DxDataGridModule, DxSelectBoxModule } from 'devextreme-angular';
 
 @Component({
