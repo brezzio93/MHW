@@ -16,37 +16,48 @@ import { DxDataGridModule } from 'devextreme-angular';
 export class ArmorsComponent implements OnInit {
 
   armors: any;
-  loading: boolean = true;
+  loadingTable: boolean = true;
+  loadingUpdate: boolean = false;
 
   constructor(private ds: DataService) {
   }
 
   ngOnInit() {
-    this.loading = true;
-    this.ds.getArmors().subscribe((res) => {
-      this.armors = this.ds.armors;
-      console.log(this.armors)
-    });
+    this.getArmors();
+  }
 
-    this.setOwned();
+  getArmors() {
+    this.loadingTable = true;
+    this.ds.getArmors().subscribe((res) => {
+      this.armors = res;
+      this.setOwned();
+      this.loadingTable = false;
+    });
   }
 
   setOwned() {
     this.armors.forEach((armor: any) => {
-      armor.craftable = 100;
-      armor.materials.forEach((material: any) => {
-        material.owned = this.ds.materials.find(x => x.name == material.material)?.materialQuantity;
-        material.craftable = Math.floor(material.owned / material.needed);
-        if (material.craftable < armor.craftable) armor.craftable = material.craftable;
-      });
+      let auxMaterials = this.ds.recipeArmors.find(x => x.armorName == armor.armorName)?.materials;
+      armor.materials = auxMaterials;
+      if (armor.materials != undefined) {
+        armor.craftable = 100;
+        armor.materials.forEach((material: any) => {
+          material.owned = this.ds.materials.find(x => x.materialName == material.material)?.materialQuantity;
+          material.craftable = Math.floor(material.owned / material.needed);
+          if (material.craftable < armor.craftable) armor.craftable = material.craftable;
+        });
+      }
     });
   }
 
   paintCellTable(e: any) {
     if (e.rowType === "data") {
-      if (e.data.crafted < 4 && e.data.craftable == 0) e.cellElement.style.cssText = "background-color: #f5c6cb; text-align: center;";
-      if (e.data.craftable + e.data.crafted < 4 && e.data.craftable > 0) e.cellElement.style.cssText = "background-color: #ffecbf; text-align: center;";
-      if (e.data.craftable + e.data.crafted >= 4) e.cellElement.style.cssText = "background-color: #d4edda; text-align: center;";
+      if ((e.data.amountCrafted == 0 && e.data.craftable == 0) || e.data.materials == undefined) e.cellElement.style.cssText = "background-color: #f5c6cb; text-align: center;";
+      if ((e.data.amountCrafted > 0 && e.data.craftable == 0) && e.data.materials != undefined) e.cellElement.style.cssText = "background-color: #f5c6cb; text-align: center; font-weight:600;";
+      if (e.data.amountCrafted < 4 && e.data.craftable > 0 && e.data.amountCrafted == 0) e.cellElement.style.cssText = "background-color: #ffecbf; text-align: center;";
+      if (e.data.craftable + e.data.amountCrafted < 4 && e.data.craftable > 0 && e.data.amountCrafted > 0) e.cellElement.style.cssText = "background-color: #ffecbf; text-align: center; font-weight:600;";
+      if (e.data.craftable + e.data.amountCrafted >= 4 && e.data.amountCrafted == 0) e.cellElement.style.cssText = "background-color: #d4edda; text-align: center;";
+      if (e.data.craftable + e.data.amountCrafted >= 4 && e.data.amountCrafted > 0) e.cellElement.style.cssText = "background-color: #d4edda; text-align: center; font-weight:600;";
     }
   }
 
@@ -58,26 +69,22 @@ export class ArmorsComponent implements OnInit {
   }
 
   forge(e: any) {
-    let auxArmor = this.armors.find((x: any) => x.armor == e.armor);
-    auxArmor.crafted++;
+    this.loadingUpdate = true;
+    let idCampaign = this.armors.find((x: any) => x.armorName == e.armorName).idCampaign;
+    let auxArmorRecipe = this.ds.recipeArmors.find((x) => x.armorName == e.armorName);
 
-    //Esto se actualiza en el endpoint
-    auxArmor.materials.forEach((material: any) => {
-      this.ds.materials.forEach((itemBox: any) => {
-        if (material.material == itemBox.name) {
-          itemBox.materialQuantity -= material.needed;
-        }
+    let params = {
+      idCampaign: idCampaign,
+      armorJson: auxArmorRecipe,
+    }
+
+    this.ds.updateArmor(params).subscribe((responseArmors) => {
+      this.ds.getItems().subscribe((resMaterials) => {
+        this.ds.materials = resMaterials;
+        this.getArmors();
+        this.loadingUpdate = false;
       })
-    });
-
-    this.ds.updateArmor(auxArmor).subscribe((response) => {
-      this.setOwned();
     })
-
-  }
-
-  log(e: any) {
-    console.log(e)
   }
 
 }

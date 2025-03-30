@@ -10,12 +10,11 @@ export class DataService {
   private apiUrl = ' http://localhost:5230/api/'; // Replace with actual URL
 
   armors: any = [];
-  // weapons: any = [];
+  weapons: any = [];
 
   recipeArmors = [
     {
-      "armor": "Alloy Helm",
-      "crafted": 0,
+      "armorName": "Alloy Helm",
       "materials": [
         {
           "material": "Machalite Ore",
@@ -32,8 +31,7 @@ export class DataService {
       ]
     },
     {
-      "armor": "Alloy Mail",
-      "crafted": 0,
+      "armorName": "Alloy Mail",
       "materials": [
         {
           "material": "Machalite Ore",
@@ -50,8 +48,7 @@ export class DataService {
       ]
     },
     {
-      "armor": "Alloy Greaves",
-      "crafted": 0,
+      "armorName": "Alloy Greaves",
       "materials": [
         {
           "material": "Machalite Ore",
@@ -68,8 +65,7 @@ export class DataService {
       ]
     },
     {
-      "armor": "Bone Helm",
-      "crafted": 0,
+      "armorName": "Bone Helm",
       "materials": [
         {
           "material": "Monster Bone Small",
@@ -82,8 +78,7 @@ export class DataService {
       ]
     },
     {
-      "armor": "Bone Mail",
-      "crafted": 0,
+      "armorName": "Bone Mail",
       "materials": [
         {
           "material": "Monster Bone Small",
@@ -96,8 +91,7 @@ export class DataService {
       ]
     },
     {
-      "armor": "Bone Greaves",
-      "crafted": 0,
+      "armorName": "Bone Greaves",
       "materials": [
         {
           "material": "Monster Bone Small",
@@ -110,8 +104,7 @@ export class DataService {
       ]
     },
     {
-      "armor": "Jagras Helm",
-      "crafted": 2,
+      "armorName": "Jagras Helm",
       "materials": [
         {
           "material": "Great Jagras Hide",
@@ -132,8 +125,7 @@ export class DataService {
       ]
     },
     {
-      "armor": "Jagras Mail",
-      "crafted": 4,
+      "armorName": "Jagras Mail",
       "materials": [
         {
           "material": "Great Jagras Hide",
@@ -154,8 +146,7 @@ export class DataService {
       ]
     },
     {
-      "armor": "Jagras Greaves",
-      "crafted": 0,
+      "armorName": "Jagras Greaves",
       "materials": [
         {
           "material": "Great Jagras Scale",
@@ -172,8 +163,7 @@ export class DataService {
       ]
     },
     {
-      "armor": "Kadachi Helm",
-      "crafted": 0,
+      "armorName": "Kadachi Helm",
       "materials": [
         {
           "material": "Tobi-Kadachi Pelt",
@@ -190,8 +180,7 @@ export class DataService {
       ]
     },
     {
-      "armor": "Kadachi Mail",
-      "crafted": 0,
+      "armorName": "Kadachi Mail",
       "materials": [
         {
           "material": "Tobi-Kadachi Pelt",
@@ -212,8 +201,7 @@ export class DataService {
       ]
     },
     {
-      "armor": "Kadachi Greaves",
-      "crafted": 0,
+      "armorName": "Kadachi Greaves",
       "materials": [
         {
           "material": "Tobi-Kadachi Scale",
@@ -230,8 +218,7 @@ export class DataService {
       ]
     },
     {
-      "armor": "Anja Helm",
-      "crafted": 0,
+      "armorName": "Anja Helm",
       "materials": [
         {
           "material": "Anjanath Pelt",
@@ -248,8 +235,7 @@ export class DataService {
       ]
     },
     {
-      "armor": "Anja Mail",
-      "crafted": 0,
+      "armorName": "Anja Mail",
       "materials": [
         {
           "material": "Anjanath Pelt",
@@ -266,8 +252,7 @@ export class DataService {
       ]
     },
     {
-      "armor": "Anja Greaves",
-      "crafted": 0,
+      "armorName": "Anja Greaves",
       "materials": [
         {
           "material": "Anjanath Scale",
@@ -288,8 +273,7 @@ export class DataService {
       ]
     },
     {
-      "armor": "Rathalos Helm",
-      "crafted": 0,
+      "armorName": "Rathalos Helm",
       "materials": [
         {
           "material": "Rathalos Scale",
@@ -306,8 +290,7 @@ export class DataService {
       ]
     },
     {
-      "armor": "Rathalos Mail",
-      "crafted": 0,
+      "armorName": "Rathalos Mail",
       "materials": [
         {
           "material": "Rathalos Scale",
@@ -324,8 +307,7 @@ export class DataService {
       ]
     },
     {
-      "armor": "Rathalos Greaves",
-      "crafted": 0,
+      "armorName": "Rathalos Greaves",
       "materials": [
         {
           "material": "Rathalos Shell",
@@ -342,8 +324,7 @@ export class DataService {
       ]
     },
     {
-      "armor": "Rath Soul Helm",
-      "crafted": 0,
+      "armorName": "Rath Soul Helm",
       "materials": [
         {
           "material": "Azure Rathalos Scale",
@@ -360,8 +341,7 @@ export class DataService {
       ]
     },
     {
-      "armor": "Rath Soul Mail",
-      "crafted": 0,
+      "armorName": "Rath Soul Mail",
       "materials": [
         {
           "material": "Azure Rathalos Scale",
@@ -378,8 +358,7 @@ export class DataService {
       ]
     },
     {
-      "armor": "Rath Soul Greaves",
-      "crafted": 0,
+      "armorName": "Rath Soul Greaves",
       "materials": [
         {
           "material": "Azure Rathalos Carapace",
@@ -398,7 +377,7 @@ export class DataService {
     },
   ];
 
-  weapons = [
+  recipeWeapons = [
     //GS
     {
       "name": "Buster Blade",
@@ -409,7 +388,6 @@ export class DataService {
         { "name": "Machalite Ore", "needed": 1 },
         { "name": "Monster Bone Medium", "needed": 1 }
       ],
-      "crafted": false
     },
     {
       "name": "Chrome Razor",
@@ -421,7 +399,6 @@ export class DataService {
         { "name": "Dragonite Ore", "needed": 3 },
         { "name": "Dragonvein Crystal", "needed": 2 }
       ],
-      "crafted": false
     },
     {
       "name": "Bone Blade",
@@ -430,7 +407,6 @@ export class DataService {
       "materials": [
         { "name": "Monster Bone Small", "needed": 1 }
       ],
-      "crafted": false
     },
     {
       "name": "Bone Slasher",
@@ -441,7 +417,6 @@ export class DataService {
         { "name": "Monster Bone Medium", "needed": 1 },
         { "name": "Boulder Bone", "needed": 1 }
       ],
-      "crafted": false
     },
     {
       "name": "Giant Jawblade",
@@ -452,7 +427,6 @@ export class DataService {
         { "name": "Monster Keenbone", "needed": 2 },
         { "name": "Quality Bone", "needed": 3 }
       ],
-      "crafted": false
     },
     {
       "name": "Jagras Blade",
@@ -464,7 +438,6 @@ export class DataService {
         { "name": "Great Jagras Scale", "needed": 2 },
         { "name": "Sharp Claw", "needed": 1 }
       ],
-      "crafted": true
     },
     {
       "name": "Jagras Hacker",
@@ -476,7 +449,6 @@ export class DataService {
         { "name": "Great Jagras Mane", "needed": 2 },
         { "name": "Piercing Claw", "needed": 1 }
       ],
-      "crafted": true
     },
     {
       "name": "Flame Blade",
@@ -488,7 +460,6 @@ export class DataService {
         { "name": "Inferno Sac", "needed": 1 },
         { "name": "Rathalos Marrow", "needed": 1 }
       ],
-      "crafted": false
     },
     {
       "name": "Red Wing",
@@ -500,7 +471,6 @@ export class DataService {
         { "name": "Rathalos Wing", "needed": 1 },
         { "name": "Rathalos Medulla", "needed": 1 }
       ],
-      "crafted": false
     },
     {
       "name": "Blooming Blade",
@@ -512,7 +482,6 @@ export class DataService {
         { "name": "Poison Sac", "needed": 1 },
         { "name": "Pukei-Pukei Tail", "needed": 1 }
       ],
-      "crafted": false
     },
     {
       "name": "Datura Blaze",
@@ -524,7 +493,6 @@ export class DataService {
         { "name": "Toxin Sac", "needed": 2 },
         { "name": "Quality Bone", "needed": 3 }
       ],
-      "crafted": false
     },
     {
       "name": "Carapace Buster",
@@ -535,7 +503,6 @@ export class DataService {
         { "name": "Barroth Shell", "needed": 3 },
         { "name": "Barroth Ridge", "needed": 3 }
       ],
-      "crafted": false
     },
     {
       "name": "Barroth Shredder",
@@ -546,7 +513,6 @@ export class DataService {
         { "name": "Barroth Carapace", "needed": 3 },
         { "name": "Barroth Ridge", "needed": 3 }
       ],
-      "crafted": false
     },
 
     //SNS
@@ -559,7 +525,6 @@ export class DataService {
         { "name": "Machalite Ore", "needed": 1 },
         { "name": "Monster Bone Medium", "needed": 1 }
       ],
-      "crafted": false
     },
     {
       "name": "Chrome Slicer",
@@ -571,7 +536,6 @@ export class DataService {
         { "name": "Dragonite Ore", "needed": 3 },
         { "name": "Dragonvein Crystal", "needed": 2 }
       ],
-      "crafted": false
     },
     {
       "name": "Bone Kukri",
@@ -580,7 +544,6 @@ export class DataService {
       "materials": [
         { "name": "Monster Bone Small", "needed": 1 }
       ],
-      "crafted": false
     },
     {
       "name": "Chief Kukri",
@@ -591,7 +554,6 @@ export class DataService {
         { "name": "Monster Bone Medium", "needed": 1 },
         { "name": "Boulder Bone", "needed": 1 }
       ],
-      "crafted": false
     },
     {
       "name": "Grand Barong",
@@ -602,7 +564,6 @@ export class DataService {
         { "name": "Monster Keenbone", "needed": 2 },
         { "name": "Quality Bone", "needed": 3 }
       ],
-      "crafted": false
     },
     {
       "name": "Jagras Edge",
@@ -614,7 +575,6 @@ export class DataService {
         { "name": "Great Jagras Scale", "needed": 2 },
         { "name": "Sharp Claw", "needed": 1 }
       ],
-      "crafted": true
     },
     {
       "name": "Jagras Garotte",
@@ -626,7 +586,6 @@ export class DataService {
         { "name": "Great Jagras Mane", "needed": 2 },
         { "name": "Piercing Claw", "needed": 1 }
       ],
-      "crafted": true
     },
     {
       "name": "Flame Knife",
@@ -638,7 +597,6 @@ export class DataService {
         { "name": "Rathalos Plate", "needed": 1 },
         { "name": "Inferno Sac", "needed": 1 }
       ],
-      "crafted": false
     },
     {
       "name": "Heat Edge",
@@ -649,7 +607,6 @@ export class DataService {
         { "name": "Rathalos Carapace", "needed": 2 },
         { "name": "Rathalos Wing", "needed": 1 }
       ],
-      "crafted": false
     },
     {
       "name": "Blooming Knife",
@@ -661,7 +618,6 @@ export class DataService {
         { "name": "Poison Sac", "needed": 1 },
         { "name": "Pukei-Pukei Tail", "needed": 1 }
       ],
-      "crafted": false
     },
     {
       "name": "Datura Blossom",
@@ -673,7 +629,6 @@ export class DataService {
         { "name": "Toxin Sac", "needed": 2 },
         { "name": "Quality Bone", "needed": 3 }
       ],
-      "crafted": false
     },
     {
       "name": "Carapace Edge",
@@ -684,7 +639,6 @@ export class DataService {
         { "name": "Barroth Shell", "needed": 3 },
         { "name": "Barroth Ridge", "needed": 3 }
       ],
-      "crafted": false
     },
     {
       "name": "Barroth Club",
@@ -695,7 +649,6 @@ export class DataService {
         { "name": "Barroth Carapace", "needed": 3 },
         { "name": "Barroth Ridge", "needed": 3 }
       ],
-      "crafted": false
     },
     //DB
     {
@@ -707,7 +660,6 @@ export class DataService {
         { "name": "Machalite Ore", "needed": 1 },
         { "name": "Monster Bone Medium", "needed": 1 }
       ],
-      "crafted": false
     },
     {
       "name": "Chrome Slicers",
@@ -719,7 +671,6 @@ export class DataService {
         { "name": "Dragonite Ore", "needed": 3 },
         { "name": "Dragonvein Crystal", "needed": 2 }
       ],
-      "crafted": false
     },
     {
       "name": "Bone Hatchets",
@@ -728,7 +679,6 @@ export class DataService {
       "materials": [
         { "name": "Monster Bone Small", "needed": 1 }
       ],
-      "crafted": true
     },
     {
       "name": "Wild Hatchets",
@@ -739,7 +689,6 @@ export class DataService {
         { "name": "Monster Bone Medium", "needed": 1 },
         { "name": "Boulder Bone", "needed": 1 }
       ],
-      "crafted": true
     },
     {
       "name": "Strong Hatchets",
@@ -750,7 +699,6 @@ export class DataService {
         { "name": "Monster Keenbone", "needed": 2 },
         { "name": "Quality Bone", "needed": 3 }
       ],
-      "crafted": true
     },
     {
       "name": "Pulsar Hatchets",
@@ -762,7 +710,6 @@ export class DataService {
         { "name": "Electro Sac", "needed": 2 },
         { "name": "Coral Crystal", "needed": 2 }
       ],
-      "crafted": true
     },
     {
       "name": "Kadachi Claws",
@@ -773,7 +720,6 @@ export class DataService {
         { "name": "Tobi-Kadachi Claw", "needed": 2 },
         { "name": "Thunder Sac", "needed": 2 }
       ],
-      "crafted": true
     },
     {
       "name": "Blazing Hatchets",
@@ -784,7 +730,6 @@ export class DataService {
         { "name": "Anjanath Fang", "needed": 2 },
         { "name": "Flame Sac", "needed": 1 }
       ],
-      "crafted": false
     },
     {
       "name": "Anja Cyclone",
@@ -795,7 +740,6 @@ export class DataService {
         { "name": "Anjanath Pelt", "needed": 4 },
         { "name": "Firecell Stone", "needed": 2 }
       ],
-      "crafted": false
     },
     {
       "name": "Madness Pangas",
@@ -807,7 +751,6 @@ export class DataService {
         { "name": "Jyura Scale", "needed": 3 },
         { "name": "Aqua Sac", "needed": 1 }
       ],
-      "crafted": false
     },
     {
       "name": "Jyura Hatchets",
@@ -820,7 +763,6 @@ export class DataService {
         { "name": "Aqua Sac", "needed": 1 },
         { "name": "Gajau Scale", "needed": 1 }
       ],
-      "crafted": false
     },
     {
       "name": "Diablos Hatchets",
@@ -832,7 +774,6 @@ export class DataService {
         { "name": "Diablos Shell", "needed": 4 },
         { "name": "Monster Bone Large", "needed": 2 }
       ],
-      "crafted": false
     },
     {
       "name": "Diablos Clibs",
@@ -844,7 +785,6 @@ export class DataService {
         { "name": "Diablos Ridge", "needed": 2 },
         { "name": "Blos Medulla", "needed": 1 }
       ],
-      "crafted": false
     },
     //Bow
     {
@@ -856,7 +796,6 @@ export class DataService {
         { "name": "Machalite Ore", "needed": 1 },
         { "name": "Monster Bone Medium", "needed": 1 }
       ],
-      "crafted": false
     },
     {
       "name": "Alloy Bow",
@@ -868,7 +807,6 @@ export class DataService {
         { "name": "Dragonite Ore", "needed": 3 },
         { "name": "Dragonvein Crystal", "needed": 2 }
       ],
-      "crafted": false
     },
     {
       "name": "Hunter's Bow",
@@ -877,7 +815,6 @@ export class DataService {
       "materials": [
         { "name": "Monster Bone Small", "needed": 1 }
       ],
-      "crafted": false
     },
     {
       "name": "Hunter's Stoutbow",
@@ -888,7 +825,6 @@ export class DataService {
         { "name": "Monster Bone Medium", "needed": 1 },
         { "name": "Boulder Bone", "needed": 1 }
       ],
-      "crafted": false
     },
     {
       "name": "Hunter's Proudbow",
@@ -899,7 +835,6 @@ export class DataService {
         { "name": "Monster Keenbone", "needed": 2 },
         { "name": "Quality Bone", "needed": 3 }
       ],
-      "crafted": false
     },
     {
       "name": "Pulsar Bow",
@@ -911,7 +846,6 @@ export class DataService {
         { "name": "Electro Sac", "needed": 1 },
         { "name": "Coral Crystal", "needed": 2 }
       ],
-      "crafted": false
     },
     {
       "name": "Flying Kadachi Strikebow",
@@ -923,7 +857,6 @@ export class DataService {
         { "name": "Tobi-Kadachi Pelt", "needed": 2 },
         { "name": "Dragonvein Crystal", "needed": 2 }
       ],
-      "crafted": false
     },
     {
       "name": "Blazing Bow",
@@ -934,7 +867,6 @@ export class DataService {
         { "name": "Anjanath Fang", "needed": 2 },
         { "name": "Flame Sac", "needed": 1 }
       ],
-      "crafted": false
     },
     {
       "name": "Anja Arch",
@@ -945,7 +877,6 @@ export class DataService {
         { "name": "Anjanath Pelt", "needed": 4 },
         { "name": "Firecell Stone", "needed": 2 }
       ],
-      "crafted": false
     },
     {
       "name": "Blooming Arch",
@@ -957,7 +888,6 @@ export class DataService {
         { "name": "Poison Sac", "needed": 1 },
         { "name": "Pukei-Pukei Tail", "needed": 1 }
       ],
-      "crafted": false
     },
     {
       "name": "Datura String",
@@ -969,7 +899,6 @@ export class DataService {
         { "name": "Toxin Sac", "needed": 2 },
         { "name": "Quality Bone", "needed": 3 }
       ],
-      "crafted": false
     },
     {
       "name": "Diablos Bow",
@@ -981,7 +910,6 @@ export class DataService {
         { "name": "Diablos Shell", "needed": 4 },
         { "name": "Monster Bone Large", "needed": 2 }
       ],
-      "crafted": false
     },
     {
       "name": "Diablos Coilbender",
@@ -993,7 +921,6 @@ export class DataService {
         { "name": "Diablos Ridge", "needed": 2 },
         { "name": "Blos Medulla", "needed": 1 }
       ],
-      "crafted": false
     }
   ];
 
@@ -1071,10 +998,7 @@ export class DataService {
   }
 
   updateArmor(armor: any): Observable<any> {
-    //DATA TO UPDATE:
-    //-armor name
-    //-materials needed
-    return this.http.get(this.apiUrl + 'armors/updateArmor');
+    return this.http.post(this.apiUrl + 'armors/updateArmor', armor);
   }
 
   getWeapons(): Observable<any> {

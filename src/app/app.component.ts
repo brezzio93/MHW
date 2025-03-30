@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { MissionLogComponent } from "./modules/mission-log/mission-log.component";
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './services/data.service';
+import { DxTabPanelModule, DxTabsModule } from 'devextreme-angular';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ import { DataService } from './services/data.service';
   imports: [
     RouterOutlet,
     CommonModule,
+    DxTabsModule,
     InventoryComponent,
     WeaponsComponent,
     ArmorsComponent,
@@ -37,7 +39,7 @@ export class AppComponent {
   constructor(
     private ds: DataService,
   ) {
-    this.selected = 'Armors';
+    // this.selected = 'Armors';
   }
 
   ngOnInit(): void {
@@ -49,7 +51,7 @@ export class AppComponent {
   }
 
   goTo(route: any) {
-    // this.router.navigate([route]);
+    console.log(route)
     this.selected = route;
   }
 }

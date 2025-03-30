@@ -10,15 +10,16 @@
     <dxo-search-panel [visible]="true" [highlightCaseSensitive]="false"></dxo-search-panel>
     <dxo-scrolling mode="infinite"></dxo-scrolling>
     
-    <dxi-column dataField="armor" caption="Armor"></dxi-column>
-    <dxi-column dataField="crafted" [width]="80" caption="Crafted"></dxi-column>
+    <dxi-column dataField="armorName" caption="Armor"></dxi-column>
+    <dxi-column dataField="amountCrafted" [width]="80" caption="Crafted"></dxi-column>
 
     <dxo-master-detail [enabled]="true" template="detail"></dxo-master-detail>
     <div *dxTemplate="let material of 'detail'">
         <button 
             [disabled]="
                 material.data.craftable == 0 || 
-                material.data.crafted == 4" 
+                material.data.amountCrafted == 4 ||
+                loadingUpdate"
             (click)="forge(material.data)"
         > Forge </button>
         <dx-data-grid 

@@ -35,14 +35,16 @@ export class InventoryComponent {
   update(material: any) {
     this.loading = true;
     let params = {
-      idMaterial: material.idMaterial,
+      materialName: material.materialName,
       idCampaign: material.idCampaign,
-      addedAmount:this.addedAmount
+      addedAmount: this.addedAmount
     }
 
-    this.ds.updateItem(params).subscribe((res)=>{
-      material.materialQuantity += this.addedAmount;
+    this.ds.updateItem(params).subscribe((resUpdate) => {
       this.addedAmount = 0;
+      this.ds.getItems().subscribe((materials) => {
+        this.materials = this.ds.materials = materials;
+      })
       this.loading = false;
     })
   }
