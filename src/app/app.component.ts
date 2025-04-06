@@ -44,19 +44,19 @@ export class AppComponent {
     {
       id: 1,
       text: 'Armors',
-      icon: 'assets/icons/armors/mail.png',
+      icon: 'assets/icons/armors/helm.png',
     },
     {
       id: 2,
       text: 'Weapons',
-      icon: 'assets/icons/weapons/weapon.png',
+      icon: 'assets/icons/weapons/sword-and-shield.png',
     },
   ];
 
   constructor(
     private ds: DataService,
   ) {
-    this.selected = 2;
+    this.selected = 1;
   }
 
   ngOnInit(): void {

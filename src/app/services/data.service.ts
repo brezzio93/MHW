@@ -23,6 +23,8 @@ export class DataService {
   recipeArmors = [
     {
       "armorName": "Alloy Helm",
+      "tree": "Iron",
+      "treeIcon": "assets/icons/materials/ore.png",
       "materials": [
         {
           "material": "Machalite Ore",
@@ -40,6 +42,8 @@ export class DataService {
     },
     {
       "armorName": "Alloy Mail",
+      "tree": "Iron",
+      "treeIcon": "assets/icons/materials/ore.png",
       "materials": [
         {
           "material": "Machalite Ore",
@@ -57,6 +61,8 @@ export class DataService {
     },
     {
       "armorName": "Alloy Greaves",
+      "tree": "Iron",
+      "treeIcon": "assets/icons/materials/ore.png",
       "materials": [
         {
           "material": "Machalite Ore",
@@ -74,6 +80,8 @@ export class DataService {
     },
     {
       "armorName": "Bone Helm",
+      "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
       "materials": [
         {
           "material": "Monster Bone Small",
@@ -87,6 +95,8 @@ export class DataService {
     },
     {
       "armorName": "Bone Mail",
+      "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
       "materials": [
         {
           "material": "Monster Bone Small",
@@ -100,6 +110,8 @@ export class DataService {
     },
     {
       "armorName": "Bone Greaves",
+      "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
       "materials": [
         {
           "material": "Monster Bone Small",
@@ -113,6 +125,8 @@ export class DataService {
     },
     {
       "armorName": "Jagras Helm",
+      "tree": "Great Jagras",
+      "treeIcon": "assets/icons/monsters/g-jagr.png",
       "materials": [
         {
           "material": "Great Jagras Hide",
@@ -134,6 +148,8 @@ export class DataService {
     },
     {
       "armorName": "Jagras Mail",
+      "tree": "Great Jagras",
+      "treeIcon": "assets/icons/monsters/g-jagr.png",
       "materials": [
         {
           "material": "Great Jagras Hide",
@@ -155,6 +171,8 @@ export class DataService {
     },
     {
       "armorName": "Jagras Greaves",
+      "tree": "Great Jagras",
+      "treeIcon": "assets/icons/monsters/g-jagr.png",
       "materials": [
         {
           "material": "Great Jagras Scale",
@@ -172,6 +190,8 @@ export class DataService {
     },
     {
       "armorName": "Kadachi Helm",
+      "tree": "Tobi-Kadachi",
+      "treeIcon": "assets/icons/monsters/tobi.png",
       "materials": [
         {
           "material": "Tobi-Kadachi Pelt",
@@ -189,6 +209,8 @@ export class DataService {
     },
     {
       "armorName": "Kadachi Mail",
+      "tree": "Tobi-Kadachi",
+      "treeIcon": "assets/icons/monsters/tobi.png",
       "materials": [
         {
           "material": "Tobi-Kadachi Pelt",
@@ -210,6 +232,8 @@ export class DataService {
     },
     {
       "armorName": "Kadachi Greaves",
+      "tree": "Tobi-Kadachi",
+      "treeIcon": "assets/icons/monsters/tobi.png",
       "materials": [
         {
           "material": "Tobi-Kadachi Scale",
@@ -227,6 +251,8 @@ export class DataService {
     },
     {
       "armorName": "Anja Helm",
+      "tree": "Anjanath",
+      "treeIcon": "assets/icons/monsters/anja.png",
       "materials": [
         {
           "material": "Anjanath Pelt",
@@ -244,6 +270,8 @@ export class DataService {
     },
     {
       "armorName": "Anja Mail",
+      "tree": "Anjanath",
+      "treeIcon": "assets/icons/monsters/anja.png",
       "materials": [
         {
           "material": "Anjanath Pelt",
@@ -261,6 +289,8 @@ export class DataService {
     },
     {
       "armorName": "Anja Greaves",
+      "tree": "Anjanath",
+      "treeIcon": "assets/icons/monsters/anja.png",
       "materials": [
         {
           "material": "Anjanath Scale",
@@ -282,6 +312,8 @@ export class DataService {
     },
     {
       "armorName": "Rathalos Helm",
+      "tree": "Rathalos",
+      "treeIcon": "assets/icons/monsters/ratha.png",
       "materials": [
         {
           "material": "Rathalos Scale",
@@ -299,6 +331,8 @@ export class DataService {
     },
     {
       "armorName": "Rathalos Mail",
+      "tree": "Rathalos",
+      "treeIcon": "assets/icons/monsters/ratha.png",
       "materials": [
         {
           "material": "Rathalos Scale",
@@ -316,6 +350,8 @@ export class DataService {
     },
     {
       "armorName": "Rathalos Greaves",
+      "tree": "Rathalos",
+      "treeIcon": "assets/icons/monsters/ratha.png",
       "materials": [
         {
           "material": "Rathalos Shell",
@@ -333,6 +369,8 @@ export class DataService {
     },
     {
       "armorName": "Rath Soul Helm",
+      "tree": "Azure Rathalos",
+      "treeIcon": "assets/icons/monsters/a-ratha.png",
       "materials": [
         {
           "material": "Azure Rathalos Scale",
@@ -350,6 +388,8 @@ export class DataService {
     },
     {
       "armorName": "Rath Soul Mail",
+      "tree": "Azure Rathalos",
+      "treeIcon": "assets/icons/monsters/a-ratha.png",
       "materials": [
         {
           "material": "Azure Rathalos Scale",
@@ -367,6 +407,8 @@ export class DataService {
     },
     {
       "armorName": "Rath Soul Greaves",
+      "tree": "Azure Rathalos",
+      "treeIcon": "assets/icons/monsters/a-ratha.png",
       "materials": [
         {
           "material": "Azure Rathalos Carapace",

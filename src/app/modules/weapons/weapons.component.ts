@@ -70,8 +70,6 @@ export class WeaponsComponent implements OnInit {
   setOwned() {
     this.weapons.forEach((w: any, index: any) => {
 
-      w.typeIcon = this.weaponsType.find((x: any) => x.name == w.type)?.icon;
-
       w.craftable = true;
 
       //Check if previous weapon of the same tree has been crafted

@@ -4,16 +4,21 @@
     [rowAlternationEnabled]="true"
     [showRowLines]="true"
     [columnAutoWidth]="true"
+    [wordWrapEnabled]="true"
     (onCellPrepared)="paintCellTable($event)"
     >
     
     <dxo-search-panel [visible]="true" [highlightCaseSensitive]="false"></dxo-search-panel>
     <dxo-scrolling mode="infinite"></dxo-scrolling>
     
-    <dxi-column dataField="armorName" caption="Armor"></dxi-column>
+    <!-- Sub Table -->
+    <dxo-master-detail [enabled]="true" template="detail"></dxo-master-detail>
+    
+    <dxi-column dataField="armorName" [width]="'50%'" caption="Armor"></dxi-column>
+    <dxi-column dataField="tree" cellTemplate="treeIconTemplate"></dxi-column>
     <dxi-column dataField="amountCrafted" [width]="80" caption="Crafted"></dxi-column>
 
-    <dxo-master-detail [enabled]="true" template="detail"></dxo-master-detail>
+    <!-- Inner Table -->
     <div *dxTemplate="let material of 'detail'">
         <button 
             [disabled]="
@@ -24,12 +29,19 @@
         > Forge </button>
         <dx-data-grid 
         [dataSource]="material.data.materials"
+        [wordWrapEnabled]="true"
         (onCellPrepared)="paintInnerCellTable($event)"
         >
             <dxi-column dataField="material" caption="Material"></dxi-column>
             <dxi-column dataField="needed" [width]="70" caption="Needed"></dxi-column>
             <dxi-column dataField="owned" [width]="70" caption="Owned"></dxi-column>
         </dx-data-grid>
-    </div>    
+    </div>
+    <!-- Tree Icon Template -->
+    <div *dxTemplate="let armor of 'treeIconTemplate'">
+        <img [src]="armor.data.treeIcon" alt="" style="height: 30px;">
+        <br>
+        {{ armor.data.tree }}
+    </div> 
 
 </dx-data-grid>

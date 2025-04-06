@@ -32,15 +32,22 @@ export class ArmorsComponent implements OnInit {
       this.armors = res;
       this.setOwned();
       this.loadingTable = false;
+
     });
   }
 
   setOwned() {
     this.armors.forEach((armor: any) => {
-      let auxMaterials = this.ds.recipeArmors.find(x => x.armorName == armor.armorName)?.materials;
-      armor.materials = auxMaterials;
+      let auxArmor = this.ds.recipeArmors.find(x => x.armorName == armor.armorName);
+      armor.materials = auxArmor?.materials;
+      armor.tree = auxArmor?.tree;
+      armor.treeIcon = auxArmor?.treeIcon;
+      console.log(armor);
+
       if (armor.materials != undefined) {
+
         armor.craftable = 100;
+
         armor.materials.forEach((material: any) => {
           material.owned = this.ds.materials.find(x => x.materialName == material.material)?.materialQuantity;
           material.craftable = Math.floor(material.owned / material.needed);
@@ -48,6 +55,7 @@ export class ArmorsComponent implements OnInit {
         });
       }
     });
+    console.log(this.armors);
   }
 
   paintCellTable(e: any) {
