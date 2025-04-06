@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DataService } from '../../services/data.service';
-import { DxDataGridModule, DxSelectBoxModule } from 'devextreme-angular';
+import { DxDataGridModule, DxSelectBoxModule, DxTextBoxModule } from 'devextreme-angular';
 
 @Component({
   selector: 'app-weapons',
@@ -10,6 +10,7 @@ import { DxDataGridModule, DxSelectBoxModule } from 'devextreme-angular';
     CommonModule,
     DxDataGridModule,
     DxSelectBoxModule,
+    DxTextBoxModule
   ],
   templateUrl: './weapons.component.html',
   styleUrl: './weapons.component.css'
@@ -19,10 +20,10 @@ export class WeaponsComponent implements OnInit {
 
   weapons: any;
   weaponsType = [
-    { id: 'gs', name: 'Great Sword' },
-    { id: 'sns', name: 'Sword and Shield' },
-    { id: 'db', name: 'Dual Blades' },
-    { id: 'bow', name: 'Bow' },
+    { id: 'gs', name: 'Great Sword' , icon: 'assets/icons/weapons/great-sword.png'},
+    { id: 'sns', name: 'Sword and Shield' , icon: 'assets/icons/weapons/sword-and-shield.png'},
+    { id: 'db', name: 'Dual Blades' , icon: 'assets/icons/weapons/dual-blades.png'},
+    { id: 'bow', name: 'Bow' , icon: 'assets/icons/weapons/bow.png'},
   ];
   chosenType: any;
   loadingTable = false;
@@ -55,6 +56,7 @@ export class WeaponsComponent implements OnInit {
       weapon.tree = auxWeapon?.tree;
       weapon.level = auxWeapon?.level;
       weapon.materials = auxWeapon?.materials;
+      weapon.treeIcon = auxWeapon?.treeIcon;
     });
   }
 
@@ -67,6 +69,8 @@ export class WeaponsComponent implements OnInit {
 
   setOwned() {
     this.weapons.forEach((w: any, index: any) => {
+
+      w.typeIcon = this.weaponsType.find((x: any) => x.name == w.type)?.icon;
 
       w.craftable = true;
 

@@ -1,0 +1,3 @@
+::ng-deep .dx-icon {
+    filter: invert(0.5);
+}

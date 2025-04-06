@@ -35,11 +35,28 @@ export class AppComponent {
   router: any;
   selected: any;
   loading = true;
+  tabs = [
+    {
+      id: 0,
+      text: 'Item Box',
+      icon: 'assets/icons/box.png',
+    },
+    {
+      id: 1,
+      text: 'Armors',
+      icon: 'assets/icons/armors/mail.png',
+    },
+    {
+      id: 2,
+      text: 'Weapons',
+      icon: 'assets/icons/weapons/weapon.png',
+    },
+  ];
 
   constructor(
     private ds: DataService,
   ) {
-    this.selected = 'ItemBox';
+    this.selected = 2;
   }
 
   ngOnInit(): void {

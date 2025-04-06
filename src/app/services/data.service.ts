@@ -391,6 +391,7 @@ export class DataService {
       "weaponName": "Buster Blade",
       "type": "Great Sword",
       "tree": "Iron",
+      "treeIcon": "assets/icons/materials/ore.png",
       "level": 1,
       "materials": [
         { "material": "Dragonite Ore", "needed": 1 },
@@ -402,6 +403,7 @@ export class DataService {
       "weaponName": "Chrome Razor",
       "type": "Great Sword",
       "tree": "Iron",
+      "treeIcon": "assets/icons/materials/ore.png",
       "level": 2,
       "materials": [
         { "material": "Fucium Ore", "needed": 2 },
@@ -414,6 +416,7 @@ export class DataService {
       "weaponName": "Bone Blade",
       "type": "Great Sword",
       "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
       "level": 1,
       "materials": [
         { "material": "Monster Bone Small", "needed": 1 }
@@ -423,6 +426,7 @@ export class DataService {
       "weaponName": "Bone Slasher",
       "type": "Great Sword",
       "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
       "level": 2,
       "materials": [
         { "material": "Monster Bone Large", "needed": 1 },
@@ -434,6 +438,7 @@ export class DataService {
       "weaponName": "Giant Jawblade",
       "type": "Great Sword",
       "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
       "level": 3,
       "materials": [
         { "material": "Monster Hardbone", "needed": 2 },
@@ -445,6 +450,7 @@ export class DataService {
       "weaponName": "Jagras Blade",
       "type": "Great Sword",
       "tree": "Jagras",
+      "treeIcon": "assets/icons/monsters/g-jagr.png",
       "level": 1,
       "materials": [
         { "material": "Great Jagras Claw", "needed": 2 },
@@ -457,6 +463,7 @@ export class DataService {
       "weaponName": "Jagras Hacker",
       "type": "Great Sword",
       "tree": "Jagras",
+      "treeIcon": "assets/icons/monsters/g-jagr.png",
       "level": 2,
       "materials": [
         { "material": "Great Jagras Scale", "needed": 2 },
@@ -469,6 +476,7 @@ export class DataService {
       "weaponName": "Flame Blade",
       "type": "Great Sword",
       "tree": "Rathalos",
+      "treeIcon": "assets/icons/monsters/ratha.png",
       "level": 1,
       "materials": [
         { "material": "Rathalos Scale", "needed": 2 },
@@ -481,6 +489,7 @@ export class DataService {
       "weaponName": "Red Wing",
       "type": "Great Sword",
       "tree": "Rathalos",
+      "treeIcon": "assets/icons/monsters/ratha.png",
       "level": 2,
       "materials": [
         { "material": "Rathalos Scale", "needed": 2 },
@@ -493,6 +502,7 @@ export class DataService {
       "weaponName": "Blooming Blade",
       "type": "Great Sword",
       "tree": "Pukei-Pukei",
+      "treeIcon": "assets/icons/monsters/puke.png",
       "level": 1,
       "materials": [
         { "material": "Pukei-Pukei Quill", "needed": 2 },
@@ -505,6 +515,7 @@ export class DataService {
       "weaponName": "Datura Blaze",
       "type": "Great Sword",
       "tree": "Pukei-Pukei",
+      "treeIcon": "assets/icons/monsters/puke.png",
       "level": 2,
       "materials": [
         { "material": "Pukei-Pukei Scale", "needed": 2 },
@@ -517,6 +528,7 @@ export class DataService {
       "weaponName": "Carapace Buster",
       "type": "Great Sword",
       "tree": "Barroth",
+      "treeIcon": "assets/icons/monsters/barr.png",
       "level": 1,
       "materials": [
         { "material": "Barroth Claw", "needed": 1 },
@@ -528,6 +540,7 @@ export class DataService {
       "weaponName": "Barroth Shredder",
       "type": "Great Sword",
       "tree": "Barroth",
+      "treeIcon": "assets/icons/monsters/barr.png",
       "level": 2,
       "materials": [
         { "material": "Barroth Claw", "needed": 2 },
@@ -541,6 +554,7 @@ export class DataService {
       "weaponName": "Steel Knife",
       "type": "Sword and Shield",
       "tree": "Iron",
+      "treeIcon": "assets/icons/materials/ore.png",
       "level": 1,
       "materials": [
         { "material": "Dragonite Ore", "needed": 1 },
@@ -552,6 +566,7 @@ export class DataService {
       "weaponName": "Chrome Slicer",
       "type": "Sword and Shield",
       "tree": "Iron",
+      "treeIcon": "assets/icons/materials/ore.png",
       "level": 2,
       "materials": [
         { "material": "Fucium Ore", "needed": 2 },
@@ -564,6 +579,7 @@ export class DataService {
       "weaponName": "Bone Kukri",
       "type": "Sword and Shield",
       "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
       "level": 1,
       "materials": [
         { "material": "Monster Bone Small", "needed": 1 }
@@ -573,6 +589,7 @@ export class DataService {
       "weaponName": "Chief Kukri",
       "type": "Sword and Shield",
       "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
       "level": 2,
       "materials": [
         { "material": "Monster Bone Large", "needed": 1 },
@@ -584,6 +601,7 @@ export class DataService {
       "weaponName": "Grand Barong",
       "type": "Sword and Shield",
       "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
       "level": 3,
       "materials": [
         { "material": "Monster Hardbone", "needed": 2 },
@@ -595,6 +613,7 @@ export class DataService {
       "weaponName": "Jagras Edge",
       "type": "Sword and Shield",
       "tree": "Jagras",
+      "treeIcon": "assets/icons/monsters/g-jagr.png",
       "level": 1,
       "materials": [
         { "material": "Great Jagras Claw", "needed": 2 },
@@ -607,6 +626,7 @@ export class DataService {
       "weaponName": "Jagras Garotte",
       "type": "Sword and Shield",
       "tree": "Jagras",
+      "treeIcon": "assets/icons/monsters/g-jagr.png",
       "level": 2,
       "materials": [
         { "material": "Great Jagras Scale", "needed": 3 },
@@ -619,6 +639,7 @@ export class DataService {
       "weaponName": "Flame Knife",
       "type": "Sword and Shield",
       "tree": "Rathalos",
+      "treeIcon": "assets/icons/monsters/ratha.png",
       "level": 1,
       "materials": [
         { "material": "Rathalos Scale", "needed": 1 },
@@ -631,6 +652,7 @@ export class DataService {
       "weaponName": "Heat Edge",
       "type": "Sword and Shield",
       "tree": "Rathalos",
+      "treeIcon": "assets/icons/monsters/ratha.png",
       "level": 2,
       "materials": [
         { "material": "Rathalos Scale", "needed": 2 },
@@ -642,6 +664,7 @@ export class DataService {
       "weaponName": "Blooming Knife",
       "type": "Sword and Shield",
       "tree": "Pukei-Pukei",
+      "treeIcon": "assets/icons/monsters/puke.png",
       "level": 1,
       "materials": [
         { "material": "Pukei-Pukei Quill", "needed": 2 },
@@ -654,6 +677,7 @@ export class DataService {
       "weaponName": "Datura Blossom",
       "type": "Sword and Shield",
       "tree": "Pukei-Pukei",
+      "treeIcon": "assets/icons/monsters/puke.png",
       "level": 2,
       "materials": [
         { "material": "Pukei-Pukei Scale", "needed": 2 },
@@ -666,6 +690,7 @@ export class DataService {
       "weaponName": "Carapace Edge",
       "type": "Sword and Shield",
       "tree": "Barroth",
+      "treeIcon": "assets/icons/monsters/barr.png",
       "level": 1,
       "materials": [
         { "material": "Barroth Claw", "needed": 1 },
@@ -677,6 +702,7 @@ export class DataService {
       "weaponName": "Barroth Club",
       "type": "Sword and Shield",
       "tree": "Barroth",
+      "treeIcon": "assets/icons/monsters/barr.png",
       "level": 2,
       "materials": [
         { "material": "Barroth Claw", "needed": 2 },
@@ -689,6 +715,7 @@ export class DataService {
       "weaponName": "Dual Slicers",
       "type": "Dual Blades",
       "tree": "Iron",
+      "treeIcon": "assets/icons/materials/ore.png",
       "level": 1,
       "materials": [
         { "material": "Dragonite Ore", "needed": 1 },
@@ -700,6 +727,7 @@ export class DataService {
       "weaponName": "Chrome Slicers",
       "type": "Dual Blades",
       "tree": "Iron",
+      "treeIcon": "assets/icons/materials/ore.png",
       "level": 2,
       "materials": [
         { "material": "Fucium Ore", "needed": 2 },
@@ -712,6 +740,7 @@ export class DataService {
       "weaponName": "Bone Hatchets",
       "type": "Dual Blades",
       "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
       "level": 1,
       "materials": [
         { "material": "Monster Bone Small", "needed": 1 }
@@ -721,6 +750,7 @@ export class DataService {
       "weaponName": "Wild Hatchets",
       "type": "Dual Blades",
       "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
       "level": 2,
       "materials": [
         { "material": "Monster Bone Large", "needed": 1 },
@@ -732,6 +762,7 @@ export class DataService {
       "weaponName": "Strong Hatchets",
       "type": "Dual Blades",
       "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
       "level": 3,
       "materials": [
         { "material": "Monster Hardbone", "needed": 2 },
@@ -743,6 +774,7 @@ export class DataService {
       "weaponName": "Pulsar Hatchets",
       "type": "Dual Blades",
       "tree": "Tobi-Kadachi",
+      "treeIcon": "assets/icons/monsters/tobi.png",
       "level": 1,
       "materials": [
         { "material": "Tobi-Kadachi Electrode", "needed": 1 },
@@ -755,6 +787,7 @@ export class DataService {
       "weaponName": "Kadachi Claws",
       "type": "Dual Blades",
       "tree": "Tobi-Kadachi",
+      "treeIcon": "assets/icons/monsters/tobi.png",
       "level": 2,
       "materials": [
         { "material": "Tobi-Kadachi Electrode", "needed": 2 },
@@ -766,6 +799,7 @@ export class DataService {
       "weaponName": "Blazing Hatchets",
       "type": "Dual Blades",
       "tree": "Anjanath",
+      "treeIcon": "assets/icons/monsters/anja.png",
       "level": 1,
       "materials": [
         { "material": "Anjanath Scale", "needed": 3 },
@@ -777,6 +811,7 @@ export class DataService {
       "weaponName": "Anja Cyclone",
       "type": "Dual Blades",
       "tree": "Anjanath",
+      "treeIcon": "assets/icons/monsters/anja.png",
       "level": 2,
       "materials": [
         { "material": "Anjanath Fang", "needed": 4 },
@@ -788,6 +823,7 @@ export class DataService {
       "weaponName": "Madness Pangas",
       "type": "Dual Blades",
       "tree": "Jyuratodus",
+      "treeIcon": "assets/icons/monsters/jyur.png",
       "level": 1,
       "materials": [
         { "material": "Jyuratodus Fin", "needed": 1 },
@@ -800,6 +836,7 @@ export class DataService {
       "weaponName": "Jyura Hatchets",
       "type": "Dual Blades",
       "tree": "Jyuratodus",
+      "treeIcon": "assets/icons/monsters/jyur.png",
       "level": 2,
       "materials": [
         { "material": "Jyuratodus Fin", "needed": 1 },
@@ -813,6 +850,7 @@ export class DataService {
       "weaponName": "Diablos Hatchets",
       "type": "Dual Blades",
       "tree": "Diablos",
+      "treeIcon": "assets/icons/monsters/diab.png",
       "level": 1,
       "materials": [
         { "material": "Twisted Horn", "needed": 1 },
@@ -825,6 +863,7 @@ export class DataService {
       "weaponName": "Diablos Clibs",
       "type": "Dual Blades",
       "tree": "Diablos",
+      "treeIcon": "assets/icons/monsters/diab.png",
       "level": 2,
       "materials": [
         { "material": "Majestic Horn", "needed": 2 },
@@ -838,6 +877,7 @@ export class DataService {
       "weaponName": "Steel Bow",
       "type": "Bow",
       "tree": "Iron",
+      "treeIcon": "assets/icons/materials/ore.png",
       "level": 1,
       "materials": [
         { "material": "Dragonite Ore", "needed": 1 },
@@ -849,6 +889,7 @@ export class DataService {
       "weaponName": "Alloy Bow",
       "type": "Bow",
       "tree": "Iron",
+      "treeIcon": "assets/icons/materials/ore.png",
       "level": 2,
       "materials": [
         { "material": "Fucium Ore", "needed": 2 },
@@ -861,6 +902,7 @@ export class DataService {
       "weaponName": "Hunter's Bow",
       "type": "Bow",
       "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
       "level": 1,
       "materials": [
         { "material": "Monster Bone Small", "needed": 1 }
@@ -870,6 +912,7 @@ export class DataService {
       "weaponName": "Hunter's Stoutbow",
       "type": "Bow",
       "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
       "level": 2,
       "materials": [
         { "material": "Monster Bone Large", "needed": 1 },
@@ -881,6 +924,7 @@ export class DataService {
       "weaponName": "Hunter's Proudbow",
       "type": "Bow",
       "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
       "level": 3,
       "materials": [
         { "material": "Monster Hardbone", "needed": 2 },
@@ -892,6 +936,7 @@ export class DataService {
       "weaponName": "Pulsar Bow",
       "type": "Bow",
       "tree": "Tobi-Kadachi",
+      "treeIcon": "assets/icons/monsters/tobi.png",
       "level": 1,
       "materials": [
         { "material": "Tobi-Kadachi Electrode", "needed": 2 },
@@ -904,6 +949,7 @@ export class DataService {
       "weaponName": "Flying Kadachi Strikebow",
       "type": "Bow",
       "tree": "Tobi-Kadachi",
+      "treeIcon": "assets/icons/monsters/tobi.png",
       "level": 2,
       "materials": [
         { "material": "Tobi-Kadachi Claw", "needed": 2 },
@@ -916,6 +962,7 @@ export class DataService {
       "weaponName": "Blazing Bow",
       "type": "Bow",
       "tree": "Anjanath",
+      "treeIcon": "assets/icons/monsters/anja.png",
       "level": 1,
       "materials": [
         { "material": "Anjanath Scale", "needed": 3 },
@@ -927,6 +974,7 @@ export class DataService {
       "weaponName": "Anja Arch",
       "type": "Bow",
       "tree": "Anjanath",
+      "treeIcon": "assets/icons/monsters/anja.png",
       "level": 2,
       "materials": [
         { "material": "Anjanath Fang", "needed": 4 },
@@ -938,6 +986,7 @@ export class DataService {
       "weaponName": "Blooming Arch",
       "type": "Bow",
       "tree": "Pukei-Pukei",
+      "treeIcon": "assets/icons/monsters/puke.png",
       "level": 1,
       "materials": [
         { "material": "Pukei-Pukei Quill", "needed": 2 },
@@ -950,6 +999,7 @@ export class DataService {
       "weaponName": "Datura String",
       "type": "Bow",
       "tree": "Pukei-Pukei",
+      "treeIcon": "assets/icons/monsters/puke.png",
       "level": 2,
       "materials": [
         { "material": "Pukei-Pukei Scale", "needed": 2 },
@@ -962,6 +1012,7 @@ export class DataService {
       "weaponName": "Diablos Bow",
       "type": "Bow",
       "tree": "Diablos",
+      "treeIcon": "assets/icons/monsters/diab.png",
       "level": 1,
       "materials": [
         { "material": "Twisted Horn", "needed": 1 },
@@ -974,6 +1025,7 @@ export class DataService {
       "weaponName": "Diablos Coilbender",
       "type": "Bow",
       "tree": "Diablos",
+      "treeIcon": "assets/icons/monsters/diab.png",
       "level": 2,
       "materials": [
         { "material": "Majestic Horn", "needed": 2 },
@@ -984,64 +1036,7 @@ export class DataService {
     }
   ];
 
-  materials: any[] = [
-    // { "material": "Carbalite Ore", "quantity": 14 },
-    // { "material": "Machalite Ore", "quantity": 9 },
-    // { "material": "Dragonite Ore", "quantity": 10 },
-    // { "material": "Fucium Ore", "quantity": 10 },
-    // { "material": "Quality Bone", "quantity": 12 },
-    // { "material": "Monster Bone Small", "quantity": 11 },
-    // { "material": "Monster Bone Medium", "quantity": 8 },
-    // { "material": "Monster Bone Large", "quantity": 3 },
-    // { "material": "Monster Hardbone", "quantity": 0 },
-    // { "material": "Monster Keenbone", "quantity": 5 },
-    // { "material": "Ancient Bone", "quantity": 2 },
-    // { "material": "Boulder Bone", "quantity": 0 },
-    // { "material": "Dragonvein Crystal", "quantity": 6 },
-    // { "material": "Wingdrake Hide", "quantity": 0 },
-    // { "material": "Firecell Stone", "quantity": 0 },
-    // { "material": "Coral Crystal", "quantity": 0 },
-    // { "material": "Piercing Claw", "quantity": 5 },
-    // { "material": "Sharp Claw", "quantity": 3 },
-    // { "material": "Warm Pelt", "quantity": 0 },
-    // { "material": "Great Jagras Claw", "quantity": 2 },
-    // { "material": "Great Jagras Hide", "quantity": 1 },
-    // { "material": "Great Jagras Mane", "quantity": 2 },
-    // { "material": "Great Jagras Scale", "quantity": 0 },
-    // { "material": "Electro Sac", "quantity": 0 },
-    // { "material": "Thunder Sac", "quantity": 2 },
-    // { "material": "Tobi-Kadachi Claw", "quantity": 4 },
-    // { "material": "Tobi-Kadachi Electrode", "quantity": 3 },
-    // { "material": "Tobi-Kadachi Membrane", "quantity": 5 },
-    // { "material": "Tobi-Kadachi Pelt", "quantity": 4 },
-    // { "material": "Tobi-Kadachi Scale", "quantity": 3 },
-    // { "material": "Flame Sac", "quantity": 0 },
-    // { "material": "Inferno Sac", "quantity": 0 },
-    // { "material": "Anjanath Fang", "quantity": 0 },
-    // { "material": "Anjanath Nosebone", "quantity": 0 },
-    // { "material": "Anjanath Pelt", "quantity": 0 },
-    // { "material": "Anjanath Scale", "quantity": 0 },
-    // { "material": "Anjanath Tail", "quantity": 0 },
-    // { "material": "Rathalos Carapace", "quantity": 0 },
-    // { "material": "Rathalos Marrow", "quantity": 0 },
-    // { "material": "Rathalos Medulla", "quantity": 0 },
-    // { "material": "Rathalos Plate", "quantity": 0 },
-    // { "material": "Rathalos Scale", "quantity": 0 },
-    // { "material": "Rathalos Shell", "quantity": 0 },
-    // { "material": "Rathalos Tail", "quantity": 0 },
-    // { "material": "Rathalos Webbing", "quantity": 0 },
-    // { "material": "Rathalos Wing", "quantity": 0 },
-    // { "material": "Rathalos Wingtalon", "quantity": 0 },
-    // { "material": "Azure Rathalos Carapace", "quantity": 0 },
-    // { "material": "Azure Rathalos Marrow", "quantity": 0 },
-    // { "material": "Azure Rathalos Plate", "quantity": 0 },
-    // { "material": "Azure Rathalos Scale", "quantity": 0 },
-    // { "material": "Azure Rathalos Shell", "quantity": 0 },
-    // { "material": "Azure Rathalos Tail", "quantity": 0 },
-    // { "material": "Azure Rathalos Webbing", "quantity": 0 },
-    // { "material": "Azure Rathalos Wingtalon", "quantity": 0 },
-    // { "material": "Azure Rathalos Wing", "quantity": 0 }
-  ]
+  materials: any[] = []
 
   constructor(private http: HttpClient) { }
 

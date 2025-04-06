@@ -1,19 +1,16 @@
 <h1>{{ title }}</h1>
 
 <!-- <button style="width: 98%" (click)="goTo('Log')">Mission Log</button> -->
-<dx-tabs (onItemClick)="goTo($event.itemData.text)" >
-    <dxi-item text="ItemBox">
-    </dxi-item>
-    <dxi-item  text="Armors">
-    </dxi-item>
-    <dxi-item text="Weapons">
-    </dxi-item>
+<dx-tabs
+    [items]="tabs"
+    [selectedIndex]="selected"
+    (onItemClick)="goTo($event.itemData.id)" >
 </dx-tabs>
 
 @if(!loading){
     <app-mission-log *ngIf="selected == 'Log'"></app-mission-log>
-    <app-inventory *ngIf="selected == 'ItemBox'" ></app-inventory>
-    <app-armors *ngIf="selected == 'Armors'"></app-armors>
-    <app-weapons *ngIf="selected == 'Weapons'"></app-weapons>
+    <app-inventory *ngIf="selected == 0" ></app-inventory>
+    <app-armors *ngIf="selected == 1"></app-armors>
+    <app-weapons *ngIf="selected == 2"></app-weapons>
 
 }
