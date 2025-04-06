@@ -10,7 +10,7 @@
     <dxo-scrolling mode="infinite"></dxo-scrolling>
 
     <dxi-column allowEditing="false" dataField="materialName"></dxi-column>
-    <dxi-column dataField="materialQuantity" [width]="80"></dxi-column>
+    <dxi-column dataField="materialQuantity" caption="Quantity" [width]="80"></dxi-column>
 
     <dxo-master-detail [enabled]="true" template="detail"></dxo-master-detail>
     <div *dxTemplate="let material of 'detail'">

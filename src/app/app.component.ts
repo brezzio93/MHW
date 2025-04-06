@@ -39,7 +39,7 @@ export class AppComponent {
   constructor(
     private ds: DataService,
   ) {
-    // this.selected = 'Armors';
+    this.selected = 'ItemBox';
   }
 
   ngOnInit(): void {
@@ -51,7 +51,6 @@ export class AppComponent {
   }
 
   goTo(route: any) {
-    console.log(route)
     this.selected = route;
   }
 }

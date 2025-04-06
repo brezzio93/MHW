@@ -25,6 +25,8 @@ export class WeaponsComponent implements OnInit {
     { id: 'bow', name: 'Bow' },
   ];
   chosenType: any;
+  loadingTable = false;
+  loadingUpdate = false;
 
   constructor(private ds: DataService) {
 
@@ -32,20 +34,49 @@ export class WeaponsComponent implements OnInit {
 
   ngOnInit(): void {
     this.chosenType = this.weaponsType[0].name;
-    this.selectType(this.chosenType);
+    this.getWeapons();
+  }
+
+  getWeapons() {
+    this.loadingTable = true;
+    
+    this.ds.getWeapons().subscribe((res) => {
+      this.ds.weapons = res;
+      this.initWeapons();
+      this.selectType(this.chosenType);
+      this.loadingTable = false;
+    });
+  }
+
+  initWeapons() {
+    this.ds.weapons.forEach((weapon: any) => {
+      let auxWeapon = this.ds.recipeWeapons.find(x => x.weaponName == weapon.weaponName);
+      weapon.type = auxWeapon?.type;
+      weapon.tree = auxWeapon?.tree;
+      weapon.level = auxWeapon?.level;
+      weapon.materials = auxWeapon?.materials;
+    });
   }
 
   selectType(e: any) {
     this.chosenType = e;
-    this.weapons = this.ds.weapons.filter(x => x.type == e);
+    this.weapons = this.ds.weapons.filter((x: any) => x.type == e);
     this.setOwned();
+    console.log(this.weapons)
   }
 
   setOwned() {
-    this.weapons.forEach((w: any) => {
+    this.weapons.forEach((w: any, index: any) => {
+
       w.craftable = true;
+
+      //Check if previous weapon of the same tree has been crafted
+      if (index != 0 && w.tree == this.weapons[index - 1].tree) {
+        w.craftable = (this.weapons[index - 1].weaponCrafted) ? true : false;
+      }
+
       w.materials.forEach((material: any) => {
-        material.owned = this.ds.materials.find(x => x.materialName == material.name)?.materialQuantity;
+        material.owned = this.ds.materials.find(x => x.materialName == material.material)?.materialQuantity;
         material.craftable = (Math.floor(material.owned / material.needed) > 1);
         if (!material.craftable) w.craftable = false;
       });
@@ -53,30 +84,31 @@ export class WeaponsComponent implements OnInit {
   }
 
   forge(e: any) {
-    let auxWeapon = this.weapons.find((x: any) => x.name == e.name);
-    if (auxWeapon.crafted == false) {
-      auxWeapon.crafted = true;
 
-      //Esto se actualiza en el endpoint
-      auxWeapon.materials.forEach((material: any) => {
-        this.ds.materials.forEach((itemBox: any) => {
-          if (material.name == itemBox.materialName) {
-            itemBox.materialQuantity -= material.needed;
-          }
-        })
-      });
+    this.loadingUpdate = true;
+    let idCampaign = this.weapons.find((x: any) => x.weaponName == e.weaponName).idCampaign;
+    let auxRecipe = this.ds.recipeWeapons.find((x) => x.weaponName == e.weaponName);
 
-      this.ds.updateWeapon(auxWeapon).subscribe((response) => {
-        this.setOwned();
-      })
-
+    let params = {
+      idCampaign: idCampaign,
+      weaponJson: auxRecipe,
     }
+
+    this.ds.updateWeapon(params).subscribe((response) => {
+      this.ds.getItems().subscribe((resMaterials) => {
+        this.ds.materials = resMaterials;
+        this.getWeapons();
+        this.loadingUpdate = false;
+      });
+    })
+
   }
 
   paintCellTable(e: any) {
     if (e.rowType === "data") {
       if (!e.data.craftable) e.cellElement.style.cssText = "background-color: #f5c6cb; text-align: center;";
-      if (e.data.craftable || e.data.crafted) e.cellElement.style.cssText = "background-color: #d4edda; text-align: center;";
+      if (e.data.craftable) e.cellElement.style.cssText = "background-color: #d4edda; text-align: center;";
+      if (e.data.weaponCrafted) e.cellElement.style.cssText = "background-color: #d4edda; text-align: center; font-weight:600;";
     }
   }
 
@@ -85,10 +117,6 @@ export class WeaponsComponent implements OnInit {
       if (e.data.owned < e.data.needed) e.cellElement.style.cssText = "background-color: #f5c6cb; text-align: center;";
       else e.cellElement.style.cssText = "background-color: #d4edda; text-align: center;";
     }
-  }
-
-  log(e: any) {
-    console.log(e);
   }
 
 }

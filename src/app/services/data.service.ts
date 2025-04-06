@@ -7,7 +7,15 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
 
-  private apiUrl = ' http://localhost:5230/api/'; // Replace with actual URL
+  // private apiUrl = 'http://localhost:8080/api/'; // Replace with actual URL
+  // private apiUrl = 'http://localhost:5230/api/'; // Replace with actual URL
+  private apiUrl = 'https://mhw-api.up.railway.app/api/'; // Replace with actual URL
+
+  headers = {
+    headers: {
+      'ngrok-skip-browser-warning': 'true',
+    }
+  }
 
   armors: any = [];
   weapons: any = [];
@@ -380,637 +388,685 @@ export class DataService {
   recipeWeapons = [
     //GS
     {
-      "name": "Buster Blade",
+      "weaponName": "Buster Blade",
+      "type": "Great Sword",
       "tree": "Iron",
-      "type": "Great Sword",
+      "level": 1,
       "materials": [
-        { "name": "Dragonite Ore", "needed": 1 },
-        { "name": "Machalite Ore", "needed": 1 },
-        { "name": "Monster Bone Medium", "needed": 1 }
+        { "material": "Dragonite Ore", "needed": 1 },
+        { "material": "Machalite Ore", "needed": 1 },
+        { "material": "Monster Bone Medium", "needed": 1 }
       ],
     },
     {
-      "name": "Chrome Razor",
+      "weaponName": "Chrome Razor",
+      "type": "Great Sword",
       "tree": "Iron",
-      "type": "Great Sword",
+      "level": 2,
       "materials": [
-        { "name": "Fucium Ore", "needed": 2 },
-        { "name": "Carbalite Ore", "needed": 2 },
-        { "name": "Dragonite Ore", "needed": 3 },
-        { "name": "Dragonvein Crystal", "needed": 2 }
+        { "material": "Fucium Ore", "needed": 2 },
+        { "material": "Carbalite Ore", "needed": 2 },
+        { "material": "Dragonite Ore", "needed": 3 },
+        { "material": "Dragonvein Crystal", "needed": 2 }
       ],
     },
     {
-      "name": "Bone Blade",
+      "weaponName": "Bone Blade",
+      "type": "Great Sword",
       "tree": "Bone",
-      "type": "Great Sword",
+      "level": 1,
       "materials": [
-        { "name": "Monster Bone Small", "needed": 1 }
+        { "material": "Monster Bone Small", "needed": 1 }
       ],
     },
     {
-      "name": "Bone Slasher",
+      "weaponName": "Bone Slasher",
+      "type": "Great Sword",
       "tree": "Bone",
-      "type": "Great Sword",
+      "level": 2,
       "materials": [
-        { "name": "Monster Bone Large", "needed": 1 },
-        { "name": "Monster Bone Medium", "needed": 1 },
-        { "name": "Boulder Bone", "needed": 1 }
+        { "material": "Monster Bone Large", "needed": 1 },
+        { "material": "Monster Bone Medium", "needed": 1 },
+        { "material": "Boulder Bone", "needed": 1 }
       ],
     },
     {
-      "name": "Giant Jawblade",
+      "weaponName": "Giant Jawblade",
+      "type": "Great Sword",
       "tree": "Bone",
-      "type": "Great Sword",
+      "level": 3,
       "materials": [
-        { "name": "Monster Hardbone", "needed": 2 },
-        { "name": "Monster Keenbone", "needed": 2 },
-        { "name": "Quality Bone", "needed": 3 }
+        { "material": "Monster Hardbone", "needed": 2 },
+        { "material": "Monster Keenbone", "needed": 2 },
+        { "material": "Quality Bone", "needed": 3 }
       ],
     },
     {
-      "name": "Jagras Blade",
+      "weaponName": "Jagras Blade",
+      "type": "Great Sword",
       "tree": "Jagras",
-      "type": "Great Sword",
+      "level": 1,
       "materials": [
-        { "name": "Great Jagras Claw", "needed": 2 },
-        { "name": "Great Jagras Hide", "needed": 1 },
-        { "name": "Great Jagras Scale", "needed": 2 },
-        { "name": "Sharp Claw", "needed": 1 }
+        { "material": "Great Jagras Claw", "needed": 2 },
+        { "material": "Great Jagras Hide", "needed": 1 },
+        { "material": "Great Jagras Scale", "needed": 2 },
+        { "material": "Sharp Claw", "needed": 1 }
       ],
     },
     {
-      "name": "Jagras Hacker",
+      "weaponName": "Jagras Hacker",
+      "type": "Great Sword",
       "tree": "Jagras",
-      "type": "Great Sword",
+      "level": 2,
       "materials": [
-        { "name": "Great Jagras Scale", "needed": 2 },
-        { "name": "Great Jagras Claw", "needed": 2 },
-        { "name": "Great Jagras Mane", "needed": 2 },
-        { "name": "Piercing Claw", "needed": 1 }
+        { "material": "Great Jagras Scale", "needed": 2 },
+        { "material": "Great Jagras Claw", "needed": 2 },
+        { "material": "Great Jagras Mane", "needed": 2 },
+        { "material": "Piercing Claw", "needed": 1 }
       ],
     },
     {
-      "name": "Flame Blade",
+      "weaponName": "Flame Blade",
+      "type": "Great Sword",
       "tree": "Rathalos",
-      "type": "Great Sword",
+      "level": 1,
       "materials": [
-        { "name": "Rathalos Scale", "needed": 2 },
-        { "name": "Rathalos Webbing", "needed": 2 },
-        { "name": "Inferno Sac", "needed": 1 },
-        { "name": "Rathalos Marrow", "needed": 1 }
+        { "material": "Rathalos Scale", "needed": 2 },
+        { "material": "Rathalos Webbing", "needed": 2 },
+        { "material": "Inferno Sac", "needed": 1 },
+        { "material": "Rathalos Marrow", "needed": 1 }
       ],
     },
     {
-      "name": "Red Wing",
+      "weaponName": "Red Wing",
+      "type": "Great Sword",
       "tree": "Rathalos",
-      "type": "Great Sword",
+      "level": 2,
       "materials": [
-        { "name": "Rathalos Scale", "needed": 2 },
-        { "name": "Rathalos Carapace", "needed": 1 },
-        { "name": "Rathalos Wing", "needed": 1 },
-        { "name": "Rathalos Medulla", "needed": 1 }
+        { "material": "Rathalos Scale", "needed": 2 },
+        { "material": "Rathalos Carapace", "needed": 1 },
+        { "material": "Rathalos Wing", "needed": 1 },
+        { "material": "Rathalos Medulla", "needed": 1 }
       ],
     },
     {
-      "name": "Blooming Blade",
+      "weaponName": "Blooming Blade",
+      "type": "Great Sword",
       "tree": "Pukei-Pukei",
-      "type": "Great Sword",
+      "level": 1,
       "materials": [
-        { "name": "Pukei-Pukei Quill", "needed": 2 },
-        { "name": "Pukei-Pukei Scale", "needed": 2 },
-        { "name": "Poison Sac", "needed": 1 },
-        { "name": "Pukei-Pukei Tail", "needed": 1 }
+        { "material": "Pukei-Pukei Quill", "needed": 2 },
+        { "material": "Pukei-Pukei Scale", "needed": 2 },
+        { "material": "Poison Sac", "needed": 1 },
+        { "material": "Pukei-Pukei Tail", "needed": 1 }
       ],
     },
     {
-      "name": "Datura Blaze",
+      "weaponName": "Datura Blaze",
+      "type": "Great Sword",
       "tree": "Pukei-Pukei",
-      "type": "Great Sword",
+      "level": 2,
       "materials": [
-        { "name": "Pukei-Pukei Scale", "needed": 2 },
-        { "name": "Pukei-Pukei Wing", "needed": 2 },
-        { "name": "Toxin Sac", "needed": 2 },
-        { "name": "Quality Bone", "needed": 3 }
+        { "material": "Pukei-Pukei Scale", "needed": 2 },
+        { "material": "Pukei-Pukei Wing", "needed": 2 },
+        { "material": "Toxin Sac", "needed": 2 },
+        { "material": "Quality Bone", "needed": 3 }
       ],
     },
     {
-      "name": "Carapace Buster",
-      "tree": "Barroth",
+      "weaponName": "Carapace Buster",
       "type": "Great Sword",
+      "tree": "Barroth",
+      "level": 1,
       "materials": [
-        { "name": "Barroth Claw", "needed": 1 },
-        { "name": "Barroth Shell", "needed": 3 },
-        { "name": "Barroth Ridge", "needed": 3 }
+        { "material": "Barroth Claw", "needed": 1 },
+        { "material": "Barroth Shell", "needed": 3 },
+        { "material": "Barroth Ridge", "needed": 3 }
       ],
     },
     {
-      "name": "Barroth Shredder",
-      "tree": "Barroth",
+      "weaponName": "Barroth Shredder",
       "type": "Great Sword",
+      "tree": "Barroth",
+      "level": 2,
       "materials": [
-        { "name": "Barroth Claw", "needed": 2 },
-        { "name": "Barroth Carapace", "needed": 3 },
-        { "name": "Barroth Ridge", "needed": 3 }
+        { "material": "Barroth Claw", "needed": 2 },
+        { "material": "Barroth Carapace", "needed": 3 },
+        { "material": "Barroth Ridge", "needed": 3 }
       ],
     },
 
     //SNS
     {
-      "name": "Steel Knife",
+      "weaponName": "Steel Knife",
+      "type": "Sword and Shield",
       "tree": "Iron",
-      "type": "Sword and Shield",
+      "level": 1,
       "materials": [
-        { "name": "Dragonite Ore", "needed": 1 },
-        { "name": "Machalite Ore", "needed": 1 },
-        { "name": "Monster Bone Medium", "needed": 1 }
+        { "material": "Dragonite Ore", "needed": 1 },
+        { "material": "Machalite Ore", "needed": 1 },
+        { "material": "Monster Bone Medium", "needed": 1 }
       ],
     },
     {
-      "name": "Chrome Slicer",
+      "weaponName": "Chrome Slicer",
+      "type": "Sword and Shield",
       "tree": "Iron",
-      "type": "Sword and Shield",
+      "level": 2,
       "materials": [
-        { "name": "Fucium Ore", "needed": 2 },
-        { "name": "Carbalite Ore", "needed": 2 },
-        { "name": "Dragonite Ore", "needed": 3 },
-        { "name": "Dragonvein Crystal", "needed": 2 }
+        { "material": "Fucium Ore", "needed": 2 },
+        { "material": "Carbalite Ore", "needed": 2 },
+        { "material": "Dragonite Ore", "needed": 3 },
+        { "material": "Dragonvein Crystal", "needed": 2 }
       ],
     },
     {
-      "name": "Bone Kukri",
+      "weaponName": "Bone Kukri",
+      "type": "Sword and Shield",
       "tree": "Bone",
-      "type": "Sword and Shield",
+      "level": 1,
       "materials": [
-        { "name": "Monster Bone Small", "needed": 1 }
+        { "material": "Monster Bone Small", "needed": 1 }
       ],
     },
     {
-      "name": "Chief Kukri",
+      "weaponName": "Chief Kukri",
+      "type": "Sword and Shield",
       "tree": "Bone",
-      "type": "Sword and Shield",
+      "level": 2,
       "materials": [
-        { "name": "Monster Bone Large", "needed": 1 },
-        { "name": "Monster Bone Medium", "needed": 1 },
-        { "name": "Boulder Bone", "needed": 1 }
+        { "material": "Monster Bone Large", "needed": 1 },
+        { "material": "Monster Bone Medium", "needed": 1 },
+        { "material": "Boulder Bone", "needed": 1 }
       ],
     },
     {
-      "name": "Grand Barong",
+      "weaponName": "Grand Barong",
+      "type": "Sword and Shield",
       "tree": "Bone",
-      "type": "Sword and Shield",
+      "level": 3,
       "materials": [
-        { "name": "Monster Hardbone", "needed": 2 },
-        { "name": "Monster Keenbone", "needed": 2 },
-        { "name": "Quality Bone", "needed": 3 }
+        { "material": "Monster Hardbone", "needed": 2 },
+        { "material": "Monster Keenbone", "needed": 2 },
+        { "material": "Quality Bone", "needed": 3 }
       ],
     },
     {
-      "name": "Jagras Edge",
+      "weaponName": "Jagras Edge",
+      "type": "Sword and Shield",
       "tree": "Jagras",
-      "type": "Sword and Shield",
+      "level": 1,
       "materials": [
-        { "name": "Great Jagras Claw", "needed": 2 },
-        { "name": "Great Jagras Hide", "needed": 1 },
-        { "name": "Great Jagras Scale", "needed": 2 },
-        { "name": "Sharp Claw", "needed": 1 }
+        { "material": "Great Jagras Claw", "needed": 2 },
+        { "material": "Great Jagras Hide", "needed": 1 },
+        { "material": "Great Jagras Scale", "needed": 2 },
+        { "material": "Sharp Claw", "needed": 1 }
       ],
     },
     {
-      "name": "Jagras Garotte",
+      "weaponName": "Jagras Garotte",
+      "type": "Sword and Shield",
       "tree": "Jagras",
-      "type": "Sword and Shield",
+      "level": 2,
       "materials": [
-        { "name": "Great Jagras Scale", "needed": 3 },
-        { "name": "Great Jagras Claw", "needed": 1 },
-        { "name": "Great Jagras Mane", "needed": 2 },
-        { "name": "Piercing Claw", "needed": 1 }
+        { "material": "Great Jagras Scale", "needed": 3 },
+        { "material": "Great Jagras Claw", "needed": 1 },
+        { "material": "Great Jagras Mane", "needed": 2 },
+        { "material": "Piercing Claw", "needed": 1 }
       ],
     },
     {
-      "name": "Flame Knife",
+      "weaponName": "Flame Knife",
+      "type": "Sword and Shield",
       "tree": "Rathalos",
-      "type": "Sword and Shield",
+      "level": 1,
       "materials": [
-        { "name": "Rathalos Scale", "needed": 1 },
-        { "name": "Rathalos Tail", "needed": 2 },
-        { "name": "Rathalos Plate", "needed": 1 },
-        { "name": "Inferno Sac", "needed": 1 }
+        { "material": "Rathalos Scale", "needed": 1 },
+        { "material": "Rathalos Tail", "needed": 2 },
+        { "material": "Rathalos Plate", "needed": 1 },
+        { "material": "Inferno Sac", "needed": 1 }
       ],
     },
     {
-      "name": "Heat Edge",
+      "weaponName": "Heat Edge",
+      "type": "Sword and Shield",
       "tree": "Rathalos",
-      "type": "Sword and Shield",
+      "level": 2,
       "materials": [
-        { "name": "Rathalos Scale", "needed": 2 },
-        { "name": "Rathalos Carapace", "needed": 2 },
-        { "name": "Rathalos Wing", "needed": 1 }
+        { "material": "Rathalos Scale", "needed": 2 },
+        { "material": "Rathalos Carapace", "needed": 2 },
+        { "material": "Rathalos Wing", "needed": 1 }
       ],
     },
     {
-      "name": "Blooming Knife",
+      "weaponName": "Blooming Knife",
+      "type": "Sword and Shield",
       "tree": "Pukei-Pukei",
-      "type": "Sword and Shield",
+      "level": 1,
       "materials": [
-        { "name": "Pukei-Pukei Quill", "needed": 2 },
-        { "name": "Pukei-Pukei Scale", "needed": 2 },
-        { "name": "Poison Sac", "needed": 1 },
-        { "name": "Pukei-Pukei Tail", "needed": 1 }
+        { "material": "Pukei-Pukei Quill", "needed": 2 },
+        { "material": "Pukei-Pukei Scale", "needed": 2 },
+        { "material": "Poison Sac", "needed": 1 },
+        { "material": "Pukei-Pukei Tail", "needed": 1 }
       ],
     },
     {
-      "name": "Datura Blossom",
+      "weaponName": "Datura Blossom",
+      "type": "Sword and Shield",
       "tree": "Pukei-Pukei",
-      "type": "Sword and Shield",
+      "level": 2,
       "materials": [
-        { "name": "Pukei-Pukei Scale", "needed": 2 },
-        { "name": "Pukei-Pukei Wing", "needed": 2 },
-        { "name": "Toxin Sac", "needed": 2 },
-        { "name": "Quality Bone", "needed": 3 }
+        { "material": "Pukei-Pukei Scale", "needed": 2 },
+        { "material": "Pukei-Pukei Wing", "needed": 2 },
+        { "material": "Toxin Sac", "needed": 2 },
+        { "material": "Quality Bone", "needed": 3 }
       ],
     },
     {
-      "name": "Carapace Edge",
-      "tree": "Barroth",
+      "weaponName": "Carapace Edge",
       "type": "Sword and Shield",
+      "tree": "Barroth",
+      "level": 1,
       "materials": [
-        { "name": "Barroth Claw", "needed": 1 },
-        { "name": "Barroth Shell", "needed": 3 },
-        { "name": "Barroth Ridge", "needed": 3 }
+        { "material": "Barroth Claw", "needed": 1 },
+        { "material": "Barroth Shell", "needed": 3 },
+        { "material": "Barroth Ridge", "needed": 3 }
       ],
     },
     {
-      "name": "Barroth Club",
-      "tree": "Barroth",
+      "weaponName": "Barroth Club",
       "type": "Sword and Shield",
+      "tree": "Barroth",
+      "level": 2,
       "materials": [
-        { "name": "Barroth Claw", "needed": 2 },
-        { "name": "Barroth Carapace", "needed": 3 },
-        { "name": "Barroth Ridge", "needed": 3 }
+        { "material": "Barroth Claw", "needed": 2 },
+        { "material": "Barroth Carapace", "needed": 3 },
+        { "material": "Barroth Ridge", "needed": 3 }
       ],
     },
     //DB
     {
-      "name": "Dual Slicers",
+      "weaponName": "Dual Slicers",
+      "type": "Dual Blades",
       "tree": "Iron",
-      "type": "Dual Blades",
+      "level": 1,
       "materials": [
-        { "name": "Dragonite Ore", "needed": 1 },
-        { "name": "Machalite Ore", "needed": 1 },
-        { "name": "Monster Bone Medium", "needed": 1 }
+        { "material": "Dragonite Ore", "needed": 1 },
+        { "material": "Machalite Ore", "needed": 1 },
+        { "material": "Monster Bone Medium", "needed": 1 }
       ],
     },
     {
-      "name": "Chrome Slicers",
+      "weaponName": "Chrome Slicers",
+      "type": "Dual Blades",
       "tree": "Iron",
-      "type": "Dual Blades",
+      "level": 2,
       "materials": [
-        { "name": "Fucium Ore", "needed": 2 },
-        { "name": "Carbalite Ore", "needed": 2 },
-        { "name": "Dragonite Ore", "needed": 3 },
-        { "name": "Dragonvein Crystal", "needed": 2 }
+        { "material": "Fucium Ore", "needed": 2 },
+        { "material": "Carbalite Ore", "needed": 2 },
+        { "material": "Dragonite Ore", "needed": 3 },
+        { "material": "Dragonvein Crystal", "needed": 2 }
       ],
     },
     {
-      "name": "Bone Hatchets",
+      "weaponName": "Bone Hatchets",
+      "type": "Dual Blades",
       "tree": "Bone",
-      "type": "Dual Blades",
+      "level": 1,
       "materials": [
-        { "name": "Monster Bone Small", "needed": 1 }
+        { "material": "Monster Bone Small", "needed": 1 }
       ],
     },
     {
-      "name": "Wild Hatchets",
+      "weaponName": "Wild Hatchets",
+      "type": "Dual Blades",
       "tree": "Bone",
-      "type": "Dual Blades",
+      "level": 2,
       "materials": [
-        { "name": "Monster Bone Large", "needed": 1 },
-        { "name": "Monster Bone Medium", "needed": 1 },
-        { "name": "Boulder Bone", "needed": 1 }
+        { "material": "Monster Bone Large", "needed": 1 },
+        { "material": "Monster Bone Medium", "needed": 1 },
+        { "material": "Boulder Bone", "needed": 1 }
       ],
     },
     {
-      "name": "Strong Hatchets",
+      "weaponName": "Strong Hatchets",
+      "type": "Dual Blades",
       "tree": "Bone",
-      "type": "Dual Blades",
+      "level": 3,
       "materials": [
-        { "name": "Monster Hardbone", "needed": 2 },
-        { "name": "Monster Keenbone", "needed": 2 },
-        { "name": "Quality Bone", "needed": 3 }
+        { "material": "Monster Hardbone", "needed": 2 },
+        { "material": "Monster Keenbone", "needed": 2 },
+        { "material": "Quality Bone", "needed": 3 }
       ],
     },
     {
-      "name": "Pulsar Hatchets",
+      "weaponName": "Pulsar Hatchets",
+      "type": "Dual Blades",
       "tree": "Tobi-Kadachi",
-      "type": "Dual Blades",
+      "level": 1,
       "materials": [
-        { "name": "Tobi-Kadachi Electrode", "needed": 1 },
-        { "name": "Tobi-Kadachi Claw", "needed": 2 },
-        { "name": "Electro Sac", "needed": 2 },
-        { "name": "Coral Crystal", "needed": 2 }
+        { "material": "Tobi-Kadachi Electrode", "needed": 1 },
+        { "material": "Tobi-Kadachi Claw", "needed": 2 },
+        { "material": "Electro Sac", "needed": 2 },
+        { "material": "Coral Crystal", "needed": 2 }
       ],
     },
     {
-      "name": "Kadachi Claws",
+      "weaponName": "Kadachi Claws",
+      "type": "Dual Blades",
       "tree": "Tobi-Kadachi",
-      "type": "Dual Blades",
+      "level": 2,
       "materials": [
-        { "name": "Tobi-Kadachi Electrode", "needed": 2 },
-        { "name": "Tobi-Kadachi Claw", "needed": 2 },
-        { "name": "Thunder Sac", "needed": 2 }
+        { "material": "Tobi-Kadachi Electrode", "needed": 2 },
+        { "material": "Tobi-Kadachi Claw", "needed": 2 },
+        { "material": "Thunder Sac", "needed": 2 }
       ],
     },
     {
-      "name": "Blazing Hatchets",
+      "weaponName": "Blazing Hatchets",
+      "type": "Dual Blades",
       "tree": "Anjanath",
-      "type": "Dual Blades",
+      "level": 1,
       "materials": [
-        { "name": "Anjanath Scale", "needed": 3 },
-        { "name": "Anjanath Fang", "needed": 2 },
-        { "name": "Flame Sac", "needed": 1 }
+        { "material": "Anjanath Scale", "needed": 3 },
+        { "material": "Anjanath Fang", "needed": 2 },
+        { "material": "Flame Sac", "needed": 1 }
       ],
     },
     {
-      "name": "Anja Cyclone",
+      "weaponName": "Anja Cyclone",
+      "type": "Dual Blades",
       "tree": "Anjanath",
-      "type": "Dual Blades",
+      "level": 2,
       "materials": [
-        { "name": "Anjanath Fang", "needed": 4 },
-        { "name": "Anjanath Pelt", "needed": 4 },
-        { "name": "Firecell Stone", "needed": 2 }
+        { "material": "Anjanath Fang", "needed": 4 },
+        { "material": "Anjanath Pelt", "needed": 4 },
+        { "material": "Firecell Stone", "needed": 2 }
       ],
     },
     {
-      "name": "Madness Pangas",
+      "weaponName": "Madness Pangas",
+      "type": "Dual Blades",
       "tree": "Jyuratodus",
-      "type": "Dual Blades",
+      "level": 1,
       "materials": [
-        { "name": "Jyuratodus Fin", "needed": 1 },
-        { "name": "Jyura Shell", "needed": 2 },
-        { "name": "Jyura Scale", "needed": 3 },
-        { "name": "Aqua Sac", "needed": 1 }
+        { "material": "Jyuratodus Fin", "needed": 1 },
+        { "material": "Jyura Shell", "needed": 2 },
+        { "material": "Jyura Scale", "needed": 3 },
+        { "material": "Aqua Sac", "needed": 1 }
       ],
     },
     {
-      "name": "Jyura Hatchets",
+      "weaponName": "Jyura Hatchets",
+      "type": "Dual Blades",
       "tree": "Jyuratodus",
-      "type": "Dual Blades",
+      "level": 2,
       "materials": [
-        { "name": "Jyuratodus Fin", "needed": 1 },
-        { "name": "Jyura Carapace", "needed": 2 },
-        { "name": "Jyura Scale", "needed": 2 },
-        { "name": "Aqua Sac", "needed": 1 },
-        { "name": "Gajau Scale", "needed": 1 }
+        { "material": "Jyuratodus Fin", "needed": 1 },
+        { "material": "Jyura Carapace", "needed": 2 },
+        { "material": "Jyura Scale", "needed": 2 },
+        { "material": "Aqua Sac", "needed": 1 },
+        { "material": "Gajau Scale", "needed": 1 }
       ],
     },
     {
-      "name": "Diablos Hatchets",
-      "tree": "Diablos",
+      "weaponName": "Diablos Hatchets",
       "type": "Dual Blades",
+      "tree": "Diablos",
+      "level": 1,
       "materials": [
-        { "name": "Twisted Horn", "needed": 1 },
-        { "name": "Diablos Fang", "needed": 2 },
-        { "name": "Diablos Shell", "needed": 4 },
-        { "name": "Monster Bone Large", "needed": 2 }
+        { "material": "Twisted Horn", "needed": 1 },
+        { "material": "Diablos Fang", "needed": 2 },
+        { "material": "Diablos Shell", "needed": 4 },
+        { "material": "Monster Bone Large", "needed": 2 }
       ],
     },
     {
-      "name": "Diablos Clibs",
-      "tree": "Diablos",
+      "weaponName": "Diablos Clibs",
       "type": "Dual Blades",
+      "tree": "Diablos",
+      "level": 2,
       "materials": [
-        { "name": "Majestic Horn", "needed": 2 },
-        { "name": "Diablos Carapace", "needed": 2 },
-        { "name": "Diablos Ridge", "needed": 2 },
-        { "name": "Blos Medulla", "needed": 1 }
+        { "material": "Majestic Horn", "needed": 2 },
+        { "material": "Diablos Carapace", "needed": 2 },
+        { "material": "Diablos Ridge", "needed": 2 },
+        { "material": "Blos Medulla", "needed": 1 }
       ],
     },
     //Bow
     {
-      "name": "Steel Bow",
+      "weaponName": "Steel Bow",
+      "type": "Bow",
       "tree": "Iron",
-      "type": "Bow",
+      "level": 1,
       "materials": [
-        { "name": "Dragonite Ore", "needed": 1 },
-        { "name": "Machalite Ore", "needed": 1 },
-        { "name": "Monster Bone Medium", "needed": 1 }
+        { "material": "Dragonite Ore", "needed": 1 },
+        { "material": "Machalite Ore", "needed": 1 },
+        { "material": "Monster Bone Medium", "needed": 1 }
       ],
     },
     {
-      "name": "Alloy Bow",
+      "weaponName": "Alloy Bow",
+      "type": "Bow",
       "tree": "Iron",
-      "type": "Bow",
+      "level": 2,
       "materials": [
-        { "name": "Fucium Ore", "needed": 2 },
-        { "name": "Carbalite Ore", "needed": 2 },
-        { "name": "Dragonite Ore", "needed": 3 },
-        { "name": "Dragonvein Crystal", "needed": 2 }
+        { "material": "Fucium Ore", "needed": 2 },
+        { "material": "Carbalite Ore", "needed": 2 },
+        { "material": "Dragonite Ore", "needed": 3 },
+        { "material": "Dragonvein Crystal", "needed": 2 }
       ],
     },
     {
-      "name": "Hunter's Bow",
+      "weaponName": "Hunter's Bow",
+      "type": "Bow",
       "tree": "Bone",
-      "type": "Bow",
+      "level": 1,
       "materials": [
-        { "name": "Monster Bone Small", "needed": 1 }
+        { "material": "Monster Bone Small", "needed": 1 }
       ],
     },
     {
-      "name": "Hunter's Stoutbow",
+      "weaponName": "Hunter's Stoutbow",
+      "type": "Bow",
       "tree": "Bone",
-      "type": "Bow",
+      "level": 2,
       "materials": [
-        { "name": "Monster Bone Large", "needed": 1 },
-        { "name": "Monster Bone Medium", "needed": 1 },
-        { "name": "Boulder Bone", "needed": 1 }
+        { "material": "Monster Bone Large", "needed": 1 },
+        { "material": "Monster Bone Medium", "needed": 1 },
+        { "material": "Boulder Bone", "needed": 1 }
       ],
     },
     {
-      "name": "Hunter's Proudbow",
+      "weaponName": "Hunter's Proudbow",
+      "type": "Bow",
       "tree": "Bone",
-      "type": "Bow",
+      "level": 3,
       "materials": [
-        { "name": "Monster Hardbone", "needed": 2 },
-        { "name": "Monster Keenbone", "needed": 2 },
-        { "name": "Quality Bone", "needed": 3 }
+        { "material": "Monster Hardbone", "needed": 2 },
+        { "material": "Monster Keenbone", "needed": 2 },
+        { "material": "Quality Bone", "needed": 3 }
       ],
     },
     {
-      "name": "Pulsar Bow",
+      "weaponName": "Pulsar Bow",
+      "type": "Bow",
       "tree": "Tobi-Kadachi",
-      "type": "Bow",
+      "level": 1,
       "materials": [
-        { "name": "Tobi-Kadachi Electrode", "needed": 2 },
-        { "name": "Tobi-Kadachi Claw", "needed": 2 },
-        { "name": "Electro Sac", "needed": 1 },
-        { "name": "Coral Crystal", "needed": 2 }
+        { "material": "Tobi-Kadachi Electrode", "needed": 2 },
+        { "material": "Tobi-Kadachi Claw", "needed": 2 },
+        { "material": "Electro Sac", "needed": 1 },
+        { "material": "Coral Crystal", "needed": 2 }
       ],
     },
     {
-      "name": "Flying Kadachi Strikebow",
+      "weaponName": "Flying Kadachi Strikebow",
+      "type": "Bow",
       "tree": "Tobi-Kadachi",
-      "type": "Bow",
+      "level": 2,
       "materials": [
-        { "name": "Tobi-Kadachi Claw", "needed": 2 },
-        { "name": "Tobi-Kadachi Scale", "needed": 2 },
-        { "name": "Tobi-Kadachi Pelt", "needed": 2 },
-        { "name": "Dragonvein Crystal", "needed": 2 }
+        { "material": "Tobi-Kadachi Claw", "needed": 2 },
+        { "material": "Tobi-Kadachi Scale", "needed": 2 },
+        { "material": "Tobi-Kadachi Pelt", "needed": 2 },
+        { "material": "Dragonvein Crystal", "needed": 2 }
       ],
     },
     {
-      "name": "Blazing Bow",
+      "weaponName": "Blazing Bow",
+      "type": "Bow",
       "tree": "Anjanath",
-      "type": "Bow",
+      "level": 1,
       "materials": [
-        { "name": "Anjanath Scale", "needed": 3 },
-        { "name": "Anjanath Fang", "needed": 2 },
-        { "name": "Flame Sac", "needed": 1 }
+        { "material": "Anjanath Scale", "needed": 3 },
+        { "material": "Anjanath Fang", "needed": 2 },
+        { "material": "Flame Sac", "needed": 1 }
       ],
     },
     {
-      "name": "Anja Arch",
+      "weaponName": "Anja Arch",
+      "type": "Bow",
       "tree": "Anjanath",
-      "type": "Bow",
+      "level": 2,
       "materials": [
-        { "name": "Anjanath Fang", "needed": 4 },
-        { "name": "Anjanath Pelt", "needed": 4 },
-        { "name": "Firecell Stone", "needed": 2 }
+        { "material": "Anjanath Fang", "needed": 4 },
+        { "material": "Anjanath Pelt", "needed": 4 },
+        { "material": "Firecell Stone", "needed": 2 }
       ],
     },
     {
-      "name": "Blooming Arch",
+      "weaponName": "Blooming Arch",
+      "type": "Bow",
       "tree": "Pukei-Pukei",
-      "type": "Bow",
+      "level": 1,
       "materials": [
-        { "name": "Pukei-Pukei Quill", "needed": 2 },
-        { "name": "Pukei-Pukei Scale", "needed": 2 },
-        { "name": "Poison Sac", "needed": 1 },
-        { "name": "Pukei-Pukei Tail", "needed": 1 }
+        { "material": "Pukei-Pukei Quill", "needed": 2 },
+        { "material": "Pukei-Pukei Scale", "needed": 2 },
+        { "material": "Poison Sac", "needed": 1 },
+        { "material": "Pukei-Pukei Tail", "needed": 1 }
       ],
     },
     {
-      "name": "Datura String",
+      "weaponName": "Datura String",
+      "type": "Bow",
       "tree": "Pukei-Pukei",
-      "type": "Bow",
+      "level": 2,
       "materials": [
-        { "name": "Pukei-Pukei Scale", "needed": 2 },
-        { "name": "Pukei-Pukei Wing", "needed": 2 },
-        { "name": "Toxin Sac", "needed": 2 },
-        { "name": "Quality Bone", "needed": 3 }
+        { "material": "Pukei-Pukei Scale", "needed": 2 },
+        { "material": "Pukei-Pukei Wing", "needed": 2 },
+        { "material": "Toxin Sac", "needed": 2 },
+        { "material": "Quality Bone", "needed": 3 }
       ],
     },
     {
-      "name": "Diablos Bow",
-      "tree": "Diablos",
+      "weaponName": "Diablos Bow",
       "type": "Bow",
+      "tree": "Diablos",
+      "level": 1,
       "materials": [
-        { "name": "Twisted Horn", "needed": 1 },
-        { "name": "Diablos Fang", "needed": 2 },
-        { "name": "Diablos Shell", "needed": 4 },
-        { "name": "Monster Bone Large", "needed": 2 }
+        { "material": "Twisted Horn", "needed": 1 },
+        { "material": "Diablos Fang", "needed": 2 },
+        { "material": "Diablos Shell", "needed": 4 },
+        { "material": "Monster Bone Large", "needed": 2 }
       ],
     },
     {
-      "name": "Diablos Coilbender",
-      "tree": "Diablos",
+      "weaponName": "Diablos Coilbender",
       "type": "Bow",
+      "tree": "Diablos",
+      "level": 2,
       "materials": [
-        { "name": "Majestic Horn", "needed": 2 },
-        { "name": "Diablos Carapace", "needed": 2 },
-        { "name": "Diablos Ridge", "needed": 2 },
-        { "name": "Blos Medulla", "needed": 1 }
+        { "material": "Majestic Horn", "needed": 2 },
+        { "material": "Diablos Carapace", "needed": 2 },
+        { "material": "Diablos Ridge", "needed": 2 },
+        { "material": "Blos Medulla", "needed": 1 }
       ],
     }
   ];
 
   materials: any[] = [
-    // { "name": "Carbalite Ore", "quantity": 14 },
-    // { "name": "Machalite Ore", "quantity": 9 },
-    // { "name": "Dragonite Ore", "quantity": 10 },
-    // { "name": "Fucium Ore", "quantity": 10 },
-    // { "name": "Quality Bone", "quantity": 12 },
-    // { "name": "Monster Bone Small", "quantity": 11 },
-    // { "name": "Monster Bone Medium", "quantity": 8 },
-    // { "name": "Monster Bone Large", "quantity": 3 },
-    // { "name": "Monster Hardbone", "quantity": 0 },
-    // { "name": "Monster Keenbone", "quantity": 5 },
-    // { "name": "Ancient Bone", "quantity": 2 },
-    // { "name": "Boulder Bone", "quantity": 0 },
-    // { "name": "Dragonvein Crystal", "quantity": 6 },
-    // { "name": "Wingdrake Hide", "quantity": 0 },
-    // { "name": "Firecell Stone", "quantity": 0 },
-    // { "name": "Coral Crystal", "quantity": 0 },
-    // { "name": "Piercing Claw", "quantity": 5 },
-    // { "name": "Sharp Claw", "quantity": 3 },
-    // { "name": "Warm Pelt", "quantity": 0 },
-    // { "name": "Great Jagras Claw", "quantity": 2 },
-    // { "name": "Great Jagras Hide", "quantity": 1 },
-    // { "name": "Great Jagras Mane", "quantity": 2 },
-    // { "name": "Great Jagras Scale", "quantity": 0 },
-    // { "name": "Electro Sac", "quantity": 0 },
-    // { "name": "Thunder Sac", "quantity": 2 },
-    // { "name": "Tobi-Kadachi Claw", "quantity": 4 },
-    // { "name": "Tobi-Kadachi Electrode", "quantity": 3 },
-    // { "name": "Tobi-Kadachi Membrane", "quantity": 5 },
-    // { "name": "Tobi-Kadachi Pelt", "quantity": 4 },
-    // { "name": "Tobi-Kadachi Scale", "quantity": 3 },
-    // { "name": "Flame Sac", "quantity": 0 },
-    // { "name": "Inferno Sac", "quantity": 0 },
-    // { "name": "Anjanath Fang", "quantity": 0 },
-    // { "name": "Anjanath Nosebone", "quantity": 0 },
-    // { "name": "Anjanath Pelt", "quantity": 0 },
-    // { "name": "Anjanath Scale", "quantity": 0 },
-    // { "name": "Anjanath Tail", "quantity": 0 },
-    // { "name": "Rathalos Carapace", "quantity": 0 },
-    // { "name": "Rathalos Marrow", "quantity": 0 },
-    // { "name": "Rathalos Medulla", "quantity": 0 },
-    // { "name": "Rathalos Plate", "quantity": 0 },
-    // { "name": "Rathalos Scale", "quantity": 0 },
-    // { "name": "Rathalos Shell", "quantity": 0 },
-    // { "name": "Rathalos Tail", "quantity": 0 },
-    // { "name": "Rathalos Webbing", "quantity": 0 },
-    // { "name": "Rathalos Wing", "quantity": 0 },
-    // { "name": "Rathalos Wingtalon", "quantity": 0 },
-    // { "name": "Azure Rathalos Carapace", "quantity": 0 },
-    // { "name": "Azure Rathalos Marrow", "quantity": 0 },
-    // { "name": "Azure Rathalos Plate", "quantity": 0 },
-    // { "name": "Azure Rathalos Scale", "quantity": 0 },
-    // { "name": "Azure Rathalos Shell", "quantity": 0 },
-    // { "name": "Azure Rathalos Tail", "quantity": 0 },
-    // { "name": "Azure Rathalos Webbing", "quantity": 0 },
-    // { "name": "Azure Rathalos Wingtalon", "quantity": 0 },
-    // { "name": "Azure Rathalos Wing", "quantity": 0 }
+    // { "material": "Carbalite Ore", "quantity": 14 },
+    // { "material": "Machalite Ore", "quantity": 9 },
+    // { "material": "Dragonite Ore", "quantity": 10 },
+    // { "material": "Fucium Ore", "quantity": 10 },
+    // { "material": "Quality Bone", "quantity": 12 },
+    // { "material": "Monster Bone Small", "quantity": 11 },
+    // { "material": "Monster Bone Medium", "quantity": 8 },
+    // { "material": "Monster Bone Large", "quantity": 3 },
+    // { "material": "Monster Hardbone", "quantity": 0 },
+    // { "material": "Monster Keenbone", "quantity": 5 },
+    // { "material": "Ancient Bone", "quantity": 2 },
+    // { "material": "Boulder Bone", "quantity": 0 },
+    // { "material": "Dragonvein Crystal", "quantity": 6 },
+    // { "material": "Wingdrake Hide", "quantity": 0 },
+    // { "material": "Firecell Stone", "quantity": 0 },
+    // { "material": "Coral Crystal", "quantity": 0 },
+    // { "material": "Piercing Claw", "quantity": 5 },
+    // { "material": "Sharp Claw", "quantity": 3 },
+    // { "material": "Warm Pelt", "quantity": 0 },
+    // { "material": "Great Jagras Claw", "quantity": 2 },
+    // { "material": "Great Jagras Hide", "quantity": 1 },
+    // { "material": "Great Jagras Mane", "quantity": 2 },
+    // { "material": "Great Jagras Scale", "quantity": 0 },
+    // { "material": "Electro Sac", "quantity": 0 },
+    // { "material": "Thunder Sac", "quantity": 2 },
+    // { "material": "Tobi-Kadachi Claw", "quantity": 4 },
+    // { "material": "Tobi-Kadachi Electrode", "quantity": 3 },
+    // { "material": "Tobi-Kadachi Membrane", "quantity": 5 },
+    // { "material": "Tobi-Kadachi Pelt", "quantity": 4 },
+    // { "material": "Tobi-Kadachi Scale", "quantity": 3 },
+    // { "material": "Flame Sac", "quantity": 0 },
+    // { "material": "Inferno Sac", "quantity": 0 },
+    // { "material": "Anjanath Fang", "quantity": 0 },
+    // { "material": "Anjanath Nosebone", "quantity": 0 },
+    // { "material": "Anjanath Pelt", "quantity": 0 },
+    // { "material": "Anjanath Scale", "quantity": 0 },
+    // { "material": "Anjanath Tail", "quantity": 0 },
+    // { "material": "Rathalos Carapace", "quantity": 0 },
+    // { "material": "Rathalos Marrow", "quantity": 0 },
+    // { "material": "Rathalos Medulla", "quantity": 0 },
+    // { "material": "Rathalos Plate", "quantity": 0 },
+    // { "material": "Rathalos Scale", "quantity": 0 },
+    // { "material": "Rathalos Shell", "quantity": 0 },
+    // { "material": "Rathalos Tail", "quantity": 0 },
+    // { "material": "Rathalos Webbing", "quantity": 0 },
+    // { "material": "Rathalos Wing", "quantity": 0 },
+    // { "material": "Rathalos Wingtalon", "quantity": 0 },
+    // { "material": "Azure Rathalos Carapace", "quantity": 0 },
+    // { "material": "Azure Rathalos Marrow", "quantity": 0 },
+    // { "material": "Azure Rathalos Plate", "quantity": 0 },
+    // { "material": "Azure Rathalos Scale", "quantity": 0 },
+    // { "material": "Azure Rathalos Shell", "quantity": 0 },
+    // { "material": "Azure Rathalos Tail", "quantity": 0 },
+    // { "material": "Azure Rathalos Webbing", "quantity": 0 },
+    // { "material": "Azure Rathalos Wingtalon", "quantity": 0 },
+    // { "material": "Azure Rathalos Wing", "quantity": 0 }
   ]
 
   constructor(private http: HttpClient) { }
 
   getItems(): Observable<any> {
-    return this.http.get(this.apiUrl + 'itemBox/getItemBox');
+    return this.http.get(this.apiUrl + 'itemBox/getItemBox', this.headers);
   }
 
   updateItem(e: any): Observable<any> {
-    return this.http.post(this.apiUrl + 'itemBox/updateItembox', e);
+    return this.http.post(this.apiUrl + 'itemBox/updateItembox', e, this.headers);
   }
 
   getArmors(): Observable<any> {
-    return this.http.get(this.apiUrl + 'armors/getArmors');
+    return this.http.get(this.apiUrl + 'armors/getArmors', this.headers);
   }
 
   updateArmor(armor: any): Observable<any> {
-    return this.http.post(this.apiUrl + 'armors/updateArmor', armor);
+    return this.http.post(this.apiUrl + 'armors/updateArmor', armor, this.headers);
   }
 
   getWeapons(): Observable<any> {
-    return this.http.get(this.apiUrl + 'weapons/getWeapons');
+    return this.http.get(this.apiUrl + 'weapons/getWeapons', this.headers);
   }
 
   updateWeapon(weapon: any): Observable<any> {
-
-    //DATA TO UPDATE:
-    //-weapon name
-    //-materials needed
-    return this.http.get(this.apiUrl + 'itemBox/updateWeapon');
+    return this.http.post(this.apiUrl + 'weapons/updateWeapon', weapon, this.headers);
   }
 
 }
