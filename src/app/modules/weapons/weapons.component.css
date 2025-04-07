@@ -19,3 +19,12 @@
   margin-top: -15px;
 }
 
+::ng-deep .dx-toolbar .dx-toolbar-after {
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+::ng-deep .dx-datagrid-search-panel {
+  margin: 0 !important;
+  width: 100% !important;
+}

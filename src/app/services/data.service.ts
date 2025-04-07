@@ -1513,7 +1513,7 @@ export class DataService {
       "weaponName": 'Wyvern Blade "Fall"',
       'type': 'Long Sword',
       'tree': 'Rathalos',
-      'treeIcon': 'assets/icons/monsters/rath.png',
+      'treeIcon': 'assets/icons/monsters/ratha.png',
       'level': 1,
       'materials': [
         { 'material': 'Rathalos Scale', 'needed': 2 },
@@ -1526,7 +1526,7 @@ export class DataService {
       "weaponName": 'Wyvern Blade "Blood"',
       'type': 'Long Sword',
       'tree': 'Rathalos',
-      'treeIcon': 'assets/icons/monsters/rath.png',
+      'treeIcon': 'assets/icons/monsters/ratha.png',
       'level': 2,
       'materials': [
         { 'material': 'Rathalos Scale', 'needed': 2 },
@@ -1653,7 +1653,7 @@ export class DataService {
       weaponName: 'Flame Lance',
       type: 'Lance',
       tree: 'Rathalos',
-      treeIcon: 'assets/icons/monsters/rath.png',
+      treeIcon: 'assets/icons/monsters/ratha.png',
       level: 1,
       materials: [
         { material: 'Rathalos Scale', needed: 2 },
@@ -1666,7 +1666,7 @@ export class DataService {
       weaponName: 'Red Tail',
       type: 'Lance',
       tree: 'Rathalos',
-      treeIcon: 'assets/icons/monsters/rath.png',
+      treeIcon: 'assets/icons/monsters/ratha.png',
       level: 2,
       materials: [
         { material: 'Rathalos Scale', needed: 2 },
@@ -1817,7 +1817,7 @@ export class DataService {
       "weaponName": "Rath Gunlance",
       "type": "Gunlance",
       "tree": "Rathalos",
-      "treeIcon": "assets/icons/monsters/rath.png",
+      "treeIcon": "assets/icons/monsters/ratha.png",
       "level": 1,
       "materials": [
         { "material": "Rathalos Scale", "needed": 2 },
@@ -1830,7 +1830,7 @@ export class DataService {
       "weaponName": "Rde Hook",
       "type": "Gunlance",
       "tree": "Rathalos",
-      "treeIcon": "assets/icons/monsters/rath.png",
+      "treeIcon": "assets/icons/monsters/ratha.png",
       "level": 2,
       "materials": [
         { "material": "Rathalos Scale", "needed": 2 },
@@ -1981,7 +1981,7 @@ export class DataService {
       "weaponName": "Flame Blitz",
       "type": "Light Bowgun",
       "tree": "Rathalos",
-      "treeIcon": "assets/icons/monsters/rath.png",
+      "treeIcon": "assets/icons/monsters/ratha.png",
       "level": 1,
       "materials": [
         { "material": "Rathalos Scale", "needed": 2 },
@@ -1994,7 +1994,7 @@ export class DataService {
       "weaponName": "Rath Blitz",
       "type": "Light Bowgun",
       "tree": "Rathalos",
-      "treeIcon": "assets/icons/monsters/rath.png",
+      "treeIcon": "assets/icons/monsters/ratha.png",
       "level": 2,
       "materials": [
         { "material": "Rathalos Scale", "needed": 2 },

@@ -1,3 +1,32 @@
+<dx-select-box
+    [dataSource]="weaponsType"
+    displayExpr="name"
+    valueExpr="name"
+    fieldTemplate="field"
+    [value]="chosenType"
+    [inputAttr]="{ 'aria-label': 'Templated Product' }"
+    (onValueChanged)="selectType($event.value)"
+>
+<div *dxTemplate="let data of 'field'">
+    <div class="custom-item">
+        <img alt="" src="{{ data && data.icon }}" style="filter: invert(1); height: 30px;"/>
+        <dx-text-box
+            class="product-name"
+            [value]="data && data.name"
+            [inputAttr]="{ 'aria-label': 'Name' }"
+            [readOnly]="true"
+        ></dx-text-box>
+    </div>
+</div>
+<div *dxTemplate="let data of 'item'">
+    <div class="custom-item">
+        <img alt="" src="{{ data.icon }}" style="filter: invert(0.5); height: 30px;" />
+        <div class="product-name">
+            {{ data.name }}
+        </div>
+    </div>
+</div>
+</dx-select-box>
 <dx-data-grid
     [showBorders]="true"
     [rowAlternationEnabled]="true"
@@ -8,50 +37,13 @@
 >
     <dxo-search-panel [visible]="true" [highlightCaseSensitive]="false"></dxo-search-panel>
     <dxo-scrolling mode="infinite"></dxo-scrolling>
-    <dxo-toolbar>
-        <dxi-item location="before">
-            <div *dxTemplate class="informer">
-                <dx-select-box
-                style="width: 70%;"
-                [dataSource]="weaponsType"
-                displayExpr="name"
-                valueExpr="name"
-                fieldTemplate="field"
-                [value]="chosenType"
-                [inputAttr]="{ 'aria-label': 'Templated Product' }"
-                (onValueChanged)="selectType($event.value)"
-                >
-                <div *dxTemplate="let data of 'field'">
-                    <div class="custom-item">
-                        <img alt="" src="{{ data && data.icon }}" style="filter: invert(1); height: 30px;"/>
-                        <dx-text-box
-                            class="product-name"
-                            [value]="data && data.name"
-                            [inputAttr]="{ 'aria-label': 'Name' }"
-                            [readOnly]="true"
-                        ></dx-text-box>
-                    </div>
-                </div>
-                <div *dxTemplate="let data of 'item'">
-                    <div class="custom-item">
-                        <img alt="" src="{{ data.icon }}" style="filter: invert(0.5); height: 30px;" />
-                        <div class="product-name">
-                            {{ data.name }}
-                        </div>
-                    </div>
-                </div>
-            </dx-select-box>
-            </div>
-        </dxi-item>
-        <dxi-item name="searchPanel"></dxi-item>
-    </dxo-toolbar>
 
     <!-- Sub Table -->
     <dxo-master-detail [enabled]="true" template="detail"></dxo-master-detail>
 
-    <dxi-column dataField="weaponName" [width]="'50%'" caption="Weapon"></dxi-column>
-    <dxi-column dataField="tree" cellTemplate="treeIconTemplate"></dxi-column>
-    <dxi-column dataField="weaponCrafted" [width]="70" caption="Crafted"></dxi-column>
+    <dxi-column dataField="weaponName" alignment="center" [width]="'40%'" caption="Weapon"></dxi-column>
+    <dxi-column dataField="tree" alignment="center" cellTemplate="treeIconTemplate"></dxi-column>
+    <dxi-column dataField="weaponCrafted" alignment="center" [width]="70" caption="Crafted"></dxi-column>
     
     <!-- Inner Table Template -->
     <div *dxTemplate="let material of 'detail'">

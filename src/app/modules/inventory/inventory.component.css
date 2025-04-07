@@ -1,6 +1,16 @@
 ::ng-deep .dx-datagrid-content .dx-datagrid-table .dx-row .dx-command-edit {
-    text-overflow: clip;
-    width: 20px !important;
-    min-width: 20px !important;
-    white-space: nowrap;
+  text-overflow: clip;
+  width: 20px !important;
+  min-width: 20px !important;
+  white-space: nowrap;
+}
+
+::ng-deep .dx-toolbar .dx-toolbar-after {
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+::ng-deep .dx-datagrid-search-panel {
+  margin: 0 !important;
+  width: 100% !important;
 }
