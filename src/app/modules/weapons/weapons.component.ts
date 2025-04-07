@@ -56,19 +56,15 @@ export class WeaponsComponent implements OnInit {
   }
 
   initWeapons() {
-    this.ds.weapons.forEach((weapon: any) => {
-      let auxWeapon = this.ds.recipeWeapons.find(x => x.weaponName == weapon.weaponName);
-      weapon.type = auxWeapon?.type;
-      weapon.tree = auxWeapon?.tree;
-      weapon.level = auxWeapon?.level;
-      weapon.materials = auxWeapon?.materials;
-      weapon.treeIcon = auxWeapon?.treeIcon;
+    this.ds.recipeWeapons.forEach((weapon: any) => {
+      let auxWeapon = this.ds.weapons.find(x => x.weaponName == weapon.weaponName);
+      weapon.weaponCrafted = (auxWeapon?.weaponCrafted) ? auxWeapon?.weaponCrafted : false;
     });
   }
 
   selectType(e: any) {
     this.chosenType = e;
-    this.weapons = this.ds.weapons.filter((x: any) => x.type == e);
+    this.weapons = this.ds.recipeWeapons.filter((x: any) => x.type == e);
     this.setOwned();
     console.log(this.weapons)
   }
@@ -94,11 +90,10 @@ export class WeaponsComponent implements OnInit {
   forge(e: any) {
 
     this.loadingUpdate = true;
-    let idCampaign = this.weapons.find((x: any) => x.weaponName == e.weaponName).idCampaign;
     let auxRecipe = this.ds.recipeWeapons.find((x) => x.weaponName == e.weaponName);
 
     let params = {
-      idCampaign: idCampaign,
+      idCampaign: this.ds.campaignID.toString(),
       weaponJson: auxRecipe,
     }
 

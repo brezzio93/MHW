@@ -17,6 +17,8 @@ export class DataService {
     }
   }
 
+  campaignID = 0;
+
   armors: any[] = [];
   weapons: any[] = [];
   materials: any[] = [];
@@ -1241,6 +1243,166 @@ export class DataService {
       ]
     },
     // Hammer
+    {
+      "weaponName": "Iron Demon",
+      "type": "Hammer",
+      "tree": "Iron",
+      "treeIcon": "assets/icons/materials/ore.png",
+      "level": 1,
+      "materials": [
+        { "material": "Dragonite Ore", "needed": 1 },
+        { "material": "Machalite Ore", "needed": 1 },
+        { "material": "Monster Bone Medium", "needed": 1 }
+      ],
+    },
+    {
+      "weaponName": "Iron Archdemon",
+      "type": "Hammer",
+      "tree": "Iron",
+      "treeIcon": "assets/icons/materials/ore.png",
+      "level": 2,
+      "materials": [
+        { "material": "Fucium Ore", "needed": 2 },
+        { "material": "Carbalite Ore", "needed": 2 },
+        { "material": "Dragonite Ore", "needed": 3 },
+        { "material": "Dragonvein Crystal", "needed": 2 }
+      ],
+    },
+    {
+      "weaponName": "Bone Bludgeon",
+      "type": "Hammer",
+      "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
+      "level": 1,
+      "materials": [
+        { "material": "Monster Bone Small", "needed": 1 }
+      ],
+    },
+    {
+      "weaponName": "Fossil Bludgeon",
+      "type": "Hammer",
+      "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
+      "level": 2,
+      "materials": [
+        { "material": "Monster Bone Large", "needed": 1 },
+        { "material": "Monster Bone Medium", "needed": 1 },
+        { "material": "Boulder Bone", "needed": 1 }
+      ],
+    },
+    {
+      "weaponName": "Grandrock",
+      "type": "Hammer",
+      "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
+      "level": 3,
+      "materials": [
+        { "material": "Monster Hardbone", "needed": 2 },
+        { "material": "Monster Keenbone", "needed": 2 },
+        { "material": "Quality Bone", "needed": 3 }
+      ],
+    },
+    {
+      "weaponName": "Blazing Hammer",
+      "type": "Hammer",
+      "tree": "Anjanath",
+      "treeIcon": "assets/icons/monsters/anja.png",
+      "level": 1,
+      "materials": [
+        { "material": "Anjanath Fang", "needed": 2 },
+        { "material": "Anjanath Scale", "needed": 3 },
+        { "material": "Flame Sac", "needed": 1 }
+      ],
+    },
+    {
+      "weaponName": "Anja Striker",
+      "type": "Hammer",
+      "tree": "Anjanath",
+      "treeIcon": "assets/icons/monsters/anja.png",
+      "level": 2,
+      "materials": [
+        { "material": "Anjanath Fang", "needed": 4 },
+        { "material": "Anjanath Scale", "needed": 2 },
+        { "material": "Inferno Sac", "needed": 1 }
+      ],
+    },
+    {
+      "weaponName": "Carapace Sledge",
+      "type": "Hammer",
+      "tree": "Barroth",
+      "treeIcon": "assets/icons/monsters/barr.png",
+      "level": 1,
+      "materials": [
+        { "material": "Barroth Claw", "needed": 1 },
+        { "material": "Barroth Shell", "needed": 4 },
+        { "material": "Barroth Ridge", "needed": 2 }
+      ],
+    },
+    {
+      "weaponName": "Barroth Breaker",
+      "type": "Hammer",
+      "tree": "Barroth",
+      "treeIcon": "assets/icons/monsters/barr.png",
+      "level": 2,
+      "materials": [
+        { "material": "Barroth Claw", "needed": 2 },
+        { "material": "Barroth Carapace", "needed": 3 },
+        { "material": "Barroth Ridge", "needed": 2 }
+      ],
+    },
+    {
+      "weaponName": "Blooming Hammer",
+      "type": "Hammer",
+      "tree": "Pukei-Pukei",
+      "treeIcon": "assets/icons/monsters/puke.png",
+      "level": 1,
+      "materials": [
+        { "material": "Pukei-Pukei Quill", "needed": 2 },
+        { "material": "Pukei-Pukei Scale", "needed": 3 },
+        { "material": "Poison Sac", "needed": 1 },
+      ],
+    },
+    {
+      "weaponName": "Buon Fire",
+      "type": "Hammer",
+      "tree": "Pukei-Pukei",
+      "treeIcon": "assets/icons/monsters/puke.png",
+      "level": 2,
+      "materials": [
+        { "material": "Pukei-Pukei Scale", "needed": 3 },
+        { "material": "Pukei-Pukei Wing", "needed": 2 },
+        { "material": "Toxin Sac", "needed": 2 },
+        { "material": "Quality Bone", "needed": 3 }
+      ],
+    },
+    {
+      "weaponName": "Diablos Sledge",
+      "type": "Hammer",
+      "tree": "Diablos",
+      "treeIcon": "assets/icons/monsters/diab.png",
+      "level": 1,
+      "materials": [
+        { "material": "Twisted Horn", "needed": 1 },
+        { "material": "Diablos Fang", "needed": 2 },
+        { "material": "Diablos Shell", "needed": 4 },
+        { "material": "Monster Bone Large", "needed": 3 }
+      ],
+    },
+    {
+      "weaponName": "Diablos Shatterer",
+      "type": "Hammer",
+      "tree": "Diablos",
+      "treeIcon": "assets/icons/monsters/diab.png",
+      "level": 2,
+      "materials": [
+        { "material": "Majestic Horn", "needed": 2 },
+        { "material": "Diablos Carapace", "needed": 2 },
+        { "material": "Diablos Ridge", "needed": 2 },
+        { "material": "Blos Medulla", "needed": 1 }
+      ],
+    },
+
+
 
   ];
 
