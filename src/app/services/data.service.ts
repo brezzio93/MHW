@@ -592,7 +592,6 @@ export class DataService {
         { "material": "Barroth Ridge", "needed": 3 }
       ],
     },
-
     //SNS
     {
       "weaponName": "Steel Knife",
@@ -1401,9 +1400,664 @@ export class DataService {
         { "material": "Blos Medulla", "needed": 1 }
       ],
     },
-
-
-
+    //Long Sword
+    {
+      "weaponName": "Iron Grace",
+      "type": "Long Sword",
+      "tree": "Iron",
+      "treeIcon": "assets/icons/materials/ore.png",
+      "level": 1,
+      "materials": [
+        { "material": "Dragonite Ore", "needed": 1 },
+        { "material": "Machalite Ore", "needed": 1 },
+        { "material": "Monster Bone Medium", "needed": 1 }
+      ],
+    },
+    {
+      "weaponName": "Iron Gospel",
+      "type": "Long Sword",
+      "tree": "Iron",
+      "treeIcon": "assets/icons/materials/ore.png",
+      "level": 2,
+      "materials": [
+        { "material": "Fucium Ore", "needed": 2 },
+        { "material": "Carbalite Ore", "needed": 2 },
+        { "material": "Dragonite Ore", "needed": 3 },
+        { "material": "Dragonvein Crystal", "needed": 2 }
+      ],
+    },
+    {
+      "weaponName": "Bone Shotel",
+      "type": "Long Sword",
+      "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
+      "level": 1,
+      "materials": [
+        { "material": "Monster Bone Small", "needed": 1 }
+      ],
+    },
+    {
+      "weaponName": "Hard Bone Shotel",
+      "type": "Long Sword",
+      "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
+      "level": 2,
+      "materials": [
+        { "material": "Monster Bone Large", "needed": 1 },
+        { "material": "Monster Bone Medium", "needed": 1 },
+        { "material": "Boulder Bone", "needed": 1 }
+      ],
+    },
+    {
+      "weaponName": "Bone Reaper",
+      "type": "Long Sword",
+      "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
+      "level": 3,
+      "materials": [
+        { "material": "Monster Hardbone", "needed": 2 },
+        { "material": "Monster Keenbone", "needed": 2 },
+        { "material": "Quality Bone", "needed": 3 }
+      ],
+    },
+    {
+      "weaponName": "Pulsar Shotel",
+      "type": "Long Sword",
+      "tree": "Tobi-Kadachi",
+      "treeIcon": "assets/icons/monsters/tobi.png",
+      "level": 1,
+      "materials": [
+        { "material": "Tobi-Kadachi Claw", "needed": 1 },
+        { "material": "Tobi-Kadachi Pelt", "needed": 3 },
+        { "material": "Tobi-Kadachi Scale", "needed": 2 },
+      ],
+    },
+    {
+      "weaponName": "Flying Kadachi",
+      "type": "Long Sword",
+      "tree": "Tobi-Kadachi",
+      "treeIcon": "assets/icons/monsters/tobi.png",
+      "level": 2,
+      "materials": [
+        { "material": "Tobi-Kadachi Claw", "needed": 3 },
+        { "material": "Tobi-Kadachi Scale", "needed": 1 },
+        { "material": "Tobi-Kadachi Pelt", "needed": 1 },
+        { "material": "Dragonvein Crystal", "needed": 2 }
+      ],
+    },
+    {
+      "weaponName": "Blazing Shotel",
+      "type": "Long Sword",
+      "tree": "Anjanath",
+      "treeIcon": "assets/icons/monsters/anja.png",
+      "level": 1,
+      "materials": [
+        { "material": "Anjanath Fang", "needed": 2 },
+        { "material": "Anjanath Scale", "needed": 3 },
+        { "material": "Flame Sac", "needed": 1 }
+      ],
+    },
+    {
+      "weaponName": "Anja Scimitar",
+      "type": "Long Sword",
+      "tree": 'Anjanath',
+      'treeIcon': 'assets/icons/monsters/anja.png',
+      'level': 2,
+      'materials': [
+        { 'material': 'Anjanath Fang', 'needed': 2 },
+        { 'material': 'Anjanath Scale', 'needed': 2 },
+        { 'material': 'Inferno Sac', 'needed': 2 }
+      ]
+    },
+    {
+      "weaponName": 'Wyvern Blade "Fall"',
+      'type': 'Long Sword',
+      'tree': 'Rathalos',
+      'treeIcon': 'assets/icons/monsters/rath.png',
+      'level': 1,
+      'materials': [
+        { 'material': 'Rathalos Scale', 'needed': 2 },
+        { 'material': 'Rathalos Webbing', 'needed': 2 },
+        { 'material': 'Inferno Sac', 'needed': 1 },
+        { 'material': 'Rathalos Marrow', 'needed': 1 },
+      ]
+    },
+    {
+      "weaponName": 'Wyvern Blade "Blood"',
+      'type': 'Long Sword',
+      'tree': 'Rathalos',
+      'treeIcon': 'assets/icons/monsters/rath.png',
+      'level': 2,
+      'materials': [
+        { 'material': 'Rathalos Scale', 'needed': 2 },
+        { 'material': 'Rathalos Carapace', 'needed': 1 },
+        { 'material': 'Rathalos Wing', 'needed': 1 },
+        { 'material': 'Rathalos Medulla', 'needed': 1 },
+      ]
+    },
+    {
+      "weaponName": "Jyura Shotel",
+      "type": "Long Sword",
+      "tree": "Jyuratodus",
+      "treeIcon": "assets/icons/monsters/jyur.png",
+      "level": 1,
+      "materials": [
+        { "material": "Jyuratodus Fin", "needed": 1 },
+        { "material": "Jyura Shell", "needed": 2 },
+        { "material": "Jyura Scale", "needed": 3 },
+        { "material": "Aqua Sac", "needed": 1 }
+      ],
+    },
+    {
+      "weaponName": "Dipterus",
+      "type": "Long Sword",
+      "tree": "Jyuratodus",
+      "treeIcon": "assets/icons/monsters/jyur.png",
+      "level": 2,
+      "materials": [
+        { "material": "Jyuratodus Fin", "needed": 1 },
+        { "material": "Jyura Carapace", "needed": 2 },
+        { "material": "Jyura Scale", "needed": 2 },
+        { "material": "Aqua Sac", "needed": 1 },
+        { "material": "Gajau Scale", "needed": 1 }
+      ],
+    },
+    //Lance
+    {
+      "weaponName": "Steel Lance",
+      "type": "Lance",
+      "tree": "Iron",
+      "treeIcon": "assets/icons/materials/ore.png",
+      "level": 1,
+      "materials": [
+        { "material": "Dragonite Ore", "needed": 1 },
+        { "material": "Machalite Ore", "needed": 1 },
+        { "material": "Monster Bone Medium", "needed": 1 }
+      ],
+    },
+    {
+      "weaponName": "Chrome Lance",
+      "type": "Lance",
+      "tree": "Iron",
+      "treeIcon": "assets/icons/materials/ore.png",
+      "level": 2,
+      "materials": [
+        { "material": "Fucium Ore", "needed": 2 },
+        { "material": "Carbalite Ore", "needed": 2 },
+        { "material": "Dragonite Ore", "needed": 3 },
+        { "material": "Dragonvein Crystal", "needed": 2 }
+      ],
+    },
+    {
+      "weaponName": "Bone Lance",
+      "type": "Lance",
+      "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
+      "level": 1,
+      "materials": [
+        { "material": "Monster Bone Small", "needed": 1 }
+      ],
+    },
+    {
+      "weaponName": "Hard Bone Lance",
+      "type": "Lance",
+      "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
+      "level": 2,
+      "materials": [
+        { "material": "Monster Bone Large", "needed": 1 },
+        { "material": "Monster Bone Medium", "needed": 1 },
+        { "material": "Boulder Bone", "needed": 1 }
+      ],
+    },
+    {
+      weaponName: "Heavy Bone Lance",
+      type: "Lance",
+      tree: "Bone",
+      treeIcon: 'assets/icons/materials/bone.png',
+      level: 3,
+      materials: [
+        { material: 'Monster Hardbone', needed: 2 },
+        { material: 'Monster Keenbone', needed: 2 },
+        { material: 'Quality Bone', needed: 3 }
+      ]
+    },
+    {
+      weaponName: 'Thunder Lance',
+      type: 'Lance',
+      tree: 'Tobi-Kadachi',
+      treeIcon: 'assets/icons/monsters/tobi.png',
+      level: 1,
+      materials: [
+        { material: 'Dragonite Ore', needed: 2 },
+        { material: 'Tobi-Kadachi Electrode', needed: 1 },
+        { material: 'Tobi-Kadachi Claw', needed: 2 },
+        { material: 'Electro Sac', needed: 2 },
+        { material: 'Coral Crystal', needed: 2 }
+      ]
+    },
+    {
+      weaponName: 'Lightning Spire',
+      type: 'Lance',
+      tree: 'Tobi-Kadachi',
+      treeIcon: 'assets/icons/monsters/tobi.png',
+      level: 2,
+      materials: [
+        { material: 'Fucium Ore', needed: 2 },
+        { material: 'Tobi-Kadachi Electrode', needed: 2 },
+        { material: 'Tobi-Kadachi Claw', needed: 2 },
+        { material: 'Thunder Sac', needed: 1 }
+      ]
+    },
+    {
+      weaponName: 'Flame Lance',
+      type: 'Lance',
+      tree: 'Rathalos',
+      treeIcon: 'assets/icons/monsters/rath.png',
+      level: 1,
+      materials: [
+        { material: 'Rathalos Scale', needed: 2 },
+        { material: 'Rathalos Webbing', needed: 2 },
+        { material: 'Inferno Sac', needed: 1 },
+        { material: 'Rathalos Marrow', needed: 1 }
+      ]
+    },
+    {
+      weaponName: 'Red Tail',
+      type: 'Lance',
+      tree: 'Rathalos',
+      treeIcon: 'assets/icons/monsters/rath.png',
+      level: 2,
+      materials: [
+        { material: 'Rathalos Scale', needed: 2 },
+        { material: 'Rathalos Carapace', needed: 1 },
+        { material: 'Rathalos Wing', needed: 1 },
+        { material: 'Rathalos Medulla', needed: 1 }
+      ]
+    },
+    {
+      "weaponName": "Carapace Lance",
+      "type": "Lance",
+      "tree": "Barroth",
+      "treeIcon": "assets/icons/monsters/barr.png",
+      "level": 1,
+      "materials": [
+        { "material": "Barroth Claw", "needed": 1 },
+        { "material": "Barroth Shell", "needed": 3 },
+        { "material": "Barroth Ridge", "needed": 3 }
+      ],
+    },
+    {
+      "weaponName": "Barroth Stinger",
+      "type": "Lance",
+      "tree": "Barroth",
+      "treeIcon": "assets/icons/monsters/barr.png",
+      "level": 2,
+      "materials": [
+        { "material": "Barroth Claw", "needed": 2 },
+        { "material": "Barroth Carapace", "needed": 3 },
+        { "material": "Barroth Ridge", "needed": 3 }
+      ],
+    },
+    {
+      "weaponName": "Aqua Horn",
+      "type": "Lance",
+      "tree": "Jyuratodus",
+      "treeIcon": "assets/icons/monsters/jyur.png",
+      "level": 1,
+      "materials": [
+        { "material": "Boulder Bone", "needed": 2 },
+        { "material": "Jyuratodus Fin", "needed": 1 },
+        { "material": "Jyura Shell", "needed": 2 },
+        { "material": "Jyura Scale", "needed": 3 },
+        { "material": "Aqua Sac", "needed": 1 },
+      ],
+    },
+    {
+      "weaponName": "Water Spike",
+      "type": "Lance",
+      "tree": "Jyuratodus",
+      "treeIcon": "assets/icons/monsters/jyur.png",
+      "level": 2,
+      "materials": [
+        { "material": "Jyuratodus Fin", "needed": 1 },
+        { "material": "Jyura Carapace", "needed": 2 },
+        { "material": "Jyura Scale", "needed": 2 },
+        { "material": "Aqua Sac", "needed": 1 },
+        { "material": "Gajau Scale", "needed": 1 },
+      ],
+    },
+    //Gunlance
+    {
+      "weaponName": "Steel Gunlance",
+      "type": "Gunlance",
+      "tree": "Iron",
+      "treeIcon": "assets/icons/materials/ore.png",
+      "level": 1,
+      "materials": [
+        { "material": "Dragonite Ore", "needed": 1 },
+        { "material": "Machalite Ore", "needed": 1 },
+        { "material": "Monster Bone Medium", "needed": 1 }
+      ],
+    },
+    {
+      "weaponName": "Chrome Gunlance",
+      "type": "Gunlance",
+      "tree": "Iron",
+      "treeicon": "assets/icons/materials/ore.png",
+      "level": 2,
+      "materials": [
+        { "material": "Fucium Ore", "needed": 2 },
+        { "material": "Carbalite Ore", "needed": 2 },
+        { "material": "Dragonite Ore", "needed": 3 },
+        { "material": "Dragonvein Crystal", "needed": 2 }
+      ],
+    },
+    {
+      "weaponName": "Bone Gunlance",
+      "type": "Gunlance",
+      "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
+      "level": 1,
+      "materials": [
+        { "material": "Monster Bone Small", "needed": 1 }
+      ],
+    },
+    {
+      "weaponName": "Bone Cannon",
+      "type": "Gunlance",
+      "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
+      "level": 2,
+      "materials": [
+        { "material": "Monster Bone Large", "needed": 1 },
+        { "material": "Monster Bone Medium", "needed": 1 },
+        { "material": "Boulder Bone", "needed": 1 }
+      ],
+    },
+    {
+      "weaponName": 'Great Bone Gunlance',
+      "type": 'Gunlance',
+      "tree": 'Bone',
+      "treeIcon": 'assets/icons/materials/bone.png',
+      "level": 3,
+      "materials": [
+        { "material": 'Monster Hardbone', "needed": 2 },
+        { "material": 'Monster Keenbone', "needed": 2 },
+        { "material": 'Quality Bone', "needed": 3 },
+      ]
+    },
+    {
+      "weaponName": "Jagras Gunlance",
+      "type": "Gunlance",
+      "tree": "Great Jagras",
+      "treeIcon": "assets/icons/monsters/g-jagr.png",
+      "level": 1,
+      "materials": [
+        { "material": "Great Jagras Claw", "needed": 1 },
+        { "material": "Great Jagras Hide", "needed": 1 },
+        { "material": "Great Jagras Scale", "needed": 3 },
+        { "material": "Sharp Claw", "needed": 1 },
+      ],
+    },
+    {
+      "weaponName": "Glutton Gunlance",
+      "type": "Gunlance",
+      "tree": "Great Jagras",
+      "treeIcon": "assets/icons/monsters/g-jagr.png",
+      "level": 2,
+      "materials": [
+        { "material": "Great Jagras Scale", "needed": 2 },
+        { "material": "Great Jagras Claw", "needed": 2 },
+        { "material": "Great Jagras Mane", "needed": 2 },
+        { "material": "Piercing Claw", "needed": 1 },
+      ],
+    },
+    {
+      "weaponName": "Rath Gunlance",
+      "type": "Gunlance",
+      "tree": "Rathalos",
+      "treeIcon": "assets/icons/monsters/rath.png",
+      "level": 1,
+      "materials": [
+        { "material": "Rathalos Scale", "needed": 2 },
+        { "material": "Rathalos Webbing", "needed": 1 },
+        { "material": "Inferno Sac", "needed": 1 },
+        { "material": "Rathalos Marrow", "needed": 2 },
+      ],
+    },
+    {
+      "weaponName": "Rde Hook",
+      "type": "Gunlance",
+      "tree": "Rathalos",
+      "treeIcon": "assets/icons/monsters/rath.png",
+      "level": 2,
+      "materials": [
+        { "material": "Rathalos Scale", "needed": 2 },
+        { "material": "Rathalos Carapace", "needed": 1 },
+        { "material": "Rathalos Wing", "needed": 1 },
+        { "material": "Rathalos Medulla", "needed": 1 },
+      ],
+    },
+    {
+      "weaponName": "Carapace Cannon",
+      "type": "Gunlance",
+      "tree": "Barroth",
+      "treeIcon": "assets/icons/monsters/barr.png",
+      "level": 1,
+      "materials": [
+        { "material": "Barroth Claw", "needed": 1 },
+        { "material": "Barroth Shell", "needed": 3 },
+        { "material": "Barroth Ridge", "needed": 2 }
+      ],
+    },
+    {
+      "weaponName": "Barroth Blaster",
+      "type": "Gunlance",
+      "tree": "Barroth",
+      "treeIcon": "assets/icons/monsters/barr.png",
+      "level": 2,
+      "materials": [
+        { "material": "Barroth Claw", "needed": 2 },
+        { "material": "Barroth Carapace", "needed": 3 },
+        { "material": "Barroth Ridge", "needed": 2 },
+        { "material": "Fertile Mud", "needed": 2 }
+      ],
+    },
+    {
+      "weaponName": "Madness Gunlance",
+      "type": "Gunlance",
+      "tree": "Jyuratodus",
+      "treeIcon": "assets/icons/monsters/jyur.png",
+      "level": 1,
+      "materials": [
+        { "material": "Jyuratodus Fin", "needed": 1 },
+        { "material": "Jyura Shell", "needed": 2 },
+        { "material": "Jyura Scale", "needed": 3 },
+        { "material": "Aqua Sac", "needed": 1 },
+      ],
+    },
+    {
+      "weaponName": "Jyura Buster",
+      "type": "Gunlance",
+      "tree": "Jyuratodus",
+      "treeIcon": "assets/icons/monsters/jyur.png",
+      "level": 2,
+      "materials": [
+        { "material": "Jyuratodus Fin", "needed": 1 },
+        { "material": "Jyura Carapace", "needed": 2 },
+        { "material": "Jyura Scale", "needed": 2 },
+        { "material": "Aqua Sac", "needed": 1 },
+        { "material": "Gajau Scale", "needed": 1 },
+      ],
+    },
+    //Light Bowgun
+    {
+      "weaponName": "High Chain Blitz",
+      "type": "Light Bowgun",
+      "tree": "Iron",
+      "treeIcon": "assets/icons/materials/ore.png",
+      "level": 1,
+      "materials": [
+        { "material": "Dragonite Ore", "needed": 1 },
+        { "material": "Machalite Ore", "needed": 1 },
+        { "material": "Monster Bone Medium", "needed": 1 }
+      ],
+    },
+    {
+      "weaponName": "Cross Blitz",
+      "type": "Light Bowgun",
+      "tree": "Iron",
+      "treeIcon": "assets/icons/materials/ore.png",
+      "level": 2,
+      "materials": [
+        { "material": "Fucium Ore", "needed": 2 },
+        { "material": "Carbalite Ore", "needed": 2 },
+        { "material": "Dragonite Ore", "needed": 3 },
+        { "material": "Dragonvein Crystal", "needed": 2 }
+      ],
+    },
+    {
+      "weaponName": "Hunter's Rifle",
+      "type": "Light Bowgun",
+      "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
+      "level": 1,
+      "materials": [
+        { "material": "Monster Bone Small", "needed": 1 }
+      ],
+    },
+    {
+      "weaponName": "Power Rifle",
+      "type": "Light Bowgun",
+      "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
+      "level": 2,
+      "materials": [
+        { "material": "Monster Bone Large", "needed": 1 },
+        { "material": "Monster Bone Medium", "needed": 1 },
+        { "material": "Boulder Bone", "needed": 1 }
+      ],
+    },
+    {
+      "weaponName": "Sniper Shot",
+      "type": "Light Bowgun",
+      "tree": "Bone",
+      "treeIcon": "assets/icons/materials/bone.png",
+      "level": 3,
+      "materials": [
+        { "material": "Monster Hardbone", "needed": 2 },
+        { "material": "Monster Keenbone", "needed": 2 },
+        { "material": "Quality Bone", "needed": 3 }
+      ],
+    },
+    {
+      "weaponName": "Jagras Blitz",
+      "type": "Light Bowgun",
+      "tree": "Great Jagras",
+      "treeIcon": "assets/icons/monsters/g-jagr.png",
+      "level": 1,
+      "materials": [
+        { "material": "Great Jagras Claw", "needed": 1 },
+        { "material": "Great Jagras Hide", "needed": 1 },
+        { "material": "Great Jagras Scale", "needed": 3 },
+        { "material": "Sharp Claw", "needed": 1 },
+      ],
+    },
+    {
+      "weaponName": "Jagras Fire",
+      "type": "Light Bowgun",
+      "tree": "Great Jagras",
+      "treeIcon": "assets/icons/monsters/g-jagr.png",
+      "level": 2,
+      "materials": [
+        { "material": "Great Jagras Scale", "needed": 3 },
+        { "material": "Great Jagras Claw", "needed": 1 },
+        { "material": "Great Jagras Mane", "needed": 2 },
+        { "material": "Piercing Claw", "needed": 1 },
+      ],
+    },
+    {
+      "weaponName": "Flame Blitz",
+      "type": "Light Bowgun",
+      "tree": "Rathalos",
+      "treeIcon": "assets/icons/monsters/rath.png",
+      "level": 1,
+      "materials": [
+        { "material": "Rathalos Scale", "needed": 2 },
+        { "material": "Rathalos Webbing", "needed": 2 },
+        { "material": "Rathalos Marrow", "needed": 1 },
+        { "material": "Inferno Sac", "needed": 2 },
+      ],
+    },
+    {
+      "weaponName": "Rath Blitz",
+      "type": "Light Bowgun",
+      "tree": "Rathalos",
+      "treeIcon": "assets/icons/monsters/rath.png",
+      "level": 2,
+      "materials": [
+        { "material": "Rathalos Scale", "needed": 2 },
+        { "material": "Rathalos Carapace", "needed": 1 },
+        { "material": "Rathalos Wing", "needed": 1 },
+        { "material": "Rathalos Medulla", "needed": 1 },
+      ],
+    },
+    {
+      "weaponName": "Carapace Rifle",
+      "type": "Light Bowgun",
+      "tree": "Barroth",
+      "treeIcon": "assets/icons/monsters/barr.png",
+      "level": 1,
+      "materials": [
+        { "material": "Barroth Claw", "needed": 1 },
+        { "material": "Barroth Shell", "needed": 3 },
+        { "material": "Barroth Ridge", "needed": 2 }
+      ],
+    },
+    {
+      "weaponName": "Barroth Shot",
+      "type": "Light Bowgun",
+      "tree": "Barroth",
+      "treeIcon": "assets/icons/monsters/barr.png",
+      "level": 2,
+      "materials": [
+        { "material": "Barroth Claw", "needed": 2 },
+        { "material": "Barroth Carapace", "needed": 3 },
+        { "material": "Barroth Ridge", "needed": 2 }
+      ],
+    },
+    {
+      "weaponName": "Madness Rifle",
+      "type": "Light Bowgun",
+      "tree": "Jyuratodus",
+      "treeIcon": "assets/icons/monsters/jyur.png",
+      "level": 1,
+      "materials": [
+        { "material": "Jyuratodus Fin", "needed": 1 },
+        { "material": "Jyura Shell", "needed": 2 },
+        { "material": "Jyura Scale", "needed": 3 },
+        { "material": "Aqua Sac", "needed": 1 }
+      ],
+    },
+    {
+      "weaponName": "Jyura Blitz",
+      "type": "Light Bowgun",
+      "tree": "Jyuratodus",
+      "treeIcon": "assets/icons/monsters/jyur.png",
+      "level": 2,
+      "materials": [
+        { "material": "Jyuratodus Fin", "needed": 1 },
+        { "material": "Jyura Carapace", "needed": 2 },
+        { "material": "Jyura Scale", "needed": 2 },
+        { "material": "Aqua Sac", "needed": 1 },
+        { "material": "Gajau Scale", "needed": 1 }
+      ],
+    },
+    //Charge Blade
+    //Switch Axe
+    //Insect Glaive
+    //Heavy Bowgun
   ];
 
   basicMaterials = [

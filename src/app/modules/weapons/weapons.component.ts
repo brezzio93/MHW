@@ -57,7 +57,7 @@ export class WeaponsComponent implements OnInit {
 
   initWeapons() {
     this.ds.recipeWeapons.forEach((weapon: any) => {
-      let auxWeapon = this.ds.weapons.find(x => x.weaponName == weapon.weaponName);
+      let auxWeapon = this.ds.weapons.find(x => x.weaponName == weapon.weaponName && x.idCampaign == this.ds.campaignID);
       weapon.weaponCrafted = (auxWeapon?.weaponCrafted) ? auxWeapon?.weaponCrafted : false;
     });
   }
@@ -81,6 +81,7 @@ export class WeaponsComponent implements OnInit {
 
       w.materials.forEach((material: any) => {
         material.owned = this.ds.materials.find(x => x.materialName == material.material)?.materialQuantity;
+        material.owned = (material.owned) ? material.owned : 0;
         material.craftable = (Math.floor(material.owned / material.needed) > 1);
         if (!material.craftable) w.craftable = false;
       });
