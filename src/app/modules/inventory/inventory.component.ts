@@ -25,7 +25,21 @@ export class InventoryComponent {
   ) { }
 
   ngOnInit(): void {
-    this.materials = this.ds.materials;
+    this.itemsInit();
+  }
+
+  itemsInit() {
+    this.loading = true;
+    this.ds.getItems().subscribe((response) => {
+      this.ds.materials = response;
+      this.ds.materials.forEach(element => {
+        let auxMaterial = this.ds.basicMaterials.find(x => x.materialName == element.materialName);
+        element.tree = auxMaterial?.tree;
+        element.treeIcon = auxMaterial?.treeIcon;
+      });
+      this.materials = this.ds.materials;
+      this.loading = false;
+    });
   }
 
   add(addedAmount: any) {

@@ -42,7 +42,6 @@ export class ArmorsComponent implements OnInit {
       armor.materials = auxArmor?.materials;
       armor.tree = auxArmor?.tree;
       armor.treeIcon = auxArmor?.treeIcon;
-      console.log(armor);
 
       if (armor.materials != undefined) {
 

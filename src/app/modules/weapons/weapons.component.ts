@@ -24,6 +24,12 @@ export class WeaponsComponent implements OnInit {
     { id: 'sns', name: 'Sword and Shield' , icon: 'assets/icons/weapons/sword-and-shield.png'},
     { id: 'db', name: 'Dual Blades' , icon: 'assets/icons/weapons/dual-blades.png'},
     { id: 'bow', name: 'Bow' , icon: 'assets/icons/weapons/bow.png'},
+    { id: 'h', name: 'Hammer' , icon: 'assets/icons/weapons/hammer.png'},
+    { id: 'hh', name: 'Hunting Horn' , icon: 'assets/icons/weapons/hammer.png'},
+    { id: 'l', name: 'Lance' , icon: 'assets/icons/weapons/lance.png'},
+    { id: 'gl', name: 'Gunlance' , icon: 'assets/icons/weapons/gunlance.png'},
+    { id: 'ls', name: 'Longsword' , icon: 'assets/icons/weapons/long-sword.png'},
+    { id: 'lbg', name: 'Light Bowgun' , icon: 'assets/icons/weapons/light-gun.png'},
   ];
   chosenType: any;
   loadingTable = false;

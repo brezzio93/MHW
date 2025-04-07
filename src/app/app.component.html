@@ -2,15 +2,20 @@
 
 <!-- <button style="width: 98%" (click)="goTo('Log')">Mission Log</button> -->
 <dx-tabs
+    [items]="tab"
+    [selectedIndex]="selected"
+    (onItemClick)="goTo($event.itemData.id)" >
+</dx-tabs>
+<dx-tabs
     [items]="tabs"
     [selectedIndex]="selected"
     (onItemClick)="goTo($event.itemData.id)" >
 </dx-tabs>
 
 @if(!loading){
-    <app-mission-log *ngIf="selected == 'Log'"></app-mission-log>
-    <app-inventory *ngIf="selected == 0" ></app-inventory>
-    <app-armors *ngIf="selected == 1"></app-armors>
-    <app-weapons *ngIf="selected == 2"></app-weapons>
+    <app-mission-log *ngIf="selected == 0"></app-mission-log>
+    <app-inventory *ngIf="selected == 1" ></app-inventory>
+    <app-armors *ngIf="selected == 2"></app-armors>
+    <app-weapons *ngIf="selected == 3"></app-weapons>
 
 }
