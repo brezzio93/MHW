@@ -39,6 +39,7 @@ export class InventoryComponent {
       });
       this.materials = this.ds.materials;
       this.loading = false;
+      console.log(this.materials)
     });
   }
 
@@ -56,9 +57,7 @@ export class InventoryComponent {
 
     this.ds.updateItem(params).subscribe((resUpdate) => {
       this.addedAmount = 0;
-      this.ds.getItems().subscribe((materials) => {
-        this.materials = this.ds.materials = materials;
-      })
+      this.itemsInit();
       this.loading = false;
     })
   }

@@ -23,6 +23,7 @@ export class DataService {
   weapons: any[] = [];
   materials: any[] = [];
   recipeArmors = [
+    //Alloy
     {
       "armorName": "Alloy Helm",
       "tree": "Iron",
@@ -80,6 +81,7 @@ export class DataService {
         }
       ]
     },
+    //Bone
     {
       "armorName": "Bone Helm",
       "tree": "Bone",
@@ -125,6 +127,7 @@ export class DataService {
         }
       ]
     },
+    //Jagras
     {
       "armorName": "Jagras Helm",
       "tree": "Great Jagras",
@@ -190,6 +193,7 @@ export class DataService {
         }
       ]
     },
+    //Tobi-Kadachi
     {
       "armorName": "Kadachi Helm",
       "tree": "Tobi-Kadachi",
@@ -251,6 +255,7 @@ export class DataService {
         }
       ]
     },
+    //Anjanath
     {
       "armorName": "Anja Helm",
       "tree": "Anjanath",
@@ -312,6 +317,7 @@ export class DataService {
         }
       ]
     },
+    //Rathalos
     {
       "armorName": "Rathalos Helm",
       "tree": "Rathalos",
@@ -369,6 +375,7 @@ export class DataService {
         }
       ]
     },
+    //Azure Rathalos
     {
       "armorName": "Rath Soul Helm",
       "tree": "Azure Rathalos",
@@ -2129,10 +2136,12 @@ export class DataService {
     {
       "materialName": "Wingdrake Hide",
       "tree": "Monster",
+      "treeIcon": "assets/icons/materials/leather.png",
     },
     {
       "materialName": "Gajau Scale",
       "tree": "Monster",
+      "treeIcon": "assets/icons/materials/leather.png",
     },
     {
       "materialName": "Firecell Stone",
@@ -2295,8 +2304,6 @@ export class DataService {
       "treeIcon": "assets/icons/monsters/ratha.png",
     },
     {
-      "id": "47",
-      "idCampaign": "0",
       "materialName": "Rathalos Wingtalon",
       "tree": "Rathalos",
       "treeIcon": "assets/icons/monsters/ratha.png",

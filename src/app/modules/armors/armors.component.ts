@@ -29,22 +29,19 @@ export class ArmorsComponent implements OnInit {
   getArmors() {
     this.loadingTable = true;
     this.ds.getArmors().subscribe((res) => {
-      this.armors = res;
+      this.ds.armors = res;
       this.setOwned();
       this.loadingTable = false;
-
     });
   }
 
   setOwned() {
-    this.armors.forEach((armor: any) => {
-      let auxArmor = this.ds.recipeArmors.find(x => x.armorName == armor.armorName);
-      armor.materials = auxArmor?.materials;
-      armor.tree = auxArmor?.tree;
-      armor.treeIcon = auxArmor?.treeIcon;
+    this.armors = [];
+    this.ds.recipeArmors.forEach((armor: any) => {
+      let auxArmor = this.ds.armors.find(x => x.armorName == armor.armorName);
+      armor.amountCrafted = (auxArmor?.amountCrafted) ? auxArmor?.amountCrafted : 0;
 
       if (armor.materials != undefined) {
-
         armor.craftable = 100;
 
         armor.materials.forEach((material: any) => {
@@ -53,6 +50,7 @@ export class ArmorsComponent implements OnInit {
           if (material.craftable < armor.craftable) armor.craftable = material.craftable;
         });
       }
+      this.armors.push(armor)
     });
     console.log(this.armors);
   }
@@ -77,11 +75,10 @@ export class ArmorsComponent implements OnInit {
 
   forge(e: any) {
     this.loadingUpdate = true;
-    let idCampaign = this.armors.find((x: any) => x.armorName == e.armorName).idCampaign;
     let auxArmorRecipe = this.ds.recipeArmors.find((x) => x.armorName == e.armorName);
 
     let params = {
-      idCampaign: idCampaign,
+      idCampaign: this.ds.campaignID.toString(),
       armorJson: auxArmorRecipe,
     }
 
