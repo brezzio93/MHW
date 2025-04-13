@@ -31,7 +31,7 @@ import { DxTabPanelModule, DxTabsModule } from 'devextreme-angular';
 })
 
 export class AppComponent {
-  title = 'Monster Hunter World Boardgame';
+  title = 'MHW Boardgame';
   router: any;
   selected: any;
   loading = true;
@@ -42,6 +42,7 @@ export class AppComponent {
       icon: 'assets/icons/monsters.png',
     },
   ]
+
   tabs = [
     {
       id: 1,
@@ -63,7 +64,7 @@ export class AppComponent {
   constructor(
     private ds: DataService,
   ) {
-    this.selected = 0;
+    this.selected = 1;
   }
 
   ngOnInit(): void {

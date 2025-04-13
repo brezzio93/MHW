@@ -1,1 +1,12 @@
-<p>mission-log works!</p>
+@for(day of missionLog; track day) {
+<div class="mission-log-entry dx-tab borders">
+    <div class="mission-log-image">
+        <img src="{{ day.icon }}" alt="" [ngClass]="day.class" />
+    </div>
+    <div class="mission-log-text">
+        <span><b>Day:</b> {{ day.day }}</span>
+        <span><b>Mission:</b> {{ day.mission }}</span>
+        <span><b>Status:</b> {{ day.status }}</span>
+    </div>
+</div>
+}

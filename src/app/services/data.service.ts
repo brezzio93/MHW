@@ -19,6 +19,51 @@ export class DataService {
 
   campaignID = 0;
 
+  missionLog = [
+    {
+      idCampaign: 0,
+      campaignName: 'Academia Jedi',
+      day: 1,
+      mission: 'Great Jagras Assignment',
+      status: 'Victory',
+    },
+    {
+      idCampaign: 0,
+      campaignName: 'Academia Jedi',
+      day: 2,
+      mission: 'Great Jagras Assignment',
+      status: 'Victory',
+    },
+    {
+      idCampaign: 0,
+      campaignName: 'Academia Jedi',
+      day: 3,
+      mission: 'Great Jagras Assignment',
+      status: 'Victory',
+    },
+    {
+      idCampaign: 0,
+      campaignName: 'Academia Jedi',
+      day: 4,
+      mission: 'Great Jagras Assignment',
+      status: 'Victory',
+    },
+    {
+      idCampaign: 0,
+      campaignName: 'Academia Jedi',
+      day: 5,
+      mission: 'Tobi-Kadachi Assignment',
+      status: 'Victory',
+    },
+    {
+      idCampaign: 0,
+      campaignName: 'Academia Jedi',
+      day: 6,
+      mission: 'HQ',
+      status: 'Rest',
+    },
+  ];
+
   armors: any[] = [];
   weapons: any[] = [];
   materials: any[] = [];

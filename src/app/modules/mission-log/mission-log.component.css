@@ -1,0 +1,44 @@
+.normal {
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  display: block;
+}
+.invert {
+  filter: invert(0.5);
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  display: block;
+}
+
+::ng-deep .dx-item {
+  width: 100% !important;
+}
+
+.mission-log-entry {
+  display: flex;
+  align-items: center; /* vertically center image and text */
+  gap: 1rem; /* spacing between image and text */
+}
+
+.mission-log-image img {
+  width: 50px; /* or any size you prefer */
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px; /* optional: rounded corners */
+}
+
+.mission-log-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.borders {
+  border-color: #d7d7d7;
+  border-style: solid;
+  border-width: 1px;
+}
