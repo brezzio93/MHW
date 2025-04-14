@@ -1,18 +1,27 @@
 <h1>{{ title }}</h1>
-
-<dx-tabs
-    [items]="tab"
-    (onItemClick)="goTo($event.itemData.id)" >
-</dx-tabs>
-<dx-tabs
-    [items]="tabs"
-    (onItemClick)="goTo($event.itemData.id)" >
-</dx-tabs>
-
-@if(!loading){
-    <app-mission-log *ngIf="selected == 0"></app-mission-log>
-    <app-inventory *ngIf="selected == 1" ></app-inventory>
-    <app-armors *ngIf="selected == 2"></app-armors>
-    <app-weapons *ngIf="selected == 3"></app-weapons>
-
+<div style="margin-bottom: 2rem;">
+    <dx-button class="mainButton" style="margin-right: 5%;" (onClick)="inQuest = true">Quest</dx-button>
+    <dx-button class="mainButton" style="margin-left: 5%;"  (onClick)="inQuest = false">Inventory</dx-button>
+</div>
+@if(inQuest) {
+    <app-mission></app-mission>
 }
+@if(!inQuest) {
+    <dx-tabs
+        [items]="tab"
+        (onItemClick)="goTo($event.itemData.id)" >
+    </dx-tabs>
+    <dx-tabs style="margin-bottom: 2rem;"
+        [items]="tabs"
+        (onItemClick)="goTo($event.itemData.id)" >
+    </dx-tabs>
+    
+    @if(!loading) {
+    
+        <app-mission-log *ngIf="selected == 0"></app-mission-log>
+        <app-inventory *ngIf="selected == 1" ></app-inventory>
+        <app-armors *ngIf="selected == 2"></app-armors>
+        <app-weapons *ngIf="selected == 3"></app-weapons>
+    }
+}
+

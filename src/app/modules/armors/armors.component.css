@@ -9,3 +9,7 @@
     margin: 0 !important;
     width: 100% !important;
   }
+  
+  ::ng-deep .dx-datagrid-header-panel .dx-toolbar {
+    margin-bottom: 0px;
+  }

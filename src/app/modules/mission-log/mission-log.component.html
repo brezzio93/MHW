@@ -6,11 +6,10 @@
     <div class="mission-log-text">
         <span><b>Day:</b> {{ day.day }}</span>
         <span style="font-size: smaller;"><b>Mission:</b> {{ day.mission }}</span>
-        <!-- <span><b>Status:</b> <span [ngClass]="{'status-green': day.status == 'Victory', 'status-red': day.status == 'Failure'}">{{ day.status }}</span> </span> -->
     </div>
-    @if(day.status == 'Victory' || day.status == 'Failure') {
-        <div class="mission-log-image">
-            <img src="{{ day.statusIcon }}" alt="" [ngClass]="day.class" [class.sepia]="day.status == 'Victory'" style="width: 78px;"/>
+    @if(day.missionStatus == 'victory' || day.missionStatus == 'failure') {
+        <div class="mission-log-image" style="position: absolute; right: 2%;">
+            <img src="{{ day.statusIcon }}" alt="" [ngClass]="day.class" [class.sepia]="day.missionStatus == 'victory'" style="width: 78px;"/>
         </div>
     }
 </div>

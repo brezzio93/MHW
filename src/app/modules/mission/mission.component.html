@@ -1,0 +1,43 @@
+<!-- Mission Select -->
+<dx-select-box
+[items]="missionList"
+    valueExpr="id"
+    fieldTemplate="field"
+    placeholder="Choose Mission"
+    (onValueChanged)="selectQuest($event.value)"
+    >
+    <div *dxTemplate="let data of 'field'">
+        <div class="custom-item">
+            <img alt="" src="{{data && data.icon }}" style=" height: 50px;"/>
+            <dx-text-box
+                class="text"
+                [value]="data && data.difficulty"
+                [inputAttr]="{ 'aria-label': 'Name' }"
+                [readOnly]="true"
+            ></dx-text-box>
+        </div>
+    </div>
+    <div *dxTemplate="let data of 'item'">
+        <div class="custom-item">
+            <img alt="" src="{{ data && data.icon }}" style=" height: 50px;" />
+            <div class="text">
+                {{ data.monster }} {{ data.difficulty }}
+            </div>
+        </div>
+    </div>
+</dx-select-box>
+
+<!-- Quest -->
+<!-- Starting Point -->
+@for(i of startingPoint; track i) {
+    <div class="questNode">
+        {{quest[i-1].text}}
+
+        <!-- @for(option of quest[i-1].options; track option){
+            <div>
+                {{option.text}}
+            </div>
+        } -->
+
+    </div>
+}

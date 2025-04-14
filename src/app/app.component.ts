@@ -7,7 +7,8 @@ import { CommonModule } from '@angular/common';
 import { MissionLogComponent } from "./modules/mission-log/mission-log.component";
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './services/data.service';
-import { DxTabPanelModule, DxTabsModule } from 'devextreme-angular';
+import { DxButtonModule, DxTabPanelModule, DxTabsModule } from 'devextreme-angular';
+import { MissionComponent } from './modules/mission/mission.component';
 
 @Component({
   selector: 'app-root',
@@ -15,12 +16,14 @@ import { DxTabPanelModule, DxTabsModule } from 'devextreme-angular';
   imports: [
     RouterOutlet,
     CommonModule,
-    DxTabsModule,
+    HttpClientModule,
     InventoryComponent,
     WeaponsComponent,
     ArmorsComponent,
     MissionLogComponent,
-    HttpClientModule,
+    MissionComponent,
+    DxButtonModule,
+    DxTabsModule,
   ],
 
   providers: [
@@ -34,6 +37,7 @@ export class AppComponent {
   title = 'MHW Boardgame';
   router: any;
   selected: any;
+  inQuest = false;
   loading = true;
   tab = [
     {
@@ -64,15 +68,17 @@ export class AppComponent {
   constructor(
     private ds: DataService,
   ) {
-    // this.selected = 1;
   }
 
   ngOnInit(): void {
     this.loading = true;
-    this.ds.getItems().subscribe((response) => {
-      this.ds.materials = response;
-      this.loading = false;
-    });
+    this.ds.getCampaign(0).subscribe((campaign) => {
+      this.ds.getItems().subscribe((items) => {
+        this.ds.materials = items;
+        this.loading = false;
+      });
+    }
+    );
   }
 
   goTo(route: any) {

@@ -19,50 +19,7 @@ export class DataService {
 
   campaignID = 0;
 
-  missionLog = [
-    {
-      idCampaign: 0,
-      campaignName: 'Academia Jedi',
-      day: 1,
-      mission: 'Great Jagras Assignment',
-      status: 'Victory',
-    },
-    {
-      idCampaign: 0,
-      campaignName: 'Academia Jedi',
-      day: 2,
-      mission: 'Great Jagras Assignment',
-      status: 'Victory',
-    },
-    {
-      idCampaign: 0,
-      campaignName: 'Academia Jedi',
-      day: 3,
-      mission: 'Great Jagras Assignment',
-      status: 'Victory',
-    },
-    {
-      idCampaign: 0,
-      campaignName: 'Academia Jedi',
-      day: 4,
-      mission: 'Great Jagras Assignment',
-      status: 'Failure',
-    },
-    {
-      idCampaign: 0,
-      campaignName: 'Academia Jedi',
-      day: 5,
-      mission: 'Tobi-Kadachi Assignment',
-      status: 'Victory',
-    },
-    {
-      idCampaign: 0,
-      campaignName: 'Academia Jedi',
-      day: 6,
-      mission: 'HQ',
-      status: 'Rest',
-    },
-  ];
+  missionLog = [];
 
   armors: any[] = [];
   weapons: any[] = [];
@@ -2402,12 +2359,12 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getCampaign(): Observable<any> {
-    return this.http.get(this.apiUrl + 'campaign/getCampaign', this.headers);
+  getCampaign(id: any): Observable<any> {
+    return this.http.get(this.apiUrl + 'campaign/getCampaign/' + id, this.headers);
   }
 
   getMissionLog(id: any): Observable<any> {
-    return this.http.get(this.apiUrl + 'campaign/getMissionLog', this.headers);
+    return this.http.get(this.apiUrl + 'campaign/getMissionLogs/' + id, this.headers);
   }
 
   getItems(): Observable<any> {

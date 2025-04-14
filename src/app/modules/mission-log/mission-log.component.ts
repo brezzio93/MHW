@@ -25,23 +25,17 @@ export class MissionLogComponent {
   }
 
   ngOnInit() {
-    this.missionLog = this.ds.missionLog;
-    this.setClasses();
-
-    // this.ds.getMissionLog(this.ds.campaignID).subscribe((res: any) => {
-    // this.ds.missionLog = res;
-    // });
-
-
-
-    console.log(this.missionLog)
+    this.ds.getMissionLog(this.ds.campaignID).subscribe((res: any) => {
+      this.missionLog = this.ds.missionLog = res;
+      this.setClasses();
+    });
   }
 
   setClasses() {
     this.missionLog.forEach((day: any) => {
-      if(day.status == 'Victory') day.statusIcon = "assets/icons/win.png"
-      if(day.status == 'Failure') day.statusIcon = "assets/icons/failed.png"
-      
+      if (day.missionStatus == 'victory') day.statusIcon = "assets/icons/win.png"
+      if (day.missionStatus == 'failure') day.statusIcon = "assets/icons/failed.png"
+
       if (day.mission.includes("Jagras")) {
         day.icon = "assets/icons/monsters/g-jagr.png";
         day.class = "normal";
@@ -66,6 +60,7 @@ export class MissionLogComponent {
         day.icon = "assets/icons/box.png";
         day.class = "invert";
       }
+      console.log(day)
     });
   }
 
