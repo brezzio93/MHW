@@ -64,7 +64,7 @@ export class AppComponent {
   constructor(
     private ds: DataService,
   ) {
-    this.selected = 1;
+    // this.selected = 1;
   }
 
   ngOnInit(): void {

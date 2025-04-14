@@ -46,7 +46,7 @@ export class DataService {
       campaignName: 'Academia Jedi',
       day: 4,
       mission: 'Great Jagras Assignment',
-      status: 'Victory',
+      status: 'Failure',
     },
     {
       idCampaign: 0,
@@ -2400,10 +2400,15 @@ export class DataService {
     }
   ]
 
-
-
-
   constructor(private http: HttpClient) { }
+
+  getCampaign(): Observable<any> {
+    return this.http.get(this.apiUrl + 'campaign/getCampaign', this.headers);
+  }
+
+  getMissionLog(id: any): Observable<any> {
+    return this.http.get(this.apiUrl + 'campaign/getMissionLog', this.headers);
+  }
 
   getItems(): Observable<any> {
     return this.http.get(this.apiUrl + 'itemBox/getItemBox', this.headers);
