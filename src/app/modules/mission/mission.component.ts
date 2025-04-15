@@ -19,12 +19,13 @@ export class MissionComponent {
   jagrasQuest = [
     {
       id: 1,
-      text: 'La costa cerca del Campamento Suroeste se baña en el sol, con una luz brillante que se refleja en las pozas poco profundas donde riegan Kestodon y Aptonoth. Más adelante se ve la entrada al Bosque Antiguo, formado por un arco de ramas gruesas, que se abre como unas fauces abiertas... los sonidos del mundo que hay detrás de ti se desvanecen en silencio al pasar bajo el rico dosel verde, dejando una breve sensación de calma, que pronto se rompe cuando las Moscas Exploradoras se agrupan emocionadas alrededor de una enorme huella en el suelo.',
+      text: 'La costa cerca del Campamento Suroeste se baña en el sol, con una luz brillante que se refleja en las pozas poco profundas donde beben Kestodon y Aptonoth. Más adelante se ve la entrada al Bosque Antiguo, formado por un arco de ramas gruesas, que se abre como unas fauces abiertas... los sonidos del mundo que hay detrás de ti se desvanecen en silencio al pasar bajo el rico dosel verde, dejando una breve sensación de calma, que pronto se rompe cuando las Moscas Exploradoras se agrupan emocionadas alrededor de una enorme huella en el suelo.',
+      potions: 1,
       options: [
         {
           progressTo: 21,
           text: '¡Sigue las Scoutflies!',
-          action: 'Descarta una carta de tiempo. Ganan 1 Ficha de Rastreo. Avanzan a la entrada 21.'
+          action: 'Descarta una carta de tiempo. Ganan 1 Ficha de Rastreo. Avanzan a la entrada 21.',
         }
       ]
     },
@@ -32,89 +33,93 @@ export class MissionComponent {
       id: 2,
       text: 'Un Gran Jagras anda suelto; la última semana te ha presentado abundantes pruebas: docenas de cadáveres, destrozados en un frenesí y medio comidos. Esta será una cacería que pondrá a prueba incluso a los rastreadores más experimentados. Has oído hablar de Jagras que consumen cazadores de un solo bocado. Ese no serás tú.',
       action: 'Cada cazador gana 1 Great Jagras Claw.',
+      potions: 2,
       options: [
         {
           progressTo: 27,
           text: '¿Echarse a correr por el sendero?',
-          acttion: 'Ganan 1 Ficha de Rastreo. Avanzan a la entrada 27.',
+          action: 'Ganan 1 Ficha de Rastreo. Avanzan a la entrada 27.',
         },
         {
           progressTo: 25,
           text: '¿Se quedan y rebuscan entre los restos?',
-          acttion: 'Descarta 1 Carta de Tiempo. Cada cazador gana 1 Monster Bone Medium. Avanzan a la entrada 25.',
+          action: 'Descarta 1 Carta de Tiempo. Cada cazador gana 1 Monster Bone Medium. Avanzan a la entrada 25.',
         },
         {
           progressTo: 30,
           text: '¡Corren hacia donde se vió por última vez a su presa!',
-          acttion: 'Descarta 5 Cartas de Tiempo. Avanzan a la entrada 30.',
+          action: 'Descarta 5 Cartas de Tiempo. Avanzan a la entrada 30.',
         }
       ]
     },
     {
       id: 3,
       text: "La encargada que está junto a las huellas te lanza una mirada evaluadora. 'Yo tendría mucho cuidado al perseguir a esta bestia,' dice, rascándose la barbilla distraídamente. 'Es agresiva incluso para los estándares de los Jagras. Pero, si insistes en rastrearla toma esa ruta...,' señala un sendero de tierra que conduce al bosque. 'Todavía tiene hambre. ¡Buena suerte!.' Dada su advertencia, se desvanece en el bosque.",
+      potions: 1,
       options: [
         {
           progressTo: 26,
           text: 'Siguen su consejo y avanzan lentamente.',
-          acttion: 'Ganan y revelan 1 Ficha de Rastreo, luego eligen mantenerla o descartarla. Avanzan a la entrada 26.',
+          action: 'Ganan y revelan 1 Ficha de Rastreo, luego eligen mantenerla o descartarla. Avanzan a la entrada 26.',
         },
         {
           progressTo: 16,
           text: '!Con tantos rastros, no hay tiempo que perder!',
-          acttion: 'Ganan 2 Fichas de Rastreo. Avanzan a la entrada 16',
+          action: 'Ganan 2 Fichas de Rastreo. Avanzan a la entrada 16',
         },
         {
           progressTo: 30,
           text: '¡Corren hacia donde se vió por última vez a su presa!',
-          acttion: 'Descarta 5 Cartas de Tiempo. Avanzan a la entrada 30.',
+          action: 'Descarta 5 Cartas de Tiempo. Avanzan a la entrada 30.',
         }
       ]
     },
     {
       id: 4,
-      text: '',
+      text: 'La playa se extiende ante ti, una exquisita extensión de arena intacta. El mar la atraviesa, dejando una espuma brillante que marca cada ola. El bosque se alza detrás de ti, un recuerdo opresivo, pero puede que tengas que retirarte a su follaje y dejar atrás esta hermosa escena. Tu...',
+      potions: 2,
       options: [
         {
           progressTo: 22,
-          text: '',
-          acttion: '',
+          text: 'Bajas por la playa',
+          action: ' Descartan 1 Carta de Tiempo. Ganan 1 Ficha de Rastreo. Avanzan a la entrada 22.',
         },
         {
           progressTo: 9,
-          text: '',
-          acttion: '',
+          text: 'Regresa al bosque, hacia un campamento que puedes ver entre los árboles.',
+          action: 'Descartan 1 Carta de Tiempo. Avanzan a la entrada 9.',
         },
         {
           progressTo: 30,
           text: '¡Corren hacia donde se vió por última vez a su presa!',
-          acttion: 'Descarta 5 Cartas de Tiempo. Avanzan a la entrada 30.',
+          action: 'Descarta 5 Cartas de Tiempo. Avanzan a la entrada 30.',
         }
       ]
     },
     {
       id: 5,
-      text: '',
+      text: 'El estruendo de agua amenaza con distraer tu mente mientras exploras el terreno cercano. El Gran Jagras está de caza, y tú estás tras su rastro. El río de abajo se adentra en el bosque, y el espeso follaje de los árboles oscurece el camino de la criatura que buscas.',
+      potions: 1,
       options: [
         {
           progressTo: 13,
-          text: '',
-          acttion: '',
+          text: 'Sigue las huellas que puedas',
+          action: 'Descartan 1 Carta de Tiempo. Ganan 2 Fichas de Rastreo. Avanzan a la entrada 13.',
         },
         {
           progressTo: 24,
-          text: '',
-          acttion: '',
+          text: 'Investiga el área',
+          action: 'Descartan 2 Cartas de Tiempo. Cada Cazador gana 1 Piercing Claw y 1 Monster Bone Large. Avanzan a la entrada 14.',
         },
         {
           progressTo: 14,
-          text: '',
-          acttion: '',
+          text: 'Dirígete río abajo hasta donde se vio al Gran Jagras por última vez.',
+          action: 'Descartan 1 Carta de Tiempo. Avanzan a la entrada 14.',
         },
         {
           progressTo: 30,
           text: '¡Corren hacia donde se vió por última vez a su presa!',
-          acttion: 'Descarta 5 Cartas de Tiempo. Avanzan a la entrada 30.',
+          action: 'Descarta 5 Cartas de Tiempo. Avanzan a la entrada 30.',
         },
       ]
     },
@@ -125,12 +130,12 @@ export class MissionComponent {
         {
           progressTo: 18,
           text: '',
-          acttion: '',
+          action: '',
         },
         {
           progressTo: 30,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -141,12 +146,12 @@ export class MissionComponent {
         {
           progressTo: 11,
           text: '',
-          acttion: '',
+          action: '',
         },
         {
           progressTo: 30,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -157,12 +162,12 @@ export class MissionComponent {
         {
           progressTo: 7,
           text: '',
-          acttion: '',
+          action: '',
         },
         {
           progressTo: 6,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -173,12 +178,12 @@ export class MissionComponent {
         {
           progressTo: 29,
           text: '',
-          acttion: '',
+          action: '',
         },
         {
           progressTo: 19,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -188,7 +193,7 @@ export class MissionComponent {
         {
           progressTo: 7,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -198,12 +203,12 @@ export class MissionComponent {
         {
           progressTo: 30,
           text: '',
-          acttion: '',
+          action: '',
         },
         {
           progressTo: 18,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -213,12 +218,12 @@ export class MissionComponent {
         {
           progressTo: 6,
           text: '',
-          acttion: '',
+          action: '',
         },
         {
           progressTo: 6,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -228,7 +233,7 @@ export class MissionComponent {
         {
           progressTo: 10,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -238,12 +243,12 @@ export class MissionComponent {
         {
           progressTo: 13,
           text: '',
-          acttion: '',
+          action: '',
         },
         {
           progressTo: 24,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -253,12 +258,12 @@ export class MissionComponent {
         {
           progressTo: 30,
           text: '',
-          acttion: '',
+          action: '',
         },
         {
           progressTo: 19,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -268,12 +273,12 @@ export class MissionComponent {
         {
           progressTo: 27,
           text: '',
-          acttion: '',
+          action: '',
         },
         {
           progressTo: 29,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -283,12 +288,12 @@ export class MissionComponent {
         {
           progressTo: 6,
           text: '',
-          acttion: '',
+          action: '',
         },
         {
           progressTo: 28,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -298,12 +303,12 @@ export class MissionComponent {
         {
           progressTo: 28,
           text: '',
-          acttion: '',
+          action: '',
         },
         {
           progressTo: 15,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -313,7 +318,7 @@ export class MissionComponent {
         {
           progressTo: 30,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -323,12 +328,12 @@ export class MissionComponent {
         {
           progressTo: 15,
           text: '',
-          acttion: '',
+          action: '',
         },
         {
           progressTo: 9,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -338,12 +343,12 @@ export class MissionComponent {
         {
           progressTo: 23,
           text: '',
-          acttion: '',
+          action: '',
         },
         {
           progressTo: 23,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -353,12 +358,12 @@ export class MissionComponent {
         {
           progressTo: 25,
           text: '',
-          acttion: '',
+          action: '',
         },
         {
           progressTo: 20,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -368,12 +373,12 @@ export class MissionComponent {
         {
           progressTo: 12,
           text: '',
-          acttion: '',
+          action: '',
         },
         {
           progressTo: 7,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -383,12 +388,12 @@ export class MissionComponent {
         {
           progressTo: 27,
           text: '',
-          acttion: '',
+          action: '',
         },
         {
           progressTo: 26,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -398,12 +403,12 @@ export class MissionComponent {
         {
           progressTo: 27,
           text: '',
-          acttion: '',
+          action: '',
         },
         {
           progressTo: 8,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -413,17 +418,17 @@ export class MissionComponent {
         {
           progressTo: 29,
           text: '',
-          acttion: '',
+          action: '',
         },
         {
           progressTo: 28,
           text: '',
-          acttion: '',
+          action: '',
         },
         {
           progressTo: 17,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -433,12 +438,12 @@ export class MissionComponent {
         {
           progressTo: 12,
           text: '',
-          acttion: '',
+          action: '',
         },
         {
           progressTo: 29,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -448,12 +453,12 @@ export class MissionComponent {
         {
           progressTo: 15,
           text: '',
-          acttion: '',
+          action: '',
         },
         {
           progressTo: 19,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -463,12 +468,12 @@ export class MissionComponent {
         {
           progressTo: 6,
           text: '',
-          acttion: '',
+          action: '',
         },
         {
           progressTo: 18,
           text: '',
-          acttion: '',
+          action: '',
         },
       ]
     },
@@ -675,6 +680,11 @@ export class MissionComponent {
     }
 
     console.log(this.quest)
+
+  }
+
+  selectStartingNode(index: number) {
+    console.log(index)
 
   }
 

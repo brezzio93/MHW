@@ -34,10 +34,9 @@ import { MissionComponent } from './modules/mission/mission.component';
 })
 
 export class AppComponent {
-  title = 'MHW Boardgame';
   router: any;
   selected: any;
-  inQuest = false;
+  inQuest = true;
   loading = true;
   tab = [
     {
