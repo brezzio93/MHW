@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { DxSelectBoxModule, DxTextBoxModule } from 'devextreme-angular';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-mission',
@@ -25,7 +26,7 @@ export class MissionComponent {
         {
           progressTo: 21,
           text: '¡Sigue las Scoutflies!',
-          action: 'Descarta una carta de tiempo. Ganan 1 Ficha de Rastreo. Avanzan a la entrada 21.',
+          action: 'Descarta una carta de tiempo. Ganan 1 Ficha de Rastreo. \n',
         }
       ]
     },
@@ -38,17 +39,17 @@ export class MissionComponent {
         {
           progressTo: 27,
           text: '¿Echarse a correr por el sendero?',
-          action: 'Ganan 1 Ficha de Rastreo. Avanzan a la entrada 27.',
+          action: 'Ganan 1 Ficha de Rastreo. \n',
         },
         {
           progressTo: 25,
           text: '¿Se quedan y rebuscan entre los restos?',
-          action: 'Descarta 1 Carta de Tiempo. Cada cazador gana 1 Monster Bone Medium. Avanzan a la entrada 25.',
+          action: 'Descarta 1 Carta de Tiempo. Cada cazador gana 1 Monster Bone Medium. \n',
         },
         {
           progressTo: 30,
           text: '¡Corren hacia donde se vió por última vez a su presa!',
-          action: 'Descarta 5 Cartas de Tiempo. Avanzan a la entrada 30.',
+          action: 'Descarta 5 Cartas de Tiempo. \n',
         }
       ]
     },
@@ -60,17 +61,17 @@ export class MissionComponent {
         {
           progressTo: 26,
           text: 'Siguen su consejo y avanzan lentamente.',
-          action: 'Ganan y revelan 1 Ficha de Rastreo, luego eligen mantenerla o descartarla. Avanzan a la entrada 26.',
+          action: 'Ganan y revelan 1 Ficha de Rastreo, luego eligen mantenerla o descartarla. \n',
         },
         {
           progressTo: 16,
           text: '!Con tantos rastros, no hay tiempo que perder!',
-          action: 'Ganan 2 Fichas de Rastreo. Avanzan a la entrada 16',
+          action: 'Ganan 2 Fichas de Rastreo. \n',
         },
         {
           progressTo: 30,
           text: '¡Corren hacia donde se vió por última vez a su presa!',
-          action: 'Descarta 5 Cartas de Tiempo. Avanzan a la entrada 30.',
+          action: 'Descarta 5 Cartas de Tiempo. \n',
         }
       ]
     },
@@ -82,17 +83,17 @@ export class MissionComponent {
         {
           progressTo: 22,
           text: 'Bajas por la playa',
-          action: ' Descartan 1 Carta de Tiempo. Ganan 1 Ficha de Rastreo. Avanzan a la entrada 22.',
+          action: ' Descartan 1 Carta de Tiempo. Ganan 1 Ficha de Rastreo. \n',
         },
         {
           progressTo: 9,
           text: 'Regresa al bosque, hacia un campamento que puedes ver entre los árboles.',
-          action: 'Descartan 1 Carta de Tiempo. Avanzan a la entrada 9.',
+          action: 'Descartan 1 Carta de Tiempo. \n',
         },
         {
           progressTo: 30,
           text: '¡Corren hacia donde se vió por última vez a su presa!',
-          action: 'Descarta 5 Cartas de Tiempo. Avanzan a la entrada 30.',
+          action: 'Descarta 5 Cartas de Tiempo. \n',
         }
       ]
     },
@@ -104,70 +105,71 @@ export class MissionComponent {
         {
           progressTo: 13,
           text: 'Sigue las huellas que puedas',
-          action: 'Descartan 1 Carta de Tiempo. Ganan 2 Fichas de Rastreo. Avanzan a la entrada 13.',
+          action: 'Descartan 1 Carta de Tiempo. Ganan 2 Fichas de Rastreo. \n',
         },
         {
           progressTo: 24,
           text: 'Investiga el área',
-          action: 'Descartan 2 Cartas de Tiempo. Cada Cazador gana 1 Piercing Claw y 1 Monster Bone Large. Avanzan a la entrada 14.',
+          action: 'Descartan 2 Cartas de Tiempo. Cada Cazador gana 1 Piercing Claw y 1 Monster Bone Large. \n',
         },
         {
           progressTo: 14,
-          text: 'Dirígete río abajo hasta donde se vio al Gran Jagras por última vez.',
-          action: 'Descartan 1 Carta de Tiempo. Avanzan a la entrada 14.',
+          text: 'Dirígete río abajo hasta donde se vio al Gran Jagras por última vez. \n',
+          action: 'Descartan 1 Carta de Tiempo. \n',
         },
         {
           progressTo: 30,
           text: '¡Corren hacia donde se vió por última vez a su presa!',
-          action: 'Descarta 5 Cartas de Tiempo. Avanzan a la entrada 30.',
+          action: 'Descarta 5 Cartas de Tiempo. \n',
         },
       ]
     },
     {
       id: 6,
-      text: '',
+      text: 'Justo cuando estás a punto de desanimarte, te encuentras con un montón de excrementos del Gran Jagras, dejados por tu presa. Puede ser una vista espantosa, pero te llena el corazón de esperanza mientras te diriges a un claro más adelante.',
       options: [
         {
           progressTo: 18,
-          text: '',
-          action: '',
+          text: 'No hay tiempo para mirar atrás.',
+          action: 'Descarta 1 Carta de Tiempo. Gana 3 Fichas de Rastreo. \n',
         },
         {
           progressTo: 30,
-          text: '',
+          text: 'Espera, escuchen... ¿Hay algo detrás de nosotros?',
           action: '',
         },
       ]
     },
     {
       id: 7,
-      text: '',
+      text: 'La luz parpadeante pinta sombras espeluznantes en las paredes, charcos danzantes de oscuridad que dan mente a feroces depredadores. Tus pies levantan polvo y crujen a través de pequeños huesos, revelando metales y gemas brillantes.',
       options: [
         {
           progressTo: 11,
-          text: '',
-          action: '',
+          text: 'Registra la cueva',
+          action: 'Descarta 1 Carta de Tiempo. \nCada cazador lanza dados en la siguiente tabla.\n \n 1-2 Ganan 1 Dragonite Ore.\n 3-4 Ganan 1 Fucium Ore.\n 5-6 Ganan 1 Ancient Bone.\n \n Una vez que cada jugador haya tirado. \n',
         },
         {
           progressTo: 30,
-          text: '',
+          text: 'Regresa de este sinistro lugar',
           action: '',
         },
       ]
     },
     {
       id: 8,
-      text: '',
+      text: '¿Has estado por aqui antes? Todo te parece familiar. Pero entonces... el bosque siempre te parece familiar. Definitivamente estás perdido. Finalmente ves una cueva, algo en las rocas de afuera está brillando al sol. Estás a punto de usar tu pico, cuando ves unas huellas, medio enterradas en el polvo.',
+      action: 'Descarta 1 Carta de Tiempo.',
       options: [
         {
           progressTo: 7,
-          text: '',
-          action: '',
+          text: 'Extrae el mineral y entra en la cueva.',
+          action: 'Descarta 1 Ficha de Rastreo. \nCada cazador lanza dados en la siguiente tabla.\n \n 1-2 Ganan 1 Dragonite Ore.\n 3-4 Ganan 1 Fucium Ore.\n 5-6 Ganan 1 Firecell Stone.\n \n Una vez que cada jugador haya tirado. \n',
         },
         {
           progressTo: 6,
-          text: '',
-          action: '',
+          text: 'Sigue las huellas que puedas ver, y espera que estén frescas.',
+          action: 'Descarta 1 Carta de Tiempo. Gana 1 Ficha de Rastreo.',
         },
       ]
     },
@@ -505,7 +507,7 @@ export class MissionComponent {
     {},
   ]
 
-  missionList = [
+  missionList: any = [
     {
       id: 0,
       monster: 'Great Jagras',
@@ -603,11 +605,50 @@ export class MissionComponent {
   node: any;
   startingPoint: any = [];
 
-  ngOnInit(): void {
+  constructor(
+    private ds: DataService
+  ) {
 
   }
 
+  ngOnInit(): void {
+    this.ds.getMissionLog(this.ds.campaignID).subscribe(logs => {
+      this.missionList.forEach((mission: any, i: number) => {
+        //Estado inicial
+        if (mission.disabled == undefined) {
+          if (i == 0) mission.disabled = false;
+          else mission.disabled = true;
+        }
+
+        let logMission = logs.find((x: any) => x.mission == (mission.monster + ' ' + mission.difficulty))
+        if (logMission != undefined) {
+          if (mission.difficulty == 'Assigned Quest') {
+            if (logMission.missionStatus == 'victory') {
+              this.missionList[i].disabled = true; //Se bloquea mission assigned
+              this.missionList[i + 1].disabled = false; //Desbloquea misión de investigación
+
+              if (this.missionList[i + 3] != undefined)
+                this.missionList[i + 3].disabled = false; //Desbloquea siguiente monstruo
+            }
+          }
+          if (mission.difficulty == 'Investigation Quest') {
+            this.missionList[i + 1].disabled = false; //Desbloquea versión tempered
+
+          }
+        }
+
+      })
+
+    })
+
+  }
+
+  /**
+   *  Asigna las variables Quest y StartingPoint
+   */
   selectQuest(index: number) {
+
+    this.node = undefined;
 
     //Great Jagras
     if (index == 0) {
@@ -684,8 +725,20 @@ export class MissionComponent {
   }
 
   selectStartingNode(index: number) {
-    console.log(index)
+    console.log('startingNode:', index);
+    this.node = this.quest[index - 1];
+  }
 
+  selectNode(progressTo: number) {
+    console.log('progressTo:', progressTo);
+    if (progressTo != undefined) {
+      this.node = this.quest[progressTo - 1];
+    }
+    else {
+
+      //Mostrar resumen?
+
+    }
   }
 
 }

@@ -21,36 +21,77 @@
     <div *dxTemplate="let data of 'item'">
         <div class="custom-item">
             <img alt="" src="{{ data && data.icon }}" style="height: 50px" />
-            <div class="text">{{ data.monster }} {{ data.difficulty }}</div>
+            <div class="text"> {{ data.difficulty }} </div>
         </div>
     </div>
 </dx-select-box>
 
 <!-- Quest -->
 <!-- Starting Point -->
-@for(i of startingPoint; track i) {
-<div class="questNode" (click)="selectStartingNode(i)">
-    <div class="titleNode">
-        <span> {{ i }} </span>
+@if(node == undefined) {
+    @if(startingPoint.length != 0){
+        <h4>Set Starting point</h4>
+    }
+    @for(i of startingPoint; track i) {
+    <div class="questNode" style="border-width: 2px; border-color:#7f7f7f" (click)="selectStartingNode(i)">
+        <div class="titleNode">
+            <span> {{ i }} </span>
+        </div>
+        <div class="textNode">
+            <span> {{ quest[i - 1].text }} </span>
+            @if(quest[i - 1].action != undefined) {
+                <div>
+                    <br>
+                    <span><b> {{ quest[i - 1].action }} </b></span>
+                </div>
+            }
+        </div>
+    
+        <div>
+            @for(option of quest[i-1].options; track option){
+                <div class="startingOptionNode">
+                    {{option.text}}
+                    <br>
+                    <span style="white-space: pre-wrap;"><b> {{ option.action }} </b></span>
+                    @if(option.progressTo != undefined) {
+                        <span><b>Avanzan a la entrada  {{ option.progressTo }} </b></span>
+                    }
+                </div>
+            }
+        </div>
     </div>
-    <div class="textNode">
-        <span> {{ quest[i - 1].text }} </span>
-        @if(quest[i - 1].action != undefined) {
-            <div>
-                <br>
-                <span><b> {{ quest[i - 1].action }} </b></span>
-            </div>
-        }
-    </div>
+    }
+}
 
-    <div>
-        @for(option of quest[i-1].options; track option){
-            <div class="textNode">
-                {{option.text}}
-                <br>
-                <span><b> {{ option.action }} </b></span>
-            </div>
-        }
+<!-- Node -->
+@if(node != undefined){
+    <div class="questNode">
+        <div class="titleNode">
+            <span> {{ node.id }} </span>
+        </div>
+
+        <div class="textNode">
+            <span> {{ node.text }} </span>
+            @if(node.action != undefined) {
+                <div>
+                    <br>
+                    <span><b> {{ node.action }} </b></span>
+                </div>
+            }
+        </div>
+        
+        <div>
+            @for(option of node.options; track option){
+                <div class="optionNode" style="border-width: 2px; border-color:#7f7f7f" (click)="selectNode(option.progressTo)">
+                    {{option.text}}
+                    <br>
+                    <span style="white-space: pre-wrap;"><b> {{ option.action }} </b></span>
+                    @if(option.progressTo != undefined) {
+                        <span><b>Avanzan a la entrada  {{ option.progressTo }} </b></span>
+                    }
+                </div>
+            }
+        </div>        
+
     </div>
-</div>
 }
