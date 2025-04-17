@@ -7,26 +7,31 @@
 
 .titleNode {
   justify-self: anchor-center;
-  padding: 1rem;
+  padding: 0.5rem;
   font-weight: 800;
 }
 
 .textNode {
   border-top: 1px solid #d7d7d7;
-  padding: 1rem;
+  padding: 0.5rem;
   text-align: justify;
 }
 
 .startingOptionNode {
   border-top: 1px solid #d7d7d7;
-  padding: 1rem;
+  padding: 0.5rem;
   text-align: center;
 }
 
 .optionNode {
   border: 2px solid #7f7f7f;
-  padding: 1rem;
+  padding: 0.5rem;
   text-align: center;
+}
+
+.disabled {
+  border: 1px solid #b3b3b3;
+  pointer-events: none;
 }
 
 ::ng-deep .custom-item {
