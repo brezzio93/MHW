@@ -29,6 +29,10 @@
   text-align: center;
 }
 
+.obscured {
+  filter: brightness(0.5);
+}
+
 .disabled {
   border: 1px solid #b3b3b3;
   pointer-events: none;

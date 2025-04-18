@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { DxSelectBoxModule, DxTextBoxModule } from 'devextreme-angular';
+import { DxDataGridModule, DxPopupModule, DxSelectBoxModule, DxTextBoxModule } from 'devextreme-angular';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -8,8 +8,10 @@ import { DataService } from '../../services/data.service';
   standalone: true,
   imports: [
     CommonModule,
+    DxDataGridModule,
     DxSelectBoxModule,
     DxTextBoxModule,
+    DxPopupModule,
   ],
   templateUrl: './mission.component.html',
   styleUrl: './mission.component.css'
@@ -25,8 +27,7 @@ export class MissionComponent {
       options: [
         {
           progressTo: 21,
-          text: '¡Sigue las Scoutflies!',
-          action: 'Descarta una carta de tiempo. Ganan 1 Ficha de Rastreo. \n',
+          text: '¡Sigue las Scoutflies!\n <b> Descarta una carta de tiempo. Ganan 1 Ficha de Rastreo.\n Avanzan a la entrada 1 </b>',
           trackTokens: 1,
         }
       ]
@@ -42,14 +43,12 @@ export class MissionComponent {
       options: [
         {
           progressTo: 27,
-          text: '¿Echarse a correr por el sendero?',
-          action: 'Ganan 1 Ficha de Rastreo. \n',
+          text: '¿Echarse a correr por el sendero?\n <b> Ganan 1 Ficha de Rastreo. Avanzan a la entrada 27 </b>',
           trackTokens: 1,
         },
         {
           progressTo: 25,
-          text: '¿Se quedan y rebuscan entre los restos?',
-          action: 'Descarta 1 Carta de Tiempo. Cada cazador gana 1 Monster Bone Medium. \n',
+          text: '¿Se quedan y rebuscan entre los restos?\n<b> Descarta 1 Carta de Tiempo. Cada cazador gana 1 Monster Bone Medium. Avanzan a la entrada 25</b>',
           timeCards: -1,
           materials: [
             { name: 'Monster Bone Medium', qty: 1, playerMultiplier: true },
@@ -57,8 +56,7 @@ export class MissionComponent {
         },
         {
           progressTo: 30,
-          text: '¡Corren hacia donde se vió por última vez a su presa!',
-          action: 'Descarta 5 Cartas de Tiempo. \n',
+          text: '¡Corren hacia donde se vió por última vez a su presa!\n<b>Descarta 5 Cartas de Tiempo. Avanzan a la entrada 30</b>',
           timeCards: -5,
         }
       ]
@@ -70,20 +68,17 @@ export class MissionComponent {
       options: [
         {
           progressTo: 26,
-          text: 'Siguen su consejo y avanzan lentamente.',
-          action: 'Ganan y revelan 1 Ficha de Rastreo, luego eligen mantenerla o descartarla. \n',
+          text: 'Siguen su consejo y avanzan lentamente. \n <b> Ganan y revelan 1 Ficha de Rastreo, luego eligen mantenerla o descartarla. Avanzan a la entrada 26 <b>',
           trackTokens: 1,
         },
         {
           progressTo: 16,
-          text: '!Con tantos rastros, no hay tiempo que perder!',
-          action: 'Ganan 2 Fichas de Rastreo. \n',
+          text: '!Con tantos rastros, no hay tiempo que perder! \n <b> Ganan 2 Fichas de Rastreo. Avanzan a la entrada 16. </b>',
           trackTokens: 2,
         },
         {
           progressTo: 30,
-          text: '¡Corren hacia donde se vió por última vez a su presa!',
-          action: 'Descarta 5 Cartas de Tiempo. \n',
+          text: '¡Corren hacia donde se vió por última vez a su presa! \n <b> Descarta 5 Cartas de Tiempo. Avanzan a la entrada 30\n </b>',
           timeCards: -5,
         }
       ]
@@ -95,21 +90,18 @@ export class MissionComponent {
       options: [
         {
           progressTo: 22,
-          text: 'Bajas por la playa',
-          action: ' Descartan 1 Carta de Tiempo. Ganan 1 Ficha de Rastreo. \n',
+          text: 'Bajas por la playa. \n <b>Descartan 1 Carta de Tiempo. Ganan 1 Ficha de Rastreo.\n Avanzan a la entrada 22 </b>',
           timeCards: -1,
           trackTokens: 1,
         },
         {
           progressTo: 9,
-          text: 'Regresa al bosque, hacia un campamento que puedes ver entre los árboles.',
-          action: 'Descartan 1 Carta de Tiempo. \n',
+          text: 'Regresa al bosque, hacia un campamento que puedes ver entre los árboles. \n <b> Descartan 1 Carta de Tiempo. Avanzan a la entrada 9 </b>',
           timeCards: -1,
         },
         {
           progressTo: 30,
-          text: '¡Corren hacia donde se vió por última vez a su presa!',
-          action: 'Descartan 5 Cartas de Tiempo. \n',
+          text: '¡Corren hacia donde se vió por última vez a su presa! \n <b> Descartan 5 Cartas de Tiempo. Avanzan a la entrada 30. </b>',
           timeCards: -5,
         }
       ]
@@ -121,15 +113,13 @@ export class MissionComponent {
       options: [
         {
           progressTo: 13,
-          text: 'Sigue las huellas que puedas',
-          action: 'Descartan 1 Carta de Tiempo. Ganan 2 Fichas de Rastreo. \n',
+          text: 'Sigue las huellas que puedas.\n <b> Descartan 1 Carta de Tiempo. Ganan 2 Fichas de Rastreo.\n Avanzan a la entrada 13 </b>',
           timeCards: -1,
           trackTokens: 2,
         },
         {
           progressTo: 24,
-          text: 'Investiga el área',
-          action: 'Descartan 2 Cartas de Tiempo. Cada Cazador gana 1 Piercing Claw y 1 Monster Bone Large. \n',
+          text: 'Investiga el área. \n <b> Descartan 2 Cartas de Tiempo. Cada Cazador gana 1 Piercing Claw y 1 Monster Bone Large. Avanzan a la entrada 24. </b>',
           timeCards: -2,
           materials: [
             { name: 'Piercing Claw', qty: 1, playerMultiplier: true },
@@ -138,14 +128,12 @@ export class MissionComponent {
         },
         {
           progressTo: 14,
-          text: 'Dirígete río abajo hasta donde se vio al Great Jagras por última vez. \n',
-          action: 'Descartan 1 Carta de Tiempo. \n',
+          text: 'Dirígete río abajo hasta donde se vio al Great Jagras por última vez.\n <b> Descartan 1 Carta de Tiempo. Avanzan a la entrada 14 </b>',
           timeCards: -1,
         },
         {
           progressTo: 30,
-          text: '¡Corren hacia donde se vió por última vez a su presa!',
-          action: 'Descartan 5 Cartas de Tiempo. \n',
+          text: '¡Corren hacia donde se vió por última vez a su presa!\n <b> Descartan 5 Cartas de Tiempo. Avanzan a la entrada 30 </b>',
           timeCards: -5,
         },
       ]
@@ -156,15 +144,13 @@ export class MissionComponent {
       options: [
         {
           progressTo: 18,
-          text: 'No hay tiempo para mirar atrás.',
-          action: 'Descarta 1 Carta de Tiempo. Gana 3 Fichas de Rastreo. \n',
+          text: 'No hay tiempo para mirar atrás.\n <b> Descarta 1 Carta de Tiempo. Gana 3 Fichas de Rastreo. Avanzan a la entrada 18</b>',
           timeCards: -1,
           trackTokens: 3,
         },
         {
           progressTo: 30,
-          text: 'Espera, escuchen... ¿Hay algo detrás de nosotros?',
-          action: '\n',
+          text: 'Espera, escuchen... ¿Hay algo detrás de nosotros?\n <b>Avanzan a la entrada 30 </b>',
         },
       ]
     },
@@ -174,8 +160,7 @@ export class MissionComponent {
       options: [
         {
           progressTo: 11,
-          text: 'Registra la cueva',
-          action: 'Descarta 1 Carta de Tiempo. \nCada cazador lanza dados en la siguiente tabla.\n \n 1-2 Ganan 1 Dragonite Ore.\n 3-4 Ganan 1 Fucium Ore.\n 5-6 Ganan 1 Ancient Bone.\n \n Una vez que cada jugador haya tirado. \n',
+          text: 'Registra la cueva.\n<b>Descarta 1 Carta de Tiempo.\nCada cazador lanza dados en la siguiente tabla.</b>\n \n <b> 1-2 </b> Ganan 1 Dragonite Ore.\n <b> 3-4 </b> Ganan 1 Fucium Ore.\n <b> 5-6 </b> Ganan 1 Ancient Bone.\n \n <b> Una vez que cada jugador haya tirado. Avanzan a la entrada 11 </b>',
           timeCards: -1,
           diceRoll: [
             { roll: '1-2', rewards: { material: 'Dragonite Ore', qty: 1 } },
@@ -185,8 +170,7 @@ export class MissionComponent {
         },
         {
           progressTo: 30,
-          text: 'Regresa de este sinistro lugar',
-          action: '',
+          text: 'Regresa de este sinistro lugar.\n<b> Avanzan a la entrada 30 </b>',
         },
       ]
     },
@@ -198,8 +182,7 @@ export class MissionComponent {
       options: [
         {
           progressTo: 7,
-          text: 'Extrae el mineral y entra en la cueva.',
-          action: 'Descarta 1 Ficha de Rastreo. \nCada cazador lanza dados en la siguiente tabla.\n \n 1-2 Ganan 1 Dragonite Ore.\n 3-4 Ganan 1 Fucium Ore.\n 5-6 Ganan 1 Firecell Stone.\n \n Una vez que cada jugador haya tirado. \n',
+          text: 'Extrae el mineral y entra en la cueva. \n <b>Descarta 1 Ficha de Rastreo. \nCada cazador lanza dados en la siguiente tabla.</b>\n \n <b>1-2</b> Ganan 1 Dragonite Ore.\n <b>3-4</b> Ganan 1 Fucium Ore.\n <b>5-6</b> Ganan 1 Firecell Stone.\n \n <b>Una vez que cada jugador haya tirado. Avanzan a la entrada 7 </b>',
           trackTokens: -1,
           diceRoll: [
             { roll: '1-2', rewards: { material: 'Dragonite Ore', qty: 1 } },
@@ -209,8 +192,7 @@ export class MissionComponent {
         },
         {
           progressTo: 6,
-          text: 'Sigue las huellas que puedas ver, y espera que estén frescas.',
-          action: 'Descarta 1 Carta de Tiempo. Gana 1 Ficha de Rastreo.',
+          text: 'Sigue las huellas que puedas ver, y espera que estén frescas.\n <b> Descarta 1 Carta de Tiempo. Gana 1 Ficha de Rastreo. Avanzan a la entrada 6.</b>',
           timeCards: -1,
           trackTokens: 1,
         },
@@ -224,13 +206,11 @@ export class MissionComponent {
       options: [
         {
           progressTo: 29,
-          text: 'Pide su ayuda',
-          action: 'Cada cazador que no tenga un Palico roba una carta de Palico.\n Pueden usarla durante la siguiente fase de caza luego se descarta.\n',
+          text: 'Pide su ayuda.\n <b> Cada cazador que no tenga un Palico roba una carta de Palico.\n Pueden usarla durante la siguiente fase de caza luego se descarta. Avanzan a la entrada 29.</b>',
         },
         {
           progressTo: 19,
-          text: 'Pide un guía',
-          action: 'Ganan y revelan 4 Fichas de Rastreo, luego elijan si las conservan o descartarlas.\n',
+          text: 'Pide un guía.\n <b> Ganan y revelan 4 Fichas de Rastreo, luego elijan si las conservan o descartarlas.\n Avanzan a la entrada 19. </b>',
           trackTokens: 4,
         },
       ]
@@ -240,18 +220,19 @@ export class MissionComponent {
       text: 'Has acechado a través del bosque, de forma intrincada y cuidadosamente te has abierto camino... a la misma cueva que has visitado muchas veces antes. Aún así, tal vez, todavía haya algún mineral por descubrir.',
       options: [
         {
-          progressTo: 18,
-          text: 'Tira un dado, con 1-4, se ha extraido todo el mineral',
-          action: 'Hora de darse prisa.\n',
-        },
-        {
-          progressTo: 7,
-          text: 'Tira un dado, con 5-6, todavía queda algo aquí.',
-          action: 'Descarta 1 Carta de Tiempo.\nCada cazador gana 1 Carbalite Ore y 1 Machalite Ore.\n',
-          timeCards: -1,
-          materials: [
-            { name: 'Carbalite Ore', qty: 1, playerMultiplier: true },
-            { name: 'Machalite Ore', qty: 1, playerMultiplier: true },
+          text: '<b>Tira un dado.</b>\n Con <b> 1-4 </b>, se ha extraido todo el mineral.\n <b> Hora de darse prisa. Avanzan a la entrada 18. </b> \n Con <b> 5-6 </b>, todavía queda algo aquí. \n <b> Descarta 1 Carta de Tiempo.\nCada cazador gana 1 Carbalite Ore y 1 Machalite Ore.\n Avanzan a la entrada 7. </b>',
+          diceRoll: [
+            {
+              progressTo: 18,
+            },
+            {
+              progressTo: 7,
+              timeCards: -1,
+              materials: [
+                { name: 'Carbalite Ore', qty: 1, playerMultiplier: true },
+                { name: 'Machalite Ore', qty: 1, playerMultiplier: true },
+              ],
+            }
           ],
         },
       ]
@@ -262,15 +243,13 @@ export class MissionComponent {
       options: [
         {
           progressTo: 30,
-          text: '¡Sigue moviendote!',
-          action: 'Descarta 1 Carta de Tiempo. Gana 2 Fichas de Rastreo.\n',
+          text: '¡Sigue moviendote! \n <b> Descarta 1 Carta de Tiempo. Gana 2 Fichas de Rastreo.\n Avanzan a la entrada 30. </b>',
           timeCards: -1,
           trackTokens: 2,
         },
         {
           progressTo: 18,
-          text: 'Avanzacon cuidado',
-          action: 'Descarta 1 Carta de Tiempo. Revela hasta 3 de tus Fichas de Rastreo.\n',
+          text: 'Avanzacon cuidado. \n <b> Descarta 1 Carta de Tiempo. Revela hasta 3 de tus Fichas de Rastreo.\n Avanzan a la entrada 18. </b>',
           timeCards: -1,
         },
       ]
@@ -281,17 +260,16 @@ export class MissionComponent {
       options: [
         {
           progressTo: 6,
-          text: 'Se obligan a continuar.',
-          action: 'Todos los cazadores sufren 2 de daño.\n',
+          text: 'Se obligan a continuar. \n <b> Todos los cazadores sufren 2 de daño.\n Avanzan a la entrada 6. </b>',
         },
         {
           progressTo: 6,
-          text: 'Bebe de tus suministros.',
-          action: '(Los cazadores solo pueden elegir esta opción si tienen al menos 1 Poción). Descarta 1 Poción.\n',
+          text: 'Bebe de tus suministros.\n <b> (Los cazadores solo pueden elegir esta opción si tienen al menos 1 Potion). Descarta 1 Potion.\n Avanzan a la entrada 6. </b>',
           disabled: {
             disabled: true,
             if: { variable: 'Potion', operator: '>=', value: 1, then: { disable: false } }
           },
+          potions: -1,
         },
       ]
     },
@@ -301,8 +279,15 @@ export class MissionComponent {
       options: [
         {
           progressTo: 10,
-          text: '\n',
-          action: 'Los jugadores pueden descartar 3 recursos cualesquiera y añadir 1 Poción a l areserva, o ganar 1 Ficha de Rastreo. Si lo hacen, descartan 1 Carta de Tiempo.\n',
+          text: '<b> Los jugadores pueden descartar 3 recursos cualesquiera y añadir 1 Potion a la reserva, o ganar 1 Ficha de Rastreo. Si lo hacen, descartan 1 Carta de Tiempo.\n Avanzan a la entrada 10. </b>',
+          openMenu: {
+            requiredMaterials: 3,
+            possibleRewards: [
+              { name: 'Potion', qty: 1, },
+              { name: 'Track Token', qty: 1, },
+            ],
+            timeCards: -1,
+          }
         },
       ]
     },
@@ -316,13 +301,11 @@ export class MissionComponent {
       options: [
         {
           progressTo: 13,
-          text: 'Investiga la voz.',
-          action: '\n',
+          text: 'Investiga la voz.\n <b> Avancen a la entrada 13. </b>',
         },
         {
           progressTo: 24,
-          text: 'Ignóralo y continúa buscando en el nido de la criatura.',
-          action: '(Los jugadores sólo pueden seleccionar esta opción si tienen al menos 1 Great Jagras Hide en sus inventarios). Descarta 2 tarjetas de tiempo. Gana 1 Great Jagras Mane.',
+          text: '<b>(Los jugadores sólo pueden seleccionar esta opción si tienen al menos 1 Great Jagras Hide en sus inventarios).</b>\n\nIgnóralo y continúa buscando en el nido de la criatura.\n <b> Descarta 2 tarjetas de tiempo. Gana 1 Great Jagras Mane. Avancen a la entrada 24. </b>',
           disabled: {
             disabled: true,
             if: { variable: 'Great Jagras Hide', operator: '>=', value: 1, then: { disable: false } }
@@ -340,13 +323,11 @@ export class MissionComponent {
       options: [
         {
           progressTo: 30,
-          text: 'No podemos perder el tiempo. ¡Sigue con la persecución!',
-          action: 'Baraja la carta de Rushed Advance en el mazo de tiempo.\n',
+          text: 'No podemos perder el tiempo. ¡Sigue con la persecución! \n <b> Baraja la carta de Rushed Advance en el mazo de tiempo.\n Avancen a la entrada 30. </b>',
         },
         {
           progressTo: 19,
-          text: 'Acampa por la noche.',
-          action: 'Descarta 2 Cartas de Tiempo, todos los cazadores se sanan por completo.\n',
+          text: 'Acampa por la noche. \n <b> Descarta 2 Cartas de Tiempo, todos los cazadores se sanan por completo.\n Avancen a la entrada 19. </b>',
           timeCards: -2,
         },
       ]
@@ -357,13 +338,23 @@ export class MissionComponent {
       options: [
         {
           progressTo: 27,
-          text: 'Revisa la mochila.',
-          action: 'Tira 1 dado.\n Con un 1-2 "¡No hay tiempo!"\n Avanzan a la entrada 27.\n Con 3-4 "¡Toma la bolsa antes de que caiga sobre ti!"\n Agrega 1 poción. Avanzan a la entrada 27.\n Con 5-6 "¡Agarra los minerales del suelo!". \n Cada cazador gana 1 Carbalite Ore y 1 Machalite Ore.\n',
+          text: 'Revisa la mochila. <b> Tira 1 dado. </b> \n Con un <b> 1-2 </b> "¡No hay tiempo!"\n <b> Avanzan a la entrada 27. </b> \n Con <b> 3-4 </b>"¡Toma la bolsa antes de que caiga sobre ti!"\n<b> Agrega 1 Potion. Avanzan a la entrada 27. </b> \n Con <b> 5-6 </b> "¡Agarra los minerales del suelo!". \n <b> Cada cazador gana 1 Carbalite Ore y 1 Machalite Ore.\n Avancen a la entrada 27. </b>',
+          diceRoll: [
+            {},
+            {
+              potions: 1,
+            },
+            {
+              materials: [
+                { name: 'Carbalite Ore', qty: 1, playerMultiplier: true },
+                { name: 'Machalite Ore', qty: 1, playerMultiplier: true },
+              ],
+            },
+          ],
         },
         {
           progressTo: 29,
-          text: 'Déjalo y explora a través de un hueco entre los árboles.',
-          action: '\n',
+          text: 'Déjalo y explora a través de un hueco entre los árboles. \n <b> Avancen a la entrada 29. </b>',
         },
       ]
     },
@@ -377,8 +368,7 @@ export class MissionComponent {
       options: [
         {
           progressTo: 6,
-          text: 'Obtienes una escama con cuidado',
-          action: 'Descarta 1 Carta de Tiempo.\n Ganas 1 Great Jagras Scale.\n',
+          text: 'Obtienes una escama con cuidado \n <b> Descarta 1 Carta de Tiempo.\n Ganas 1 Great Jagras Scale.\n Avancen a la entrada 6. </b>',
           timeCards: -1,
           materials: [
             { name: 'Great Jagras Scale', qty: 1, playerMultiplier: false }
@@ -386,8 +376,7 @@ export class MissionComponent {
         },
         {
           progressTo: 28,
-          text: '¡El rastro se está enfriando!',
-          action: '\n',
+          text: '¡El rastro se está enfriando! \n <b> Avancen a la entrada 28. </b>',
         },
       ]
     },
@@ -397,15 +386,13 @@ export class MissionComponent {
       options: [
         {
           progressTo: 28,
-          text: 'Sigue el rastro.',
-          action: 'Descarta 1 Carta de Tiempo. Gana 1 Ficha de Rastreo.\n',
+          text: 'Sigue el rastro.\n <b> Descarta 1 Carta de Tiempo. Gana 1 Ficha de Rastreo.\n Avancen a la entrada 28. </b>',
           timeCards: -1,
           trackTokens: 1,
         },
         {
           progressTo: 15,
-          text: 'Detente a examinarlas más de cerca.',
-          action: 'Descarta 2 Cartas de Tiempo. Descarta 1 Ficha de Rastreo.\n',
+          text: 'Detente a examinarlas más de cerca.\n <b> Descarta 2 Cartas de Tiempo. Descarta 1 Ficha de Rastreo.\n Avancen a la entrada 15. </b>',
           timeCards: -2,
           trackTokens: -1,
         },
@@ -417,8 +404,7 @@ export class MissionComponent {
       options: [
         {
           progressTo: 30,
-          text: '\n',
-          action: 'Si el grupo tiene 4 o menos Fichas de Rastreo, ganan 1 Ficha de Rastreo.',
+          text: '<b> Si el grupo tiene 4 o menos Fichas de Rastreo, ganan 1 Ficha de Rastreo.\n Avancen a la entrada 30.</b>',
           condition: { variable: 'trackTokens', operator: '<=', value: 4, then: { add: 1 } }
         },
       ]
@@ -429,8 +415,7 @@ export class MissionComponent {
       options: [
         {
           progressTo: 15,
-          text: 'Limpiar el cuerpo.',
-          action: 'Descarta 2 Cartas de Tiempo. Cada cazador gana 1 Great Jagras Scale.\n\nSi el grupo tiene al menos 1 Great Jagras Mane, cada cazador gana 1 Great Jagras Mane adicional.\n',
+          text: 'Limpiar el cuerpo.\n <b> Descarta 2 Cartas de Tiempo. Cada cazador gana 1 Great Jagras Scale.\n\nSi el grupo tiene al menos 1 Great Jagras Mane, cada cazador gana 1 Great Jagras Mane adicional.\n Avancen a la entrada 15. </b>',
           timeCards: -2,
           materials: [
             { name: 'Great Jagras Scale', qty: 1, playerMultiplier: true },
@@ -439,8 +424,7 @@ export class MissionComponent {
         },
         {
           progressTo: 9,
-          text: 'Regresa al sendero y dirígete a un campamento que puedes ver entre los árboles.',
-          action: '\n',
+          text: 'Regresa al sendero y dirígete a un campamento que puedes ver entre los árboles. <b> Avancen a la entrada 9. </b>',
         },
       ]
     },
@@ -454,14 +438,12 @@ export class MissionComponent {
       options: [
         {
           progressTo: 23,
-          text: '¿Te apresuras por seguir las huellas del sendero?',
-          action: 'Gana 1 Ficha de Rastreo. ',
+          text: '¿Te apresuras por seguir las huellas del sendero?\n <b> Gana 1 Ficha de Rastreo. Avancen a la entrada 23.</b>',
           trackTokens: 1,
         },
         {
           progressTo: 23,
-          text: '¿Parar a buscar otros huesos cercanos?',
-          action: 'Descarta 1 Carta de Tiempo. Cada cazador gana 1 Quality Bone y 1 Monster Bone Small. ',
+          text: '¿Parar a buscar otros huesos cercanos?\n <b> Descarta 1 Carta de Tiempo. Cada cazador gana 1 Quality Bone y 1 Monster Bone Small. Avancen a la entrada 23.</b>',
           timeCards: -1,
           materials: [
             { name: 'Quality Bone', qty: 1 },
@@ -476,8 +458,7 @@ export class MissionComponent {
       options: [
         {
           progressTo: 25,
-          text: 'Prioriza recolectar.',
-          action: 'Descarta 1 Carta de Tiempo. Cada cazador gana 1 Piercing Claw y 1 Monster Hardbone. ',
+          text: 'Prioriza recolectar.\n <b> Descarta 1 Carta de Tiempo. Cada cazador gana 1 Piercing Claw y 1 Monster Hardbone. Avancen a la entrada 25.</b>',
           timeCards: -1,
           materials: [
             { name: 'Piercing Claw', qty: 1, playerMultiplier: true },
@@ -486,8 +467,7 @@ export class MissionComponent {
         },
         {
           progressTo: 20,
-          text: 'Olvídate del cadáver. Prioriza el seguimiento',
-          action: 'Descarta 1 Carta de Tiempo. Gana 1 Ficha de Rastreo. ',
+          text: 'Olvídate del cadáver. Prioriza el seguimiento \n <b> Descarta 1 Carta de Tiempo. Gana 1 Ficha de Rastreo. Avancen a la entrada 20.</b>',
           timeCards: -1,
           trackTokens: 1,
         },
@@ -505,14 +485,12 @@ export class MissionComponent {
       options: [
         {
           progressTo: 12,
-          text: 'Ábrete camino a través del bosque',
-          action: 'Descarta 1 Carta de Tiempo. ',
+          text: 'Ábrete camino a través del bosque.\n <b> Descarta 1 Carta de Tiempo. Avancen a la entrada 12.</b>',
           timeCards: -1,
         },
         {
           progressTo: 7,
-          text: 'Retrocede hasta la entrada de la cueva',
-          action: 'Descarta 2 Cartas de Tiempo. ',
+          text: 'Retrocede hasta la entrada de la cueva. \n <b> Descarta 2 Cartas de Tiempo. Avancen a la entrada 7.</b>',
           timeCards: -2,
         },
       ]
@@ -525,14 +503,12 @@ export class MissionComponent {
       options: [
         {
           progressTo: 27,
-          text: 'Juras vengar a los espíritus.',
-          action: 'Descarta 1 Carta de Tiempo.\nBaraja una carta Jagras Slayer en la Baraja de Tiempo.\n',
+          text: 'Juras vengar a los espíritus.\n<b> Descarta 1 Carta de Tiempo.\nBaraja una carta Jagras Slayer en la Baraja de Tiempo.\n Avancen a la entrada 27.</b>',
           timeCards: -1,
         },
         {
           progressTo: 26,
-          text: 'Inclina la cabeza con reverencia... pero date prisa.',
-          action: 'Baraja una carta Unavenged en la Baraja de Tiempo.\n',
+          text: 'Inclina la cabeza con reverencia... pero date prisa.\n <b> Baraja una carta Unavenged en la Baraja de Tiempo.\n Avancen a la entrada 26.</b>',
         },
       ]
     },
@@ -542,8 +518,7 @@ export class MissionComponent {
       options: [
         {
           progressTo: 27,
-          text: '¿Pasas algo de tiempo limpiando los huesos para poder llevártelos contigo?',
-          action: 'Descarta 2 Cartas de Tiempo.\nCada cazador gana 1 Monster Bone Large y 1 Great Jagras Scale. ',
+          text: '¿Pasas algo de tiempo limpiando los huesos para poder llevártelos contigo? \n <b> Descarta 2 Cartas de Tiempo.\n Cada cazador gana 1 Monster Bone Large y 1 Great Jagras Scale. Avancen a la entrada 27.</b>',
           timeCards: -2,
           materials: [
             { name: 'Monster Bone Large', qty: 1, playerMultiplier: true },
@@ -552,8 +527,7 @@ export class MissionComponent {
         },
         {
           progressTo: 8,
-          text: 'Hemos pasado suficiente tiempo aquí.',
-          action: '\n',
+          text: 'Hemos pasado suficiente tiempo aquí. <b> \n Avancen a la entrada 8.</b>',
         },
       ]
     },
@@ -563,8 +537,7 @@ export class MissionComponent {
       options: [
         {
           progressTo: 29,
-          text: 'Tómate tiempo para pelar la carcasa.',
-          action: 'Descarta 2 Cartas de Tiempo. Cada cazador gana 1 Monster Keenbone.\n',
+          text: 'Tómate tiempo para pelar la carcasa.\n <b> Descarta 2 Cartas de Tiempo. Cada cazador gana 1 Monster Keenbone.\n Avancen a la entrada 29.</b>',
           timeCards: -2,
           materials: [
             { name: 'Monster Keenbone', qty: 1, playerMultiplier: true },
@@ -572,15 +545,13 @@ export class MissionComponent {
         },
         {
           progressTo: 28,
-          text: 'Sigue el atajo.',
-          action: 'Descarta 1 Carta de Tiempo. Gana 2 Fichas de Rastreo.\n',
+          text: 'Sigue el atajo. \n <b> Descarta 1 Carta de Tiempo. Gana 2 Fichas de Rastreo.\n Avancen a la entrada 28.</b>',
           timeCards: -1,
           trackTokens: 2,
         },
         {
           progressTo: 17,
-          text: '¿Qué es ese montón peludo de ahí?',
-          action: '(Los jugadores sólo pueden elegir esta opción si tienen al menos 1 Great Jagras Hide en sus inventarios)\n',
+          text: '<b> (Los jugadores sólo pueden elegir esta opción si tienen al menos 1 Great Jagras Hide en sus inventarios) </b> \n ¿Qué es ese montón peludo de ahí? \n <b> Avancen a la entrada 17.</b>',
           disabled: {
             disabled: true,
             if: { variable: 'Great Jagras Hide', operator: '>=', value: 1, then: { disable: false } }
@@ -594,8 +565,7 @@ export class MissionComponent {
       options: [
         {
           progressTo: 12,
-          text: 'Lucha contra la manada.',
-          action: 'Descarta 2 Cartas de Tiempo. Cada cazador sufre 1 de daño, luego ganan 1 Sharp Claw. ',
+          text: 'Lucha contra la manada.\n <b> Descarta 2 Cartas de Tiempo. Cada cazador sufre 1 de daño, luego ganan 1 Sharp Claw. Avancen a la entrada 12.</b>',
           timeCards: -2,
           materials: [
             { name: 'Sharp Claw', qty: 1, playerMultiplier: true },
@@ -603,8 +573,7 @@ export class MissionComponent {
         },
         {
           progressTo: 29,
-          text: 'Huye entre la maleza.',
-          action: 'Descarta 1 Carta de Tiempo. ',
+          text: 'Huye entre la maleza.\n <b> Descarta 1 Carta de Tiempo. Avancen a la entrada 29.</b>',
           timeCards: -1,
         },
       ]
@@ -615,18 +584,17 @@ export class MissionComponent {
       options: [
         {
           progressTo: 15,
-          text: 'No, no podemos. ¡Abandona la caza para salvarlos!',
-          action: "Descarta 1 Ficha de Rastreo y baraja Researcher's Favour en la Baraja de Tiempo. ",
+          text: "No, no podemos. ¡Abandona la caza para salvarlos!\n <b> Descarta 1 Ficha de Rastreo y baraja Researcher's Favour en la Baraja de Tiempo. Avancen a la entrada 15.</b>",
           timeCards: -1,
         },
         {
           progressTo: 19,
-          text: 'Si podemos. Busca en la cartera y dirígete a un lugar más seguro',
-          action: 'Descarta 1 Carta de Tiempo. Cada cazador gana 1 Coral Crystal, luego añade 1 Poción. ',
+          text: 'Si podemos. Busca en la cartera y dirígete a un lugar más seguro.\n <b> Descarta 1 Carta de Tiempo. Cada cazador gana 1 Coral Crystal, luego añade 1 Potion. Avancen a la entrada 19.</b>',
           timeCards: -1,
           materials: [
             { name: 'Coral Crystal', qty: 1, playerMultiplier: true },
-          ]
+          ],
+          potions: 1,
         },
       ]
     },
@@ -636,8 +604,7 @@ export class MissionComponent {
       options: [
         {
           progressTo: 6,
-          text: 'Toma en reverencia un hueso antes de partir.',
-          action: 'Descarta 1 Carta de Tiempo. Cada cazador gana 1 Ancient Bone.\n',
+          text: 'Toma en reverencia un hueso antes de partir.\n <b> Descarta 1 Carta de Tiempo. Cada cazador gana 1 Ancient Bone.\n Avancen a la entrada 6.</b>',
           timeCards: -1,
           materials: [
             { name: 'Ancient Bone', qty: 1, playerMultiplier: true },
@@ -645,8 +612,7 @@ export class MissionComponent {
         },
         {
           progressTo: 18,
-          text: 'Deje esta tranquila escena sin molestar.',
-          action: 'Descarta 1 Carta de Tiempo. Baraja la carta Ancient Guardian en la Baraja de Tiempo. ',
+          text: 'Deje esta tranquila escena sin molestar.\n <b> Descarta 1 Carta de Tiempo. Baraja la carta Ancient Guardian en la Baraja de Tiempo. Avancen a la entrada 18.</b>',
           timeCards: -1,
         },
       ]
@@ -656,7 +622,7 @@ export class MissionComponent {
       text: 'Un rugido ensordecedor es su única advertencia, ¡y de repente se encuentran cara a cara con su presa! Ha llegado el momento de luchar contra este aterrador adversario.',
       options: [
         {
-          action: 'Revelen sus Ficha de Rastreos, revisen su nivel de Scoutfly, y comiencen la fase de caza',
+          text: '<b> Revelen sus Ficha de Rastreos, revisen su nivel de Scoutfly, y comiencen la fase de caza </b>',
         }
       ]
     },
@@ -899,31 +865,23 @@ export class MissionComponent {
       this.quest = this.azureQuest;
       this.startingPoint = [2, 3, 4, 5];
     }
-
-    console.log(this.quest)
-
   }
 
   selectStartingNode(index: number) {
-    console.log('startingNode:', index);
     this.node = this.quest[index - 1];
     this.potions = this.node.potions;
 
     //Obtiene materiales
     if (this.node.materials != undefined) {
       this.node.materials.forEach((mat: any) => {
-        if (this.gainedMaterials[mat.name] == undefined) this.gainedMaterials[mat.name] = 0;
-        console.log(mat.qty * ((mat.playerMultiplier) ? this.playersQty : 1))
-        this.gainedMaterials[mat.name] = mat.qty * ((mat.playerMultiplier) ? this.playersQty : 1);
+        if (this.gainedMaterials.find((x: any) => x.name == mat.name) == undefined)
+          this.gainedMaterials.push({ name: mat.name, qty: 0 });
+        this.gainedMaterials.find((x: any) => x.name == mat.name).qty += mat.qty * ((mat.playerMultiplier) ? this.playersQty : 1);
       });
     }
-    console.log('node', this.node)
-    console.log('startingPotions:', this.potions)
-    console.log('gainedMaterials:', this.gainedMaterials)
   }
 
   selectNode(option: any) {
-    console.log('option:', option);
     if (option.progressTo != undefined) {
 
       //Avanza al siguiente nodo
@@ -935,7 +893,6 @@ export class MissionComponent {
       //Revisa si la opción bloqueada cumple las condiciones para desbloquearla
       this.node.options.forEach((nodeOption: any) => {
         if (nodeOption.disabled) {
-          console.log('nodeOption:', nodeOption);
           if (nodeOption.disabled.if.variable == 'Potion') {
             if (nodeOption.disabled.if.operator == '<=')
               if (this.potions <= nodeOption.disabled.if.value)
@@ -985,18 +942,28 @@ export class MissionComponent {
       if (option.condition != undefined) {
         this.checkConditions(option);
       }
-
     }
-    else { //Termina la fase de investigación
-      this.showTrackTokens = true;
-      console.log('trackTokens:', this.trackTokens)
-      console.log('gainedMaterials:', this.gainedMaterials)
+    else {
+      if (option.diceRoll != undefined) {
+        this.diceRoll(option);
+      }
+      else {
+        //Termina la fase de investigación      
+        this.showTrackTokens = true;
+      }
     }
+    console.log(option)
   }
 
   updateGainedMaterials(materials: any) {
+
     materials.forEach((mat: any) => {
-      this.gainedMaterials[mat.name] = mat.qty * ((mat.playerMultiplier) ? this.playersQty : 1);
+      // this.gainedMaterials[mat.name] = mat.qty * ((mat.playerMultiplier) ? this.playersQty : 1);
+
+      if (this.gainedMaterials.find((x: any) => x.name == mat.name) == undefined)
+        this.gainedMaterials.push({ name: mat.name, qty: 0 });
+
+      this.gainedMaterials.find((x: any) => x.name == mat.name).qty += (mat.qty * ((mat.playerMultiplier) ? this.playersQty : 1));
     });
   }
 
@@ -1011,29 +978,41 @@ export class MissionComponent {
       if (option.condition.operator == '>=')
         if (this.trackTokens >= option.condition.value)
           this.trackTokens += option.condition.then.add;
-
-      console.log('trackTokens:', this.trackTokens)
     }
 
     //De no ser así, es un material
     else {
       let material = this.ds.materials.find(x => x.materialName == option.condition.variable);
-      console.log(option.condition.variable, material)
-      if (this.gainedMaterials[option.condition.variable] == undefined) this.gainedMaterials[option.condition.variable] = 0;
+      if (this.gainedMaterials.find((x: any) => x.name == option.condition.variable) == undefined)
+        this.gainedMaterials.push({ name: option.condition.variable, qty: 0 });
 
       if (option.condition.operator == '>=')
         if (material.materialQuantity >= option.condition.value)
-          this.gainedMaterials[option.condition.variable] += option.then.add;
+          this.gainedMaterials.find((x: any) => x.name == option.condition.variable).qty += option.then.add;
 
       if (option.condition.operator == '<=')
         if (material.materialQuantity <= option.condition.value)
-          this.gainedMaterials[option.condition.variable] += option.then.add;
-
-      console.log('gainedMaterials:', this.gainedMaterials)
+          this.gainedMaterials.find((x: any) => x.name == option.condition.variable).qty += option.then.add;
     }
   }
 
   diceRoll(option: any) {
+
+
+    //   [
+    //     {
+    //       "progressTo": 18
+    //     },
+    //     {
+    //       "progressTo": 7,
+    //       "timeCards": -1,
+    //       "materials": [
+    //         { "name": "Carbalite Ore", "qty": 1, "playerMultiplier": true },
+    //         { "name": "Machalite Ore", "qty": 1, "playerMultiplier": true }
+    //       ]
+    //     }
+    //   ]
+
 
   }
 

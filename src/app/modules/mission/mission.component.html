@@ -30,13 +30,19 @@
 @if (!showTrackTokens) {
     <!-- Choose Starting Point -->
     @if(node == undefined) {
-        @if(startingPoint.length != 0){
+        @if(startingPoint.length != 0) {
             <h4>Set Starting point</h4>
         }
         @for(i of startingPoint; track i) {
         <div class="questNode" style="border-width: 2px; border-color:#7f7f7f" (click)="selectStartingNode(i)">
             <div class="titleNode">
+                <div style="position: absolute; left: 3rem;">
+                    <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 1 > quest[i - 1].potions}" style="height: 30px" />
+                    <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 2 > quest[i - 1].potions}" style="height: 30px" />
+                    <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 3 > quest[i - 1].potions}" style="height: 30px" />
+                </div>
                 <span> {{ i }} </span>
+                
             </div>
             <div class="textNode">
                 <span> {{ quest[i - 1].text }} </span>
@@ -51,12 +57,7 @@
             <div>
                 @for(option of quest[i-1].options; track option){
                     <div class="startingOptionNode">
-                        {{option.text}}
-                        <br>
-                        <span style="white-space: pre-wrap;" [innerHTML]="option.action"> </span>
-                        @if(option.progressTo != undefined) {
-                            <span [innerHTML]="'<b>Avanzan a la entrada ' + option.progressTo +'</b>'"> </span>
-                        }
+                        <span style="white-space: pre-wrap;" [innerHTML]="option.text"> </span>
                     </div>
                 }
             </div>
@@ -68,34 +69,40 @@
     @if(node != undefined){
         <div class="questNode">
             <div class="titleNode">
+                <div style="position: absolute; left: 3rem;">
+                    <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 1 > potions}" style="height: 30px" />
+                    <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 2 > potions}" style="height: 30px" />
+                    <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 3 > potions}" style="height: 30px" />
+                </div>                
                 <span> {{ node.id }} </span>
             </div>
-    
+
             <div class="textNode">
                 <span> {{ node.text }} </span>
                 @if(node.action != undefined) {
-                    <div>
+                    <div style="text-align: center;">
                         <br>
-                        <span> {{ node.action }} </span>
+                        <span [innerHTML]="node.action"> </span>
                     </div>
                 }
             </div>
-            
+
             <div>
                 @for(option of node.options; track option) {
                     <div class="optionNode" [ngClass]="{'disabled':option.disabled?.disabled}" (click)="selectNode(option)">
-                        {{option.text}}
-                        <br>
-                        <span style="white-space: pre-wrap;"> {{ option.action }} </span>
-                        @if(option.progressTo != undefined) {
-                            <span [innerHTML]="'<b>Avanzan a la entrada ' + option.progressTo +'</b>'"> </span>
-                        }
+                        <span style="white-space: pre-wrap;" [innerHTML]="option.text"> </span>
                     </div>
                 }
             </div>        
         </div>
     }
 }
-@if (showTrackTokens){
+@if (showTrackTokens) {
     <h2> Track Tokens: {{trackTokens}} </h2>
+    <hr>
+    <h2> Materiales Obtenidos: </h2>
+    <dx-data-grid
+        [dataSource]="gainedMaterials"
+    >
+    </dx-data-grid>
 }
