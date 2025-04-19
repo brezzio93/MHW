@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { DxDataGridModule, DxPopupModule, DxSelectBoxModule, DxTextBoxModule } from 'devextreme-angular';
+import { DxButtonModule, DxDataGridModule, DxPopupModule, DxSelectBoxModule, DxTextBoxModule } from 'devextreme-angular';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -12,6 +12,7 @@ import { DataService } from '../../services/data.service';
     DxSelectBoxModule,
     DxTextBoxModule,
     DxPopupModule,
+    DxButtonModule,
   ],
   templateUrl: './mission.component.html',
   styleUrl: './mission.component.css'
@@ -27,7 +28,7 @@ export class MissionComponent {
       options: [
         {
           progressTo: 21,
-          text: '¡Sigue las Scoutflies!\n <b> Descarta una carta de tiempo. Ganan 1 Ficha de Rastreo.\n Avanzan a la entrada 1 </b>',
+          text: '¡Sigue las Scoutflies!\n <b> Descarta una carta de tiempo. Ganan 1 Track Token.\n Avanzan a la entrada 1 </b>',
           trackTokens: 1,
         }
       ]
@@ -43,7 +44,7 @@ export class MissionComponent {
       options: [
         {
           progressTo: 27,
-          text: '¿Echarse a correr por el sendero?\n <b> Ganan 1 Ficha de Rastreo. Avanzan a la entrada 27 </b>',
+          text: '¿Echarse a correr por el sendero?\n <b> Ganan 1 Track Token. Avanzan a la entrada 27 </b>',
           trackTokens: 1,
         },
         {
@@ -68,12 +69,12 @@ export class MissionComponent {
       options: [
         {
           progressTo: 26,
-          text: 'Siguen su consejo y avanzan lentamente. \n <b> Ganan y revelan 1 Ficha de Rastreo, luego eligen mantenerla o descartarla. Avanzan a la entrada 26 <b>',
+          text: 'Siguen su consejo y avanzan lentamente. \n <b> Ganan y revelan 1 Track Token, luego eligen mantenerla o descartarla. Avanzan a la entrada 26 <b>',
           trackTokens: 1,
         },
         {
           progressTo: 16,
-          text: '!Con tantos rastros, no hay tiempo que perder! \n <b> Ganan 2 Fichas de Rastreo. Avanzan a la entrada 16. </b>',
+          text: '!Con tantos rastros, no hay tiempo que perder! \n <b> Ganan 2 Track Tokens. Avanzan a la entrada 16. </b>',
           trackTokens: 2,
         },
         {
@@ -90,7 +91,7 @@ export class MissionComponent {
       options: [
         {
           progressTo: 22,
-          text: 'Bajas por la playa. \n <b>Descartan 1 Carta de Tiempo. Ganan 1 Ficha de Rastreo.\n Avanzan a la entrada 22 </b>',
+          text: 'Bajas por la playa. \n <b>Descartan 1 Carta de Tiempo. Ganan 1 Track Token.\n Avanzan a la entrada 22 </b>',
           timeCards: -1,
           trackTokens: 1,
         },
@@ -113,7 +114,7 @@ export class MissionComponent {
       options: [
         {
           progressTo: 13,
-          text: 'Sigue las huellas que puedas.\n <b> Descartan 1 Carta de Tiempo. Ganan 2 Fichas de Rastreo.\n Avanzan a la entrada 13 </b>',
+          text: 'Sigue las huellas que puedas.\n <b> Descartan 1 Carta de Tiempo. Ganan 2 Track Tokens.\n Avanzan a la entrada 13 </b>',
           timeCards: -1,
           trackTokens: 2,
         },
@@ -144,7 +145,7 @@ export class MissionComponent {
       options: [
         {
           progressTo: 18,
-          text: 'No hay tiempo para mirar atrás.\n <b> Descarta 1 Carta de Tiempo. Gana 3 Fichas de Rastreo. Avanzan a la entrada 18</b>',
+          text: 'No hay tiempo para mirar atrás.\n <b> Descarta 1 Carta de Tiempo. Gana 3 Track Tokens. Avanzan a la entrada 18</b>',
           timeCards: -1,
           trackTokens: 3,
         },
@@ -159,14 +160,31 @@ export class MissionComponent {
       text: 'La luz parpadeante pinta sombras espeluznantes en las paredes, charcos danzantes de oscuridad que dan mente a feroces depredadores. Tus pies levantan polvo y crujen a través de pequeños huesos, revelando metales y gemas brillantes.',
       options: [
         {
-          progressTo: 11,
           text: 'Registra la cueva.\n<b>Descarta 1 Carta de Tiempo.\nCada cazador lanza dados en la siguiente tabla.</b>\n \n <b> 1-2 </b> Ganan 1 Dragonite Ore.\n <b> 3-4 </b> Ganan 1 Fucium Ore.\n <b> 5-6 </b> Ganan 1 Ancient Bone.\n \n <b> Una vez que cada jugador haya tirado. Avanzan a la entrada 11 </b>',
           timeCards: -1,
-          diceRoll: [
-            { roll: '1-2', rewards: { material: 'Dragonite Ore', qty: 1 } },
-            { roll: '3-4', rewards: { material: 'Fucium Ore', qty: 1 } },
-            { roll: '5-6', rewards: { material: 'Ancient Bone', qty: 1 } },
-          ],
+          customPopup: {
+            type: 'diceRoll',
+            title: "Cada cazador tira un dado",
+            multipleChoices: true,
+            progressTo: 11,
+            options: [
+              {
+                progressTo: 11,
+                text: '<b>1-2 </b> Ganan 1 Dragonite Ore',
+                materials: [{ name: 'Dragonite Ore', qty: 1, playerMultiplier: false }],
+              },
+              {
+                progressTo: 11,
+                text: '<b>3-4 </b> Ganan 1 Fucium Ore',
+                materials: [{ name: 'Fucium Ore', qty: 1, playerMultiplier: false }]
+              },
+              {
+                progressTo: 11,
+                text: '<b>5-6 </b> Ganan 1 Ancient Bone',
+                materials: [{ name: 'Ancient Bone', qty: 1, playerMultiplier: false }]
+              },
+            ],
+          }
         },
         {
           progressTo: 30,
@@ -181,18 +199,34 @@ export class MissionComponent {
       timeCards: -1,
       options: [
         {
-          progressTo: 7,
-          text: 'Extrae el mineral y entra en la cueva. \n <b>Descarta 1 Ficha de Rastreo. \nCada cazador lanza dados en la siguiente tabla.</b>\n \n <b>1-2</b> Ganan 1 Dragonite Ore.\n <b>3-4</b> Ganan 1 Fucium Ore.\n <b>5-6</b> Ganan 1 Firecell Stone.\n \n <b>Una vez que cada jugador haya tirado. Avanzan a la entrada 7 </b>',
+          text: 'Extrae el mineral y entra en la cueva. \n <b>Descarta 1 Track Token. \nCada cazador lanza dados en la siguiente tabla.</b>\n \n <b>1-2</b> Ganan 1 Dragonite Ore.\n <b>3-4</b> Ganan 1 Fucium Ore.\n <b>5-6</b> Ganan 1 Firecell Stone.\n \n <b>Una vez que cada jugador haya tirado. Avanzan a la entrada 7 </b>',
           trackTokens: -1,
-          diceRoll: [
-            { roll: '1-2', rewards: { material: 'Dragonite Ore', qty: 1 } },
-            { roll: '3-4', rewards: { material: 'Fucium Ore', qty: 1 } },
-            { roll: '5-6', rewards: { material: 'Firecell Stone', qty: 1 } },
-          ],
+          customPopup: {
+            type: 'diceRoll',
+            title: "Cada cazador tira un dado",
+            multipleChoices: true,
+            options: [
+              {
+                progressTo: 7,
+                text: '<b>1-2</b> Ganan 1 Dragonite Ore.</b>',
+                materials: [{ name: 'Dragonite Ore', qty: 1, playerMultiplier: false }]
+              },
+              {
+                progressTo: 7,
+                text: '<b>3-4</b> Ganan 1 Fucium Ore.</b>',
+                materials: [{ name: 'Fucium Ore', qty: 1, playerMultiplier: false }]
+              },
+              {
+                progressTo: 7,
+                text: '<b>5-6</b> Ganan 1 Firecell Stone.</b>',
+                materials: [{ name: 'Firecell Stone', qty: 1, playerMultiplier: false }]
+              },
+            ],
+          }
         },
         {
           progressTo: 6,
-          text: 'Sigue las huellas que puedas ver, y espera que estén frescas.\n <b> Descarta 1 Carta de Tiempo. Gana 1 Ficha de Rastreo. Avanzan a la entrada 6.</b>',
+          text: 'Sigue las huellas que puedas ver, y espera que estén frescas.\n <b> Descarta 1 Carta de Tiempo. Gana 1 Track Token. Avanzan a la entrada 6.</b>',
           timeCards: -1,
           trackTokens: 1,
         },
@@ -210,7 +244,7 @@ export class MissionComponent {
         },
         {
           progressTo: 19,
-          text: 'Pide un guía.\n <b> Ganan y revelan 4 Fichas de Rastreo, luego elijan si las conservan o descartarlas.\n Avanzan a la entrada 19. </b>',
+          text: 'Pide un guía.\n <b> Ganan y revelan 4 Track Tokens, luego elijan si las conservan o descartarlas.\n Avanzan a la entrada 19. </b>',
           trackTokens: 4,
         },
       ]
@@ -221,19 +255,26 @@ export class MissionComponent {
       options: [
         {
           text: '<b>Tira un dado.</b>\n Con <b> 1-4 </b>, se ha extraido todo el mineral.\n <b> Hora de darse prisa. Avanzan a la entrada 18. </b> \n Con <b> 5-6 </b>, todavía queda algo aquí. \n <b> Descarta 1 Carta de Tiempo.\nCada cazador gana 1 Carbalite Ore y 1 Machalite Ore.\n Avanzan a la entrada 7. </b>',
-          diceRoll: [
-            {
-              progressTo: 18,
-            },
-            {
-              progressTo: 7,
-              timeCards: -1,
-              materials: [
-                { name: 'Carbalite Ore', qty: 1, playerMultiplier: true },
-                { name: 'Machalite Ore', qty: 1, playerMultiplier: true },
-              ],
-            }
-          ],
+          customPopup: {
+            type: 'diceRoll',
+            title: "Tira un dado",
+            multipleChoices: false,
+            options: [
+              {
+                progressTo: 18,
+                text: 'Con <b> 1-4 </b>, se ha extraido todo el mineral.\n <b> Hora de darse prisa. Avanzan a la entrada 18. </b> ',
+              },
+              {
+                progressTo: 7,
+                text: 'Con <b> 5-6 </b>, todavía queda algo aquí. \n <b> Descarta 1 Carta de Tiempo.\nCada cazador gana 1 Carbalite Ore y 1 Machalite Ore.\n Avanzan a la entrada 7. </b>',
+                timeCards: -1,
+                materials: [
+                  { name: 'Carbalite Ore', qty: 1, playerMultiplier: true },
+                  { name: 'Machalite Ore', qty: 1, playerMultiplier: true },
+                ],
+              }
+            ]
+          }
         },
       ]
     },
@@ -243,13 +284,13 @@ export class MissionComponent {
       options: [
         {
           progressTo: 30,
-          text: '¡Sigue moviendote! \n <b> Descarta 1 Carta de Tiempo. Gana 2 Fichas de Rastreo.\n Avanzan a la entrada 30. </b>',
+          text: '¡Sigue moviendote! \n <b> Descarta 1 Carta de Tiempo. Gana 2 Track Tokens.\n Avanzan a la entrada 30. </b>',
           timeCards: -1,
           trackTokens: 2,
         },
         {
           progressTo: 18,
-          text: 'Avanzacon cuidado. \n <b> Descarta 1 Carta de Tiempo. Revela hasta 3 de tus Fichas de Rastreo.\n Avanzan a la entrada 18. </b>',
+          text: 'Avanzacon cuidado. \n <b> Descarta 1 Carta de Tiempo. Revela hasta 3 de tus Track Tokens.\n Avanzan a la entrada 18. </b>',
           timeCards: -1,
         },
       ]
@@ -279,12 +320,31 @@ export class MissionComponent {
       options: [
         {
           progressTo: 10,
-          text: '<b> Los jugadores pueden descartar 3 recursos cualesquiera y añadir 1 Potion a la reserva, o ganar 1 Ficha de Rastreo. Si lo hacen, descartan 1 Carta de Tiempo.\n Avanzan a la entrada 10. </b>',
-          openMenu: {
-            requiredMaterials: 3,
+          text: '<b> Los jugadores pueden descartar 3 recursos cualesquiera y añadir 1 Potion a la reserva, o ganar 1 Track Token. Si lo hacen, descartan 1 Carta de Tiempo.\n Avanzan a la entrada 10. </b>',
+          customPopup: {
+            type: 'choice',
+            title: 'Seleccionen Recompensas',
+            progressTo: 10,
+            text: '<b> Los jugadores pueden descartar 3 recursos cualesquiera y añadir 1 Potion a la reserva, o ganar 1 Track Token. Si lo hacen, descartan 1 Carta de Tiempo.\n Avanzan a la entrada 10. </b>',
+            requiredMaterials: [0, 1, 2],
             possibleRewards: [
-              { name: 'Potion', qty: 1, },
-              { name: 'Track Token', qty: 1, },
+              {
+                type: 'Cancel',
+                text: 'Cerrar',
+                progressTo: 10,
+              },
+              {
+                type: 'Accept',
+                text: 'Añadir 1 Potion',
+                potions: 1,
+                progressTo: 10,
+              },
+              {
+                type: 'Accept',
+                text: 'Añadir 1 Track Token',
+                trackTokens: 1,
+                progressTo: 10,
+              },
             ],
             timeCards: -1,
           }
@@ -337,20 +397,31 @@ export class MissionComponent {
       text: 'Un rugido llena el aire y resuena en el bosque. La bestia está cerca. Una mochila abandonada yace en el suelo, en medio del camino, con la correa rota. ¿Pero es esto una trampa?',
       options: [
         {
-          progressTo: 27,
           text: 'Revisa la mochila. <b> Tira 1 dado. </b> \n Con un <b> 1-2 </b> "¡No hay tiempo!"\n <b> Avanzan a la entrada 27. </b> \n Con <b> 3-4 </b>"¡Toma la bolsa antes de que caiga sobre ti!"\n<b> Agrega 1 Potion. Avanzan a la entrada 27. </b> \n Con <b> 5-6 </b> "¡Agarra los minerales del suelo!". \n <b> Cada cazador gana 1 Carbalite Ore y 1 Machalite Ore.\n Avancen a la entrada 27. </b>',
-          diceRoll: [
-            {},
-            {
-              potions: 1,
-            },
-            {
-              materials: [
-                { name: 'Carbalite Ore', qty: 1, playerMultiplier: true },
-                { name: 'Machalite Ore', qty: 1, playerMultiplier: true },
-              ],
-            },
-          ],
+          customPopup: {
+            type: 'diceRoll',
+            title: "Tira un dado",
+            multipleChoices: false,
+            options: [
+              {
+                progressTo: 27,
+                text: 'Con un <b> 1-2 </b> "¡No hay tiempo!"\n <b> Avanzan a la entrada 27. </b>',
+              },
+              {
+                progressTo: 27,
+                text: ' Con <b> 3-4 </b>"¡Toma la bolsa antes de que caiga sobre ti!"\n<b> Agrega 1 Potion. Avanzan a la entrada 27. </b>',
+                potions: 1,
+              },
+              {
+                progressTo: 27,
+                text: 'Con <b> 5-6 </b> "¡Agarra los minerales del suelo!". \n <b> Cada cazador gana 1 Carbalite Ore y 1 Machalite Ore.\n Avancen a la entrada 27. </b>',
+                materials: [
+                  { name: 'Carbalite Ore', qty: 1, playerMultiplier: true },
+                  { name: 'Machalite Ore', qty: 1, playerMultiplier: true },
+                ],
+              },
+            ]
+          },
         },
         {
           progressTo: 29,
@@ -386,13 +457,13 @@ export class MissionComponent {
       options: [
         {
           progressTo: 28,
-          text: 'Sigue el rastro.\n <b> Descarta 1 Carta de Tiempo. Gana 1 Ficha de Rastreo.\n Avancen a la entrada 28. </b>',
+          text: 'Sigue el rastro.\n <b> Descarta 1 Carta de Tiempo. Gana 1 Track Token.\n Avancen a la entrada 28. </b>',
           timeCards: -1,
           trackTokens: 1,
         },
         {
           progressTo: 15,
-          text: 'Detente a examinarlas más de cerca.\n <b> Descarta 2 Cartas de Tiempo. Descarta 1 Ficha de Rastreo.\n Avancen a la entrada 15. </b>',
+          text: 'Detente a examinarlas más de cerca.\n <b> Descarta 2 Cartas de Tiempo. Descarta 1 Track Token.\n Avancen a la entrada 15. </b>',
           timeCards: -2,
           trackTokens: -1,
         },
@@ -404,7 +475,7 @@ export class MissionComponent {
       options: [
         {
           progressTo: 30,
-          text: '<b> Si el grupo tiene 4 o menos Fichas de Rastreo, ganan 1 Ficha de Rastreo.\n Avancen a la entrada 30.</b>',
+          text: '<b> Si el grupo tiene 4 o menos Track Tokens, ganan 1 Track Token.\n Avancen a la entrada 30.</b>',
           condition: { variable: 'trackTokens', operator: '<=', value: 4, then: { add: 1 } }
         },
       ]
@@ -438,7 +509,7 @@ export class MissionComponent {
       options: [
         {
           progressTo: 23,
-          text: '¿Te apresuras por seguir las huellas del sendero?\n <b> Gana 1 Ficha de Rastreo. Avancen a la entrada 23.</b>',
+          text: '¿Te apresuras por seguir las huellas del sendero?\n <b> Gana 1 Track Token. Avancen a la entrada 23.</b>',
           trackTokens: 1,
         },
         {
@@ -467,7 +538,7 @@ export class MissionComponent {
         },
         {
           progressTo: 20,
-          text: 'Olvídate del cadáver. Prioriza el seguimiento \n <b> Descarta 1 Carta de Tiempo. Gana 1 Ficha de Rastreo. Avancen a la entrada 20.</b>',
+          text: 'Olvídate del cadáver. Prioriza el seguimiento \n <b> Descarta 1 Carta de Tiempo. Gana 1 Track Token. Avancen a la entrada 20.</b>',
           timeCards: -1,
           trackTokens: 1,
         },
@@ -545,7 +616,7 @@ export class MissionComponent {
         },
         {
           progressTo: 28,
-          text: 'Sigue el atajo. \n <b> Descarta 1 Carta de Tiempo. Gana 2 Fichas de Rastreo.\n Avancen a la entrada 28.</b>',
+          text: 'Sigue el atajo. \n <b> Descarta 1 Carta de Tiempo. Gana 2 Track Tokens.\n Avancen a la entrada 28.</b>',
           timeCards: -1,
           trackTokens: 2,
         },
@@ -584,7 +655,7 @@ export class MissionComponent {
       options: [
         {
           progressTo: 15,
-          text: "No, no podemos. ¡Abandona la caza para salvarlos!\n <b> Descarta 1 Ficha de Rastreo y baraja Researcher's Favour en la Baraja de Tiempo. Avancen a la entrada 15.</b>",
+          text: "No, no podemos. ¡Abandona la caza para salvarlos!\n <b> Descarta 1 Track Token y baraja Researcher's Favour en la Baraja de Tiempo. Avancen a la entrada 15.</b>",
           timeCards: -1,
         },
         {
@@ -622,7 +693,7 @@ export class MissionComponent {
       text: 'Un rugido ensordecedor es su única advertencia, ¡y de repente se encuentran cara a cara con su presa! Ha llegado el momento de luchar contra este aterrador adversario.',
       options: [
         {
-          text: '<b> Revelen sus Ficha de Rastreos, revisen su nivel de Scoutfly, y comiencen la fase de caza </b>',
+          text: '<b> Revelen sus Track Tokens, revisen su nivel de Scoutfly, y comiencen la fase de caza </b>',
         }
       ]
     },
@@ -665,78 +736,78 @@ export class MissionComponent {
       difficulty: 'Tempered Investigation Quest',
       icon: "assets/icons/monsters/g-jagr.png",
     },
-    {
-      id: 3,
-      monster: 'Tobi-Kadachi',
-      difficulty: 'Assigned Quest',
-      icon: "assets/icons/monsters/tobi.png",
-    },
-    {
-      id: 4,
-      monster: 'Tobi-Kadachi',
-      difficulty: 'Investigation Quest',
-      icon: "assets/icons/monsters/tobi.png",
-    },
-    {
-      id: 5,
-      monster: 'Tobi-Kadachi',
-      difficulty: 'Tempered Investigation Quest',
-      icon: "assets/icons/monsters/tobi.png",
-    },
-    {
-      id: 6,
-      monster: 'Anjanath',
-      difficulty: 'Assigned Quest',
-      icon: "assets/icons/monsters/anja.png",
-    },
-    {
-      id: 7,
-      monster: 'Anjanath',
-      difficulty: 'Investigation Quest',
-      icon: "assets/icons/monsters/anja.png",
-    },
-    {
-      id: 8,
-      monster: 'Anjanath',
-      difficulty: 'Tempered Investigation Quest',
-      icon: "assets/icons/monsters/anja.png",
-    },
-    {
-      id: 9,
-      monster: 'Rathalos',
-      difficulty: 'Assigned Quest',
-      icon: "assets/icons/monsters/ratha.png",
-    },
-    {
-      id: 10,
-      monster: 'Rathalos',
-      difficulty: 'Investigation Quest',
-      icon: "assets/icons/monsters/ratha.png",
-    },
-    {
-      id: 11,
-      monster: 'Rathalos',
-      difficulty: 'Tempered Investigation Quest',
-      icon: "assets/icons/monsters/ratha.png",
-    },
-    {
-      id: 12,
-      monster: 'Azure Rathalos',
-      difficulty: 'Assigned Quest',
-      icon: "assets/icons/monsters/a-ratha.png",
-    },
-    {
-      id: 13,
-      monster: 'Azure Rathalos',
-      difficulty: 'Investigation Quest',
-      icon: "assets/icons/monsters/a-ratha.png",
-    },
-    {
-      id: 14,
-      monster: 'Azure Rathalos',
-      difficulty: 'Tempered Investigation Quest',
-      icon: "assets/icons/monsters/a-ratha.png",
-    },
+    // {
+    //   id: 3,
+    //   monster: 'Tobi-Kadachi',
+    //   difficulty: 'Assigned Quest',
+    //   icon: "assets/icons/monsters/tobi.png",
+    // },
+    // {
+    //   id: 4,
+    //   monster: 'Tobi-Kadachi',
+    //   difficulty: 'Investigation Quest',
+    //   icon: "assets/icons/monsters/tobi.png",
+    // },
+    // {
+    //   id: 5,
+    //   monster: 'Tobi-Kadachi',
+    //   difficulty: 'Tempered Investigation Quest',
+    //   icon: "assets/icons/monsters/tobi.png",
+    // },
+    // {
+    //   id: 6,
+    //   monster: 'Anjanath',
+    //   difficulty: 'Assigned Quest',
+    //   icon: "assets/icons/monsters/anja.png",
+    // },
+    // {
+    //   id: 7,
+    //   monster: 'Anjanath',
+    //   difficulty: 'Investigation Quest',
+    //   icon: "assets/icons/monsters/anja.png",
+    // },
+    // {
+    //   id: 8,
+    //   monster: 'Anjanath',
+    //   difficulty: 'Tempered Investigation Quest',
+    //   icon: "assets/icons/monsters/anja.png",
+    // },
+    // {
+    //   id: 9,
+    //   monster: 'Rathalos',
+    //   difficulty: 'Assigned Quest',
+    //   icon: "assets/icons/monsters/ratha.png",
+    // },
+    // {
+    //   id: 10,
+    //   monster: 'Rathalos',
+    //   difficulty: 'Investigation Quest',
+    //   icon: "assets/icons/monsters/ratha.png",
+    // },
+    // {
+    //   id: 11,
+    //   monster: 'Rathalos',
+    //   difficulty: 'Tempered Investigation Quest',
+    //   icon: "assets/icons/monsters/ratha.png",
+    // },
+    // {
+    //   id: 12,
+    //   monster: 'Azure Rathalos',
+    //   difficulty: 'Assigned Quest',
+    //   icon: "assets/icons/monsters/a-ratha.png",
+    // },
+    // {
+    //   id: 13,
+    //   monster: 'Azure Rathalos',
+    //   difficulty: 'Investigation Quest',
+    //   icon: "assets/icons/monsters/a-ratha.png",
+    // },
+    // {
+    //   id: 14,
+    //   monster: 'Azure Rathalos',
+    //   difficulty: 'Tempered Investigation Quest',
+    //   icon: "assets/icons/monsters/a-ratha.png",
+    // },
   ]
 
   quest: any = [];
@@ -748,11 +819,18 @@ export class MissionComponent {
   gainedMaterials: any = [];
   potions = 0;
   playersQty: any = 4;
+  popupVisible: boolean = false;
+  diceRollTitle = '';
+  customPopup: any;
+
+  selectedMaterials: any = [];
 
   constructor(
-    private ds: DataService
+    public ds: DataService
   ) {
-
+    // this.quest = this.jagrasQuest;
+    // this.node = this.quest[26];
+    // this.potions = 2;
   }
 
   ngOnInit(): void {
@@ -882,6 +960,7 @@ export class MissionComponent {
   }
 
   selectNode(option: any) {
+    console.log(option)
     if (option.progressTo != undefined) {
 
       //Avanza al siguiente nodo
@@ -891,42 +970,7 @@ export class MissionComponent {
       this.trackTokens += (option.trackTokens) ? option.trackTokens : 0;
 
       //Revisa si la opción bloqueada cumple las condiciones para desbloquearla
-      this.node.options.forEach((nodeOption: any) => {
-        if (nodeOption.disabled) {
-          if (nodeOption.disabled.if.variable == 'Potion') {
-            if (nodeOption.disabled.if.operator == '<=')
-              if (this.potions <= nodeOption.disabled.if.value)
-                nodeOption.disabled.disabled = nodeOption.disabled.if.then.disable;
-            if (nodeOption.disabled.if.operator == '>=')
-              if (this.potions >= nodeOption.disabled.if.value)
-                nodeOption.disabled.disabled = nodeOption.disabled.if.then.disable;
-          }
-          //De no ser así, es un material
-          else {
-            let material = this.ds.materials.find(x => x.materialName == nodeOption.disabled.if.variable);
-
-            if (nodeOption.disabled.if.operator == '>=')
-              if (material.materialQuantity >= nodeOption.disabled.if.value)
-                nodeOption.disabled.disabled = nodeOption.disabled.if.then.disable;
-            if (nodeOption.disabled.if.operator == '<=')
-              if (material.materialQuantity <= nodeOption.disabled.if.value)
-                nodeOption.disabled.disabled = nodeOption.disabled.if.then.disable;
-          }
-        }
-      });
-
-      //Abre menú de Dados
-      if (option.diceRoll != undefined) {
-
-        // diceRoll: [
-        //   { roll: '1-2', rewards: { material: 'Dragonite Ore', qty: 1 } },
-        //   { roll: '3-4', rewards: { material: 'Fucium Ore', qty: 1 } },
-        //   { roll: '5-6', rewards: { material: 'Ancient Bone', qty: 1 } },
-        // ],      
-      }
-      else {
-      }
-
+      this.enableOption()
 
       //Obtiene materiales del nodo
       if (this.node.materials != undefined) {
@@ -938,27 +982,62 @@ export class MissionComponent {
         this.updateGainedMaterials(option.materials);
       }
 
+      if (option.potions != undefined) {
+        this.potions += option.potions;
+      }
+
       //Revisa si se cumple la condición extra
       if (option.condition != undefined) {
         this.checkConditions(option);
       }
+
+      if (option.customPopup != undefined) {
+        this.openCustomMenu(option);
+      }
     }
     else {
-      if (option.diceRoll != undefined) {
-        this.diceRoll(option);
+      if (option.customPopup != undefined) {
+        this.openCustomMenu(option);
       }
       else {
         //Termina la fase de investigación      
         this.showTrackTokens = true;
       }
     }
-    console.log(option)
+
+
+    console.log(this.potions)
+  }
+
+  enableOption() {
+    this.node.options.forEach((nodeOption: any) => {
+      if (nodeOption.disabled) {
+        if (nodeOption.disabled.if.variable == 'Potion') {
+          if (nodeOption.disabled.if.operator == '<=')
+            if (this.potions <= nodeOption.disabled.if.value)
+              nodeOption.disabled.disabled = nodeOption.disabled.if.then.disable;
+          if (nodeOption.disabled.if.operator == '>=')
+            if (this.potions >= nodeOption.disabled.if.value)
+              nodeOption.disabled.disabled = nodeOption.disabled.if.then.disable;
+        }
+        //De no ser así, es un material
+        else {
+          let material = this.ds.materials.find(x => x.materialName == nodeOption.disabled.if.variable);
+
+          if (nodeOption.disabled.if.operator == '>=')
+            if (material.materialQuantity >= nodeOption.disabled.if.value)
+              nodeOption.disabled.disabled = nodeOption.disabled.if.then.disable;
+          if (nodeOption.disabled.if.operator == '<=')
+            if (material.materialQuantity <= nodeOption.disabled.if.value)
+              nodeOption.disabled.disabled = nodeOption.disabled.if.then.disable;
+        }
+      }
+    });
   }
 
   updateGainedMaterials(materials: any) {
 
     materials.forEach((mat: any) => {
-      // this.gainedMaterials[mat.name] = mat.qty * ((mat.playerMultiplier) ? this.playersQty : 1);
 
       if (this.gainedMaterials.find((x: any) => x.name == mat.name) == undefined)
         this.gainedMaterials.push({ name: mat.name, qty: 0 });
@@ -996,24 +1075,58 @@ export class MissionComponent {
     }
   }
 
-  diceRoll(option: any) {
+  openCustomMenu(option: any) {
+    console.log(option.customPopup)
+    this.popupVisible = true;
+    this.customPopup = option.customPopup;
+  }
 
+  selectMaterial(e: any, index: number) {
+    this.selectedMaterials[index] = e;
+  }
 
-    //   [
-    //     {
-    //       "progressTo": 18
-    //     },
-    //     {
-    //       "progressTo": 7,
-    //       "timeCards": -1,
-    //       "materials": [
-    //         { "name": "Carbalite Ore", "qty": 1, "playerMultiplier": true },
-    //         { "name": "Machalite Ore", "qty": 1, "playerMultiplier": true }
-    //       ]
-    //     }
-    //   ]
+  setRewards(rewards?: any) {
+    this.popupVisible = false;
+    this.customPopup = undefined;
 
+    //Revisa materiales sacrificados
+    this.selectedMaterials.forEach((element: any) => {
+      if (this.gainedMaterials.find((x: any) => x.name == element) == undefined) this.gainedMaterials.push({ name: element, qty: 0 });
+      this.gainedMaterials.find((x: any) => x.name == element).qty--;
+    });
+  }
+
+  selectDiceRoll(option: any) {
+    this.popupVisible = false;
+    this.customPopup = undefined;
+    this.selectNode(option);
+  }
+
+  add(diceOption: any, value: number) {
+    if (diceOption.addedAmount == undefined) diceOption.addedAmount = 0;
+    diceOption.addedAmount += value;
+  }
+
+  closeMultipleSelection(customPopup: any) {
+    //Se añade el addedAmmount configurado en customMenu
+    customPopup.options.forEach((opt: any) => {
+      if (this.gainedMaterials.find((x: any) => x.name == opt.materials[0].name) == undefined)
+        this.gainedMaterials.push({ name: opt.materials[0].name, qty: 0 });
+      this.gainedMaterials.find((x: any) => x.name == opt.materials[0].name).qty += (opt.addedAmount) ? (opt.addedAmount) : 0;
+    });
+
+    console.log(customPopup);
+
+    this.popupVisible = false;
+    this.customPopup = undefined;
+
+    this.selectNode(customPopup);
 
   }
+
+  log(e: any) {
+    console.log(e)
+  }
+
 
 }

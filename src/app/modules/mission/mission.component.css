@@ -38,6 +38,21 @@
   pointer-events: none;
 }
 
+.materialSelection {
+  margin-top: 0.5rem;
+}
+
+.disabled-item {
+  color: gray;
+  pointer-events: none;
+}
+
+.acceptButton {
+  background-color: #1588d1;
+  color: white;
+  width: 33%;
+}
+
 ::ng-deep .custom-item {
   position: relative;
   min-height: 50px;

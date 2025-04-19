@@ -21,10 +21,11 @@
     <div *dxTemplate="let data of 'item'">
         <div class="custom-item">
             <img alt="" src="{{ data && data.icon }}" style="height: 50px" />
-            <div class="text"> {{ data.difficulty }} </div>
+            <div class="text">{{ data.difficulty }}</div>
         </div>
     </div>
 </dx-select-box>
+
 
 <!-- Quest -->
 @if (!showTrackTokens) {
@@ -96,6 +97,88 @@
             </div>        
         </div>
     }
+
+    <dx-popup
+        [(visible)]="popupVisible"
+        [showTitle]="true"
+        [title]="customPopup?.title"
+        [hideOnOutsideClick]="false"
+        contentTemplate="popup-content"
+        >    
+        <div *dxTemplate="let data of 'popup-content'">
+
+            @if(customPopup?.type == 'diceRoll') {
+                <div class="questNode">
+                    @for(diceOption of customPopup?.options; track diceOption) {
+                        @if(!customPopup.multipleChoices) {
+                            <div class="optionNode" (click)="selectDiceRoll(diceOption)">
+                                <span style="white-space: pre-wrap;" [innerHTML]="diceOption.text"> </span>
+                            </div>
+                        }
+                        @if(customPopup.multipleChoices) {
+                            <div class="optionNode">
+                                <span style="white-space: pre-wrap;" [innerHTML]="diceOption.text"> </span>
+                                <br>
+                                <div>
+                                    <button [disabled]=" diceOption == 0" (click)="add(diceOption, -1)" > - </button>
+                                    <span style="font-size: 250%; font-weight: 600;"> {{diceOption.addedAmount ? diceOption.addedAmount : 0}} </span>
+                                    <button (click)="add(diceOption, 1)" > + </button>
+                                </div>
+                            </div>
+
+                            <dx-button
+                            (onClick)="closeMultipleSelection(customPopup)"
+                            >Terminar selección
+                        </dx-button>
+                        }
+                    }
+                </div>
+            }
+            @if(customPopup?.type == 'choice') {
+                <span  [innerHTML]="customPopup.text"></span>
+
+                @for(index of customPopup?.requiredMaterials; track index) {
+                    <dx-select-box
+                    class="materialSelection"
+                    [items]="ds.materials"
+                    valueExpr="materialName"
+                    displayExpr="materialName"
+                    [disabled]="(index>0) ? selectedMaterials[index-1] == undefined : false"
+                    (onValueChanged)="selectMaterial($event.value, index)"
+                    >    
+                    </dx-select-box>
+                }
+                <div style="display: flex; margin-top: 1rem;">
+                    @for(reward of customPopup?.possibleRewards; track reward) {
+                        <dx-button
+                            [style]="{'margin-right':$index == 0 ? '1rem': null}"
+                            [style]="{'margin-left':$index == 1 ? '2rem': null}"
+                            [ngClass]="{ 'acceptButton':$index != 0}"
+                            [disabled]="selectedMaterials.length <3 && $index != 0"
+                            (onClick)="setRewards(reward)"
+                            >{{reward.text}}
+                        </dx-button>
+                    }
+                </div>
+
+
+                <dx-data-grid
+                    style="margin-top: 1rem;"
+                    [showBorders]="true"
+                    [rowAlternationEnabled]="true"
+                    [showRowLines]="true"
+                    [wordWrapEnabled]="true"
+                    [dataSource]="ds.materials"
+                >
+                    <dxi-column dataField="materialName" ></dxi-column>
+                    <dxi-column dataField="materialQuantity" caption="Quantity" [width]="80" 
+                    sortOrder="desc"></dxi-column>
+                </dx-data-grid>  
+            }
+
+        </div>
+    </dx-popup>
+
 }
 @if (showTrackTokens) {
     <h2> Track Tokens: {{trackTokens}} </h2>
