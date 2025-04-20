@@ -205,6 +205,7 @@ export class MissionComponent {
             type: 'diceRoll',
             title: "Cada cazador tira un dado",
             multipleChoices: true,
+            progressTo: 7,
             options: [
               {
                 progressTo: 7,
@@ -701,7 +702,46 @@ export class MissionComponent {
   ]
 
   tobiQuest = [
-    {},
+    {
+      id: 1,
+      text: 'Siempre acompañado por el inconfundible aroma del ozono, Tobi-Kadachi se abre paso entre los árboles, cayendo cerca del suelo en busca de su presa. Su hambre es legendaria, al igual que la electricidad estática que recorre su pelaje. Estás preparado para cazarlo, o tan preparado como puedas estar. La bestia espera y tú estás tras su pista.',
+      potions: 1,
+      options: [
+        {
+          progressTo: 12,
+          text: 'Dirígete al denso bosque.\n <b>Descarta 1 Carta de Tiempo. Cada cazador gana 1 Dragonvein Crystal y 1 Dragonite Ore. Avancen a la entrada 12</b>',
+          timeCards: -1,
+          materials: [
+            { name: 'Dragonvein Crystal', qty: 1, playerMultiplier: true },
+            { name: 'Dragonite Ore', qty: 1, playerMultiplier: true },
+          ]
+        },
+        {
+          progressTo: 34,
+          text: '¡Corre hacia donde fue vista tu presa por última vez! \n <b> Descarta 6 Cartas de Tiempo. Avancen a la entrada 34 </b>',
+          timeCards: -6,
+        },
+      ],
+    },
+    {
+      id: 2,
+      text: 'Arriba entre las ramas, algo está esperando. Es un Tobi-Kadachi, estás seguro de eso.Al trepar al árbol, tus sospechas se confirman. Un nido… y todavía está caliente. La criatura que lo construyó está cerca',
+      potions: 2,
+      options: [
+        {
+          progressTo: 34,
+          text: '<b> (Los cazadores sólo podrán elegir esta opción si han completado Tobi-Kadachi Assigned Quest) </b>\n\n ¡Espera en el nido a que regrese Tobi-Kadachi! \n <b> Descarta 6 Cartas de Tiempo. Avancen a la entrada 34 </b>',
+          timeCards: -6,
+        },
+        {
+          progressTo: 18,
+          text: 'La bestia atravesó aquí...\n <b> Cada cazador gana Tobi-Kadachi Pelt. Avancen a la entrada 18. </b>',
+          materials: [
+            { name: 'Tobi-Kadachi Pelt', qty: 1, playerMultiplier: true },
+          ]
+        },
+      ]
+    },
   ]
 
   anjaQuest = [
@@ -736,106 +776,141 @@ export class MissionComponent {
       difficulty: 'Tempered Investigation Quest',
       icon: "assets/icons/monsters/g-jagr.png",
     },
-    // {
-    //   id: 3,
-    //   monster: 'Tobi-Kadachi',
-    //   difficulty: 'Assigned Quest',
-    //   icon: "assets/icons/monsters/tobi.png",
-    // },
-    // {
-    //   id: 4,
-    //   monster: 'Tobi-Kadachi',
-    //   difficulty: 'Investigation Quest',
-    //   icon: "assets/icons/monsters/tobi.png",
-    // },
-    // {
-    //   id: 5,
-    //   monster: 'Tobi-Kadachi',
-    //   difficulty: 'Tempered Investigation Quest',
-    //   icon: "assets/icons/monsters/tobi.png",
-    // },
-    // {
-    //   id: 6,
-    //   monster: 'Anjanath',
-    //   difficulty: 'Assigned Quest',
-    //   icon: "assets/icons/monsters/anja.png",
-    // },
-    // {
-    //   id: 7,
-    //   monster: 'Anjanath',
-    //   difficulty: 'Investigation Quest',
-    //   icon: "assets/icons/monsters/anja.png",
-    // },
-    // {
-    //   id: 8,
-    //   monster: 'Anjanath',
-    //   difficulty: 'Tempered Investigation Quest',
-    //   icon: "assets/icons/monsters/anja.png",
-    // },
-    // {
-    //   id: 9,
-    //   monster: 'Rathalos',
-    //   difficulty: 'Assigned Quest',
-    //   icon: "assets/icons/monsters/ratha.png",
-    // },
-    // {
-    //   id: 10,
-    //   monster: 'Rathalos',
-    //   difficulty: 'Investigation Quest',
-    //   icon: "assets/icons/monsters/ratha.png",
-    // },
-    // {
-    //   id: 11,
-    //   monster: 'Rathalos',
-    //   difficulty: 'Tempered Investigation Quest',
-    //   icon: "assets/icons/monsters/ratha.png",
-    // },
-    // {
-    //   id: 12,
-    //   monster: 'Azure Rathalos',
-    //   difficulty: 'Assigned Quest',
-    //   icon: "assets/icons/monsters/a-ratha.png",
-    // },
-    // {
-    //   id: 13,
-    //   monster: 'Azure Rathalos',
-    //   difficulty: 'Investigation Quest',
-    //   icon: "assets/icons/monsters/a-ratha.png",
-    // },
-    // {
-    //   id: 14,
-    //   monster: 'Azure Rathalos',
-    //   difficulty: 'Tempered Investigation Quest',
-    //   icon: "assets/icons/monsters/a-ratha.png",
-    // },
+    {
+      id: 3,
+      monster: 'Tobi-Kadachi',
+      difficulty: 'Assigned Quest',
+      icon: "assets/icons/monsters/tobi.png",
+    },
+    {
+      id: 4,
+      monster: 'Tobi-Kadachi',
+      difficulty: 'Investigation Quest',
+      icon: "assets/icons/monsters/tobi.png",
+    },
+    {
+      id: 5,
+      monster: 'Tobi-Kadachi',
+      difficulty: 'Tempered Investigation Quest',
+      icon: "assets/icons/monsters/tobi.png",
+    },
+    {
+      id: 6,
+      monster: 'Anjanath',
+      difficulty: 'Assigned Quest',
+      icon: "assets/icons/monsters/anja.png",
+    },
+    {
+      id: 7,
+      monster: 'Anjanath',
+      difficulty: 'Investigation Quest',
+      icon: "assets/icons/monsters/anja.png",
+    },
+    {
+      id: 8,
+      monster: 'Anjanath',
+      difficulty: 'Tempered Investigation Quest',
+      icon: "assets/icons/monsters/anja.png",
+    },
+    {
+      id: 9,
+      monster: 'Rathalos',
+      difficulty: 'Assigned Quest',
+      icon: "assets/icons/monsters/ratha.png",
+    },
+    {
+      id: 10,
+      monster: 'Rathalos',
+      difficulty: 'Investigation Quest',
+      icon: "assets/icons/monsters/ratha.png",
+    },
+    {
+      id: 11,
+      monster: 'Rathalos',
+      difficulty: 'Tempered Investigation Quest',
+      icon: "assets/icons/monsters/ratha.png",
+    },
+    {
+      id: 12,
+      monster: 'Azure Rathalos',
+      difficulty: 'Assigned Quest',
+      icon: "assets/icons/monsters/a-ratha.png",
+    },
+    {
+      id: 13,
+      monster: 'Azure Rathalos',
+      difficulty: 'Investigation Quest',
+      icon: "assets/icons/monsters/a-ratha.png",
+    },
+    {
+      id: 14,
+      monster: 'Azure Rathalos',
+      difficulty: 'Tempered Investigation Quest',
+      icon: "assets/icons/monsters/a-ratha.png",
+    },
   ]
 
   rewardsTable: any = [];
 
   rewardsJagras = [
-    { name: 'Monster Bone Small', rolls: '1, 9' },
-    { name: 'Great Jagras Claw', rolls: '2, 6', brokenIcon: 'claw' },
-    { name: 'Great Jagras Hide', rolls: '3, 10', brokenIcon: 'body' },
-    { name: 'Great Jagras Scale', rolls: '4, 11' },
-    { name: 'Great Jagras Mane', rolls: '5, 12', brokenIcon: 'head' },
-    { name: 'Sharp Claw', rolls: '7' },
-    { name: 'Piercing Claw', rolls: '8' },
+    { rolls: '1, 9', name: 'Monster Bone Small', },
+    { rolls: '2, 6', name: 'Great Jagras Claw', partBreakIcon: '/claw.svg' },
+    { rolls: '3, 10', name: 'Great Jagras Hide', partBreakIcon: '/body.svg' },
+    { rolls: '4, 11', name: 'Great Jagras Scale', },
+    { rolls: '5, 12', name: 'Great Jagras Mane', partBreakIcon: '/head.svg' },
+    { rolls: '7', name: 'Sharp Claw', },
+    { rolls: '8', name: 'Piercing Claw', },
   ]
 
   rewardsTobi = [
-    { name: '' },
+    { rolls: '1-9', name: 'Monster Bone Medium' },
+    { rolls: '2', name: 'Tobi-Kadachi Pelt', partBreakIcon: '/body.svg' },
+    { rolls: '3', name: 'Tobi-Kadachi Scale' },
+    { rolls: '4', name: 'Electro Sac' },
+    { rolls: '5-12', name: 'Tobi-Kadachi Electrode', partBreakIcon: '/tail.svg' },
+    { rolls: '6', name: 'Tobi-Kadachi Membrane', partBreakIcon: '/head.svg' },
+    { rolls: '7-11', name: 'Monster Keenbone' },
+    { rolls: '8', name: 'Tobi-Kadachi Claw' },
+    { rolls: '10', name: 'Thunder Sac' },
   ]
 
   rewardsAnja = [
-    { name: '' },
+    { rolls: '1', name: 'Anjanath Scale', partBreakIcon: '/leg.svg' },
+    { rolls: '2-9', name: 'Anjanath Pelt' },
+    { rolls: '3', name: 'Anjanath Nosebone' },
+    { rolls: '4', name: 'Anjanath Tail', partBreakIcon: '/tail.svg' },
+    { rolls: '5', name: 'Anjanath Fang', partBreakIcon: '/head.svg' },
+    { rolls: '6', name: 'Monster Keenbone' },
+    { rolls: '7-11', name: 'Flame Sac' },
+    { rolls: '8-10', name: 'Monster Bone Large' },
+    { rolls: '12', name: 'Inferno Sac', partBreakIcon: '/body.svg' },
   ]
 
   rewardsRathalos = [
-    { name: '' },
+    { rolls: '1', name: 'Rathalos Wingtalon' },
+    { rolls: '2', name: 'Monster Bone Large' },
+    { rolls: '3', name: 'Rathalos Scale' },
+    { rolls: '4', name: 'Rathalos Webbing' },
+    { rolls: '5', name: 'Rathalos Tail' },
+    { rolls: '6', name: 'Rathalos Marrow', partBreakIcon: '/body.svg' },
+    { rolls: '7', name: 'Rathalos Plate', partBreakIcon: '/tail.svg' },
+    { rolls: '8', name: 'Rathalos Wing', partBreakIcon: '/wing.svg' },
+    { rolls: '9', name: 'Rathalos Carapace' },
+    { rolls: '10', name: 'Rathalos Shell' },
+    { rolls: '11', name: 'Rathalos Medulla' },
+    { rolls: '12', name: 'Inferno Sac', partBreakIcon: '/head.svg' },
   ]
 
   rewardsAzure = [
-    { name: '' },
+    { rolls: '1-9', name: 'Azure Rathalos Wingtalon', partBreakIcon: '/wing.svg' },
+    { rolls: '2', name: 'Monster Bone Large' },
+    { rolls: '3', name: 'Azure Rathalos Scale' },
+    { rolls: '4', name: 'Azure Rathalos Wing' },
+    { rolls: '5', name: 'Azure Rathalos Plate' },
+    { rolls: '6', name: 'Azure Rathalos Marrow', partBreakIcon: '/body.svg' },
+    { rolls: '7-11', name: 'Azure Rathalos Tail', partBreakIcon: '/tail.svg' },
+    { rolls: '8-10', name: 'Azure Rathalos Carapace' },
+    { rolls: '12', name: 'Inferno Sac', partBreakIcon: '/head.svg' },
   ]
 
   quest: any;
@@ -846,22 +921,30 @@ export class MissionComponent {
 
   gainedMaterials: any = [];
   potions = 0;
-  playersQty: any = 4;
   popupVisible: boolean = false;
   diceRollTitle = '';
   customPopup: any;
+
+  playersQty: any = 0;
+  playersOption = [
+    { value: 1 },
+    { value: 2 },
+    { value: 3 },
+    { value: 4 },
+  ]
 
   selectedMaterials: any = [];
 
   phases = [
     'Investigation', 'Hunt'
   ];
-  phase: String = '';
+  phase: String | null = '';
 
+  mission: any;
+  missionListIndex: number | undefined;
   missionState: boolean | undefined;
 
   loading = false;
-  mission: any;
 
   constructor(
     public ds: DataService
@@ -872,6 +955,20 @@ export class MissionComponent {
   }
 
   ngOnInit(): void {
+
+    if (sessionStorage.getItem('players') != undefined) this.playersQty = Number(sessionStorage.getItem('players'));
+    if (sessionStorage.getItem('quest') != undefined) this.selectQuest(Number(sessionStorage.getItem('quest')));
+    if (sessionStorage.getItem('phase') != undefined) this.phase = sessionStorage.getItem('phase');
+
+    if (sessionStorage.getItem('potions') != undefined) this.potions = Number(sessionStorage.getItem('potions'));
+    if (sessionStorage.getItem('nodeID') != undefined) this.node = this.quest[Number(sessionStorage.getItem('nodeID')) - 1];
+    if (sessionStorage.getItem('gainedMaterials') != undefined) {
+      let auxJson = sessionStorage.getItem('gainedMaterials');
+      if (auxJson) {
+        this.gainedMaterials = JSON.parse(auxJson);
+      }
+    }
+
     this.ds.getMissionLog(this.ds.campaignID).subscribe(logs => {
       this.missionList.forEach((mission: any, i: number) => {
         //Estado inicial
@@ -907,6 +1004,8 @@ export class MissionComponent {
    *  Asigna las variables Quest y StartingPoint
    */
   selectQuest(index: number) {
+
+    this.missionListIndex = index;
 
     this.showTrackTokens = false;
     this.trackTokens = 0;
@@ -997,10 +1096,17 @@ export class MissionComponent {
       this.startingPoint = [2, 3, 4, 5];
       this.rewardsTable = this.rewardsAzure;
     }
+    sessionStorage.setItem('quest', index.toString());
+  }
+
+  selectPlayers(qty: number) {
+    this.playersQty = qty;
+    sessionStorage.setItem('players', qty.toString());
   }
 
   selectPhase(phase: String) {
     this.phase = phase;
+    sessionStorage.setItem('phase', phase.toString());
   }
 
   selectStartingNode(index: number) {
@@ -1015,6 +1121,11 @@ export class MissionComponent {
         this.gainedMaterials.find((x: any) => x.name == mat.name).qty += mat.qty * ((mat.playerMultiplier) ? this.playersQty : 1);
       });
     }
+
+    sessionStorage.setItem('nodeID', this.node.id.toString());
+    sessionStorage.setItem('potions', this.potions.toString());
+    sessionStorage.setItem('trackTokens', this.trackTokens.toString());
+    sessionStorage.setItem('gainedMaterials', JSON.stringify(this.gainedMaterials).toString());
   }
 
   selectNode(option: any) {
@@ -1062,7 +1173,11 @@ export class MissionComponent {
         this.showTrackTokens = true;
       }
     }
-    console.log(this.potions)
+
+    sessionStorage.setItem('nodeID', this.node.id.toString());
+    sessionStorage.setItem('potions', this.potions.toString());
+    sessionStorage.setItem('trackTokens', this.trackTokens.toString());
+    sessionStorage.setItem('gainedMaterials', JSON.stringify(this.gainedMaterials).toString());
   }
 
   enableOption() {
@@ -1142,15 +1257,21 @@ export class MissionComponent {
     this.selectedMaterials[index] = e;
   }
 
-  setRewards(rewards?: any) {
+  setChoiceMenuRewards(rewards?: any) {
     this.popupVisible = false;
     this.customPopup = undefined;
 
     //Revisa materiales sacrificados
     this.selectedMaterials.forEach((element: any) => {
-      if (this.gainedMaterials.find((x: any) => x.name == element) == undefined) this.gainedMaterials.push({ name: element, qty: 0 });
+      if (this.gainedMaterials.find((x: any) => x.name == element) == undefined)
+        this.gainedMaterials.push({ name: element, qty: 0 });
       this.gainedMaterials.find((x: any) => x.name == element).qty--;
     });
+    if(rewards.potions) this.potions += rewards.potions;
+    if(rewards.trackTokens) this.trackTokens += rewards.trackTokens;
+    
+    sessionStorage.setItem('gainedMaterials', JSON.stringify(this.gainedMaterials).toString());
+
   }
 
   selectDiceRoll(option: any) {
@@ -1177,8 +1298,6 @@ export class MissionComponent {
       addedAmount: material.addedAmmount
     }
 
-    console.log(params)
-
     this.ds.updateItem(params).subscribe((resUpdate) => {
       material.addedAmmount = 0;
       this.loading = false;
@@ -1194,6 +1313,11 @@ export class MissionComponent {
 
     this.ds.updateItemBulk(this.gainedMaterials).subscribe((res) => {
       this.loading = false;
+
+      sessionStorage.removeItem('nodeID');
+      sessionStorage.removeItem('trackTokens');
+      sessionStorage.removeItem('gainedMaterials');
+      this.selectPhase('Hunt');
     },
       (error) => {
         this.loading = false;
@@ -1218,9 +1342,10 @@ export class MissionComponent {
 
     //Se añade el addedAmmount configurado en customMenu
     customPopup.options.forEach((opt: any) => {
-      if (this.gainedMaterials.find((x: any) => x.name == opt.materials[0].name) == undefined)
+      if (this.gainedMaterials.find((x: any) => x.name == opt.materials[0].name) == undefined && opt.addedAmount != undefined)
         this.gainedMaterials.push({ name: opt.materials[0].name, qty: 0 });
-      this.gainedMaterials.find((x: any) => x.name == opt.materials[0].name).qty += (opt.addedAmount) ? (opt.addedAmount) : 0;
+      if (this.gainedMaterials.find((x: any) => x.name == opt.materials[0].name))
+        this.gainedMaterials.find((x: any) => x.name == opt.materials[0].name).qty += (opt.addedAmount) ? (opt.addedAmount) : 0;
     });
 
     this.popupVisible = false;

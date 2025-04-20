@@ -1,6 +1,7 @@
 <!-- Mission Select -->
 <dx-select-box
     [items]="missionList"
+    [value]="missionListIndex"
     valueExpr="id"
     fieldTemplate="field"
     label="Choose Quest"
@@ -26,221 +27,242 @@
     </div>
 </dx-select-box>
 
-@if(quest != undefined){
-    <div style="margin-top: 1rem;">
-        <dx-button style="width: 50%;" (onClick)="selectPhase('Investigation')">Investigation</dx-button>
-        <dx-button style="width: 50%;" (onClick)="selectPhase('Hunt')">Hunt</dx-button>
-    </div>
-    @if(phase == 'Investigation') {
-        <!-- Investigation -->
-        @if (!showTrackTokens) {
-            <!-- Choose Starting Point -->
-            @if(node == undefined) {
-                @if(startingPoint.length != 0) {
-                    <h4>Set Starting point</h4>
-                }
-                @for(i of startingPoint; track i) {
-                <div class="questNode" style="border-width: 2px; border-color:#7f7f7f" (click)="selectStartingNode(i)">
-                    <div class="titleNode">
-                        <div style="position: absolute; left: 3rem;">
-                            <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 1 > quest[i - 1].potions}" style="height: 30px" />
-                            <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 2 > quest[i - 1].potions}" style="height: 30px" />
-                            <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 3 > quest[i - 1].potions}" style="height: 30px" />
-                        </div>
-                        <span> {{ i }} </span>
-                        
-                    </div>
-                    <div class="textNode">
-                        <span> {{ quest[i - 1].text }} </span>
-                        @if(quest[i - 1].action != undefined) {
-                            <div style="text-align: center;">
-                                <br>
-                                <span style="white-space: pre-wrap;" [innerHTML]="quest[i - 1].action"> </span>
-                            </div>
-                        }
-                    </div>
-                
-                    <div>
-                        @for(option of quest[i-1].options; track option){
-                            <div class="startingOptionNode">
-                                <span style="white-space: pre-wrap;" [innerHTML]="option.text"> </span>
-                            </div>
-                        }
-                    </div>
-                </div>
-                }
-            }
-            
-            <!-- Node -->
-            @if(node != undefined){
-                <div class="questNode">
-                    <div class="titleNode">
-                        <div style="position: absolute; left: 3rem;">
-                            <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 1 > potions}" style="height: 30px" />
-                            <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 2 > potions}" style="height: 30px" />
-                            <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 3 > potions}" style="height: 30px" />
-                        </div>                
-                        <span> {{ node.id }} </span>
-                    </div>
-        
-                    <div class="textNode">
-                        <span> {{ node.text }} </span>
-                        @if(node.action != undefined) {
-                            <div style="text-align: center;">
-                                <br>
-                                <span [innerHTML]="node.action"> </span>
-                            </div>
-                        }
-                    </div>
-        
-                    <div>
-                        @for(option of node.options; track option) {
-                            <div class="optionNode" [ngClass]="{'disabled':option.disabled?.disabled}" (click)="selectNode(option)">
-                                <span style="white-space: pre-wrap;" [innerHTML]="option.text"> </span>
-                            </div>
-                        }
-                    </div>        
-                </div>
-            }
-        
-            <dx-popup
-                [(visible)]="popupVisible"
-                [showTitle]="true"
-                [title]="customPopup?.title"
-                [hideOnOutsideClick]="false"
-                contentTemplate="popup-content"
-                >    
-                <div *dxTemplate="let data of 'popup-content'">
-        
-                    @if(customPopup?.type == 'diceRoll') {
-                        <div class="questNode">
-                            @for(diceOption of customPopup?.options; track diceOption) {
-                                @if(!customPopup.multipleChoices) {
-                                    <div class="optionNode" (click)="selectDiceRoll(diceOption)">
-                                        <span style="white-space: pre-wrap;" [innerHTML]="diceOption.text"> </span>
-                                    </div>
-                                }
-                                @if(customPopup.multipleChoices) {
-                                    <div class="optionNode">
-                                        <span style="white-space: pre-wrap;" [innerHTML]="diceOption.text"> </span>
-                                        <br>
-                                        <div>
-                                            <button [disabled]=" diceOption == 0" (click)="add(diceOption, -1)" > - </button>
-                                            <span style="font-size: 250%; font-weight: 600;"> {{diceOption.addedAmount ? diceOption.addedAmount : 0}} </span>
-                                            <button (click)="add(diceOption, 1)" > + </button>
-                                        </div>
-                                    </div>
-                                }
-                            }
-                            
-                            @if(customPopup.multipleChoices) {
-                                <dx-button
-                                    (onClick)="closeMultipleSelection(customPopup)"
-                                    >Terminar selección
-                                </dx-button>
-                            }
-                        </div>
-                    }
-                    @if(customPopup?.type == 'choice') {
-                        <span  [innerHTML]="customPopup.text"></span>
-        
-                        @for(index of customPopup?.requiredMaterials; track index) {
-                            <dx-select-box
-                            class="materialSelection"
-                            [items]="ds.materials"
-                            valueExpr="materialName"
-                            displayExpr="materialName"
-                            [disabled]="(index>0) ? selectedMaterials[index-1] == undefined : false"
-                            (onValueChanged)="selectMaterial($event.value, index)"
-                            >    
-                            </dx-select-box>
-                        }
-                        <div style="display: flex; margin-top: 1rem;">
-                            @for(reward of customPopup?.possibleRewards; track reward) {
-                                <dx-button
-                                    [style]="{'margin-right':$index == 0 ? '1rem': null}"
-                                    [style]="{'margin-left':$index == 1 ? '2rem': null}"
-                                    [ngClass]="{ 'acceptButton':$index != 0}"
-                                    [disabled]="selectedMaterials.length <3 && $index != 0"
-                                    (onClick)="setRewards(reward)"
-                                    >{{reward.text}}
-                                </dx-button>
-                            }
-                        </div>
-        
-        
-                        <dx-data-grid
-                            style="margin-top: 1rem;"
-                            [showBorders]="true"
-                            [rowAlternationEnabled]="true"
-                            [showRowLines]="true"
-                            [wordWrapEnabled]="true"
-                            [dataSource]="ds.materials"
-                        >
-                            <dxi-column dataField="materialName" ></dxi-column>
-                            <dxi-column dataField="materialQuantity" caption="Quantity" [width]="80" 
-                            sortOrder="desc"></dxi-column>
-                        </dx-data-grid>  
-                    }
-        
-                </div>
-            </dx-popup>
-        
-        }
-        @if (showTrackTokens) {
-            <h2> Track Tokens: <b> {{trackTokens}} </b> </h2>
-            <hr>
-            <h2> Materiales Obtenidos: </h2>
-            <dx-data-grid
-                [showBorders]="true"
-                [rowAlternationEnabled]="true"
-                [showRowLines]="true"
-                [wordWrapEnabled]="true"
-                [dataSource]="gainedMaterials"
-            >
-            </dx-data-grid>
-            
-            <dx-button 
-                text="Begin Hunt!"
-                (onClick)="updateBulkMaterials()"
-                ></dx-button>
-        }
+@if(quest != undefined) {
+    @if(playersQty == 0) {
+        <dx-select-box
+            [items]="playersOption"
+            valueExpr="value"
+            displayExpr="value"
+            label="Select Players"
+            labelMode="floating"
+            (onValueChanged)="selectPlayers($event.value)"
+        >
+        </dx-select-box>
     }
-    @if(phase == 'Hunt') {
-        @if(missionState == undefined) {
+
+    @if(playersQty != 0) {
         <div style="margin-top: 1rem;">
-            <dx-button style="width: 100%;" (onClick)="setMissionState(true)">
-                <img src="assets/icons/win.png" width="80" height="60" style=" filter: sepia(1);" />
-            </dx-button>
-            <dx-button style="width: 100%;" (onClick)="setMissionState(false)">
-                <img src="assets/icons/failed.png" width="80" height="60" />
-            </dx-button>
+            <dx-button style="width: 50%;" (onClick)="selectPhase('Investigation')">Investigation</dx-button>
+            <dx-button style="width: 50%;" (onClick)="selectPhase('Hunt')">Hunt</dx-button>
         </div>
-        }
-        @if(missionState) {
-
-            <dx-data-grid
-                style="margin-top: 1rem;"
-                [showBorders]="true"
-                [rowAlternationEnabled]="true"
-                [showRowLines]="true"
-                [wordWrapEnabled]="true"
-                [dataSource]="rewardsTable"
+        @if(phase == 'Investigation') {
+            <!-- Investigation -->
+            @if (!showTrackTokens) {
+                <!-- Choose Starting Point -->
+                @if(node == undefined) {
+                    @if(startingPoint.length != 0) {
+                        <h4>Set Starting point</h4>
+                    }
+                    @for(i of startingPoint; track i) {
+                    <div class="questNode" style="border-width: 2px; border-color:#7f7f7f" (click)="selectStartingNode(i)">
+                        <div class="titleNode">
+                            <div style="position: absolute; left: 3rem;">
+                                <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 1 > quest[i - 1].potions}" style="height: 30px" />
+                                <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 2 > quest[i - 1].potions}" style="height: 30px" />
+                                <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 3 > quest[i - 1].potions}" style="height: 30px" />
+                            </div>
+                            <span> {{ i }} </span>
+                            
+                        </div>
+                        <div class="textNode">
+                            <span> {{ quest[i - 1].text }} </span>
+                            @if(quest[i - 1].action != undefined) {
+                                <div style="text-align: center;">
+                                    <br>
+                                    <span style="white-space: pre-wrap;" [innerHTML]="quest[i - 1].action"> </span>
+                                </div>
+                            }
+                        </div>
+                    
+                        <div>
+                            @for(option of quest[i-1].options; track option){
+                                <div class="startingOptionNode">
+                                    <span style="white-space: pre-wrap;" [innerHTML]="option.text"> </span>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    }
+                }
+                
+                <!-- Node -->
+                @if(node != undefined){
+                    <div class="questNode">
+                        <div class="titleNode">
+                            <div style="position: absolute; left: 3rem;">
+                                <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 1 > potions}" style="height: 30px" />
+                                <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 2 > potions}" style="height: 30px" />
+                                <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 3 > potions}" style="height: 30px" />
+                            </div>                
+                            <span> {{ node.id }} </span>
+                        </div>
+            
+                        <div class="textNode">
+                            <span> {{ node.text }} </span>
+                            @if(node.action != undefined) {
+                                <div style="text-align: center;">
+                                    <br>
+                                    <span [innerHTML]="node.action"> </span>
+                                </div>
+                            }
+                        </div>
+            
+                        <div>
+                            @for(option of node.options; track option) {
+                                <div class="optionNode" [ngClass]="{'disabled':option.disabled?.disabled}" (click)="selectNode(option)">
+                                    <span style="white-space: pre-wrap;" [innerHTML]="option.text"> </span>
+                                </div>
+                            }
+                        </div>        
+                    </div>
+                }
+            
+                <dx-popup
+                    [(visible)]="popupVisible"
+                    [showTitle]="true"
+                    [title]="customPopup?.title"
+                    [hideOnOutsideClick]="false"
+                    contentTemplate="popup-content"
+                    >    
+                    <div *dxTemplate="let data of 'popup-content'">
+            
+                        @if(customPopup?.type == 'diceRoll') {
+                            <div class="questNode">
+                                @for(diceOption of customPopup?.options; track diceOption) {
+                                    <!-- Se tira 1 solo dado -->
+                                    @if(!customPopup.multipleChoices) {
+                                        <div class="optionNode" (click)="selectDiceRoll(diceOption)">
+                                            <span style="white-space: pre-wrap;" [innerHTML]="diceOption.text"> </span>
+                                        </div>
+                                    }
+                                    <!-- Cada jugador tira 1 dado -->
+                                    @if(customPopup.multipleChoices) {
+                                        <div class="optionNode">
+                                            <span style="white-space: pre-wrap;" [innerHTML]="diceOption.text"> </span>
+                                            <br>
+                                            <div>
+                                                <button [disabled]=" diceOption == 0" (click)="add(diceOption, -1)" > - </button>
+                                                <span style="font-size: 250%; font-weight: 600;"> {{diceOption.addedAmount ? diceOption.addedAmount : 0}} </span>
+                                                <button (click)="add(diceOption, 1)" > + </button>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                                
+                                @if(customPopup.multipleChoices) {
+                                    <dx-button
+                                        (onClick)="closeMultipleSelection(customPopup)"
+                                        >Terminar selección
+                                    </dx-button>
+                                }
+                            </div>
+                        }
+                        @if(customPopup?.type == 'choice') {
+                            <span  [innerHTML]="customPopup.text"></span>
+            
+                            @for(index of customPopup?.requiredMaterials; track index) {
+                                <dx-select-box
+                                class="materialSelection"
+                                [items]="ds.materials"
+                                valueExpr="materialName"
+                                displayExpr="materialName"
+                                [disabled]="(index > 0) ? selectedMaterials[index-1] == undefined : false"
+                                (onValueChanged)="selectMaterial($event.value, index)"
+                                >    
+                                </dx-select-box>
+                            }
+                            <div style="display: flex; margin-top: 1rem;">
+                                @for(reward of customPopup?.possibleRewards; track reward) {
+                                    <dx-button
+                                        [style]="{'margin-right':$index == 0 ? '1rem': null}"
+                                        [style]="{'margin-left':$index == 1 ? '2rem': null}"
+                                        [ngClass]="{ 'acceptButton':$index != 0}"
+                                        [disabled]="selectedMaterials.length <3 && $index != 0"
+                                        (onClick)="setChoiceMenuRewards(reward)"
+                                        >{{reward.text}}
+                                    </dx-button>
+                                }
+                            </div>
+            
+            
+                            <dx-data-grid
+                                style="margin-top: 1rem;"
+                                [showBorders]="true"
+                                [rowAlternationEnabled]="true"
+                                [showRowLines]="true"
+                                [wordWrapEnabled]="true"
+                                [dataSource]="ds.materials"
+                            >
+                                <dxi-column dataField="materialName" ></dxi-column>
+                                <dxi-column dataField="materialQuantity" caption="Quantity" [width]="80" 
+                                sortOrder="desc"></dxi-column>
+                            </dx-data-grid>  
+                        }
+            
+                    </div>
+                </dx-popup>
+            
+            }
+            @if (showTrackTokens) {
+                <h2> Track Tokens: <b> {{trackTokens}} </b> </h2>
+                <hr>
+                <h2> Materiales Obtenidos: </h2>
+                <dx-data-grid
+                    [showBorders]="true"
+                    [rowAlternationEnabled]="true"
+                    [showRowLines]="true"
+                    [wordWrapEnabled]="true"
+                    [dataSource]="gainedMaterials"
                 >
-                <dxo-master-detail [enabled]="true" template="detail"></dxo-master-detail>
-
-                <dxi-column dataField="rolls" [width]="80"></dxi-column>
-                <dxi-column dataField="name" caption="Materials"></dxi-column>
-
-                <div *dxTemplate="let material of 'detail'">
-                    <button [disabled]=" material.data.addedAmmount == 0" (click)="addReward(material.data, -1)" > - </button>
-                    <span style="font-size: 250%; font-weight: 600;"> {{material.data.addedAmmount ? material.data.addedAmmount : 0}} </span>
-                    <button (click)="addReward(material.data, 1)" > + </button>
-                    <button [disabled]="loading" (click)="updateReward(material.data)"> Update </button>
-                </div>
-
-            </dx-data-grid>
+                </dx-data-grid>
+                
+                <dx-button 
+                    text="Begin Hunt!"
+                    (onClick)="updateBulkMaterials()"
+                    ></dx-button>
+            }
+        }
+        @if(phase == 'Hunt') {
+            @if(missionState == undefined) {
+            <div style="margin-top: 1rem;">
+                <dx-button style="width: 100%;" (onClick)="setMissionState(true)">
+                    <img src="assets/icons/win.png" width="80" height="60" style=" filter: sepia(1);" />
+                </dx-button>
+                <dx-button style="width: 100%;" (onClick)="setMissionState(false)">
+                    <img src="assets/icons/failed.png" width="80" height="60" />
+                </dx-button>
+            </div>
+            }
+            @if(missionState) {
+    
+                <dx-data-grid
+                    style="margin-top: 1rem;"
+                    [showBorders]="true"
+                    [rowAlternationEnabled]="true"
+                    [showRowLines]="true"
+                    [wordWrapEnabled]="true"
+                    [dataSource]="rewardsTable"
+                    >
+                    <dxo-master-detail [enabled]="true" template="detail"></dxo-master-detail>
+    
+                    <dxi-column dataField="rolls" [width]="80" ></dxi-column>
+                    <dxi-column dataField="name" caption="Materials"></dxi-column>
+                    <dxi-column dataField="partBreakIcon" caption="Part Break Rewards" cellTemplate="iconTemplate" alignment="center"></dxi-column>
+    
+                    <div *dxTemplate="let icon of 'iconTemplate'">
+                        <img src="/assets/icons/parts{{icon.data.partBreakIcon}}" alt="" height="30px">
+                    </div>
+    
+                    <!-- Inner Table -->
+                    <div *dxTemplate="let material of 'detail'">
+                        <button [disabled]=" material.data.addedAmmount == 0" (click)="addReward(material.data, -1)" > - </button>
+                        <span style="font-size: 250%; font-weight: 600;"> {{material.data.addedAmmount ? material.data.addedAmmount : 0}} </span>
+                        <button (click)="addReward(material.data, 1)" > + </button>
+                        <button [disabled]="loading" (click)="updateReward(material.data)"> Update </button>
+                    </div>
+    
+                </dx-data-grid>
+            }
         }
     }
-    
 }
