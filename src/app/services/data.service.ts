@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
 
-  // private apiUrl = 'http://localhost:8080/api/'; // Replace with actual URL
   // private apiUrl = 'http://localhost:5230/api/'; // Replace with actual URL
   private apiUrl = 'https://mhw-api.up.railway.app/api/'; // Replace with actual URL
 
@@ -2373,6 +2372,10 @@ export class DataService {
 
   updateItem(e: any): Observable<any> {
     return this.http.post(this.apiUrl + 'itemBox/updateItembox', e, this.headers);
+  }
+
+  updateItemBulk(e: any): Observable<any> {
+    return this.http.post(this.apiUrl + 'itemBox/updateItemboxBulk', e, this.headers);
   }
 
   getArmors(): Observable<any> {

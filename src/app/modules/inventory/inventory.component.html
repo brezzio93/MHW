@@ -20,9 +20,9 @@
     <!-- Inner Table -->
     <div *dxTemplate="let material of 'detail'">
         <button [disabled]=" material.data.materialQuantity == 0" (click)="add(-1)" > - </button>
+        <span style="font-size: 250%; font-weight: 600;"> {{addedAmount}} </span>
         <button (click)="add(1)" > + </button>
         <button [disabled]="loading" (click)="update(material.data)"> Update </button>
-        <span style="font-size: 250%; font-weight: 600;"> {{addedAmount}} </span>
     </div>
     
     <!-- Tree Icon Template -->

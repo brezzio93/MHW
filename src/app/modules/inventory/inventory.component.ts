@@ -51,8 +51,8 @@ export class InventoryComponent {
     this.loading = true;
     let params = {
       materialName: material.materialName,
-      idCampaign: material.idCampaign,
-      addedAmount: this.addedAmount
+      idCampaign: this.ds.campaignID.toString(),
+      addedAmount: this.addedAmount,
     }
 
     this.ds.updateItem(params).subscribe((resUpdate) => {

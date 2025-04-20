@@ -810,7 +810,35 @@ export class MissionComponent {
     // },
   ]
 
-  quest: any = [];
+  rewardsTable: any = [];
+
+  rewardsJagras = [
+    { name: 'Monster Bone Small', rolls: '1, 9' },
+    { name: 'Great Jagras Claw', rolls: '2, 6', brokenIcon: 'claw' },
+    { name: 'Great Jagras Hide', rolls: '3, 10', brokenIcon: 'body' },
+    { name: 'Great Jagras Scale', rolls: '4, 11' },
+    { name: 'Great Jagras Mane', rolls: '5, 12', brokenIcon: 'head' },
+    { name: 'Sharp Claw', rolls: '7' },
+    { name: 'Piercing Claw', rolls: '8' },
+  ]
+
+  rewardsTobi = [
+    { name: '' },
+  ]
+
+  rewardsAnja = [
+    { name: '' },
+  ]
+
+  rewardsRathalos = [
+    { name: '' },
+  ]
+
+  rewardsAzure = [
+    { name: '' },
+  ]
+
+  quest: any;
   node: any;
   startingPoint: any = [];
   trackTokens = 0;
@@ -824,6 +852,16 @@ export class MissionComponent {
   customPopup: any;
 
   selectedMaterials: any = [];
+
+  phases = [
+    'Investigation', 'Hunt'
+  ];
+  phase: String = '';
+
+  missionState: boolean | undefined;
+
+  loading = false;
+  mission: any;
 
   constructor(
     public ds: DataService
@@ -873,76 +911,96 @@ export class MissionComponent {
     this.showTrackTokens = false;
     this.trackTokens = 0;
     this.node = undefined;
+    this.mission = this.missionList[index];
 
     //Great Jagras
     if (index == 0) {
       this.quest = this.jagrasQuest;
       this.startingPoint = [1];
+      this.rewardsTable = this.rewardsJagras;
     }
     if (index == 1) {
       this.quest = this.jagrasQuest;
       this.startingPoint = [2, 3, 4, 5];
+      this.rewardsTable = this.rewardsJagras;
     }
     if (index == 2) {
       this.quest = this.jagrasQuest;
       this.startingPoint = [2, 3, 4, 5];
+      this.rewardsTable = this.rewardsJagras;
     }
 
     //Tobi-Kadachi
     if (index == 3) {
       this.quest = this.tobiQuest;
       this.startingPoint = [1];
+      this.rewardsTable = this.rewardsTobi;
     }
     if (index == 4) {
       this.quest = this.tobiQuest;
       this.startingPoint = [2, 3, 4, 5];
+      this.rewardsTable = this.rewardsTobi;
     }
     if (index == 5) {
       this.quest = this.tobiQuest;
       this.startingPoint = [2, 3, 4, 5];
+      this.rewardsTable = this.rewardsTobi;
     }
 
     //Anjanath
     if (index == 6) {
       this.quest = this.anjaQuest;
       this.startingPoint = [1];
+      this.rewardsTable = this.rewardsAnja;
     }
     if (index == 7) {
       this.quest = this.anjaQuest;
       this.startingPoint = [2, 3, 4, 5];
+      this.rewardsTable = this.rewardsAnja;
     }
     if (index == 8) {
       this.quest = this.anjaQuest;
       this.startingPoint = [2, 3, 4, 5];
+      this.rewardsTable = this.rewardsAnja;
     }
 
     //Rathalos
     if (index == 9) {
       this.quest = this.rathQuest;
       this.startingPoint = [1];
+      this.rewardsTable = this.rewardsRathalos;
     }
     if (index == 10) {
       this.quest = this.rathQuest;
       this.startingPoint = [2, 3, 4, 5];
+      this.rewardsTable = this.rewardsRathalos;
     }
     if (index == 11) {
       this.quest = this.rathQuest;
       this.startingPoint = [2, 3, 4, 5];
+      this.rewardsTable = this.rewardsRathalos;
     }
 
     //Azure Rathalos
     if (index == 12) {
       this.quest = this.azureQuest;
       this.startingPoint = [1];
+      this.rewardsTable = this.rewardsAzure;
     }
     if (index == 13) {
       this.quest = this.azureQuest;
       this.startingPoint = [2, 3, 4, 5];
+      this.rewardsTable = this.rewardsAzure;
     }
     if (index == 14) {
       this.quest = this.azureQuest;
       this.startingPoint = [2, 3, 4, 5];
+      this.rewardsTable = this.rewardsAzure;
     }
+  }
+
+  selectPhase(phase: String) {
+    this.phase = phase;
   }
 
   selectStartingNode(index: number) {
@@ -1004,14 +1062,13 @@ export class MissionComponent {
         this.showTrackTokens = true;
       }
     }
-
-
     console.log(this.potions)
   }
 
   enableOption() {
     this.node.options.forEach((nodeOption: any) => {
       if (nodeOption.disabled) {
+        //Revisa tipo de variable
         if (nodeOption.disabled.if.variable == 'Potion') {
           if (nodeOption.disabled.if.operator == '<=')
             if (this.potions <= nodeOption.disabled.if.value)
@@ -1020,7 +1077,7 @@ export class MissionComponent {
             if (this.potions >= nodeOption.disabled.if.value)
               nodeOption.disabled.disabled = nodeOption.disabled.if.then.disable;
         }
-        //De no ser así, es un material
+        //De no ser tipo predefinido, es un material
         else {
           let material = this.ds.materials.find(x => x.materialName == nodeOption.disabled.if.variable);
 
@@ -1107,15 +1164,64 @@ export class MissionComponent {
     diceOption.addedAmount += value;
   }
 
+  addReward(material: any, addedAmmount: any) {
+    material.addedAmmount = (material.addedAmmount != undefined) ? material.addedAmmount : 0;
+    material.addedAmmount += addedAmmount;
+  }
+
+  updateReward(material: any) {
+    this.loading = true;
+    let params = {
+      materialName: material.name,
+      idCampaign: this.ds.campaignID.toString(),
+      addedAmount: material.addedAmmount
+    }
+
+    console.log(params)
+
+    this.ds.updateItem(params).subscribe((resUpdate) => {
+      material.addedAmmount = 0;
+      this.loading = false;
+    })
+  }
+
+  updateBulkMaterials() {
+    this.loading = true;
+
+    this.gainedMaterials.forEach((element: any) => {
+      element.idCampaign = this.ds.campaignID;
+    });
+
+    this.ds.updateItemBulk(this.gainedMaterials).subscribe((res) => {
+      this.loading = false;
+    },
+      (error) => {
+        this.loading = false;
+      }
+    )
+
+  }
+
+  setMissionState(missionState: boolean) {
+    this.missionState = missionState;
+
+    let params = {
+      idCampaign: this.ds.campaignID.toString(),
+      mission: this.mission.monster + ' ' + this.mission.difficulty,
+    }
+
+    //Actualiza missionLog
+    this.log("ToDo: Actualizar missionLog");
+  }
+
   closeMultipleSelection(customPopup: any) {
+
     //Se añade el addedAmmount configurado en customMenu
     customPopup.options.forEach((opt: any) => {
       if (this.gainedMaterials.find((x: any) => x.name == opt.materials[0].name) == undefined)
         this.gainedMaterials.push({ name: opt.materials[0].name, qty: 0 });
       this.gainedMaterials.find((x: any) => x.name == opt.materials[0].name).qty += (opt.addedAmount) ? (opt.addedAmount) : 0;
     });
-
-    console.log(customPopup);
 
     this.popupVisible = false;
     this.customPopup = undefined;
