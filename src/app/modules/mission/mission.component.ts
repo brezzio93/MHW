@@ -732,6 +732,10 @@ export class MissionComponent {
           progressTo: 34,
           text: '<b> (Los cazadores sólo podrán elegir esta opción si han completado Tobi-Kadachi Assigned Quest) </b>\n\n ¡Espera en el nido a que regrese Tobi-Kadachi! \n <b> Descarta 6 Cartas de Tiempo. Avancen a la entrada 34 </b>',
           timeCards: -6,
+          disabled: {
+            disabled: true,
+            if: { variable: 'startingPoint', operator: '!=', value: 0, then: { disable: false } }
+          },
         },
         {
           progressTo: 18,
@@ -741,6 +745,333 @@ export class MissionComponent {
           ]
         },
       ]
+    },
+    {
+      id: 3,
+      text: 'Tobi-Kadachi es audaz y letal. Ha atacado un campamento, dejando a otros cazadores muertos o heridos. Y hay que detenerlo antes de que la comisión sea expulsada por completo del bosque. Sus depredaciones dejan ruinas tras de sí, y eso es en lo que te encuentras ahora. Ruinas',
+      potions: 2,
+      options: [
+        {
+          progressTo: 10,
+          text: 'Dirígete al último lugar donde se vio a la bestia.\n <b> Avancen a la entrada 10. </b>',
+        },
+        {
+          progressTo: 25,
+          text: 'Aprovecha lo mejor que puedas.\n <b> ¡Busca recursos!. Descarta 1 Carta de Tiempo. Cada cazador gana 1 Monster Bone Small y 1 Monster Hardbone.\n Avancen a la entrada 25. </b>',
+          materials: [
+            { name: 'Monster Bone Small', qty: 1, playerMultiplier: true },
+            { name: 'Monster Hardbone', qty: 1, playerMultiplier: true },
+          ],
+        },
+        {
+          progressTo: 34,
+          text: '¡Corre hacia donde fue vista tu presa por última vez! \n <b> Descarta 6 Cartas de Tiempo. Avancen a la entrada 34 </b>',
+          timeCards: -6
+        },
+      ],
+    },
+    {
+      id: 4,
+      text: 'El sonido de la cascada te atrajo hasta aquí. El rugido interminable y pulsante es relajante y has oído que un buen nadador puede encontrar cosas valiosas en la piscina que hay debajo. Pero mientras observas las agitadas aguas, percibes el aroma del ozono en la brisa y escuchas el sonido de las alas batiendo el aire. Un Tobi-Kadachi está cerca. Y necesitas bajarlo.',
+      potions: 2,
+      options: [
+        {
+          text: 'Sumérgete en la cascada.\n<b>Descarta 2 Cartas de Tiempo. \nCada cazador lanza dados en la siguiente tabla.\n\n </b> <b>1-2</b> Gana 1 Ancient Bone.\n <b>3-4</b> Gana 1 Warm Pelt.\n <b>5-6</b> Gana 1 Coral Crystal. \n\n <b> Una vez que cada jugador haya tirado. Avanzan a la entrada 11 </b>',
+          timeCards: -2,
+          customPopup: {
+            type: 'diceRoll',
+            title: "Cada cazador tira un dado",
+            multipleChoices: true,
+            progressTo: 11,
+            options: [
+              {
+                progressTo: 11,
+                text: '<b>1-2</b> Gana 1 Ancient Bone. </b>',
+                materials: [{ name: 'Ancient Bone', qty: 1, playerMultiplier: false }]
+              },
+              {
+                progressTo: 11,
+                text: '<b>3-4</b> Gana 1 Warm Pelt. </b>',
+                materials: [{ name: 'Warm Pelt', qty: 1, playerMultiplier: false }]
+              },
+              {
+                progressTo: 11,
+                text: '<b>5-6</b> Gana 1 Coral Crystal. </b>',
+                materials: [{ name: 'Coral Crystal', qty: 1, playerMultiplier: false }]
+              },
+            ]
+          },
+        },
+        {
+          progressTo: 29,
+          text: 'Déjalo atrás y regresa a la cueva.\n <b> Descarta 1 tarjeta de tiempo. Progreso a la entrada 29. </b>',
+        },
+        {
+          progressTo: 34,
+          text: '¡Corre hacia donde fue vista tu presa por última vez! \n <b> Descarta 6 Cartas de Tiempo. Avancen a la entrada 34 </b>',
+          timeCards: -6
+        },
+      ],
+    },
+    {
+      id: 5,
+      text: 'Has descansado, recuperado de los rigores de tu última cacería. Y ahora hay otra cacería a la vista. Habías oído que un Tobi-Kadachi estaba a la caza, pero ahora estás siendo cazado por ti. Ha dejado mucha evidencia de que estuvo aquí... piedras pateadas por todo el suelo.\nEs hora de seguir el camino.',
+      potions: 1,
+      options: [
+        {
+          progressTo: 8,
+          text: 'Sigue las Scoutflies.\n <b> Descarta 2 Cartas de Tiempo. Gana 4 Fichas de Rastreo. Avancen a la entrada 8</b>',
+          timeCards: -2,
+          trackTokens: 4,
+        },
+        {
+          progressTo: 25,
+          text: '<b> (Los jugadores sólo pueden elegir esta opción si tienen al menos 1 Tobi-Kadachi Membrane en sus inventarios) </b> \n\n Esto no es una piedra; la reconozco de antes.\n Recoge la parte desechada y luego sigue el sendero solitario hasta el cementerio.\n<b>Gana 3 Fichas de Rastreo. Cada cazador gana 1 Tobi-Kadachi Membrane. Avancen a la entrada 25.</b>',
+          disabled: {
+            disabled: true,
+            if: { variable: 'Tobi-Kadachi Membrane', operator: '>=', value: 1, then: { disable: false } }
+          },
+          trackTokens: 4,
+          materials: [
+            { name: 'Tobi-Kadachi Membrane', qty: 1, playerMultiplier: true },
+          ],
+
+        },
+        {
+          progressTo: 34,
+          text: '¡Corre hacia donde fue vista tu presa por última vez! \n <b> Descarta 6 Cartas de Tiempo. Avancen a la entrada 34 </b>',
+          timeCards: -6,
+        },
+      ],
+    },
+    {
+      id: 6,
+      text: '',
+      options: [
+        { progressTo: 26, },
+        { progressTo: 35, },
+      ],
+    },
+    {
+      id: 7,
+      text: '',
+      options: [
+        { progressTo: 35 },
+        { progressTo: 17 },
+      ],
+    },
+    {
+      id: 8,
+      text: '',
+      options: [
+        { progressTo: 6 },
+        { progressTo: 35 },
+      ],
+    },
+    {
+      id: 9,
+      text: '',
+      options: [
+        { progressTo: 2 },
+      ],
+    },
+    {
+      id: 10,
+      text: '',
+      options: [
+        { progressTo: 29 },
+        { progressTo: 22 },
+      ],
+    },
+    {
+      id: 11,
+      text: '',
+      options: [
+        { progressTo: 35 },
+        { progressTo: 17 },
+      ],
+    },
+    {
+      id: 12,
+      text: '',
+      options: [
+        { progressTo: 23 },
+        { progressTo: 16 },
+      ],
+    },
+    {
+      id: 13,
+      text: '',
+      options: [
+        { progressTo: 31 }, //If starting point is Investigation 3 (id:4)
+        { progressTo: 34 },
+        { progressTo: 32 },
+      ],
+    },
+    {
+      id: 14,
+      text: '',
+      options: [
+        { progressTo: 34 },
+      ],
+    },
+    {
+      id: 15,
+      text: '',
+      options: [
+        { progressTo: 11 },
+      ],
+    },
+    {
+      id: 16,
+      text: '',
+      options: [
+        { progressTo: 14 },
+        { progressTo: 21 },
+      ],
+    },
+    {
+      id: 17,
+      text: '',
+      options: [
+        { progressTo: 34 },
+        { progressTo: 35 },
+      ],
+    },
+    {
+      id: 18,
+      text: '',
+      options: [
+        { progressTo: 30 },
+        { progressTo: 20 },
+      ],
+    },
+    {
+      id: 19,
+      text: '',
+      options: [
+        { progressTo: 14 },
+      ],
+    },
+    {
+      id: 20,
+      text: '',
+      options: [
+        { progressTo: 32 },
+        { progressTo: 28 },
+      ],
+    },
+    {
+      id: 21,
+      text: '',
+      options: [
+        { progressTo: 23 },
+        { progressTo: 16 },
+      ],
+    },
+    {
+      id: 22,
+      text: '',
+      options: [
+        { progressTo: 35 },
+      ],
+    },
+    {
+      id: 23,
+      text: '',
+      options: [
+        { progressTo: 9 },
+        { progressTo: 14 },
+      ],
+    },
+    {
+      id: 24,
+      text: '',
+      options: [
+        { progressTo: 27 },
+        { progressTo: 7 },
+      ],
+    },
+    {
+      id: 25,
+      text: '',
+      options: [
+        { progressTo: 33 },
+        { progressTo: 10 },
+      ],
+    },
+    {
+      id: 26,
+      text: '',
+      options: [
+        { progressTo: 35 },
+        { progressTo: 32 },
+      ],
+    },
+    {
+      id: 27,
+      text: '',
+      options: [
+        { progressTo: 15 },
+        { progressTo: 11 },
+      ],
+    },
+    {
+      id: 28,
+      text: '',
+      options: [
+        { progressTo: 26 },
+        { progressTo: 6 },
+      ],
+    },
+    {
+      id: 29,
+      text: '',
+      options: [
+        { progressTo: 13 },
+        { progressTo: 22 },
+      ],
+    },
+    {
+      id: 30,
+      text: '',
+      options: [
+        { progressTo: 20 },
+        { progressTo: 28 },
+      ],
+    },
+    {
+      id: 31,
+      text: '',
+      options: [
+        { progressTo: 24 },
+        { progressTo: 7 },
+      ],
+    },
+    {
+      id: 32,
+      text: '',
+      options: [
+        { progressTo: 34 },
+        { progressTo: 6 },
+      ],
+    },
+    {
+      id: 33,
+      text: '',
+      options: [
+        { progressTo: 25 },
+        { progressTo: 19 },
+        { progressTo: 10 },
+      ],
+    },
+    {
+      id: 34,
+      text: '',
+    },
+    {
+      id: 35,
+      text: '',
     },
   ]
 
@@ -1192,6 +1523,13 @@ export class MissionComponent {
             if (this.potions >= nodeOption.disabled.if.value)
               nodeOption.disabled.disabled = nodeOption.disabled.if.then.disable;
         }
+
+        if (nodeOption.disabled.if.variable == 'startingPoint') {
+          if (nodeOption.disabled.if.operator == '!=')
+            //Si startingPoint NO contiene el valor 1, entonces la misión NO es Assigned
+            if (this.startingPoint.find((x: any) => x == nodeOption.disabled.if.value) == undefined)
+              nodeOption.disabled.disabled = nodeOption.disabled.if.then.disable;
+        }
         //De no ser tipo predefinido, es un material
         else {
           let material = this.ds.materials.find(x => x.materialName == nodeOption.disabled.if.variable);
@@ -1267,9 +1605,9 @@ export class MissionComponent {
         this.gainedMaterials.push({ name: element, qty: 0 });
       this.gainedMaterials.find((x: any) => x.name == element).qty--;
     });
-    if(rewards.potions) this.potions += rewards.potions;
-    if(rewards.trackTokens) this.trackTokens += rewards.trackTokens;
-    
+    if (rewards.potions) this.potions += rewards.potions;
+    if (rewards.trackTokens) this.trackTokens += rewards.trackTokens;
+
     sessionStorage.setItem('gainedMaterials', JSON.stringify(this.gainedMaterials).toString());
 
   }
