@@ -5,6 +5,7 @@
     [showRowLines]="true"
     [wordWrapEnabled]="true"
     (onCellPrepared)="paintCellTable($event)"
+    (onRowClick)="openMasterDetail($event)"
     (onEditingStart)="onEditingStart($event)">
 
     <dxo-search-panel [visible]="true" [highlightCaseSensitive]="false"></dxo-search-panel>

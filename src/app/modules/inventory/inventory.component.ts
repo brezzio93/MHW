@@ -76,6 +76,14 @@ export class InventoryComponent {
     }
   }
 
+  openMasterDetail(e: any) {
+    let key = e.component.getKeyByRowIndex(e.rowIndex);
+    console.log(e)
+
+    if (!e.component.isRowExpanded(key)) e.component.expandRow(key);
+    else e.component.collapseRow(key);
+  }
+
   onEditingStart(event: any) {
     this.popupTitle = event.data.materialName;
   }

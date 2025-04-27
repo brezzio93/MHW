@@ -1,6 +1,6 @@
 <div style="margin-bottom: 2rem;">
-    <dx-button class="mainButton" style="margin-right: 5%;" (onClick)="inQuest = true">Quest</dx-button>
-    <dx-button class="mainButton" style="margin-left: 5%;"  (onClick)="inQuest = false">Inventory</dx-button>
+    <dx-button class="mainButton" style="margin-right: 5%;" (onClick)="setInQuest(true)">Quest</dx-button>
+    <dx-button class="mainButton" style="margin-left: 5%;"  (onClick)="setInQuest(false)">Inventory</dx-button>
 </div>
 @if(inQuest) {
     <app-mission></app-mission>
@@ -17,10 +17,10 @@
     
     @if(!loading) {
     
-        <app-mission-log *ngIf="selected == 0"></app-mission-log>
-        <app-inventory *ngIf="selected == 1" ></app-inventory>
-        <app-armors *ngIf="selected == 2"></app-armors>
-        <app-weapons *ngIf="selected == 3"></app-weapons>
+        <app-mission-log *ngIf="moduleIndex == 0"></app-mission-log>
+        <app-inventory *ngIf="moduleIndex == 1" ></app-inventory>
+        <app-armors *ngIf="moduleIndex == 2"></app-armors>
+        <app-weapons *ngIf="moduleIndex == 3"></app-weapons>
     }
 }
 

@@ -6,6 +6,7 @@
     [columnAutoWidth]="true"
     [wordWrapEnabled]="true"
     (onCellPrepared)="paintCellTable($event)"
+    (onRowClick)="openMasterDetail($event)"
     >
     
     <dxo-search-panel [visible]="true" [highlightCaseSensitive]="false"></dxo-search-panel>

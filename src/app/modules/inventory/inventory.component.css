@@ -18,3 +18,11 @@
 ::ng-deep .dx-datagrid-header-panel .dx-toolbar {
   margin-bottom: 0px;
 }
+
+::ng-deep .dx-datagrid-group-opened::before {
+  display: none;
+}
+
+::ng-deep .dx-datagrid-group-closed::before {
+  display: none;
+}

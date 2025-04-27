@@ -35,7 +35,7 @@ import { MissionComponent } from './modules/mission/mission.component';
 
 export class AppComponent {
   router: any;
-  selected: any;
+  moduleIndex: any;
   inQuest = true;
   loading = true;
   tab = [
@@ -71,6 +71,11 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.loading = true;
+
+    if (sessionStorage.getItem('module') != undefined) this.moduleIndex = Number(sessionStorage.getItem('module'));
+    if (sessionStorage.getItem('inQuest') != undefined) { this.inQuest = (sessionStorage.getItem('inQuest') == 'true') ? true : false; }
+
+
     this.ds.getCampaign(0).subscribe((campaign) => {
       this.ds.getItems().subscribe((items) => {
         this.ds.materials = items;
@@ -80,8 +85,14 @@ export class AppComponent {
     );
   }
 
+  setInQuest(inQuest: boolean) {
+    this.inQuest = inQuest;
+    sessionStorage.setItem('inQuest', String(inQuest));
+  }
+
   goTo(route: any) {
-    this.selected = route;
+    this.moduleIndex = route;
+    sessionStorage.setItem('module', this.moduleIndex);
   }
 }
 

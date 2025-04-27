@@ -72,6 +72,13 @@ export class ArmorsComponent implements OnInit {
       else e.cellElement.style.cssText = "background-color: #d4edda; text-align: center;";
     }
   }
+  
+  openMasterDetail(e: any) {
+    let key = e.component.getKeyByRowIndex(e.rowIndex);
+
+    if (!e.component.isRowExpanded(key)) e.component.expandRow(key);
+    else e.component.collapseRow(key);
+  }
 
   forge(e: any) {
     this.loadingUpdate = true;

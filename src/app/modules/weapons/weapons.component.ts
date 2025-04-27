@@ -20,16 +20,16 @@ export class WeaponsComponent implements OnInit {
 
   weapons: any;
   weaponsType = [
-    { id: 'gs', name: 'Great Sword' , icon: 'assets/icons/weapons/great-sword.png'},
-    { id: 'sns', name: 'Sword and Shield' , icon: 'assets/icons/weapons/sword-and-shield.png'},
-    { id: 'db', name: 'Dual Blades' , icon: 'assets/icons/weapons/dual-blades.png'},
-    { id: 'bow', name: 'Bow' , icon: 'assets/icons/weapons/bow.png'},
-    { id: 'h', name: 'Hammer' , icon: 'assets/icons/weapons/hammer.png'},
-    { id: 'hh', name: 'Hunting Horn' , icon: 'assets/icons/weapons/hunting-horn.png'},
-    { id: 'l', name: 'Lance' , icon: 'assets/icons/weapons/lance.png'},
-    { id: 'gl', name: 'Gunlance' , icon: 'assets/icons/weapons/gunlance.png'},
-    { id: 'ls', name: 'Long Sword' , icon: 'assets/icons/weapons/long-sword.png'},
-    { id: 'lbg', name: 'Light Bowgun' , icon: 'assets/icons/weapons/light-gun.png'},
+    { id: 'gs', name: 'Great Sword', icon: 'assets/icons/weapons/great-sword.png' },
+    { id: 'sns', name: 'Sword and Shield', icon: 'assets/icons/weapons/sword-and-shield.png' },
+    { id: 'db', name: 'Dual Blades', icon: 'assets/icons/weapons/dual-blades.png' },
+    { id: 'bow', name: 'Bow', icon: 'assets/icons/weapons/bow.png' },
+    { id: 'h', name: 'Hammer', icon: 'assets/icons/weapons/hammer.png' },
+    { id: 'hh', name: 'Hunting Horn', icon: 'assets/icons/weapons/hunting-horn.png' },
+    { id: 'l', name: 'Lance', icon: 'assets/icons/weapons/lance.png' },
+    { id: 'gl', name: 'Gunlance', icon: 'assets/icons/weapons/gunlance.png' },
+    { id: 'ls', name: 'Long Sword', icon: 'assets/icons/weapons/long-sword.png' },
+    { id: 'lbg', name: 'Light Bowgun', icon: 'assets/icons/weapons/light-gun.png' },
   ];
   chosenType: any;
   loadingTable = false;
@@ -46,7 +46,7 @@ export class WeaponsComponent implements OnInit {
 
   getWeapons() {
     this.loadingTable = true;
-    
+
     this.ds.getWeapons().subscribe((res) => {
       this.ds.weapons = res;
       this.initWeapons();
@@ -121,6 +121,13 @@ export class WeaponsComponent implements OnInit {
       if (e.data.owned < e.data.needed) e.cellElement.style.cssText = "background-color: #f5c6cb; text-align: center;";
       else e.cellElement.style.cssText = "background-color: #d4edda; text-align: center;";
     }
+  }
+
+  openMasterDetail(e: any) {
+    let key = e.component.getKeyByRowIndex(e.rowIndex);
+
+    if (!e.component.isRowExpanded(key)) e.component.expandRow(key);
+    else e.component.collapseRow(key);
   }
 
 }
