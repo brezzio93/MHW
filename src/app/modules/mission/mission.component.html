@@ -159,7 +159,7 @@
                         }
                         @if(customPopup?.type == 'choice') {
                             <span  [innerHTML]="customPopup.text"></span>
-            
+
                             @for(index of customPopup?.requiredMaterials; track index) {
                                 <dx-select-box
                                 class="materialSelection"
@@ -176,27 +176,28 @@
                                     <dx-button
                                         [style]="{'margin-right':$index == 0 ? '1rem': null}"
                                         [style]="{'margin-left':$index == 1 ? '2rem': null}"
-                                        [ngClass]="{ 'acceptButton':$index != 0}"
-                                        [disabled]="selectedMaterials.length <3 && $index != 0"
+                                        [ngClass]="{ 'acceptButton':reward.type == 'Accept'}"
+                                        [disabled]="customPopup?.requiredMaterials != undefined && selectedMaterials.length < customPopup?.requiredMaterials.length && $index != 0"
                                         (onClick)="setChoiceMenuRewards(reward)"
                                         >{{reward.text}}
                                     </dx-button>
                                 }
                             </div>
-            
-            
-                            <dx-data-grid
-                                style="margin-top: 1rem;"
-                                [showBorders]="true"
-                                [rowAlternationEnabled]="true"
-                                [showRowLines]="true"
-                                [wordWrapEnabled]="true"
-                                [dataSource]="ds.materials"
-                            >
-                                <dxi-column dataField="materialName" ></dxi-column>
-                                <dxi-column dataField="materialQuantity" caption="Quantity" [width]="80" 
-                                sortOrder="desc"></dxi-column>
-                            </dx-data-grid>  
+                            
+                            @if(customPopup?.requiredMaterials) {
+                                <dx-data-grid
+                                    style="margin-top: 1rem;"
+                                    [showBorders]="true"
+                                    [rowAlternationEnabled]="true"
+                                    [showRowLines]="true"
+                                    [wordWrapEnabled]="true"
+                                    [dataSource]="ds.materials"
+                                >
+                                    <dxi-column dataField="materialName" ></dxi-column>
+                                    <dxi-column dataField="materialQuantity" caption="Quantity" [width]="80" 
+                                    sortOrder="desc"></dxi-column>
+                                </dx-data-grid>  
+                            }
                         }
             
                     </div>

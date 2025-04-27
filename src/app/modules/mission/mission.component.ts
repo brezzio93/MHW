@@ -325,9 +325,9 @@ export class MissionComponent {
           customPopup: {
             type: 'choice',
             title: 'Seleccionen Recompensas',
-            progressTo: 10,
             text: '<b> Los jugadores pueden descartar 3 recursos cualesquiera y añadir 1 Potion a la reserva, o ganar 1 Track Token. Si lo hacen, descartan 1 Carta de Tiempo.\n Avanzan a la entrada 10. </b>',
             requiredMaterials: [0, 1, 2],
+            progressTo: 10,
             possibleRewards: [
               {
                 type: 'Cancel',
@@ -734,7 +734,7 @@ export class MissionComponent {
           timeCards: -6,
           disabled: {
             disabled: true,
-            if: { variable: 'startingPoint', operator: '!=', value: 0, then: { disable: false } }
+            if: { variable: 'startingPoint', operator: '!=', value: 1, then: { disable: false } }
           },
         },
         {
@@ -846,119 +846,340 @@ export class MissionComponent {
     },
     {
       id: 6,
-      text: '',
+      text: 'Un montón de rocas destrozadas está esparcida por el suelo. ¿Quizás lo dejó caer algún depredador volador? O arrojado a un lado por un minero que no sabía lo que había encontrado... el mineral brilla entre los fragmentos de piedra.\n ¡Tuyo para tomar!',
       options: [
-        { progressTo: 26, },
-        { progressTo: 35, },
+        {
+          progressTo: 26,
+          text: '¿Recoger las piedras? \n <b> Descarta 1 Carta de Tiempo. \n Cada cazador tira un dado.</b> \n <b> 1-2 </b> Ganan 1 Dragonite Ore.\n <b> 3-4 </b> Ganan 1 Dragonvein Crystal.\n <b> 5-6 </b> Ganan 1 Coral Crystal.\n \n <b> Una vez que cada jugador haya tirado. Avanzan a la entrada 26 </b>',
+          customPopup: {
+            type: 'diceRoll',
+            title: "Cada cazador tira un dado",
+            multipleChoices: true,
+            progressTo: 11,
+            options: [
+              {
+                progressTo: 11,
+                text: '<b>1-2</b> Gana 1 Dragonite Ore.',
+                materials: [{ name: 'Dragonite Ore', qty: 1, playerMultiplier: false }]
+              },
+              {
+                progressTo: 11,
+                text: '<b>3-4</b> Gana 1 Dragonvein Crystal.',
+                materials: [{ name: 'Dragonvein Crystal', qty: 1, playerMultiplier: false }]
+              },
+              {
+                progressTo: 11,
+                text: '<b>5-6</b> Gana 1 Coral Crystal.',
+                materials: [{ name: 'Coral Crystal', qty: 1, playerMultiplier: false }]
+              },
+            ]
+          },
+        },
+        {
+          progressTo: 35,
+          text: 'Detente a examinar tu entorno. \n <b> Descarta 1 Ficha de Rastreo o gana 1 Ficha de Rastreo.\n Avancen a la entrada 35 </b>',
+          customPopup: {
+            type: 'choice',
+            title: 'Seleccionen 1 Opción',
+            text: 'Descarta 1 Ficha de Rastreo o gana 1 Ficha de Rastreo.',
+            progressTo: 35,
+            possibleRewards: [
+              {
+                type: 'Cancel',
+                text: 'Descarta 1 Ficha de Rastreo',
+                trackTokens: -1,
+                progressTo: 35,
+              },
+              {
+                type: 'Accept',
+                text: 'Gana 1 Ficha de Rastreo',
+                trackTokens: 1,
+                progressTo: 35,
+              },
+            ]
+          }
+        },
       ],
     },
     {
       id: 7,
-      text: '',
+      text: 'Es un nido. Es más grande que cualquiera que hayas visto antes, aunque te resulta difícil saber si la criatura todavía visita este lugar. Es un lugar extraño; La electricidad aún permanece en el aire, haciendo que tu cabello se levante de tu piel. \n ¿Hora de seguir adelante?',
       options: [
-        { progressTo: 35 },
-        { progressTo: 17 },
+        {
+          progressTo: 35,
+          text: 'Manténganse en el camino. \n <b>Descarta 2 Cartas de Tiempo. Gana 2 Fichas de Rastreo. \n Avancen a la entrada 35. </b>',
+        },
+        {
+          progressTo: 17,
+          text: '<b>(Los jugadores sólo pueden seleccionar esta opción si tienen al menos 1 Tobi-Kadachi Electrode en sus inventarios).</b>\n\n Los electrodos ocultos reaccionan al que tienes en tu poder, crujiendo y haciendo que su ubicación sea fácil de encontrar. \n\n <b>Descarta 1 Carta de Tiempo. Gana 1 Ficha de Rastreo. \n Cada cazador gana 1 Tobi-Kadachi Electrode. \n Avanven a la entrada 17 </b>',
+          timeCards: -1,
+          trackTokens: 1,
+          materials: [
+            { name: 'Tobi-Kadachi Electrode', qty: 1, playerMultiplier: true }
+          ],
+          disabled: {
+            disabled: true,
+            if: { variable: 'Tobi-Kadachi Electrode', operator: '>=', value: 1, then: { disable: false } }
+          },
+        },
       ],
     },
     {
       id: 8,
       text: '',
       options: [
-        { progressTo: 6 },
-        { progressTo: 35 },
+        {
+          progressTo: 6,
+          text: '¡Reune los restos y luego ponte en marcha! \n <b> Descarta 1 Carta de Tiempo. Gana 2 Fichas de Rastreo. \n Cada Cazador gana 1 Monster Bone Small o 1 Monster Bone Large. Avancen a la entrada 6. </b>',
+          customPopup: {
+            type: 'diceRoll',
+            title: "Cada cazador tira un dado",
+            multipleChoices: true,
+            progressTo: 6,
+            options: [
+              {
+                progressTo: 6,
+                text: '<b> Gana 1 Monster Bone Small. </b>',
+                materials: [{ name: 'Monster Bone Small', qty: 1, playerMultiplier: false }]
+              },
+              {
+                progressTo: 6,
+                text: '<b> Gana 1 Monster Bone Large. </b>',
+                materials: [{ name: 'Monster Bone Large', qty: 1, playerMultiplier: false }]
+              },
+            ]
+          },
+        },
+        {
+          progressTo: 35,
+          text: '<b>(Los jugadores sólo pueden seleccionar esta opción si tienen al menos 1 Tobi-Kadachi Electrode en sus inventarios).</b> \n\n Vino aqui a morir, viendo a todas las partes esparcidas por el suelo. \n <b> Descarta 3 Cartas de Tiempo. Descarta TODAS las Fichas de Rastreo.\n  Cada cazador gana 1 Tobi-Kadachi Claw, 1 Tobi-Kadachi Scale, 1 Electro Sac y 1 Thunder Sac. \n Avancen a la entrada 35. </b>',
+          disabled: {
+            disabled: true,
+            if: { variable: 'Tobi-Kadachi Electrode', operator: '>=', value: 1, then: { disable: false } }
+          },
+          timeCards: -3,
+          trackTokens: 'removeAll',
+          materials: [
+            { name: 'Tobi-Kadachi Claw', qty: 1, playerMultiplier: true },
+            { name: 'Tobi-Kadachi Scale', qty: 1, playerMultiplier: true },
+            { name: 'Sac', qty: 1, playerMultiplier: true },
+            { name: 'Sac', qty: 1, playerMultiplier: true },
+          ]
+        },
       ],
     },
     {
       id: 9,
       text: '',
+      materials: [
+        { name: 'Monster Keenbone', qty: 1, playerMultiplier: true },
+      ],
       options: [
-        { progressTo: 2 },
+        {
+          text: '',
+          progressTo: 2,
+          timeCards: -1,
+          trackTokens: 2,
+        },
       ],
     },
     {
       id: 10,
       text: '',
       options: [
-        { progressTo: 29 },
-        { progressTo: 22 },
+        {
+          progressTo: 29,
+          timeCards: -1,
+          potions: 1,
+        },
+        {
+          progressTo: 22,
+          timeCards: -1,
+          trackTokens: 2,
+        },
       ],
     },
     {
       id: 11,
       text: '',
       options: [
-        { progressTo: 35 },
-        { progressTo: 17 },
+        {
+          text: '',
+          progressTo: 35,
+          timeCards: -1,
+          materials: [
+            { name: 'Quality Bone', qty: 1, playerMultiplier: true },
+            { name: 'Monster Bone Large', qty: 1, playerMultiplier: true },
+          ],
+        },
+        {
+          text: '',
+          progressTo: 17,
+        },
       ],
     },
     {
       id: 12,
       text: '',
+      materials: [
+        { name: 'Carbalite Ore', qty: 1, playerMultiplier: true },
+        { name: 'Fucium Ore', qty: 1, playerMultiplier: true },
+      ],
       options: [
-        { progressTo: 23 },
-        { progressTo: 16 },
+        {
+          text: '',
+          progressTo: 23,
+          timeCards: -1,
+          trackTokens: 1,
+        },
+        {
+          text: '',
+          progressTo: 16,
+          timeCards: -1,
+          materials: [
+            { name: 'Machalite Ore', qty: 1, playerMultiplier: true },
+            { name: 'Firecell Stone', qty: 1, playerMultiplier: true },
+          ],
+        },
       ],
     },
     {
       id: 13,
       text: '',
       options: [
-        { progressTo: 31 }, //If starting point is Investigation 3 (id:4)
-        { progressTo: 34 },
-        { progressTo: 32 },
+        {
+          progressTo: 31,
+          //Enable IF starting point is Investigation 3 (id:4)
+          disabled: {
+            disabled: true,
+            if: { variable: 'startingPoint', operator: '==', value: 4, then: { disable: false } }
+          },
+        },
+        //Disable IF starting point is Investigation 3 (id:4)
+        {
+          progressTo: 34,
+          disabled: {
+            disabled: true,
+            if: { variable: 'startingPoint', operator: '!=', value: 4, then: { disable: false } }
+          },
+        },
+        //Disable IF starting point is Investigation 3 (id:4)
+        {
+          progressTo: 32,
+          disabled: {
+            disabled: true,
+            if: { variable: 'startingPoint', operator: '!=', value: 4, then: { disable: false } }
+          },
+        },
       ],
     },
     {
       id: 14,
       text: '',
       options: [
-        { progressTo: 34 },
+        {
+          text: '',
+          progressTo: 34,
+        },
       ],
     },
     {
       id: 15,
       text: '',
       options: [
-        { progressTo: 11 },
+        {
+          text: '',
+          progressTo: 11,
+          timeCards: -2,
+          potions: 1,
+          materials: [
+            { name: 'Monster Bone Small', qty: 1, playerMultiplier: true },
+          ]
+        },
       ],
     },
     {
       id: 16,
       text: '',
+      timeCards: -1,
       options: [
-        { progressTo: 14 },
-        { progressTo: 21 },
+        {
+          text: '',
+          progressTo: 14,
+          materials: [
+            { name: 'Boulder Bone', qty: 1, playerMultiplier: true },
+            { name: 'Monster Hardbone', qty: 1, playerMultiplier: true },
+          ]
+        },
+        {
+          text: '',
+          progressTo: 21
+        },
       ],
     },
     {
       id: 17,
       text: '',
       options: [
-        { progressTo: 34 },
-        { progressTo: 35 },
+        {
+          text: '',
+          progressTo: 34,
+        },
+        {
+          text: '',
+          progressTo: 35,
+          materials: [
+            { name: 'Boulder Bone', qty: 1, playerMultiplier: true },
+          ],
+        },
       ],
     },
     {
       id: 18,
       text: '',
       options: [
-        { progressTo: 30 },
-        { progressTo: 20 },
+        {
+          text: '',
+          progressTo: 30,
+          timeCards: -1
+        },
+        {
+          text: '',
+          progressTo: 20,
+          timeCards: -1,
+          trackTokens: 2,
+        },
       ],
     },
     {
       id: 19,
       text: '',
       options: [
-        { progressTo: 14 },
+        {
+          text: '',
+          progressTo: 14,
+          trackTokens: 'removeAll',
+          materials: [
+            { name: 'Wingdrake Hide', qty: 1, playerMultiplier: true },
+          ],
+        },
       ],
     },
     {
       id: 20,
       text: '',
       options: [
-        { progressTo: 32 },
-        { progressTo: 28 },
+        {
+          text: '',
+          progressTo: 32,
+          timeCards: -1,
+        },
+        {
+          text: '',
+          progressTo: 28,
+          timeCards: -1,
+          trackTokens: 1,
+        },
       ],
     },
     {
@@ -1443,6 +1664,7 @@ export class MissionComponent {
   selectStartingNode(index: number) {
     this.node = this.quest[index - 1];
     this.potions = this.node.potions;
+    this.enableOption();
 
     //Obtiene materiales
     if (this.node.materials != undefined) {
@@ -1453,6 +1675,7 @@ export class MissionComponent {
       });
     }
 
+    sessionStorage.setItem('startingNode', this.node.id.toString());
     sessionStorage.setItem('nodeID', this.node.id.toString());
     sessionStorage.setItem('potions', this.potions.toString());
     sessionStorage.setItem('trackTokens', this.trackTokens.toString());
@@ -1467,10 +1690,15 @@ export class MissionComponent {
       this.node = this.quest[option.progressTo - 1];
 
       //Añade Tokens
-      this.trackTokens += (option.trackTokens) ? option.trackTokens : 0;
+      if (option.trackTokens != undefined) {
+        if (option.trackTokens == 'removeAll') {
+          this.trackTokens = 0;
+        }
+        else this.trackTokens += option.trackTokens;
+      }
 
       //Revisa si la opción bloqueada cumple las condiciones para desbloquearla
-      this.enableOption()
+      this.enableOption();
 
       //Obtiene materiales del nodo
       if (this.node.materials != undefined) {
@@ -1512,7 +1740,7 @@ export class MissionComponent {
   }
 
   enableOption() {
-    this.node.options.forEach((nodeOption: any) => {
+    this.node.options?.forEach((nodeOption: any) => {
       if (nodeOption.disabled) {
         //Revisa tipo de variable
         if (nodeOption.disabled.if.variable == 'Potion') {
@@ -1526,8 +1754,12 @@ export class MissionComponent {
 
         if (nodeOption.disabled.if.variable == 'startingPoint') {
           if (nodeOption.disabled.if.operator == '!=')
-            //Si startingPoint NO contiene el valor 1, entonces la misión NO es Assigned
-            if (this.startingPoint.find((x: any) => x == nodeOption.disabled.if.value) == undefined)
+
+            if (Number(sessionStorage.getItem('startingNode')) != nodeOption.disabled.if.value)
+              nodeOption.disabled.disabled = nodeOption.disabled.if.then.disable;
+          if (nodeOption.disabled.if.operator == '==')
+
+            if (Number(sessionStorage.getItem('startingNode')) == nodeOption.disabled.if.value)
               nodeOption.disabled.disabled = nodeOption.disabled.if.then.disable;
         }
         //De no ser tipo predefinido, es un material
