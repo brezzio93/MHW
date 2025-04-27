@@ -384,7 +384,8 @@ export class MissionComponent {
       options: [
         {
           progressTo: 30,
-          text: 'No podemos perder el tiempo. ¡Sigue con la persecución! \n <b> Baraja la carta de Rushed Advance en el mazo de tiempo.\n Avancen a la entrada 30. </b>',
+          text: 'No podemos perder el tiempo. ¡Sigue con la persecución! \n <b> Baraja la carta Rushed Advance en la Baraja de Tiempo.\n Avancen a la entrada 30. </b>',
+          timeCards: 1,
         },
         {
           progressTo: 19,
@@ -576,11 +577,12 @@ export class MissionComponent {
         {
           progressTo: 27,
           text: 'Juras vengar a los espíritus.\n<b> Descarta 1 Carta de Tiempo.\nBaraja una carta Jagras Slayer en la Baraja de Tiempo.\n Avancen a la entrada 27.</b>',
-          timeCards: -1,
+          timeCards: 0, //Se descarta 1, luego se añade 1
         },
         {
           progressTo: 26,
           text: 'Inclina la cabeza con reverencia... pero date prisa.\n <b> Baraja una carta Unavenged en la Baraja de Tiempo.\n Avancen a la entrada 26.</b>',
+          timeCards: 1,
         },
       ]
     },
@@ -657,7 +659,8 @@ export class MissionComponent {
         {
           progressTo: 15,
           text: "No, no podemos. ¡Abandona la caza para salvarlos!\n <b> Descarta 1 Track Token y baraja Researcher's Favour en la Baraja de Tiempo. Avancen a la entrada 15.</b>",
-          timeCards: -1,
+          trackTokens: -1,
+          timeCards: 1,
         },
         {
           progressTo: 19,
@@ -685,7 +688,7 @@ export class MissionComponent {
         {
           progressTo: 18,
           text: 'Deje esta tranquila escena sin molestar.\n <b> Descarta 1 Carta de Tiempo. Baraja la carta Ancient Guardian en la Baraja de Tiempo. Avancen a la entrada 18.</b>',
-          timeCards: -1,
+          timeCards: 0, //Se descarta 1, luego se añade 1
         },
       ]
     },
@@ -1186,23 +1189,93 @@ export class MissionComponent {
       id: 21,
       text: '',
       options: [
-        { progressTo: 23 },
-        { progressTo: 16 },
+        {
+          text: '',
+          progressTo: 23,
+          customPopup: {
+            type: 'diceRoll',
+            title: "Cada cazador tira un dado",
+            multipleChoices: true,
+            progressTo: 23,
+            options: [
+              {
+                progressTo: 23,
+                text: '<b>1-2 </b> Ganan 1 Potion',
+                potions: 1,
+              },
+              {
+                progressTo: 23,
+                text: '<b>3-4 </b> Ganan 1 Ancient Bone',
+                materials: [{ name: 'Ancient Bone', qty: 1, playerMultiplier: false }]
+              },
+              {
+                progressTo: 23,
+                text: '<b>5-6 </b> Ganan 1 Wingdrake Hide',
+                materials: [{ name: 'Wingdrake Hide', qty: 1, playerMultiplier: false }]
+              },
+            ],
+          }
+        },
+        {
+          text: '',
+          progressTo: 16,
+          timeCards: -1,
+        },
       ],
     },
     {
       id: 22,
       text: '',
       options: [
-        { progressTo: 35 },
+        {
+          text: '',
+          progressTo: 35,
+          timeCards: -2,
+          customPopup: {
+            type: 'diceRoll',
+            title: "Cada cazador tira un dado",
+            multipleChoices: true,
+            progressTo: 35,
+            options: [
+              {
+                progressTo: 35,
+                text: '<b>1-2 </b> Ganan 1 Dragonvein Crystal',
+                materials: [{ name: 'Dragonvein Crystal', qty: 1, playerMultiplier: false }],
+              },
+              {
+                progressTo: 35,
+                text: '<b>3-4 </b> Ganan 1 Electro Sac',
+                materials: [{ name: 'Electro Sac', qty: 1, playerMultiplier: false }]
+              },
+              {
+                progressTo: 35,
+                text: '<b>5-6 </b> Ganan 1 Firecell Stone',
+                materials: [{ name: 'Firecell Stone', qty: 1, playerMultiplier: false }]
+              },
+            ],
+          }
+        },
       ],
     },
     {
       id: 23,
       text: '',
       options: [
-        { progressTo: 9 },
-        { progressTo: 14 },
+        {
+          text: '',
+          progressTo: 9,
+          timeCards: -1,
+          trackTokens: 1,
+        },
+        {
+          text: '',
+          progressTo: 14,
+          timeCards: -1,
+          materials: [
+            { name: 'Quality Bone', qty: 1, playerMultiplier: true },
+            { name: 'Monster Bone Small', qty: 1, playerMultiplier: true }
+          ]
+        },
       ],
     },
     {
@@ -1468,11 +1541,13 @@ export class MissionComponent {
   quest: any;
   node: any;
   startingPoint: any = [];
-  trackTokens = 0;
-  showTrackTokens = false;
 
   gainedMaterials: any = [];
   potions = 0;
+  timeCards = 0;
+  trackTokens = 0;
+  showTrackTokens = false;
+
   popupVisible: boolean = false;
   diceRollTitle = '';
   customPopup: any;
@@ -1511,9 +1586,11 @@ export class MissionComponent {
     if (sessionStorage.getItem('players') != undefined) this.playersQty = Number(sessionStorage.getItem('players'));
     if (sessionStorage.getItem('quest') != undefined) this.selectQuest(Number(sessionStorage.getItem('quest')));
     if (sessionStorage.getItem('phase') != undefined) this.phase = sessionStorage.getItem('phase');
+    if (sessionStorage.getItem('nodeID') != undefined) this.node = this.quest[Number(sessionStorage.getItem('nodeID')) - 1];
 
     if (sessionStorage.getItem('potions') != undefined) this.potions = Number(sessionStorage.getItem('potions'));
-    if (sessionStorage.getItem('nodeID') != undefined) this.node = this.quest[Number(sessionStorage.getItem('nodeID')) - 1];
+    if (sessionStorage.getItem('timeCards') != undefined) this.timeCards = Number(sessionStorage.getItem('timeCards'));
+    if (sessionStorage.getItem('trackTokens') != undefined) this.trackTokens = Number(sessionStorage.getItem('trackTokens'));
     if (sessionStorage.getItem('gainedMaterials') != undefined) {
       let auxJson = sessionStorage.getItem('gainedMaterials');
       if (auxJson) {
@@ -1569,16 +1646,19 @@ export class MissionComponent {
       this.quest = this.jagrasQuest;
       this.startingPoint = [1];
       this.rewardsTable = this.rewardsJagras;
+      this.timeCards = 35;
     }
     if (index == 1) {
       this.quest = this.jagrasQuest;
       this.startingPoint = [2, 3, 4, 5];
       this.rewardsTable = this.rewardsJagras;
+      this.timeCards = 30;
     }
     if (index == 2) {
       this.quest = this.jagrasQuest;
       this.startingPoint = [2, 3, 4, 5];
       this.rewardsTable = this.rewardsJagras;
+      this.timeCards = 30;
     }
 
     //Tobi-Kadachi
@@ -1586,16 +1666,19 @@ export class MissionComponent {
       this.quest = this.tobiQuest;
       this.startingPoint = [1];
       this.rewardsTable = this.rewardsTobi;
+      this.timeCards = 35;
     }
     if (index == 4) {
       this.quest = this.tobiQuest;
       this.startingPoint = [2, 3, 4, 5];
       this.rewardsTable = this.rewardsTobi;
+      this.timeCards = 35;
     }
     if (index == 5) {
       this.quest = this.tobiQuest;
       this.startingPoint = [2, 3, 4, 5];
       this.rewardsTable = this.rewardsTobi;
+      this.timeCards = 35;
     }
 
     //Anjanath
@@ -1603,16 +1686,19 @@ export class MissionComponent {
       this.quest = this.anjaQuest;
       this.startingPoint = [1];
       this.rewardsTable = this.rewardsAnja;
+      this.timeCards = 35;
     }
     if (index == 7) {
       this.quest = this.anjaQuest;
       this.startingPoint = [2, 3, 4, 5];
       this.rewardsTable = this.rewardsAnja;
+      this.timeCards = 35;
     }
     if (index == 8) {
       this.quest = this.anjaQuest;
       this.startingPoint = [2, 3, 4, 5];
       this.rewardsTable = this.rewardsAnja;
+      this.timeCards = 35;
     }
 
     //Rathalos
@@ -1620,16 +1706,19 @@ export class MissionComponent {
       this.quest = this.rathQuest;
       this.startingPoint = [1];
       this.rewardsTable = this.rewardsRathalos;
+      this.timeCards = 40;
     }
     if (index == 10) {
       this.quest = this.rathQuest;
       this.startingPoint = [2, 3, 4, 5];
       this.rewardsTable = this.rewardsRathalos;
+      this.timeCards = 40;
     }
     if (index == 11) {
       this.quest = this.rathQuest;
       this.startingPoint = [2, 3, 4, 5];
       this.rewardsTable = this.rewardsRathalos;
+      this.timeCards = 45;
     }
 
     //Azure Rathalos
@@ -1637,18 +1726,22 @@ export class MissionComponent {
       this.quest = this.azureQuest;
       this.startingPoint = [1];
       this.rewardsTable = this.rewardsAzure;
+      this.timeCards = 40;
     }
     if (index == 13) {
       this.quest = this.azureQuest;
       this.startingPoint = [2, 3, 4, 5];
       this.rewardsTable = this.rewardsAzure;
+      this.timeCards = 40;
     }
     if (index == 14) {
       this.quest = this.azureQuest;
       this.startingPoint = [2, 3, 4, 5];
       this.rewardsTable = this.rewardsAzure;
+      this.timeCards = 45;
     }
     sessionStorage.setItem('quest', index.toString());
+    sessionStorage.setItem('timeCards', this.timeCards.toString());
   }
 
   selectPlayers(qty: number) {
@@ -1678,6 +1771,7 @@ export class MissionComponent {
     sessionStorage.setItem('startingNode', this.node.id.toString());
     sessionStorage.setItem('nodeID', this.node.id.toString());
     sessionStorage.setItem('potions', this.potions.toString());
+    sessionStorage.setItem('timeCards', this.timeCards.toString());
     sessionStorage.setItem('trackTokens', this.trackTokens.toString());
     sessionStorage.setItem('gainedMaterials', JSON.stringify(this.gainedMaterials).toString());
   }
@@ -1695,6 +1789,11 @@ export class MissionComponent {
           this.trackTokens = 0;
         }
         else this.trackTokens += option.trackTokens;
+      }
+
+      //Añade Time Cards
+      if (option.timeCards != undefined) {
+        this.timeCards += option.timeCards;
       }
 
       //Revisa si la opción bloqueada cumple las condiciones para desbloquearla
@@ -1735,6 +1834,7 @@ export class MissionComponent {
 
     sessionStorage.setItem('nodeID', this.node.id.toString());
     sessionStorage.setItem('potions', this.potions.toString());
+    sessionStorage.setItem('timeCards', this.timeCards.toString());
     sessionStorage.setItem('trackTokens', this.trackTokens.toString());
     sessionStorage.setItem('gainedMaterials', JSON.stringify(this.gainedMaterials).toString());
   }
@@ -1751,8 +1851,7 @@ export class MissionComponent {
             if (this.potions >= nodeOption.disabled.if.value)
               nodeOption.disabled.disabled = nodeOption.disabled.if.then.disable;
         }
-
-        if (nodeOption.disabled.if.variable == 'startingPoint') {
+        else if (nodeOption.disabled.if.variable == 'startingPoint') {
           if (nodeOption.disabled.if.operator == '!=')
 
             if (Number(sessionStorage.getItem('startingNode')) != nodeOption.disabled.if.value)
@@ -1885,6 +1984,7 @@ export class MissionComponent {
       this.loading = false;
 
       sessionStorage.removeItem('nodeID');
+      sessionStorage.removeItem('timeCards');
       sessionStorage.removeItem('trackTokens');
       sessionStorage.removeItem('gainedMaterials');
       this.selectPhase('Hunt');
@@ -1912,10 +2012,13 @@ export class MissionComponent {
 
     //Se añade el addedAmmount configurado en customMenu
     customPopup.options.forEach((opt: any) => {
-      if (this.gainedMaterials.find((x: any) => x.name == opt.materials[0].name) == undefined && opt.addedAmount != undefined)
-        this.gainedMaterials.push({ name: opt.materials[0].name, qty: 0 });
-      if (this.gainedMaterials.find((x: any) => x.name == opt.materials[0].name))
-        this.gainedMaterials.find((x: any) => x.name == opt.materials[0].name).qty += (opt.addedAmount) ? (opt.addedAmount) : 0;
+      if (opt.materials) {
+        if (this.gainedMaterials.find((x: any) => x.name == opt.materials[0].name) == undefined && opt.addedAmount != undefined)
+          this.gainedMaterials.push({ name: opt.materials[0].name, qty: 0 }); //Si material no existe en gainedMaterials, lo añade con qty = 0
+        if (this.gainedMaterials.find((x: any) => x.name == opt.materials[0].name)) //Ahora que se añadió el material, podemos actualizar su qty
+          this.gainedMaterials.find((x: any) => x.name == opt.materials[0].name).qty += (opt.addedAmount) ? (opt.addedAmount) : 0;
+      }
+      else if (opt.potions && opt.addedAmount != undefined) this.potions += opt.addedAmount;
     });
 
     this.popupVisible = false;

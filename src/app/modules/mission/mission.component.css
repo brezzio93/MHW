@@ -7,8 +7,11 @@
 
 .titleNode {
   justify-self: anchor-center;
+  width: 95%;
   padding: 0.5rem;
   font-weight: 800;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .textNode {

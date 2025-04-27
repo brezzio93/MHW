@@ -56,12 +56,16 @@
                     @for(i of startingPoint; track i) {
                     <div class="questNode" style="border-width: 2px; border-color:#7f7f7f" (click)="selectStartingNode(i)">
                         <div class="titleNode">
-                            <div style="position: absolute; left: 3rem;">
+                            <div style="justify-self: left;">
                                 <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 1 > quest[i - 1].potions}" style="height: 30px" />
                                 <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 2 > quest[i - 1].potions}" style="height: 30px" />
                                 <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 3 > quest[i - 1].potions}" style="height: 30px" />
                             </div>
-                            <span> {{ i }} </span>
+                            <span style="justify-self: anchor-center;"> {{ i }} </span>
+                            <div style="justify-self: right;">
+                                {{timeCards}}
+                                <img alt="" src="assets/icons/timer.png" style="height: 30px" />
+                            </div>
                             
                         </div>
                         <div class="textNode">
@@ -89,12 +93,16 @@
                 @if(node != undefined){
                     <div class="questNode">
                         <div class="titleNode">
-                            <div style="position: absolute; left: 3rem;">
+                            <div style="justify-self: left;">
                                 <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 1 > potions}" style="height: 30px" />
                                 <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 2 > potions}" style="height: 30px" />
                                 <img alt="" src="assets/icons/potion.png" [ngClass]="{'obscured': 3 > potions}" style="height: 30px" />
                             </div>                
-                            <span> {{ node.id }} </span>
+                            <span style="justify-self: anchor-center;"> {{ node.id }} </span>
+                            <div style="justify-self: right;">
+                                <span> {{timeCards}} </span>
+                                <img alt="" src="assets/icons/timer.png" style="height: 30px" />
+                            </div>
                         </div>
             
                         <div class="textNode">
