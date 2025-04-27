@@ -28,7 +28,7 @@ export class WeaponsComponent implements OnInit {
     { id: 'hh', name: 'Hunting Horn' , icon: 'assets/icons/weapons/hunting-horn.png'},
     { id: 'l', name: 'Lance' , icon: 'assets/icons/weapons/lance.png'},
     { id: 'gl', name: 'Gunlance' , icon: 'assets/icons/weapons/gunlance.png'},
-    { id: 'ls', name: 'Longsword' , icon: 'assets/icons/weapons/long-sword.png'},
+    { id: 'ls', name: 'Long Sword' , icon: 'assets/icons/weapons/long-sword.png'},
     { id: 'lbg', name: 'Light Bowgun' , icon: 'assets/icons/weapons/light-gun.png'},
   ];
   chosenType: any;
