@@ -385,6 +385,7 @@ export class MissionComponent {
         {
           progressTo: 30,
           text: 'No podemos perder el tiempo. ¡Sigue con la persecución! \n <b> Baraja la carta Rushed Advance en la Baraja de Tiempo.\n Avancen a la entrada 30. </b>',
+          extraCards: 'Rushed Advance',
           timeCards: 1,
         },
         {
@@ -577,11 +578,13 @@ export class MissionComponent {
         {
           progressTo: 27,
           text: 'Juras vengar a los espíritus.\n<b> Descarta 1 Carta de Tiempo.\nBaraja una carta Jagras Slayer en la Baraja de Tiempo.\n Avancen a la entrada 27.</b>',
+          extraCards: 'Jagras Slayer',
           timeCards: 0, //Se descarta 1, luego se añade 1
         },
         {
           progressTo: 26,
           text: 'Inclina la cabeza con reverencia... pero date prisa.\n <b> Baraja una carta Unavenged en la Baraja de Tiempo.\n Avancen a la entrada 26.</b>',
+          extraCards: 'Unavenged',
           timeCards: 1,
         },
       ]
@@ -659,6 +662,7 @@ export class MissionComponent {
         {
           progressTo: 15,
           text: "No, no podemos. ¡Abandona la caza para salvarlos!\n <b> Descarta 1 Track Token y baraja Researcher's Favour en la Baraja de Tiempo. Avancen a la entrada 15.</b>",
+          extraCards: "Researcher's Favour",
           trackTokens: -1,
           timeCards: 1,
         },
@@ -688,6 +692,7 @@ export class MissionComponent {
         {
           progressTo: 18,
           text: 'Deje esta tranquila escena sin molestar.\n <b> Descarta 1 Carta de Tiempo. Baraja la carta Ancient Guardian en la Baraja de Tiempo. Avancen a la entrada 18.</b>',
+          extraCards: "Ancient Guardian",
           timeCards: 0, //Se descarta 1, luego se añade 1
         },
       ]
@@ -761,6 +766,7 @@ export class MissionComponent {
         {
           progressTo: 25,
           text: 'Aprovecha lo mejor que puedas.\n <b> ¡Busca recursos!. Descarta 1 Carta de Tiempo. Cada cazador gana 1 Monster Bone Small y 1 Monster Hardbone.\n Avancen a la entrada 25. </b>',
+          timeCards: -1,
           materials: [
             { name: 'Monster Bone Small', qty: 1, playerMultiplier: true },
             { name: 'Monster Hardbone', qty: 1, playerMultiplier: true },
@@ -823,13 +829,13 @@ export class MissionComponent {
       options: [
         {
           progressTo: 8,
-          text: 'Sigue las Scoutflies.\n <b> Descarta 2 Cartas de Tiempo. Gana 4 Fichas de Rastreo. Avancen a la entrada 8</b>',
+          text: 'Sigue las Scoutflies.\n <b> Descarta 2 Cartas de Tiempo. Gana 4 Track Tokens. Avancen a la entrada 8</b>',
           timeCards: -2,
           trackTokens: 4,
         },
         {
           progressTo: 25,
-          text: '<b> (Los jugadores sólo pueden elegir esta opción si tienen al menos 1 Tobi-Kadachi Membrane en sus inventarios) </b> \n\n Esto no es una piedra; la reconozco de antes.\n Recoge la parte desechada y luego sigue el sendero solitario hasta el cementerio.\n<b>Gana 3 Fichas de Rastreo. Cada cazador gana 1 Tobi-Kadachi Membrane. Avancen a la entrada 25.</b>',
+          text: '<b> (Los jugadores sólo pueden elegir esta opción si tienen al menos 1 Tobi-Kadachi Membrane en sus inventarios) </b> \n\n Esto no es una piedra; la reconozco de antes.\n Recoge la parte desechada y luego sigue el sendero solitario hasta el cementerio.\n<b>Gana 3 Track Tokens. Cada cazador gana 1 Tobi-Kadachi Membrane. Avancen a la entrada 25.</b>',
           disabled: {
             disabled: true,
             if: { variable: 'Tobi-Kadachi Membrane', operator: '>=', value: 1, then: { disable: false } }
@@ -880,22 +886,22 @@ export class MissionComponent {
         },
         {
           progressTo: 35,
-          text: 'Detente a examinar tu entorno. \n <b> Descarta 1 Ficha de Rastreo o gana 1 Ficha de Rastreo.\n Avancen a la entrada 35 </b>',
+          text: 'Detente a examinar tu entorno. \n <b> Descarta 1 Track Token o gana 1 Track Token.\n Avancen a la entrada 35 </b>',
           customPopup: {
             type: 'choice',
             title: 'Seleccionen 1 Opción',
-            text: 'Descarta 1 Ficha de Rastreo o gana 1 Ficha de Rastreo.',
+            text: 'Descarta 1 Track Token o gana 1 Track Token.',
             progressTo: 35,
             possibleRewards: [
               {
                 type: 'Cancel',
-                text: 'Descarta 1 Ficha de Rastreo',
+                text: 'Descarta 1 Track Token',
                 trackTokens: -1,
                 progressTo: 35,
               },
               {
                 type: 'Accept',
-                text: 'Gana 1 Ficha de Rastreo',
+                text: 'Gana 1 Track Token',
                 trackTokens: 1,
                 progressTo: 35,
               },
@@ -910,11 +916,11 @@ export class MissionComponent {
       options: [
         {
           progressTo: 35,
-          text: 'Manténganse en el camino. \n <b>Descarta 2 Cartas de Tiempo. Gana 2 Fichas de Rastreo. \n Avancen a la entrada 35. </b>',
+          text: 'Manténganse en el camino. \n <b>Descarta 2 Cartas de Tiempo. Gana 2 Track Tokens. \n Avancen a la entrada 35. </b>',
         },
         {
           progressTo: 17,
-          text: '<b>(Los jugadores sólo pueden seleccionar esta opción si tienen al menos 1 Tobi-Kadachi Electrode en sus inventarios).</b>\n\n Los electrodos ocultos reaccionan al que tienes en tu poder, crujiendo y haciendo que su ubicación sea fácil de encontrar. \n\n <b>Descarta 1 Carta de Tiempo. Gana 1 Ficha de Rastreo. \n Cada cazador gana 1 Tobi-Kadachi Electrode. \n Avanven a la entrada 17 </b>',
+          text: '<b>(Los jugadores sólo pueden seleccionar esta opción si tienen al menos 1 Tobi-Kadachi Electrode en sus inventarios).</b>\n\n Los electrodos ocultos reaccionan al que tienes en tu poder, crujiendo y haciendo que su ubicación sea fácil de encontrar. \n\n <b>Descarta 1 Carta de Tiempo. Gana 1 Track Token. \n Cada cazador gana 1 Tobi-Kadachi Electrode. \n Avanven a la entrada 17 </b>',
           timeCards: -1,
           trackTokens: 1,
           materials: [
@@ -933,7 +939,7 @@ export class MissionComponent {
       options: [
         {
           progressTo: 6,
-          text: '¡Reune los restos y luego ponte en marcha! \n <b> Descarta 1 Carta de Tiempo. Gana 2 Fichas de Rastreo. \n Cada Cazador gana 1 Monster Bone Small o 1 Monster Bone Large. Avancen a la entrada 6. </b>',
+          text: '¡Reune los restos y luego ponte en marcha! \n <b> Descarta 1 Carta de Tiempo. Gana 2 Track Tokens. \n Cada Cazador gana 1 Monster Bone Small o 1 Monster Bone Large. Avancen a la entrada 6. </b>',
           customPopup: {
             type: 'diceRoll',
             title: "Cada cazador tira un dado",
@@ -955,7 +961,7 @@ export class MissionComponent {
         },
         {
           progressTo: 35,
-          text: '<b>(Los jugadores sólo pueden seleccionar esta opción si tienen al menos 1 Tobi-Kadachi Electrode en sus inventarios).</b> \n\n Vino aqui a morir, viendo a todas las partes esparcidas por el suelo. \n <b> Descarta 3 Cartas de Tiempo. Descarta TODAS las Fichas de Rastreo.\n  Cada cazador gana 1 Tobi-Kadachi Claw, 1 Tobi-Kadachi Scale, 1 Electro Sac y 1 Thunder Sac. \n Avancen a la entrada 35. </b>',
+          text: '<b>(Los jugadores sólo pueden seleccionar esta opción si tienen al menos 1 Tobi-Kadachi Electrode en sus inventarios).</b> \n\n Vino aqui a morir, viendo a todas las partes esparcidas por el suelo. \n <b> Descarta 3 Cartas de Tiempo. Descarta TODAS las Track Tokens.\n  Cada cazador gana 1 Tobi-Kadachi Claw, 1 Tobi-Kadachi Scale, 1 Electro Sac y 1 Thunder Sac. \n Avancen a la entrada 35. </b>',
           disabled: {
             disabled: true,
             if: { variable: 'Tobi-Kadachi Electrode', operator: '>=', value: 1, then: { disable: false } }
@@ -973,57 +979,59 @@ export class MissionComponent {
     },
     {
       id: 9,
-      text: '',
+      text: ' Las ramas que tienes encima están partidas, rotas de la manera distintiva que reconoces como evidencia del paso de un Tobi-Kadachi. Pasó por aquí, y hace poco. Estás ganando terreno. \n <b>Cada cazador gana 1 Monster Keenbone </b>',
       materials: [
         { name: 'Monster Keenbone', qty: 1, playerMultiplier: true },
       ],
       options: [
         {
-          text: '',
-          progressTo: 2,
+          text: 'Sube a la nueva ubicación.\n <b>Descarta 1 Carta de Tiempo. Gana 2 Track Tokens. Avancen a la entrada 2 </b>',
           timeCards: -1,
           trackTokens: 2,
+          progressTo: 2,
         },
       ],
     },
     {
       id: 10,
-      text: '',
+      text: 'De nuevo en el camino. Caminando por el bosque, te encuentras junto a otrocadáver. Otra víctima de la ira de Tobi-Kadachi. Puedes ver el patrón distintivo de marcas de quemaduras alrededor del cuello del muerto - los restos de electricidad estática del pelaje de la criatura.',
       options: [
         {
-          progressTo: 29,
+          text: 'Busca entre la mochila del cadáver.\n <b> Descarta 1 Carta de Tiempo. Ganan 1 Poción. Avancen a la entrada 29 </b>',
           timeCards: -1,
           potions: 1,
+          progressTo: 29,
         },
         {
-          progressTo: 22,
+          text: 'Prioriza el seguimiento.\n <b> Descarta 1 Carta de Tiempo. Gana 2 Track Tokens.\n Avancen a la entrada 22 </b>',
           timeCards: -1,
           trackTokens: 2,
+          progressTo: 22,
         },
       ],
     },
     {
       id: 11,
-      text: '',
+      text: 'Un espantoso rugido detiene tu avance. Es un ruido familiar, ronco y lleno de furia depredadora. Aunque no suena como un Tobi-Kadachi...',
       options: [
         {
-          text: '',
-          progressTo: 35,
+          text: 'Escondete en la pila de huesos! \n <b>Descarta 1 Carta de Tiempo. Cada cazador gana 1 Quality Bone y 1 Monster Bone Large. Avancen a la entrada 35 </b>',
           timeCards: -1,
           materials: [
             { name: 'Quality Bone', qty: 1, playerMultiplier: true },
             { name: 'Monster Bone Large', qty: 1, playerMultiplier: true },
           ],
+          progressTo: 35,
         },
         {
-          text: '',
+          text: '¡Sigue ese sonido! \n <b> Abancen a la entrada 17 </b>',
           progressTo: 17,
         },
       ],
     },
     {
       id: 12,
-      text: '',
+      text: 'Los árboles se apiñan a tu alrededor. El bosque es tan denso aquí, tan denso que la luz apenas atraviesa las frondas. Después de una ardua caminata entre el follaje, se llega a una pequeña cueva. El mineral brilla en la penumbra, un recurso valioso si puedes reclamarlo. \n <b> Cada cazador gana 1 Carbalite Ore y 1 Fucium Ore. </b>',
       materials: [
         { name: 'Carbalite Ore', qty: 1, playerMultiplier: true },
         { name: 'Fucium Ore', qty: 1, playerMultiplier: true },
@@ -1282,90 +1290,262 @@ export class MissionComponent {
       id: 24,
       text: '',
       options: [
-        { progressTo: 27 },
-        { progressTo: 7 },
+        {
+          text: '',
+          progressTo: 27,
+        },
+        {
+          text: '',
+          progressTo: 7,
+        },
       ],
     },
     {
       id: 25,
       text: '',
       options: [
-        { progressTo: 33 },
-        { progressTo: 10 },
+        {
+          text: '',
+          progressTo: 33,
+          timeCards: -1,
+          customPopup: {
+            type: 'diceRoll',
+            title: "Cada cazador tira un dado",
+            multipleChoices: true,
+            progressTo: 33,
+            options: [
+              {
+                text: '<b>1-2</b> Ganan 1 Quality Bone',
+                materials: [{ name: 'Quality Bone', qty: 1, playerMultiplier: false }],
+                progressTo: 33,
+              },
+              {
+                text: '<b>3-4</b> Ganan 1 Ancient Bone',
+                materials: [{ name: 'Ancient Bone', qty: 1, playerMultiplier: false }],
+                progressTo: 33,
+              },
+              {
+                text: '<b>5-6</b> Ganan 1 Boulder Bone',
+                materials: [{ name: 'Boulder Bone', qty: 1, playerMultiplier: false }],
+                progressTo: 33,
+              },
+            ],
+          }
+        },
+        {
+          text: '',
+          progressTo: 10,
+        },
       ],
     },
     {
       id: 26,
       text: '',
       options: [
-        { progressTo: 35 },
-        { progressTo: 32 },
+        {
+          text: '',
+          progressTo: 35,
+          timeCards: -1,
+          customPopup: {
+            type: 'choice',
+            title: 'Seleccionen 1 Opción',
+            text: 'Descarta 1 Potion para barajar la carta Palico Assistant en la Baraja de Tiempo.',
+            progressTo: 35,
+            possibleRewards: [
+              {
+                type: 'Cancel',
+                text: 'Avancen a la entrada 35',
+                progressTo: 35,
+              },
+              {
+                type: 'Accept',
+                text: 'Descarta 1 Potion. Baraja la carta Palico Assistant en la Baraja de Tiempo. Avancen a la entrada 35.',
+                extraCards: "Palico Assistant",
+                potions: -1,
+                timeCards: 1,
+                progressTo: 35,
+              },
+            ]
+          },
+        },
+        {
+          text: '',
+          progressTo: 32,
+          trackTokens: 1,
+        },
       ],
     },
     {
       id: 27,
       text: '',
+      potions: 'one',
       options: [
-        { progressTo: 15 },
-        { progressTo: 11 },
+        {
+          text: '',
+          progressTo: 15,
+        },
+        {
+          text: '',
+          progressTo: 11,
+        },
       ],
     },
     {
       id: 28,
       text: '',
       options: [
-        { progressTo: 26 },
-        { progressTo: 6 },
+        {
+          text: '',
+          progressTo: 26,
+          condition: { variable: 'trackTokens', operator: '<=', value: 2, then: { timeCards: 1, extraCards: "Aimless Wandering", } }
+        },
+        {
+          text: '',
+          timeCards: -1,
+          progressTo: 6,
+        },
       ],
     },
     {
       id: 29,
       text: '',
       options: [
-        { progressTo: 13 },
-        { progressTo: 22 },
+        {
+          text: '',
+          progressTo: 13,
+          materials: [
+            { name: 'Carbalite Ore', qty: 1, playerMultiplier: true },
+          ],
+          customPopup: {
+            type: 'choice',
+            title: 'Seleccionen 1 Opción',
+            text: '',
+            progressTo: 13,
+            possibleRewards: [
+              {
+                type: 'Cancel',
+                text: '',
+                progressTo: 13,
+              },
+              {
+                type: 'Accept',
+                text: '',
+                timeCards: -2,
+                materials: [
+                  { name: 'Machalite Ore', qty: 1, playerMultiplier: true },
+                  { name: 'Fucium Ore', qty: 1, playerMultiplier: true },
+                  { name: 'Dragonite Ore', qty: 1, playerMultiplier: true },
+                ],
+                progressTo: 13,
+              },
+            ]
+          }
+        },
+        {
+          text: '',
+          timeCards: -3,
+          trackTokens: 2,
+          progressTo: 22,
+        },
       ],
     },
     {
       id: 30,
       text: '',
+      materials: [
+        { name: 'Electro Sac', qty: 1, playerMultiplier: true },
+        { name: 'Warm Pelt', qty: 1, playerMultiplier: true },
+      ],
       options: [
-        { progressTo: 20 },
-        { progressTo: 28 },
+        {
+          text: '',
+          timeCards: -2,
+          progressTo: 20,
+        },
+        {
+          text: '',
+          progressTo: 28,
+          timeCards: -3,
+        },
       ],
     },
     {
       id: 31,
       text: '',
       options: [
-        { progressTo: 24 },
-        { progressTo: 7 },
+        {
+          text: '',
+          timeCards: -1,
+          progressTo: 24,
+        },
+        {
+          text: '',
+          progressTo: 7,
+        },
       ],
     },
     {
       id: 32,
       text: '',
       options: [
-        { progressTo: 34 },
-        { progressTo: 6 },
+        {
+          text: '',
+          timeCards: 1,
+          extraCards: "Jagras Slayer",
+          progressTo: 34,
+        },
+        {
+          text: '',
+          disabled: {
+            disabled: true,
+            if: { variable: 'extraCards', operator: '!=', value: 'Unavenged', then: { disable: false } }
+          },
+          timeCards: 1,
+          extraCards: "Unavenged",
+          progressTo: 6,
+        },
       ],
     },
     {
       id: 33,
       text: '',
       options: [
-        { progressTo: 25 },
-        { progressTo: 19 },
-        { progressTo: 10 },
+        {
+          text: '',
+          disabled: {
+            disabled: true,
+            if: { variable: 'timeCards', operator: '>=', value: 34, then: { disable: false } }
+          },
+          timeCards: -1,
+          progressTo: 25,
+        },
+        {
+          text: '',
+          progressTo: 19,
+          disabled: {
+            disabled: true,
+            if: { variable: 'timeCards', operator: '==', value: 33, then: { disable: false } }
+          },
+        },
+        {
+          text: '',
+          progressTo: 10,
+          disabled: {
+            disabled: true,
+            if: { variable: 'timeCards', operator: '<=', value: 32, then: { disable: false } }
+          },
+        },
       ],
     },
     {
       id: 34,
       text: '',
+      trackTokens: 2,
     },
     {
       id: 35,
       text: '',
+      timeCards: -1,
     },
   ]
 
@@ -1547,6 +1727,7 @@ export class MissionComponent {
   timeCards = 0;
   trackTokens = 0;
   showTrackTokens = false;
+  extraCards: any = [];
 
   popupVisible: boolean = false;
   diceRollTitle = '';
@@ -1562,9 +1743,7 @@ export class MissionComponent {
 
   selectedMaterials: any = [];
 
-  phases = [
-    'Investigation', 'Hunt'
-  ];
+  phases = ['Investigation', 'Hunt'];
   phase: String | null = '';
 
   mission: any;
@@ -1589,8 +1768,14 @@ export class MissionComponent {
     if (sessionStorage.getItem('nodeID') != undefined) this.node = this.quest[Number(sessionStorage.getItem('nodeID')) - 1];
 
     if (sessionStorage.getItem('potions') != undefined) this.potions = Number(sessionStorage.getItem('potions'));
-    if (sessionStorage.getItem('timeCards') != undefined) this.timeCards = Number(sessionStorage.getItem('timeCards'));
     if (sessionStorage.getItem('trackTokens') != undefined) this.trackTokens = Number(sessionStorage.getItem('trackTokens'));
+    if (sessionStorage.getItem('timeCards') != undefined) this.timeCards = Number(sessionStorage.getItem('timeCards'));
+    if (sessionStorage.getItem('extraCards') != undefined) {
+      let auxJson = sessionStorage.getItem('extraCards');
+      if (auxJson) {
+        this.extraCards = JSON.parse(auxJson);
+      }
+    }
     if (sessionStorage.getItem('gainedMaterials') != undefined) {
       let auxJson = sessionStorage.getItem('gainedMaterials');
       if (auxJson) {
@@ -1796,6 +1981,11 @@ export class MissionComponent {
         this.timeCards += option.timeCards;
       }
 
+      //Añade nuevas cartas a la Baraja de Tiempo
+      if (option.extraCards != undefined) {
+        this.extraCards.push(option.extraCards);
+      }
+
       //Revisa si la opción bloqueada cumple las condiciones para desbloquearla
       this.enableOption();
 
@@ -1810,12 +2000,15 @@ export class MissionComponent {
       }
 
       if (option.potions != undefined) {
-        this.potions += option.potions;
+        if (option.potions == 'one') {
+          this.potions = 0;
+        }
+        else this.potions += option.potions;
       }
 
       //Revisa si se cumple la condición extra
       if (option.condition != undefined) {
-        this.checkConditions(option);
+        this.checkConditions(option.condition);
       }
 
       if (option.customPopup != undefined) {
@@ -1835,6 +2028,7 @@ export class MissionComponent {
     sessionStorage.setItem('nodeID', this.node.id.toString());
     sessionStorage.setItem('potions', this.potions.toString());
     sessionStorage.setItem('timeCards', this.timeCards.toString());
+    sessionStorage.setItem('extraCards', JSON.stringify(this.extraCards).toString());
     sessionStorage.setItem('trackTokens', this.trackTokens.toString());
     sessionStorage.setItem('gainedMaterials', JSON.stringify(this.gainedMaterials).toString());
   }
@@ -1842,35 +2036,61 @@ export class MissionComponent {
   enableOption() {
     this.node.options?.forEach((nodeOption: any) => {
       if (nodeOption.disabled) {
+        let disabled = nodeOption.disabled;
+        disabled.disabled = true;
+        console.log(disabled)
         //Revisa tipo de variable
-        if (nodeOption.disabled.if.variable == 'Potion') {
-          if (nodeOption.disabled.if.operator == '<=')
-            if (this.potions <= nodeOption.disabled.if.value)
-              nodeOption.disabled.disabled = nodeOption.disabled.if.then.disable;
-          if (nodeOption.disabled.if.operator == '>=')
-            if (this.potions >= nodeOption.disabled.if.value)
-              nodeOption.disabled.disabled = nodeOption.disabled.if.then.disable;
+        if (disabled.if.variable == 'Potion') {
+          if (disabled.if.operator == '<=') {
+            if (this.potions <= disabled.if.value)
+              disabled.disabled = disabled.if.then.disable;
+          }
+          if (disabled.if.operator == '>=') {
+            if (this.potions >= disabled.if.value)
+              disabled.disabled = disabled.if.then.disable;
+          }
         }
-        else if (nodeOption.disabled.if.variable == 'startingPoint') {
-          if (nodeOption.disabled.if.operator == '!=')
-
-            if (Number(sessionStorage.getItem('startingNode')) != nodeOption.disabled.if.value)
-              nodeOption.disabled.disabled = nodeOption.disabled.if.then.disable;
-          if (nodeOption.disabled.if.operator == '==')
-
-            if (Number(sessionStorage.getItem('startingNode')) == nodeOption.disabled.if.value)
-              nodeOption.disabled.disabled = nodeOption.disabled.if.then.disable;
+        else if (disabled.if.variable == 'startingPoint') {
+          if (disabled.if.operator == '!=') {
+            if (Number(sessionStorage.getItem('startingNode')) != disabled.if.value)
+              disabled.disabled = disabled.if.then.disable;
+          }
+          if (disabled.if.operator == '==') {
+            if (Number(sessionStorage.getItem('startingNode')) == disabled.if.value)
+              disabled.disabled = disabled.if.then.disable;
+          }
+        }
+        else if (disabled.if.variable == 'extraCards') {
+          if (disabled.if.operator == '!=') {
+            if (this.extraCards.find((x: any) => x == disabled.if.value) == undefined)
+              disabled.disabled = disabled.if.then.disable;
+          }
+        }
+        else if (disabled.if.variable == 'timeCards') {
+          if (disabled.if.operator == '<=') {
+            if (this.timeCards <= disabled.if.value)
+              disabled.disabled = disabled.if.then.disable;
+          }
+          else if (disabled.if.operator == '==') {
+            if (this.timeCards == disabled.if.value)
+              disabled.disabled = disabled.if.then.disable;
+          }
+          else if (disabled.if.operator == '>=') {
+            console.log(this.timeCards, '>=', disabled.if.value, this.timeCards >= disabled.if.value)
+            if (this.timeCards >= disabled.if.value)
+              disabled.disabled = disabled.if.then.disable;
+          }
         }
         //De no ser tipo predefinido, es un material
         else {
-          let material = this.ds.materials.find(x => x.materialName == nodeOption.disabled.if.variable);
+          let material = this.ds.materials.find(x => x.materialName == disabled.if.variable);
 
-          if (nodeOption.disabled.if.operator == '>=')
-            if (material.materialQuantity >= nodeOption.disabled.if.value)
-              nodeOption.disabled.disabled = nodeOption.disabled.if.then.disable;
-          if (nodeOption.disabled.if.operator == '<=')
-            if (material.materialQuantity <= nodeOption.disabled.if.value)
-              nodeOption.disabled.disabled = nodeOption.disabled.if.then.disable;
+          if (disabled.if.operator == '>=')
+            if (material.materialQuantity >= disabled.if.value)
+              disabled.disabled = disabled.if.then.disable;
+          if (disabled.if.operator == '<=')
+            if (material.materialQuantity <= disabled.if.value)
+              disabled.disabled = disabled.if.then.disable;
         }
       }
     });
@@ -1887,32 +2107,52 @@ export class MissionComponent {
     });
   }
 
-  checkConditions(option: any) {
+  checkConditions(condition: any) {
 
     //Revisa si la condición afecta a tracktokens
-    if (option.condition.variable == 'trackTokens') {
-      if (option.condition.operator == '<=')
-        if (this.trackTokens <= option.condition.value)
-          this.trackTokens += option.condition.then.add;
+    if (condition.variable == 'trackTokens') {
+      if (condition.operator == '<=')
+        if (this.trackTokens <= condition.value) {
+          if (condition.timeCards) {
+            this.timeCards += condition.timeCards;
+          }
+          else {
+            this.trackTokens += condition.then.add;
+          }
 
-      if (option.condition.operator == '>=')
-        if (this.trackTokens >= option.condition.value)
-          this.trackTokens += option.condition.then.add;
+        }
+
+      if (condition.operator == '>=')
+        if (this.trackTokens >= condition.value)
+          this.trackTokens += condition.then.add;
+    }
+    else if (condition.variable == 'timeCards') {
+      if (condition.operator == '<=') {
+        if (this.timeCards <= condition.value) {
+          this.timeCards += condition.timeCards
+        };
+      }
+
+      if (condition.operator == '>=') {
+        if (this.timeCards >= condition.value) {
+          this.timeCards += condition.then.add
+        }
+      };
     }
 
     //De no ser así, es un material
     else {
-      let material = this.ds.materials.find(x => x.materialName == option.condition.variable);
-      if (this.gainedMaterials.find((x: any) => x.name == option.condition.variable) == undefined)
-        this.gainedMaterials.push({ name: option.condition.variable, qty: 0 });
+      let material = this.ds.materials.find(x => x.materialName == condition.variable);
+      if (this.gainedMaterials.find((x: any) => x.name == condition.variable) == undefined)
+        this.gainedMaterials.push({ name: condition.variable, qty: 0 });
 
-      if (option.condition.operator == '>=')
-        if (material.materialQuantity >= option.condition.value)
-          this.gainedMaterials.find((x: any) => x.name == option.condition.variable).qty += option.then.add;
+      if (condition.operator == '>=')
+        if (material.materialQuantity >= condition.value)
+          this.gainedMaterials.find((x: any) => x.name == condition.variable).qty += condition.then.add;
 
-      if (option.condition.operator == '<=')
-        if (material.materialQuantity <= option.condition.value)
-          this.gainedMaterials.find((x: any) => x.name == option.condition.variable).qty += option.then.add;
+      if (condition.operator == '<=')
+        if (material.materialQuantity <= condition.value)
+          this.gainedMaterials.find((x: any) => x.name == condition.variable).qty += condition.then.add;
     }
   }
 
@@ -2026,6 +2266,13 @@ export class MissionComponent {
 
     this.selectNode(customPopup);
 
+  }
+
+  openMasterDetail(e: any) {
+    let key = e.component.getKeyByRowIndex(e.rowIndex);
+
+    if (!e.component.isRowExpanded(key)) e.component.expandRow(key);
+    else e.component.collapseRow(key);
   }
 
   log(e: any) {

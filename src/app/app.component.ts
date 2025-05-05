@@ -49,17 +49,17 @@ export class AppComponent {
   tabs = [
     {
       id: 1,
-      text: 'Item Box',
+      text: 'Caja de Objetos',
       icon: 'assets/icons/box.png',
     },
     {
       id: 2,
-      text: 'Armors',
+      text: 'Armaduras',
       icon: 'assets/icons/armors/helm.png',
     },
     {
       id: 3,
-      text: 'Weapons',
+      text: 'Armas',
       icon: 'assets/icons/weapons/sword-and-shield.png',
     },
   ];

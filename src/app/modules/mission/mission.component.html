@@ -213,7 +213,7 @@
             
             }
             @if (showTrackTokens) {
-                <h2> Track Tokens: <b> {{trackTokens}} </b> </h2>
+                <h2> Fichas de Rastreo: <b> {{trackTokens}} </b> </h2>
                 <hr>
                 <h2> Materiales Obtenidos: </h2>
                 <dx-data-grid
@@ -243,7 +243,6 @@
             </div>
             }
             @if(missionState) {
-    
                 <dx-data-grid
                     style="margin-top: 1rem;"
                     [showBorders]="true"
@@ -251,6 +250,7 @@
                     [showRowLines]="true"
                     [wordWrapEnabled]="true"
                     [dataSource]="rewardsTable"
+                    (onRowClick)="openMasterDetail($event)"
                     >
                     <dxo-master-detail [enabled]="true" template="detail"></dxo-master-detail>
     
@@ -269,7 +269,6 @@
                         <button (click)="addReward(material.data, 1)" > + </button>
                         <button [disabled]="loading" (click)="updateReward(material.data)"> Update </button>
                     </div>
-    
                 </dx-data-grid>
             }
         }
