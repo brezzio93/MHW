@@ -28,7 +28,8 @@ export class MissionComponent {
       options: [
         {
           progressTo: 21,
-          text: '¡Sigue las Scoutflies!\n <b> Descarta una carta de tiempo. Ganan 1 Track Token.\n Avanzan a la entrada 1 </b>',
+          text: '¡Sigue las Scoutflies!\n <b> Descarta 1 Carta de Tiempo. Ganan 1 Track Token.\n Avanzan a la entrada 1 </b>',
+          timeCards: -1,
           trackTokens: 1,
         }
       ]
@@ -384,7 +385,7 @@ export class MissionComponent {
       options: [
         {
           progressTo: 30,
-          text: 'No podemos perder el tiempo. ¡Sigue con la persecución! \n <b> Baraja la carta Rushed Advance en la Baraja de Tiempo.\n Avancen a la entrada 30. </b>',
+          text: 'No podemos perder el tiempo. ¡Sigue con la persecución! \n <b> Baraja la carta Rushed Advance en el Mazo de Tiempo.\n Avancen a la entrada 30. </b>',
           extraCards: 'Rushed Advance',
           timeCards: 1,
         },
@@ -577,13 +578,13 @@ export class MissionComponent {
       options: [
         {
           progressTo: 27,
-          text: 'Juras vengar a los espíritus.\n<b> Descarta 1 Carta de Tiempo.\nBaraja una carta Jagras Slayer en la Baraja de Tiempo.\n Avancen a la entrada 27.</b>',
+          text: 'Juras vengar a los espíritus.\n<b> Descarta 1 Carta de Tiempo.\nBaraja una carta Jagras Slayer en el Mazo de Tiempo.\n Avancen a la entrada 27.</b>',
           extraCards: 'Jagras Slayer',
           timeCards: 0, //Se descarta 1, luego se añade 1
         },
         {
           progressTo: 26,
-          text: 'Inclina la cabeza con reverencia... pero date prisa.\n <b> Baraja una carta Unavenged en la Baraja de Tiempo.\n Avancen a la entrada 26.</b>',
+          text: 'Inclina la cabeza con reverencia... pero date prisa.\n <b> Baraja una carta Unavenged en el Mazo de Tiempo.\n Avancen a la entrada 26.</b>',
           extraCards: 'Unavenged',
           timeCards: 1,
         },
@@ -661,7 +662,7 @@ export class MissionComponent {
       options: [
         {
           progressTo: 15,
-          text: "No, no podemos. ¡Abandona la caza para salvarlos!\n <b> Descarta 1 Track Token y baraja Researcher's Favour en la Baraja de Tiempo. Avancen a la entrada 15.</b>",
+          text: "No, no podemos. ¡Abandona la caza para salvarlos!\n <b> Descarta 1 Track Token y baraja Researcher's Favour en el Mazo de Tiempo. Avancen a la entrada 15.</b>",
           extraCards: "Researcher's Favour",
           trackTokens: -1,
           timeCards: 1,
@@ -691,7 +692,7 @@ export class MissionComponent {
         },
         {
           progressTo: 18,
-          text: 'Deje esta tranquila escena sin molestar.\n <b> Descarta 1 Carta de Tiempo. Baraja la carta Ancient Guardian en la Baraja de Tiempo. Avancen a la entrada 18.</b>',
+          text: 'Deje esta tranquila escena sin molestar.\n <b> Descarta 1 Carta de Tiempo. Baraja la carta Ancient Guardian en el Mazo de Tiempo. Avancen a la entrada 18.</b>',
           extraCards: "Ancient Guardian",
           timeCards: 0, //Se descarta 1, luego se añade 1
         },
@@ -1038,13 +1039,13 @@ export class MissionComponent {
       ],
       options: [
         {
-          text: '',
+          text: 'Ya tienes suficiente. \n <b> Sigue las pistas. Descarta 1 Time Card. \n Gana 1 Track Token. Avancen a la entrada 23 </b>',
           progressTo: 23,
           timeCards: -1,
           trackTokens: 1,
         },
         {
-          text: '',
+          text: 'Detente a minar por más oro. \n <b> Descarta 1 Carta de Tiempo. Cada cazador gana 1 Machalite Ore y 1 Firecell Stone. Avancen a la entrada 16 </b>',
           progressTo: 16,
           timeCards: -1,
           materials: [
@@ -1056,9 +1057,10 @@ export class MissionComponent {
     },
     {
       id: 13,
-      text: '',
+      text: '¿Qué son esos ruidos? Vienen de algún lugar frente a ti, su origen está oscurecida por los árboles. Podría ser Tobi-Kadachi, pero no estás seguro. Aunque se están acercando. Mas y mas cerca.',
       options: [
         {
+          text: '<b> Si los cazadores están jugando Investigación 3, avancen a la entrada 31 </b>,',
           progressTo: 31,
           //Enable IF starting point is Investigation 3 (id:4)
           disabled: {
@@ -1068,7 +1070,12 @@ export class MissionComponent {
         },
         //Disable IF starting point is Investigation 3 (id:4)
         {
+          text: 'Espera y ve que ocurre. \n <b> Descarta 2 Cartas de Tiempo. Cada cazador gana 1 Tobi-Kadachi Scale. Avancen a la entrada 34 </b>',
           progressTo: 34,
+          timeCards: -2,
+          materials: [
+            { name: 'Tobi-Kadachi Scale', qty: 1, playerMultiplier: true },
+          ],
           disabled: {
             disabled: true,
             if: { variable: 'startingPoint', operator: '!=', value: 4, then: { disable: false } }
@@ -1076,6 +1083,7 @@ export class MissionComponent {
         },
         //Disable IF starting point is Investigation 3 (id:4)
         {
+          text: 'Retirate. No estamos listos. \n <b> Avancen a la entrada 32 </b>',
           progressTo: 32,
           disabled: {
             disabled: true,
@@ -1086,20 +1094,20 @@ export class MissionComponent {
     },
     {
       id: 14,
-      text: '',
+      text: ' Te preocupa haber pasado demasiado tiempo examinando la maleza y la aulaga, mientras Tobi-Kadachi aumenta su ventaja. Debes seguir adelante si no quieres perder a la bestia por completo.',
       options: [
         {
-          text: '',
+          text: 'No podemos perder el tiempo. ¡Continúa la persecución! \n <b> Baraja la carta Time Waster en el Mazo de Tiempo. Avancen a la entrada 34. </b>',
           progressTo: 34,
         },
       ],
     },
     {
       id: 15,
-      text: '',
+      text: 'Sigues el rastro de tu rival, pero pronto resulta obvio que no vas a atraparlo. Encuentras tus cosas en un montón de huesos, y una poción a medio beber al lado. Recuperas ambos y llenas la botella con agua.',
       options: [
         {
-          text: '',
+          text: '<b>Descarta 2 Cartas de Tiempo. Gana 1 Potion. Cada cazador gana 1 Monster Bone Small. Avancen a la entrada 11. </b>',
           progressTo: 11,
           timeCards: -2,
           potions: 1,
@@ -1111,11 +1119,11 @@ export class MissionComponent {
     },
     {
       id: 16,
-      text: '',
+      text: 'La excavación es difícil, pero estás seguro de que valdrá la pena. Los minerales que estás buscando no son fáciles de encontrar y mucho de lo que estás descubriendo parecen fósiles, pero... espera, ¿qué fue eso? Levantas la vista de repente.\nUn ruido extraño resuena desde algún lugar más profundo de la cueva...\n\n <b> Descarta 1 Carta de Tiempo. </b>',
       timeCards: -1,
       options: [
         {
-          text: '',
+          text: 'Continúa excavando. \n <b> Cada cazador gana 1 Boulder Bone y 1 Monster Hardbone. Avancen a la entrada 14. </b>',
           progressTo: 14,
           materials: [
             { name: 'Boulder Bone', qty: 1, playerMultiplier: true },
@@ -1123,21 +1131,22 @@ export class MissionComponent {
           ]
         },
         {
-          text: '',
-          progressTo: 21
+          text: 'Investiga el ruido. \n <b> Avancen a la entrada 21. </b>',
+          progressTo: 21,
         },
       ],
     },
     {
       id: 17,
-      text: '',
+      text: 'Más adelante ves las sombras no de uno, ¡sino de dos monstruos peleando!',
       options: [
         {
-          text: '',
+          text: '¿Espera y ves que ocurre? \n <b> Avancen a la entrada 34 </b>',
           progressTo: 34,
         },
         {
-          text: '',
+          text: 'Lanzate de cabeza a la pelea. \n <b> Baraja la carta Turf War en el Mazo de Tiempo.\n Cada cazador gana 1 Boulder Bone. Avancen a la entrada 35 </b>',
+          extraCards: "Turf War",
           progressTo: 35,
           materials: [
             { name: 'Boulder Bone', qty: 1, playerMultiplier: true },
@@ -1147,15 +1156,15 @@ export class MissionComponent {
     },
     {
       id: 18,
-      text: '',
+      text: 'Por lo general, el rastro de un Tobi-Kadachi es mínimo - ramas dobladas, pasto plano - pero en este caso, la bestia irrumpió con una violencia incomparable. La línea de árboles está destrozada, completamente arruinada. ¿Es esto una trampa? ¿O la criatura está tratando de alejarte de algo?',
       options: [
         {
-          text: '',
+          text: 'Retrocede e investiga el nido. \n <b> Descarta 1 Carta de Tiempo. Avancen a la entrada 30 </b>',
           progressTo: 30,
           timeCards: -1
         },
         {
-          text: '',
+          text: 'Avanza, no puede haber ido muy lejos! \n Descarta 1 Carta de Tiempo. Gana 2 Track Tokens. \n Avancen a la entrada 20 </b>',
           progressTo: 20,
           timeCards: -1,
           trackTokens: 2,
@@ -1164,10 +1173,10 @@ export class MissionComponent {
     },
     {
       id: 19,
-      text: '',
+      text: 'Para cuando estás listo para continuar la caza, te das cuenta que el rastro ya no existe. Va a ser dificil volver a encontrarlo, pero tienes que intentarlo.',
       options: [
         {
-          text: '',
+          text: 'Intenta encontrarlo de nuevo. \n <b> Descarta todas tus Track Tokens. Cada cazador gana 1 Wingdrake Hide.\n Avancen a la entrada 14. </b>',
           progressTo: 14,
           trackTokens: 'removeAll',
           materials: [
@@ -1178,28 +1187,27 @@ export class MissionComponent {
     },
     {
       id: 20,
-      text: '',
+      text: 'Un nuevo camino; Tobi-Kadachi intentaba despistarte, pero descubriste la artimaña. Justo. Éste es un cliente resbaladizo y necesitas estar alerta. Luego, te enfrentas a otro camino divergente... ¿adónde vas?',
       options: [
         {
-          text: '',
-          progressTo: 32,
+          text: 'Dirígete por el camino oscuro lleno de insectos. \n <b> Descarta 1 Carta de Tiempo. Avancen a la entrada 24 </b>',
           timeCards: -1,
+          progressTo: 32,
         },
         {
-          text: '',
-          progressTo: 28,
+          text: 'Siga la ruta en la que te encuentras. \n <b> Descarta 1 Carta de Tiempo. Gana 1 Track Token.\n Avancen a la entrada 28 </b>',
           timeCards: -1,
           trackTokens: 1,
+          progressTo: 28,
         },
       ],
     },
     {
       id: 21,
-      text: '',
+      text: 'El cuerpo de un investigador se encuentra en tu camino. Esperas que su final sea rápido e indoloro... Si te pones en el lado equivocado de un monstruo, puede ser cualquier cosa menos eso. \n Sin embargo, no parece que el desafortunado investigador haya sido víctima de un Tobi-Kadachi. Esto podría ser un giro en falso.',
       options: [
         {
-          text: '',
-          progressTo: 23,
+          text: 'Investiga el cuerpo. \n <b> Cada cazador tira un dado en la siguiente tabla. \n\n </b> <b>1-2</b> Ganan 1 Potion.\n <b>3-4</b> Ganan 1 Ancient Bone.\n <b>5-6</b> Ganan 1 Wingdrake Hide. \n\n <b> Una vez que cada jugador haya tirado, descarta 2 Cartas de Tiempo. Avanzan a la entrada 23 </b>',
           customPopup: {
             type: 'diceRoll',
             title: "Cada cazador tira un dado",
@@ -1222,22 +1230,23 @@ export class MissionComponent {
                 materials: [{ name: 'Wingdrake Hide', qty: 1, playerMultiplier: false }]
               },
             ],
-          }
+          },
+          timeCards: -1,
+          progressTo: 23,
         },
         {
-          text: '',
-          progressTo: 16,
+          text: 'Regresa. \n <b> Descarta 1 Carta de Tiempo. Avancen a la entrada 16 </b>',
           timeCards: -1,
+          progressTo: 16,
         },
       ],
     },
     {
       id: 22,
-      text: '',
+      text: 'El interminable ruido del agua cae en picado en un estanque de abajo, espumoso blanco como las nubes de arriba. Miras hacia abajo, seguro de que ves algo que brilla tentadoramente en el agua al fondo de la cascada.',
       options: [
         {
-          text: '',
-          progressTo: 35,
+          text: 'Sumergete en el agua. \n <b> Descarta 2 Cartas de Tiempo. Cada cazador tira un dado en la siguiente tabla.</b> \n\n <b>1-2</b> Ganan 1 Dragonvein Crystal.\n <b>3-4</b> Ganan 1 Electro Sac.\n <b>5-6</b> Ganan 1 Firecell Stone. \n\n <b> Una vez que cada jugador haya tirado, Avanzan a la entrada 35 </b>',
           timeCards: -2,
           customPopup: {
             type: 'diceRoll',
@@ -1247,67 +1256,68 @@ export class MissionComponent {
             options: [
               {
                 progressTo: 35,
-                text: '<b>1-2 </b> Ganan 1 Dragonvein Crystal',
+                text: '<b> 1-2 </b> Ganan 1 Dragonvein Crystal',
                 materials: [{ name: 'Dragonvein Crystal', qty: 1, playerMultiplier: false }],
               },
               {
                 progressTo: 35,
-                text: '<b>3-4 </b> Ganan 1 Electro Sac',
+                text: '<b> 3-4 </b> Ganan 1 Electro Sac',
                 materials: [{ name: 'Electro Sac', qty: 1, playerMultiplier: false }]
               },
               {
                 progressTo: 35,
-                text: '<b>5-6 </b> Ganan 1 Firecell Stone',
+                text: '<b> 5-6 </b> Ganan 1 Firecell Stone',
                 materials: [{ name: 'Firecell Stone', qty: 1, playerMultiplier: false }]
               },
             ],
-          }
+          },
+          progressTo: 35,
         },
       ],
     },
     {
       id: 23,
-      text: '',
+      text: 'El rastro de Tobi-Kadachi es obvio por los árboles y la hierba perturbados. Tienes que seguir persiguiéndolo para asegurarte de que no te adelantes demasiado, pero hay huesos esparcidos a lo largo del camino. ¿La presa de Tobi-Kadachi? Puede que valga la pena comprobarlo... nunca se sabe lo que encontrará.',
       options: [
         {
-          text: '',
-          progressTo: 9,
+          text: '¿Te apuras en persguir los rastros por el sendero? \n <b> Descarta 1 Carta de Tiempo. Gana 1 Track Tokens. Avancen a la entrada 9 </b>',
           timeCards: -1,
           trackTokens: 1,
+          progressTo: 9,
         },
         {
-          text: '',
-          progressTo: 14,
+          text: '¿Parar a buscar otros huesos cercanos? \n Descarta 1 Carta de Tiempo. Cada cazador gana 1 Quality Bone y 1 Monster Bone Small. \n Avancen a la entrada 14 </b>',
           timeCards: -1,
           materials: [
             { name: 'Quality Bone', qty: 1, playerMultiplier: true },
             { name: 'Monster Bone Small', qty: 1, playerMultiplier: true }
-          ]
+          ],
+          progressTo: 14,
         },
       ],
     },
     {
       id: 24,
-      text: '',
+      text: 'Casi te sorprendes cuando un cazador rival sale de las sombras. Casi. Pero los viste antes de entrar a la cámara, así que asientes suavemente. Intercambias historias y te ofrecen un consejo útil sobre la ubicación de Tobi-Kadachi. Si les crees, por supuesto...',
       options: [
         {
-          text: '',
+          text: 'Confia en tu rival. \n <b> Avancen a la entrada 27 </b>',
           progressTo: 27,
         },
         {
-          text: '',
+          text: 'No confies en tu rival. \n <b> Avancen a la entrada 7 </b>',
           progressTo: 7,
         },
       ],
     },
     {
       id: 25,
-      text: '',
+      text: 'Cuerpos, cuerpos por todas partes. Tobi-Kadachi descendió sobre su presa aquí como un tsunami, barriendo cualquier resistencia con desdeñosa facilidad. Sólo quedan sangre y huesos para alertarte de lo sucedido.',
       options: [
         {
-          text: '',
-          progressTo: 33,
+          text: 'Tómate el tiempo para revisar los cadáveres.\n <b> Descarta 1 Carta de Tiempo. Cada cazador tira un dado en la siguiente tabla.</b> \n\n <b>1-2</b> Ganan 1 Quality Bone.\n <b>3-4</b> Ganan 1 Ancient Bone.\n <b>5-6</b> Ganan 1 Boulder Bone. \n\n <b> Una vez que cada jugador haya tirado, Avanzan a la entrada 33 </b>',
           timeCards: -1,
+          progressTo: 33,
           customPopup: {
             type: 'diceRoll',
             title: "Cada cazador tira un dado",
@@ -1333,23 +1343,23 @@ export class MissionComponent {
           }
         },
         {
-          text: '',
+          text: 'Este lugar apesta a muerte. Avanza rápidamente. \n <b> Avancen a la entrada 10 </b>',
           progressTo: 10,
         },
       ],
     },
     {
       id: 26,
-      text: '',
+      text: 'Se oye un sonido peculiar procedente del arbusto cercano. Tomas tus armas y te preparas para la batalla... mientras un palico salvaje tropieza frente a ti y levanta su hocico en adorable confusión. Extiende sus manos, algo así como una sonrisa divide su rostro felino.',
       options: [
         {
-          text: '',
-          progressTo: 35,
+          text: 'Comercia con él. \n <b> Descarta 1 Carta de Tiempo. Puedes elegir descartar 1 Potion para barajar la carta Palico Assistant en el Mazo de Tiempo. Avancen a la entrada 35 </b>',
           timeCards: -1,
+          progressTo: 35,
           customPopup: {
             type: 'choice',
             title: 'Seleccionen 1 Opción',
-            text: 'Descarta 1 Potion para barajar la carta Palico Assistant en la Baraja de Tiempo.',
+            text: 'Descarta 1 Potion para barajar la carta Palico Assistant en el Mazo de Tiempo.',
             progressTo: 35,
             possibleRewards: [
               {
@@ -1359,7 +1369,7 @@ export class MissionComponent {
               },
               {
                 type: 'Accept',
-                text: 'Descarta 1 Potion. Baraja la carta Palico Assistant en la Baraja de Tiempo. Avancen a la entrada 35.',
+                text: 'Descarta 1 Potion. Baraja la carta Palico Assistant en el Mazo de Tiempo. Avancen a la entrada 35.',
                 extraCards: "Palico Assistant",
                 potions: -1,
                 timeCards: 1,
@@ -1369,7 +1379,7 @@ export class MissionComponent {
           },
         },
         {
-          text: '',
+          text: 'Ignora a la criatura. La caza debe continuar. \n <b> Gana 1 Track Token. Avancen a la entrada 32. </b>',
           progressTo: 32,
           trackTokens: 1,
         },
@@ -1377,30 +1387,30 @@ export class MissionComponent {
     },
     {
       id: 27,
-      text: '',
+      text: 'Sabías que estaban demasiado ansiosos por ofrecer consejos. Deberías haber confiado en tus instintos. El suelo cedió tan pronto como entraste en la cámara de piedra, hundiéndote en un pozo. Podrás salir lo suficientemente rápido, pero para entonces, ese cazador traidor ya se habrá ido, con tu presa en la mira... ¡y la mayoría de tus pociones en su mochila!\n <b> Descarta todas las Potion excepto 1 </b>',
       potions: 'one',
       options: [
         {
-          text: '',
+          text: 'Caza a tu rival. \n <b> Avancen a la entrada 15 </b>',
           progressTo: 15,
         },
         {
-          text: '',
+          text: 'Lo que está hecho, hecho está. \n <b> Avancen a la entrada 11 </b>',
           progressTo: 11,
         },
       ],
     },
     {
       id: 28,
-      text: '',
+      text: 'El camino empieza a sentirse frío. Quizás deberías haber tomado el otro camino, después de todo.',
       options: [
         {
-          text: '',
+          text: '<b> Si el grupo tiene menos de 3 Track Tokens baraja la carta Aimless Wandering en el mazo de tiempo.\n Avancen a la entrada 26. </b>',
           progressTo: 26,
           condition: { variable: 'trackTokens', operator: '<=', value: 2, then: { timeCards: 1, extraCards: "Aimless Wandering", } }
         },
         {
-          text: '',
+          text: 'No. Este es el camino correcto. Sigue adelante. \n <b> Descarta 1 Carta de Tiempo.\n Revela 1 Track Token.\n Avancen a la entrada 6 </b>',
           timeCards: -1,
           progressTo: 6,
         },
@@ -1408,10 +1418,10 @@ export class MissionComponent {
     },
     {
       id: 29,
-      text: '',
+      text: 'La tierra se abre debajo de ti, revelando un golfo oscuro. Una cueva. Podrías simplemente ignorarlo y concentrarte en cazar a Tobi-Kadachi. Pero el brillo del mineral en la oscuridad te indica que podría valer la pena pasar un tiempo fingiendo ser un minero, en lugar de un cazador',
       options: [
         {
-          text: '',
+          text: 'Entra y comienza a excavar. \n Descarta 1 Carta de Tiempo. Cada cazador gana 1 Carbalite Ore. Pueden descartar 2 Cartas de Tiempo más para que cada cazador gane 1 Machalite Ore, 1 Fucium Ore y 1 Dragonite Ore. \n Avancen a la entrada 13 </b>',
           progressTo: 13,
           materials: [
             { name: 'Carbalite Ore', qty: 1, playerMultiplier: true },
@@ -1424,12 +1434,12 @@ export class MissionComponent {
             possibleRewards: [
               {
                 type: 'Cancel',
-                text: '',
+                text: 'Avancer a la entrada 13',
                 progressTo: 13,
               },
               {
                 type: 'Accept',
-                text: '',
+                text: 'Descarta 2 Cartas de Tiempo, cada cazador gana 1 Machalite Ore, 1 Fucium Ore y 1 Dragonite Ore.',
                 timeCards: -2,
                 materials: [
                   { name: 'Machalite Ore', qty: 1, playerMultiplier: true },
@@ -1442,7 +1452,7 @@ export class MissionComponent {
           }
         },
         {
-          text: '',
+          text: 'Busca el rastro.\n <b> Descarta 3 Cartas de Tiempo. Gana y revela 2 Track Tokens.\n Avancen a la entrada 22. </b>',
           timeCards: -3,
           trackTokens: 2,
           progressTo: 22,
@@ -1981,7 +1991,7 @@ export class MissionComponent {
         this.timeCards += option.timeCards;
       }
 
-      //Añade nuevas cartas a la Baraja de Tiempo
+      //Añade nuevas cartas a el Mazo de Tiempo
       if (option.extraCards != undefined) {
         this.extraCards.push(option.extraCards);
       }
@@ -2001,7 +2011,7 @@ export class MissionComponent {
 
       if (option.potions != undefined) {
         if (option.potions == 'one') {
-          this.potions = 0;
+          this.potions = 1;
         }
         else this.potions += option.potions;
       }
