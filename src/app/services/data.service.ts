@@ -2353,7 +2353,33 @@ export class DataService {
       "materialName": "Azure Rathalos Wing",
       "tree": "Azure Rathalos",
       "treeIcon": "assets/icons/monsters/a-ratha.png",
-    }
+    },
+    {
+      "materialName": "Barroth Claw",
+      "tree": "Barroth",
+      "treeIcon": "assets/icons/monsters/barr.png",
+    },
+    {
+      "materialName": "Barroth Ridge",
+      "tree": "Barroth",
+      "treeIcon": "assets/icons/monsters/barr.png",
+    },
+    {
+      "materialName": "Barroth Shell",
+      "tree": "Barroth",
+      "treeIcon": "assets/icons/monsters/barr.png",
+    },
+    {
+      "materialName": "Barroth Carapace",
+      "tree": "Barroth",
+      "treeIcon": "assets/icons/monsters/barr.png",
+    },
+    {
+      "materialName": "Fertile Mud",
+      "tree": "Barroth",
+      "treeIcon": "assets/icons/monsters/barr.png",
+    },
+
   ]
 
   constructor(private http: HttpClient) { }

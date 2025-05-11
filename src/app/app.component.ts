@@ -91,7 +91,12 @@ export class AppComponent {
   }
 
   goTo(route: any) {
-    this.moduleIndex = route;
+    if (route == 0 && this.moduleIndex == 0) {
+      this.moduleIndex = null;
+    }
+    else {
+      this.moduleIndex = route;
+    }
     sessionStorage.setItem('module', this.moduleIndex);
   }
 }

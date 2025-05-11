@@ -212,8 +212,20 @@
                 </dx-popup>
             
             }
+            <!-- Fin de Investigación -->
             @if (showTrackTokens) {
-                <h2> Fichas de Rastreo: <b> {{trackTokens}} </b> </h2>
+                <h2> Fichas de Rastreo Obtenidas: <b> {{trackTokens}} </b> </h2>
+                
+                <div class="textNode">
+                    <span>Si las pistas obtenidas son <b> menor </b> que <b> {{scoutflyLevel[0]}} </b> agreguen <b> {{extraAttacks[0]}} </b> a Mazo de Comportamiento</span>
+                </div>
+                <div class="textNode">
+                    <span>Si las pistas obtenidas están <b> entre </b>  <b>{{scoutflyLevel[0]}} y {{scoutflyLevel[1]}} </b> agreguen <b> {{extraAttacks[1]}} </b> a Mazo de Comportamiento</span>
+                </div>
+                <div class="textNode">
+                    <span>Si las pistas obtenidas son <b> mayor </b> que <b> {{scoutflyLevel[1]}} </b> agreguen <b> {{extraAttacks[2]}} </b> a Mazo de Comportamiento</span>
+                </div>
+                
                 <hr>
                 <h2> Materiales Obtenidos: </h2>
                 <dx-data-grid
@@ -243,6 +255,7 @@
             </div>
             }
             @if(missionState) {
+                <!-- Tabla de Recompensas -->
                 <dx-data-grid
                     style="margin-top: 1rem;"
                     [showBorders]="true"

@@ -56,6 +56,14 @@ export class MissionLogComponent {
         day.icon = "assets/icons/monsters/a-ratha.png";
         day.class = "normal";
       }
+      else if (day.mission.includes("Barroth")) {
+        day.icon = "assets/icons/monsters/barr.png";
+        day.class = "normal";
+      }
+      else if (day.mission.includes("Pukei-Pukei")) {
+        day.icon = "assets/icons/monsters/puke.png";
+        day.class = "normal";
+      }
       else {
         day.icon = "assets/icons/box.png";
         day.class = "invert";

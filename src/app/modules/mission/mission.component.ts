@@ -1461,51 +1461,51 @@ export class MissionComponent {
     },
     {
       id: 30,
-      text: '',
+      text: 'Los largos minutos comienzan a convertirse en una hora y no hay señales ni sonidos de nada. Tu impaciencia te supera: es posible que la bestia nunca regrese a este ritmo. Mientras miras a tu alrededor decepcionado, algo te llama la atención y te das cuenta de que, después de todo, ¡tal vez no haya sido una pérdida de tiempo!\n <b> Cada cazador gana 1 Electro Sac y 1 Warm Pelt. </b>',
       materials: [
         { name: 'Electro Sac', qty: 1, playerMultiplier: true },
         { name: 'Warm Pelt', qty: 1, playerMultiplier: true },
       ],
       options: [
         {
-          text: '',
+          text: 'Fin del camino. Regresa al viejo camino. \n <b> Descarta 2 Cartas de Tiempo.\n Avancen a la entrada 20 </b>',
           timeCards: -2,
           progressTo: 20,
         },
         {
-          text: '',
-          progressTo: 28,
+          text: 'Explora el área donde encontraste la piel desechada para encontrar más huellas.\n <b> Descarta 3 Cartas de Tiempo. \n Avancen a la entrada 28 </b>',
           timeCards: -3,
+          progressTo: 28,
         },
       ],
     },
     {
       id: 31,
-      text: '',
+      text: 'Después de una agotadora caminata por el bosque, llegas a una formación de rocas que se extiende desde la tierra hasta el aire, bloqueando tu camino. Sin embargo, una estrecha grieta permite la entrada a una cueva. Aquí se desvía una pequeña red de túneles, lo cual es bueno, ya que la cueva en sí está vacía.',
       options: [
         {
-          text: '',
+          text: 'Sal por el pasaje Oeste. \n <b> Descarta 1 Carta de Tiempo. Avancen a la entrada 24 </b>',
           timeCards: -1,
           progressTo: 24,
         },
         {
-          text: '',
+          text: 'Sal por el pasaje Este. \n <b> Avancen a la entrada 7 </b>',
           progressTo: 7,
         },
       ],
     },
     {
       id: 32,
-      text: '',
+      text: 'Hay poca luz aquí. Los árboles se apiñan y te sientes incómodo al saber que no puedes discernir el camino que tienes por delante. Luego te arrojan al suelo cuando un Jagras estalla desde algún lugar a tu izquierda. Un dolor agudo te indica que has sido herido, al igual que la garra de Jagras alojada en tu hombro.',
       options: [
         {
-          text: '',
+          text: 'Toma la garra y defiendete. \n <b> Descarta 1 Carta de Tiempo. Baraja la carta Jagras Slayer en tu Mazo de Tiempo. Avancen a la entrada 34 </b>',
           timeCards: 1,
           extraCards: "Jagras Slayer",
           progressTo: 34,
         },
         {
-          text: '',
+          text: '<b> (Los jugadores solo podrán elegir esta opción si la carta Unavenged no está en el Mazo de Tiempo) </b> \n\n Huye! \n <b>  Baraja la carta Unavenged en tu Mazo de Tiempo. Avancen a la entrada 6 </b>',
           disabled: {
             disabled: true,
             if: { variable: 'extraCards', operator: '!=', value: 'Unavenged', then: { disable: false } }
@@ -1518,10 +1518,10 @@ export class MissionComponent {
     },
     {
       id: 33,
-      text: '',
+      text: 'Hay tantos cuerpos aquí que incluso después de varias horas de trabajo arduo y comprometido apenas has logrado empezar. Te duelen los brazos por el esfuerzo y el sol está cada vez más bajo en el cielo.',
       options: [
         {
-          text: '',
+          text: 'Sigue cavando. \n <b> Si hay menos de 2 Cartas de Tiempo descartadas, descarta 1 Carta de tiempo y avancen a la entrada 25.</b>',
           disabled: {
             disabled: true,
             if: { variable: 'timeCards', operator: '>=', value: 34, then: { disable: false } }
@@ -1530,7 +1530,7 @@ export class MissionComponent {
           progressTo: 25,
         },
         {
-          text: '',
+          text: 'Suficiente. ¿Donde está el rastro? \n <b> Si hay exactamente 2 Cartas de Tiempo descartadas, avancen a la entrada 19.</b>',
           progressTo: 19,
           disabled: {
             disabled: true,
@@ -1538,7 +1538,7 @@ export class MissionComponent {
           },
         },
         {
-          text: '',
+          text: 'Continuemos! \n <b> Si hay exactamente 3 Cartas de Tiempo descartadas, avancen a la entrada 10.</b>',
           progressTo: 10,
           disabled: {
             disabled: true,
@@ -1549,13 +1549,23 @@ export class MissionComponent {
     },
     {
       id: 34,
-      text: '',
-      trackTokens: 2,
+      text: '¡El aire se llena con el zumbido de la estática, cuando de repente te encuentras cara a cara con tu presa! Ahora es el momento de luchar contra este aterrador adversario.',
+      options: [
+        {
+          text: '<b> Ganan 2 Track Tokens. Revelen sus Track Tokens, revisen su nivel de Scoutfly, y comiencen la fase de caza </b>',
+          trackTokens: 2,
+        }
+      ]
     },
     {
       id: 35,
-      text: '',
-      timeCards: -1,
+      text: 'Algo está mal. El ruido del bosque desapareció, reemplazado por un zumbido. Un zumbido como de insectos o… electricidad estática.Te agachas, justo a tiempo, cuando Tobi-Kadachi, que se abalanza, casi te arranca la cabeza. Has caído en su trampa. ¡Es hora de luchar!',
+      options: [
+        {
+          text: '<b> Descarta 1 Carta de Tiempo. Revelen sus Track Tokens, revisen su nivel de Scoutfly, y comiencen la fase de caza </b>',
+          timeCards: -1,
+        }
+      ]
     },
   ]
 
@@ -1761,6 +1771,8 @@ export class MissionComponent {
   missionState: boolean | undefined;
 
   loading = false;
+  scoutflyLevel: number[] = [];
+  extraAttacks: any[] = [];
 
   constructor(
     public ds: DataService
@@ -1837,104 +1849,62 @@ export class MissionComponent {
     this.mission = this.missionList[index];
 
     //Great Jagras
-    if (index == 0) {
+    if (index == 0 || index == 1 || index == 2) {
       this.quest = this.jagrasQuest;
-      this.startingPoint = [1];
       this.rewardsTable = this.rewardsJagras;
-      this.timeCards = 35;
-    }
-    if (index == 1) {
-      this.quest = this.jagrasQuest;
-      this.startingPoint = [2, 3, 4, 5];
-      this.rewardsTable = this.rewardsJagras;
-      this.timeCards = 30;
-    }
-    if (index == 2) {
-      this.quest = this.jagrasQuest;
-      this.startingPoint = [2, 3, 4, 5];
-      this.rewardsTable = this.rewardsJagras;
-      this.timeCards = 30;
+      if (index == 0) this.timeCards = 35;
+      else this.timeCards = 30;
+      this.extraAttacks = ['Forward Roll', 'Jagras Spit', 'Retreat Swing'];
     }
 
     //Tobi-Kadachi
-    if (index == 3) {
+    if (index == 3 || index == 4 || index == 5) {
       this.quest = this.tobiQuest;
-      this.startingPoint = [1];
       this.rewardsTable = this.rewardsTobi;
       this.timeCards = 35;
-    }
-    if (index == 4) {
-      this.quest = this.tobiQuest;
-      this.startingPoint = [2, 3, 4, 5];
-      this.rewardsTable = this.rewardsTobi;
-      this.timeCards = 35;
-    }
-    if (index == 5) {
-      this.quest = this.tobiQuest;
-      this.startingPoint = [2, 3, 4, 5];
-      this.rewardsTable = this.rewardsTobi;
-      this.timeCards = 35;
+      this.extraAttacks = ['Front Flip Slam', 'Leap Quick Bite', ' Gliding Tail Cleave'];
     }
 
     //Anjanath
-    if (index == 6) {
+    if (index == 6 || index == 7 || index == 8) {
       this.quest = this.anjaQuest;
-      this.startingPoint = [1];
       this.rewardsTable = this.rewardsAnja;
       this.timeCards = 35;
-    }
-    if (index == 7) {
-      this.quest = this.anjaQuest;
-      this.startingPoint = [2, 3, 4, 5];
-      this.rewardsTable = this.rewardsAnja;
-      this.timeCards = 35;
-    }
-    if (index == 8) {
-      this.quest = this.anjaQuest;
-      this.startingPoint = [2, 3, 4, 5];
-      this.rewardsTable = this.rewardsAnja;
-      this.timeCards = 35;
+      this.extraAttacks = ['Crushing Charge', 'Deadly Bludgeon', 'Right Flame Spray'];
     }
 
     //Rathalos
-    if (index == 9) {
+    if (index == 9 || index == 10 || index == 11) {
       this.quest = this.rathQuest;
-      this.startingPoint = [1];
       this.rewardsTable = this.rewardsRathalos;
-      this.timeCards = 40;
-    }
-    if (index == 10) {
-      this.quest = this.rathQuest;
-      this.startingPoint = [2, 3, 4, 5];
-      this.rewardsTable = this.rewardsRathalos;
-      this.timeCards = 40;
-    }
-    if (index == 11) {
-      this.quest = this.rathQuest;
-      this.startingPoint = [2, 3, 4, 5];
-      this.rewardsTable = this.rewardsRathalos;
-      this.timeCards = 45;
+      if (index == 9 || index == 10) this.timeCards = 40;
+      else this.timeCards = 45;
+      this.extraAttacks = ['Stunning Spin', 'Molten Bite', 'Charging Swoop'];
     }
 
     //Azure Rathalos
-    if (index == 12) {
+    if (index == 12 || index == 13 || index == 14) {
       this.quest = this.azureQuest;
+      this.rewardsTable = this.rewardsAzure;
+      if (index == 12 || index == 13) this.timeCards = 40;
+      else this.timeCards = 45;
+      this.extraAttacks = ['Fire Spin', 'Fireball', 'Talon Dive'];
+    }
+
+    //Dificultad
+    if (index == 0 || index == 3 || index == 6 || index == 9 || index == 12) {
       this.startingPoint = [1];
-      this.rewardsTable = this.rewardsAzure;
-      this.timeCards = 40;
+      this.scoutflyLevel = [2, 5];
     }
-    if (index == 13) {
-      this.quest = this.azureQuest;
+    if (index == 1 || index == 4 || index == 7 || index == 10 || index == 13) {
       this.startingPoint = [2, 3, 4, 5];
-      this.rewardsTable = this.rewardsAzure;
-      this.timeCards = 40;
+      this.scoutflyLevel = [3, 6];
     }
-    if (index == 14) {
-      this.quest = this.azureQuest;
+    if (index == 2 || index == 5 || index == 8 || index == 11 || index == 14) {
       this.startingPoint = [2, 3, 4, 5];
-      this.rewardsTable = this.rewardsAzure;
-      this.timeCards = 45;
+      this.scoutflyLevel = [4, 7];
     }
+
     sessionStorage.setItem('quest', index.toString());
     sessionStorage.setItem('timeCards', this.timeCards.toString());
   }

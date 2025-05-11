@@ -3,13 +3,14 @@
     <dx-button class="mainButton" style="margin-left: 5%;"  (onClick)="setInQuest(false)">Inventario</dx-button>
 </div>
 @if(inQuest) {
-    <app-mission></app-mission>
-}
-@if(!inQuest) {
     <dx-tabs
         [items]="tab"
         (onItemClick)="goTo($event.itemData.id)" >
     </dx-tabs>
+    <app-mission-log *ngIf="moduleIndex == 0"></app-mission-log>
+    <app-mission *ngIf="moduleIndex != 0"></app-mission>
+}
+@if(!inQuest) {
     <dx-tabs style="margin-bottom: 2rem;"
         [items]="tabs"
         (onItemClick)="goTo($event.itemData.id)" >
@@ -17,7 +18,6 @@
     
     @if(!loading) {
     
-        <app-mission-log *ngIf="moduleIndex == 0"></app-mission-log>
         <app-inventory *ngIf="moduleIndex == 1" ></app-inventory>
         <app-armors *ngIf="moduleIndex == 2"></app-armors>
         <app-weapons *ngIf="moduleIndex == 3"></app-weapons>
