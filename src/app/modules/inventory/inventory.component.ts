@@ -33,9 +33,9 @@ export class InventoryComponent {
     this.ds.getItems().subscribe((response) => {
       this.ds.materials = response;
       this.ds.materials.forEach(element => {
-        let auxMaterial = this.ds.basicMaterials.find(x => x.materialName == element.materialName);
-        element.tree = auxMaterial?.tree;
-        element.treeIcon = auxMaterial?.treeIcon;
+        // let auxMaterial = this.ds.basicMaterials.find(x => x.materialName == element.materialName);
+        element.tree = element?.tree;
+        element.treeIcon = element?.treeIcon;
       });
       this.materials = this.ds.materials;
       this.loading = false;
