@@ -16,7 +16,8 @@ export class DataService {
     }
   }
 
-  campaignID = 0;
+  campaignID: number | undefined = undefined;
+  campaignName: any;
 
   missionLog = [];
 
@@ -435,6 +436,11 @@ export class DataService {
       ]
 
     },
+    // Barroth
+    // Pukei-Pukei
+    // Jyuratodus
+    // Diablos
+    // Black Diablos
   ];
 
   recipeWeapons = [
@@ -2068,324 +2074,31 @@ export class DataService {
     //Heavy Bowgun
   ];
 
-  basicMaterials = [
-    {
-      "materialName": "Carbalite Ore",
-      "tree": "Ore",
-      "treeIcon": "assets/icons/materials/ore.png",
-    },
-    {
-      "materialName": "Machalite Ore",
-      "tree": "Ore",
-      "treeIcon": "assets/icons/materials/ore.png",
-    },
-    {
-      "materialName": "Dragonite Ore",
-      "tree": "Ore",
-      "treeIcon": "assets/icons/materials/ore.png",
-    },
-    {
-      "materialName": "Fucium Ore",
-      "tree": "Ore",
-      "treeIcon": "assets/icons/materials/ore.png",
-    },
-    {
-      "materialName": "Quality Bone",
-      "tree": "Bone",
-      "treeIcon": "assets/icons/materials/bone.png",
-    },
-    {
-      "materialName": "Monster Bone Small",
-      "tree": "Bone",
-      "treeIcon": "assets/icons/materials/bone.png",
-    },
-    {
-      "materialName": "Monster Bone Medium",
-      "tree": "Bone",
-      "treeIcon": "assets/icons/materials/bone.png",
-    },
-    {
-      "materialName": "Monster Bone Large",
-      "tree": "Bone",
-      "treeIcon": "assets/icons/materials/bone.png",
-    },
-    {
-      "materialName": "Monster Hardbone",
-      "tree": "Bone",
-      "treeIcon": "assets/icons/materials/bone.png",
-    },
-    {
-      "materialName": "Monster Keenbone",
-      "tree": "Bone",
-      "treeIcon": "assets/icons/materials/bone.png",
-    },
-    {
-      "materialName": "Ancient Bone",
-      "tree": "Bone",
-      "treeIcon": "assets/icons/materials/bone.png",
-    },
-    {
-      "materialName": "Boulder Bone",
-      "tree": "Bone",
-      "treeIcon": "assets/icons/materials/bone.png",
-    },
-    {
-      "materialName": "Dragonvein Crystal",
-      "tree": "Ore",
-      "treeIcon": "assets/icons/materials/ore.png",
-    },
-    {
-      "materialName": "Wingdrake Hide",
-      "tree": "Monster",
-      "treeIcon": "assets/icons/materials/leather.png",
-    },
-    {
-      "materialName": "Gajau Scale",
-      "tree": "Monster",
-      "treeIcon": "assets/icons/materials/leather.png",
-    },
-    {
-      "materialName": "Firecell Stone",
-      "tree": "Ore",
-      "treeIcon": "assets/icons/materials/ore.png",
-    },
-    {
-      "materialName": "Coral Crystal",
-      "tree": "Ore",
-      "treeIcon": "assets/icons/materials/ore.png",
-    },
-    {
-      "materialName": "Piercing Claw",
-      "tree": "Monster",
-      "treeIcon": "assets/icons/materials/leather.png",
-    },
-    {
-      "materialName": "Sharp Claw",
-      "tree": "Monster",
-      "treeIcon": "assets/icons/materials/leather.png",
-    },
-    {
-      "materialName": "Warm Pelt",
-      "tree": "Monster",
-      "treeIcon": "assets/icons/materials/leather.png",
-    },
-    {
-      "materialName": "Great Jagras Claw",
-      "tree": "Great Jagras",
-      "treeIcon": "assets/icons/monsters/g-jagr.png",
-    },
-    {
-      "materialName": "Great Jagras Hide",
-      "tree": "Great Jagras",
-      "treeIcon": "assets/icons/monsters/g-jagr.png",
-    },
-    {
-      "materialName": "Great Jagras Mane",
-      "tree": "Great Jagras",
-      "treeIcon": "assets/icons/monsters/g-jagr.png",
-    },
-    {
-      "materialName": "Great Jagras Scale",
-      "tree": "Great Jagras",
-      "treeIcon": "assets/icons/monsters/g-jagr.png",
-    },
-    {
-      "materialName": "Electro Sac",
-      "tree": "Tobi-Kadachi",
-      "treeIcon": "assets/icons/monsters/tobi.png",
-    },
-    {
-      "materialName": "Thunder Sac",
-      "tree": "Tobi-Kadachi",
-      "treeIcon": "assets/icons/monsters/tobi.png",
-    },
-    {
-      "materialName": "Tobi-Kadachi Claw",
-      "tree": "Tobi-Kadachi",
-      "treeIcon": "assets/icons/monsters/tobi.png",
-    },
-    {
-      "materialName": "Tobi-Kadachi Electrode",
-      "tree": "Tobi-Kadachi",
-      "treeIcon": "assets/icons/monsters/tobi.png",
-    },
-    {
-      "materialName": "Tobi-Kadachi Membrane",
-      "tree": "Tobi-Kadachi",
-      "treeIcon": "assets/icons/monsters/tobi.png",
-    },
-    {
-      "materialName": "Tobi-Kadachi Pelt",
-      "tree": "Tobi-Kadachi",
-      "treeIcon": "assets/icons/monsters/tobi.png",
-    },
-    {
-      "materialName": "Tobi-Kadachi Scale",
-      "tree": "Tobi-Kadachi",
-      "treeIcon": "assets/icons/monsters/tobi.png",
-    },
-    {
-      "materialName": "Flame Sac",
-      "tree": "Monster",
-      "treeIcon": "assets/icons/materials/leather.png",
-    },
-    {
-      "materialName": "Inferno Sac",
-      "tree": "Monster",
-      "treeIcon": "assets/icons/materials/leather.png",
-    },
-    {
-      "materialName": "Anjanath Fang",
-      "tree": "Anjanath",
-      "treeIcon": "assets/icons/monsters/anja.png",
-    },
-    {
-      "materialName": "Anjanath Nosebone",
-      "tree": "Anjanath",
-      "treeIcon": "assets/icons/monsters/anja.png",
-    },
-    {
-      "materialName": "Anjanath Pelt",
-      "tree": "Anjanath",
-      "treeIcon": "assets/icons/monsters/anja.png",
-    },
-    {
-      "materialName": "Anjanath Scale",
-      "tree": "Anjanath",
-      "treeIcon": "assets/icons/monsters/anja.png",
-    },
-    {
-      "materialName": "Anjanath Tail",
-      "tree": "Anjanath",
-      "treeIcon": "assets/icons/monsters/anja.png",
-    },
-    {
-      "materialName": "Rathalos Carapace",
-      "tree": "Rathalos",
-      "treeIcon": "assets/icons/monsters/ratha.png",
-    },
-    {
-      "materialName": "Rathalos Marrow",
-      "tree": "Rathalos",
-      "treeIcon": "assets/icons/monsters/ratha.png",
-    },
-    {
-      "materialName": "Rathalos Medulla",
-      "tree": "Rathalos",
-      "treeIcon": "assets/icons/monsters/ratha.png",
-    },
-    {
-      "materialName": "Rathalos Plate",
-      "tree": "Rathalos",
-      "treeIcon": "assets/icons/monsters/ratha.png",
-    },
-    {
-      "materialName": "Rathalos Scale",
-      "tree": "Rathalos",
-      "treeIcon": "assets/icons/monsters/ratha.png",
-    },
-    {
-      "materialName": "Rathalos Shell",
-      "tree": "Rathalos",
-      "treeIcon": "assets/icons/monsters/ratha.png",
-    },
-    {
-      "materialName": "Rathalos Tail",
-      "tree": "Rathalos",
-      "treeIcon": "assets/icons/monsters/ratha.png",
-    },
-    {
-      "materialName": "Rathalos Webbing",
-      "tree": "Rathalos",
-      "treeIcon": "assets/icons/monsters/ratha.png",
-    },
-    {
-      "materialName": "Rathalos Wing",
-      "tree": "Rathalos",
-      "treeIcon": "assets/icons/monsters/ratha.png",
-    },
-    {
-      "materialName": "Rathalos Wingtalon",
-      "tree": "Rathalos",
-      "treeIcon": "assets/icons/monsters/ratha.png",
-    },
-    {
-      "materialName": "Azure Rathalos Carapace",
-      "tree": "Azure Rathalos",
-      "treeIcon": "assets/icons/monsters/a-ratha.png",
-    },
-    {
-      "materialName": "Azure Rathalos Marrow",
-      "tree": "Azure Rathalos",
-      "treeIcon": "assets/icons/monsters/a-ratha.png",
-    },
-    {
-      "materialName": "Azure Rathalos Plate",
-      "tree": "Azure Rathalos",
-      "treeIcon": "assets/icons/monsters/a-ratha.png",
-    },
-    {
-      "materialName": "Azure Rathalos Scale",
-      "tree": "Azure Rathalos",
-      "treeIcon": "assets/icons/monsters/a-ratha.png",
-    },
-    {
-      "materialName": "Azure Rathalos Shell",
-      "tree": "Azure Rathalos",
-      "treeIcon": "assets/icons/monsters/a-ratha.png",
-    },
-    {
-      "materialName": "Azure Rathalos Tail",
-      "tree": "Azure Rathalos",
-      "treeIcon": "assets/icons/monsters/a-ratha.png",
-    },
-    {
-      "materialName": "Azure Rathalos Webbing",
-      "tree": "Azure Rathalos",
-      "treeIcon": "assets/icons/monsters/a-ratha.png",
-    },
-    {
-      "materialName": "Azure Rathalos Wingtalon",
-      "tree": "Azure Rathalos",
-      "treeIcon": "assets/icons/monsters/a-ratha.png",
-    },
-    {
-      "materialName": "Azure Rathalos Wing",
-      "tree": "Azure Rathalos",
-      "treeIcon": "assets/icons/monsters/a-ratha.png",
-    },
-    {
-      "materialName": "Barroth Claw",
-      "tree": "Barroth",
-      "treeIcon": "assets/icons/monsters/barr.png",
-    },
-    {
-      "materialName": "Barroth Ridge",
-      "tree": "Barroth",
-      "treeIcon": "assets/icons/monsters/barr.png",
-    },
-    {
-      "materialName": "Barroth Shell",
-      "tree": "Barroth",
-      "treeIcon": "assets/icons/monsters/barr.png",
-    },
-    {
-      "materialName": "Barroth Carapace",
-      "tree": "Barroth",
-      "treeIcon": "assets/icons/monsters/barr.png",
-    },
-    {
-      "materialName": "Fertile Mud",
-      "tree": "Barroth",
-      "treeIcon": "assets/icons/monsters/barr.png",
-    },
-
-  ]
-
   constructor(private http: HttpClient) { }
+
+
+  getCampaigns(): Observable<any> {
+    return this.http.get(this.apiUrl + 'campaign/getCampaigns', this.headers);
+  }
 
   getCampaign(id: any): Observable<any> {
     return this.http.get(this.apiUrl + 'campaign/getCampaign/' + id, this.headers);
+  }
+
+  createCampaign(name: string, password: string): Observable<any> {
+    return this.http.post(
+      this.apiUrl + 'campaign/addCampaign',
+      { campaignName: name, password: password },
+      this.headers
+    );
+  }
+
+  getLogin(loginData: any): Observable<any> {
+    return this.http.post(
+      this.apiUrl + 'campaign/Login',
+      loginData,
+      this.headers
+    );
   }
 
   getMissionLog(id: any): Observable<any> {

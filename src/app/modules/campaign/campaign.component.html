@@ -1,0 +1,87 @@
+<div class="login-container">
+
+    <div class="login-card">
+
+        <dx-tabs
+            [dataSource]="tabs"
+            [(selectedIndex)]="selectedTab">
+        </dx-tabs>
+
+        <!-- Login -->
+        @if(selectedTab === 0) {
+            <div>
+    
+                <dx-form
+                    [formData]="loginData"
+                    labelMode="floating">
+    
+                    <dxi-item
+                        dataField="username"
+                        editorType="dxTextBox">
+                    </dxi-item>
+    
+                    <dxi-item
+                        dataField="password"
+                        editorType="dxTextBox"
+                        [editorOptions]="{
+                            mode:'password'
+                        }">
+                    </dxi-item>
+    
+                </dx-form>
+    
+                <dx-button
+                    text="Ingresar"
+                    width="100%"
+                    type="default"
+                    (onClick)="login()">
+                </dx-button>
+    
+            </div>
+
+        }
+
+        <!-- New Campaign -->
+        @if(selectedTab === 1) {
+            <div>
+    
+                <dx-form
+                    [formData]="campaignData"
+                    labelMode="floating">
+    
+                    <dxi-item
+                        dataField="name"
+                        editorType="dxTextBox">
+                    </dxi-item>
+    
+                    <dxi-item
+                        dataField="password"
+                        editorType="dxTextBox"
+                        [editorOptions]="{
+                            mode:'password'
+                        }">
+                    </dxi-item>
+    
+                    <dxi-item
+                        dataField="confirmPassword"
+                        editorType="dxTextBox"
+                        [editorOptions]="{
+                            mode:'password'
+                        }">
+                    </dxi-item>
+    
+                </dx-form>
+    
+                <dx-button
+                    text="Crear campaña"
+                    width="100%"
+                    type="success"
+                    (onClick)="createCampaign()">
+                </dx-button>
+    
+            </div>
+        }
+
+    </div>
+
+</div>

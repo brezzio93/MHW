@@ -2183,7 +2183,7 @@ export class MissionComponent {
     this.loading = true;
     let params = {
       materialName: material.name,
-      idCampaign: this.ds.campaignID.toString(),
+      idCampaign: this.ds.campaignID,
       addedAmount: material.addedAmmount
     }
 
@@ -2220,7 +2220,7 @@ export class MissionComponent {
     this.missionState = missionState;
 
     let params = {
-      idCampaign: this.ds.campaignID.toString(),
+      idCampaign: this.ds.campaignID,
       mission: this.mission.monster + ' ' + this.mission.difficulty,
     }
 

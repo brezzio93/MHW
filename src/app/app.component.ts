@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { InventoryComponent } from './modules/inventory/inventory.component';
-import { WeaponsComponent } from './modules/weapons/weapons.component';
-import { ArmorsComponent } from './modules/armors/armors.component';
 import { CommonModule } from '@angular/common';
-import { MissionLogComponent } from "./modules/mission-log/mission-log.component";
 import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './services/data.service';
-import { DxButtonModule, DxTabPanelModule, DxTabsModule } from 'devextreme-angular';
+import { ArmorsComponent } from './modules/armors/armors.component';
+import { CampaignComponent } from './modules/campaign/campaign.component';
+import { InventoryComponent } from './modules/inventory/inventory.component';
 import { MissionComponent } from './modules/mission/mission.component';
+import { MissionLogComponent } from "./modules/mission-log/mission-log.component";
+import { WeaponsComponent } from './modules/weapons/weapons.component';
+import { DataService } from './services/data.service';
+import { DxButtonModule, DxTabsModule } from 'devextreme-angular';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ import { MissionComponent } from './modules/mission/mission.component';
     InventoryComponent,
     WeaponsComponent,
     ArmorsComponent,
+    CampaignComponent,
     MissionLogComponent,
     MissionComponent,
     DxButtonModule,
@@ -38,6 +40,9 @@ export class AppComponent {
   moduleIndex: any;
   inQuest = true;
   loading = true;
+
+  currentCampaignID = undefined;
+
   tab = [
     {
       id: 0,
@@ -64,8 +69,33 @@ export class AppComponent {
     },
   ];
 
+  moduleTabs = [
+    {
+      id: 0,
+      text: 'Misiones',
+      icon: 'assets/icons/monsters.png',
+    },
+    {
+      id: 1,
+      text: 'Inventario',
+      icon: 'assets/icons/box.png',
+    },
+    {
+      id: 2,
+      text: 'Campaña',
+      icon: 'assets/icons/user.png',
+    }
+
+  ]
+
+  missionButtonOptions = {
+    text: 'Misiones',
+    stylingMode: 'text',
+    onClick: () => this.setInQuest(true)
+  };
+
   constructor(
-    private ds: DataService,
+    public ds: DataService,
   ) {
   }
 
@@ -74,20 +104,55 @@ export class AppComponent {
 
     if (sessionStorage.getItem('module') != undefined) this.moduleIndex = Number(sessionStorage.getItem('module'));
     if (sessionStorage.getItem('inQuest') != undefined) { this.inQuest = (sessionStorage.getItem('inQuest') == 'true') ? true : false; }
+    if (sessionStorage.getItem('idCampaign') != undefined) this.ds.campaignID = Number(sessionStorage.getItem('idCampaign'));
+    if (sessionStorage.getItem('campaignName') != undefined) this.ds.campaignName = sessionStorage.getItem('campaignName');
+
+    if (this.ds.campaignID != undefined) {
+      this.ds.getCampaign(this.ds.campaignID).subscribe((campaign) => {
+        this.ds.getItems().subscribe((items) => {
+          this.ds.materials = items;
+          this.loading = false;
+        });
+      });
+    }
+  }
+
+  changeCampaign() {
+    this.ds.campaignID = undefined;
+    this.ds.campaignName = undefined;
+
+    sessionStorage.removeItem('idCampaign');
+    sessionStorage.removeItem('campaignName');
+  }
+
+  setInQuest(inQuest: boolean) {
+    console.log('setInQuest', inQuest);
+    this.inQuest = inQuest;
+    sessionStorage.setItem('inQuest', String(inQuest));
 
 
-    this.ds.getCampaign(0).subscribe((campaign) => {
+    this.ds.getCampaign(this.ds.campaignID).subscribe((campaign) => {
       this.ds.getItems().subscribe((items) => {
         this.ds.materials = items;
         this.loading = false;
       });
-    }
-    );
+    });
   }
 
-  setInQuest(inQuest: boolean) {
-    this.inQuest = inQuest;
-    sessionStorage.setItem('inQuest', String(inQuest));
+  moduleGoTo(route: any) {
+    console.log('moduleGoTo', route);
+
+    switch (route) {
+      case 0:
+        this.setInQuest(true);
+        break;
+      case 1:
+        this.setInQuest(false);
+        break;
+      case 2:
+        this.changeCampaign();
+        break;
+    }
   }
 
   goTo(route: any) {

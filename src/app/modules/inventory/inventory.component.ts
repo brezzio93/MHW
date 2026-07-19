@@ -33,7 +33,6 @@ export class InventoryComponent {
     this.ds.getItems().subscribe((response) => {
       this.ds.materials = response;
       this.ds.materials.forEach(element => {
-        // let auxMaterial = this.ds.basicMaterials.find(x => x.materialName == element.materialName);
         element.tree = element?.tree;
         element.treeIcon = element?.treeIcon;
       });
@@ -51,7 +50,7 @@ export class InventoryComponent {
     this.loading = true;
     let params = {
       materialName: material.materialName,
-      idCampaign: this.ds.campaignID.toString(),
+      idCampaign: this.ds.campaignID,
       addedAmount: this.addedAmount,
     }
 

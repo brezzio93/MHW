@@ -94,7 +94,7 @@ export class WeaponsComponent implements OnInit {
     let auxRecipe = this.ds.recipeWeapons.find((x) => x.weaponName == e.weaponName);
 
     let params = {
-      idCampaign: this.ds.campaignID.toString(),
+      idCampaign: this.ds.campaignID,
       weaponJson: auxRecipe,
     }
 

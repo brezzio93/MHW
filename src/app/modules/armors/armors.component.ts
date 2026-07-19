@@ -85,7 +85,7 @@ export class ArmorsComponent implements OnInit {
     let auxArmorRecipe = this.ds.recipeArmors.find((x) => x.armorName == e.armorName);
 
     let params = {
-      idCampaign: this.ds.campaignID.toString(),
+      idCampaign: this.ds.campaignID,
       armorJson: auxArmorRecipe,
     }
 
