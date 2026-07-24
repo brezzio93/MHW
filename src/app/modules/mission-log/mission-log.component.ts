@@ -37,7 +37,7 @@ export class MissionLogComponent {
       if (day.missionStatus == 'failure') day.statusIcon = "assets/icons/failed.png"
 
       if (day.mission.includes("Jagras")) {
-        day.icon = "assets/icons/monsters/g-jagr.png";
+        day.icon = "assets/icons/monsters/jagras.png";
         day.class = "normal";
       }
       else if (day.mission.includes("Kadachi")) {
@@ -49,11 +49,11 @@ export class MissionLogComponent {
         day.class = "normal";
       }
       else if (day.mission.includes("Rathalos")) {
-        day.icon = "assets/icons/monsters/ratha.png";
+        day.icon = "assets/icons/monsters/rathalos.png";
         day.class = "normal";
       }
       else if (day.mission.includes("Azure Rathalos")) {
-        day.icon = "assets/icons/monsters/a-ratha.png";
+        day.icon = "assets/icons/monsters/a-rathalos.png";
         day.class = "normal";
       }
       else if (day.mission.includes("Barroth")) {

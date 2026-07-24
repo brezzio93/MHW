@@ -1586,20 +1586,20 @@ export class MissionComponent {
       id: 0,
       monster: 'Great Jagras',
       difficulty: 'Assigned Quest',
-      icon: "assets/icons/monsters/g-jagr.png",
+      icon: "assets/icons/monsters/jagras.png",
 
     },
     {
       id: 1,
       monster: 'Great Jagras',
       difficulty: 'Investigation Quest',
-      icon: "assets/icons/monsters/g-jagr.png",
+      icon: "assets/icons/monsters/jagras.png",
     },
     {
       id: 2,
       monster: 'Great Jagras',
       difficulty: 'Tempered Investigation Quest',
-      icon: "assets/icons/monsters/g-jagr.png",
+      icon: "assets/icons/monsters/jagras.png",
     },
     {
       id: 3,
@@ -1641,37 +1641,37 @@ export class MissionComponent {
       id: 9,
       monster: 'Rathalos',
       difficulty: 'Assigned Quest',
-      icon: "assets/icons/monsters/ratha.png",
+      icon: "assets/icons/monsters/rathalos.png",
     },
     {
       id: 10,
       monster: 'Rathalos',
       difficulty: 'Investigation Quest',
-      icon: "assets/icons/monsters/ratha.png",
+      icon: "assets/icons/monsters/rathalos.png",
     },
     {
       id: 11,
       monster: 'Rathalos',
       difficulty: 'Tempered Investigation Quest',
-      icon: "assets/icons/monsters/ratha.png",
+      icon: "assets/icons/monsters/rathalos.png",
     },
     {
       id: 12,
       monster: 'Azure Rathalos',
       difficulty: 'Assigned Quest',
-      icon: "assets/icons/monsters/a-ratha.png",
+      icon: "assets/icons/monsters/a-rathalos.png",
     },
     {
       id: 13,
       monster: 'Azure Rathalos',
       difficulty: 'Investigation Quest',
-      icon: "assets/icons/monsters/a-ratha.png",
+      icon: "assets/icons/monsters/a-rathalos.png",
     },
     {
       id: 14,
       monster: 'Azure Rathalos',
       difficulty: 'Tempered Investigation Quest',
-      icon: "assets/icons/monsters/a-ratha.png",
+      icon: "assets/icons/monsters/a-rathalos.png",
     },
   ]
 
