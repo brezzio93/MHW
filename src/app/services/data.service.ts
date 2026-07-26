@@ -25,24 +25,16 @@ export class DataService {
   weapons: any[] = [];
   materials: any[] = [];
   recipeArmors = [
+
     //Alloy
     {
       armorName: "Alloy Helm",
       tree: "Iron",
       treeIcon: "assets/icons/materials/ore.png",
       materials: [
-        {
-          material: "Machalite Ore",
-          needed: 2,
-        },
-        {
-          material: "Carbalite Ore",
-          needed: 1,
-        },
-        {
-          material: "Dragonite Ore",
-          needed: 1,
-        }
+        { material: "Machalite Ore", needed: 2, },
+        { material: "Carbalite Ore", needed: 1, },
+        { material: "Dragonite Ore", needed: 1, }
       ]
     },
     {
@@ -83,6 +75,7 @@ export class DataService {
         }
       ]
     },
+
     //Bone
     {
       armorName: "Bone Helm",
@@ -129,6 +122,7 @@ export class DataService {
         }
       ]
     },
+
     //Jagras
     {
       armorName: "Jagras Helm",
@@ -195,6 +189,7 @@ export class DataService {
         }
       ]
     },
+
     //Tobi-Kadachi
     {
       armorName: "Kadachi Helm",
@@ -257,6 +252,7 @@ export class DataService {
         }
       ]
     },
+
     //Anjanath
     {
       armorName: "Anja Helm",
@@ -319,6 +315,7 @@ export class DataService {
         }
       ]
     },
+
     //Rathalos
     {
       armorName: "Rathalos Helm",
@@ -377,6 +374,7 @@ export class DataService {
         }
       ]
     },
+
     //Azure Rathalos
     {
       armorName: "Rath Soul Helm",
@@ -434,23 +432,355 @@ export class DataService {
           needed: 1,
         }
       ]
-
     },
+
     // Barroth
+    {
+      armorName: "Barroth Helm",
+      tree: "Barroth",
+      treeIcon: "assets/icons/monsters/barr.png",
+      materials: [
+        {
+          material: "Barroth Ridge",
+          needed: 1,
+        },
+        {
+          material: "Barroth Claw",
+          needed: 1,
+        },
+        {
+          material: "Fertile Mud",
+          needed: 1,
+        },
+      ]
+    },
+    {
+      armorName: "Barroth Mail",
+      tree: "Barroth",
+      treeIcon: "assets/icons/monsters/barr.png",
+      materials: [
+        {
+          material: "Barroth Carapace",
+          needed: 1,
+        },
+        {
+          material: "Barroth Ridge",
+          needed: 2,
+        },
+        {
+          material: "Barroth Claw",
+          needed: 1,
+        },
+        {
+          material: "Quality Bone",
+          needed: 2,
+        },
+      ]
+    },
+    {
+      armorName: "Barroth Greaves",
+      tree: "Barroth",
+      treeIcon: "assets/icons/monsters/barr.png",
+      materials: [
+        {
+          material: "Barroth Ridge",
+          needed: 1,
+        },
+        {
+          material: "Barroth Carapace",
+          needed: 2,
+        },
+        {
+          material: "Fertile Mud",
+          needed: 1,
+        },
+        {
+          material: "Monster Keenbone",
+          needed: 1,
+        },
+      ]
+    },
+
     // Pukei-Pukei
+    {
+      armorName: "Pukei Hood",
+      tree: "Pukei-Pukei",
+      treeIcon: "assets/icons/monsters/puke.png",
+      materials: [
+        {
+          material: "Pukei-Pukei Carapace",
+          needed: 1,
+        },
+        {
+          material: "Pukei-Pukei Tail",
+          needed: 1,
+        },
+        {
+          material: "Pukei-Pukei Wing",
+          needed: 1,
+        },
+      ]
+    },
+    {
+      armorName: "Pukei Mail",
+      tree: "Pukei-Pukei",
+      treeIcon: "assets/icons/monsters/puke.png",
+      materials: [
+        {
+          material: "Pukei-Pukei Scale",
+          needed: 2,
+        },
+        {
+          material: "Pukei-Pukei Carapace",
+          needed: 1,
+        },
+        {
+          material: "Carbalite Ore",
+          needed: 3,
+        },
+      ]
+    },
+    {
+      armorName: "Pukei Greaves",
+      tree: "Pukei-Pukei",
+      treeIcon: "assets/icons/monsters/puke.png",
+      materials: [
+        {
+          material: "Pukei-Pukei Carapace",
+          needed: 2,
+        },
+        {
+          material: "Pukei-Pukei Sac",
+          needed: 2,
+        },
+        {
+          material: "Pukei-Pukei Scale",
+          needed: 1,
+        },
+        {
+          material: "Monster Keenbone",
+          needed: 1,
+        },
+      ]
+    },
+
     // Jyuratodus
+    {
+      armorName: "Jyuratodus Helm",
+      tree: "Jyuratodus",
+      treeIcon: "assets/icons/monsters/jyur.png",
+      materials: [
+        {
+          material: "Jyura Scale",
+          needed: 1,
+        },
+        {
+          material: "Jyura Carapace",
+          needed: 1,
+        },
+        {
+          material: "Jyuratodus Fin",
+          needed: 1,
+        },
+        {
+          material: "Gajau Scale",
+          needed: 1,
+        }
+      ]
+    },
+    {
+      armorName: "Jyuratodus Mail",
+      tree: "Jyuratodus",
+      treeIcon: "assets/icons/monsters/jyur.png",
+      materials: [
+        {
+          material: "Jyuratodus Scale",
+          needed: 1,
+        },
+        {
+          material: "Jyuratodus Fin",
+          needed: 1,
+        },
+        {
+          material: "Jyuratodus Fang",
+          needed: 1,
+        },
+        {
+          material: "Torrent Sac",
+          needed: 2,
+        },
+      ]
+    },
+    {
+      armorName: "Jyuratodus Greaves",
+      tree: "Jyuratodus",
+      treeIcon: "assets/icons/monsters/jyur.png",
+      materials: [
+        {
+          material: "Jyura Carapace",
+          needed: 1,
+        },
+        {
+          material: "Jyuratodus Fang",
+          needed: 1,
+        },
+        {
+          material: "Jyuratodus Fin",
+          needed: 1,
+        },
+        {
+          material: "Wyvern Gem",
+          needed: 1,
+        }
+      ]
+    },
+
     // Diablos
+    {
+      armorName: "Diablos Helm",
+      tree: "Diablos",
+      treeIcon: "assets/icons/monsters/diab.png",
+      materials: [
+        {
+          material: "Diablos Ridge",
+          needed: 1,
+        },
+        {
+          material: "Diablos Fang",
+          needed: 2,
+        },
+        {
+          material: "Majestic Horn",
+          needed: 1,
+        },
+        {
+          material: "Wyvern Gem",
+          needed: 2,
+        }
+      ]
+    },
+    {
+      armorName: "Diablos Mail",
+      tree: "Diablos",
+      treeIcon: "assets/icons/monsters/diab.png",
+      materials: [
+        {
+          material: "Diablos Carapace",
+          needed: 2,
+        },
+        {
+          material: "Diablos Ridge",
+          needed: 1,
+        },
+        {
+          material: "Majestic Horn",
+          needed: 1,
+        },
+        {
+          material: "Lightcrystal",
+          needed: 2,
+        },
+      ]
+    },
+    {
+      armorName: "Diablos Greaves",
+      tree: "Diablos",
+      treeIcon: "assets/icons/monsters/diab.png",
+      materials: [
+        {
+          material: "Diablos Ridge",
+          needed: 1,
+        },
+        {
+          material: "Diablos Carapace",
+          needed: 1,
+        },
+        {
+          material: "Blos Medulla",
+          needed: 1,
+        },
+      ]
+    },
+
     // Black Diablos
+    {
+      armorName: "Diablos Nero Helm",
+      tree: "Black Diablos",
+      treeIcon: "assets/icons/monsters/b-diab.png",
+      materials: [
+        {
+          material: "Black Diablos Ridge",
+          needed: 2,
+        },
+        {
+          material: "Majestic Horn",
+          needed: 1,
+        },
+
+        {
+          material: "Black Spiral Horn",
+          needed: 1,
+        },
+        {
+          material: "Novacrystal",
+          needed: 2,
+        }
+      ]
+    },
+    {
+      armorName: "Diablos Nero Mail",
+      tree: "Black Diablos",
+      treeIcon: "assets/icons/monsters/b-diab.png",
+      materials: [
+        {
+          material: "Black Diablos Carapace",
+          needed: 1,
+        },
+        {
+          material: "Black Spiral Horn",
+          needed: 2,
+        },
+        {
+          material: "Blos Medulla",
+          needed: 1,
+        },
+      ]
+    },
+    {
+      armorName: "Diablos Nero Greaves",
+      tree: "Black Diablos",
+      treeIcon: "assets/icons/monsters/b-diab.png",
+      materials: [
+        {
+          material: "Black Diablos Ridge",
+          needed: 1,
+        },
+        {
+          material: "Black Diablos Carapace",
+          needed: 2,
+        },
+        {
+          material: "Black Spiral Horn",
+          needed: 1,
+        },
+        {
+          material: "Wyvern Gem",
+          needed: 1,
+        },
+      ]
+    }
   ];
 
   recipeWeapons = [
-    // Great Sword 
+    /////////////////
+    // Great Sword //
+    /////////////////
 
     // Great Sword - Ore
     {
       weaponName: "Buster Blade",
       type: "Great Sword",
-      tree: "Ore",
+      tree: "Iron",
       treeIcon: "assets/icons/materials/ore.png",
       level: 1,
       materials: [
@@ -462,7 +792,7 @@ export class DataService {
     {
       weaponName: "Chrome Razor",
       type: "Great Sword",
-      tree: "Ore",
+      tree: "Iron",
       treeIcon: "assets/icons/materials/ore.png",
       level: 2,
       materials: [
@@ -513,7 +843,7 @@ export class DataService {
     {
       weaponName: "Jagras Blade",
       type: "Great Sword",
-      tree: "Jagras",
+      tree: "Great Jagras",
       treeIcon: "assets/icons/monsters/jagras.png",
       level: 1,
       materials: [
@@ -526,7 +856,7 @@ export class DataService {
     {
       weaponName: "Jagras Hacker",
       type: "Great Sword",
-      tree: "Jagras",
+      tree: "Great Jagras",
       treeIcon: "assets/icons/monsters/jagras.png",
       level: 2,
       materials: [
@@ -564,6 +894,8 @@ export class DataService {
         { material: "Rathalos Medulla", needed: 1 }
       ],
     },
+
+    // Great Sword - Pukei-Pukei
     {
       weaponName: "Blooming Blade",
       type: "Great Sword",
@@ -590,6 +922,8 @@ export class DataService {
         { material: "Quality Bone", needed: 3 }
       ],
     },
+
+    // Great Sword - Barroth
     {
       weaponName: "Carapace Buster",
       type: "Great Sword",
@@ -614,7 +948,9 @@ export class DataService {
         { material: "Barroth Ridge", needed: 3 }
       ],
     },
-    //SNS
+    /////////
+    // SNS //
+    /////////
     {
       weaponName: "Steel Knife",
       type: "Sword and Shield",
@@ -677,7 +1013,7 @@ export class DataService {
     {
       weaponName: "Jagras Edge",
       type: "Sword and Shield",
-      tree: "Jagras",
+      tree: "Great Jagras",
       treeIcon: "assets/icons/monsters/jagras.png",
       level: 1,
       materials: [
@@ -690,7 +1026,7 @@ export class DataService {
     {
       weaponName: "Jagras Garotte",
       type: "Sword and Shield",
-      tree: "Jagras",
+      tree: "Great Jagras",
       treeIcon: "assets/icons/monsters/jagras.png",
       level: 2,
       materials: [
@@ -775,7 +1111,9 @@ export class DataService {
         { material: "Barroth Ridge", needed: 3 }
       ],
     },
-    //DB
+    ////////
+    // DB //
+    ////////
     {
       weaponName: "Dual Slicers",
       type: "Dual Blades",
@@ -937,7 +1275,9 @@ export class DataService {
         { material: "Blos Medulla", needed: 1 }
       ],
     },
-    //Bow
+    /////////
+    // Bow //
+    /////////
     {
       weaponName: "Steel Bow",
       type: "Bow",
@@ -1099,7 +1439,9 @@ export class DataService {
         { material: "Blos Medulla", needed: 1 }
       ],
     },
-    // Hunting Horn
+    //////////////////
+    // Hunting Horn //
+    //////////////////
     {
       weaponName: "Great Bagpipe",
       type: "Hunting Horn",
@@ -1263,7 +1605,9 @@ export class DataService {
         { material: "Gajau Scale", needed: 1 },
       ]
     },
-    // Hammer
+    ////////////
+    // Hammer //
+    ////////////
     {
       weaponName: "Iron Demon",
       type: "Hammer",
@@ -1422,7 +1766,9 @@ export class DataService {
         { material: "Blos Medulla", needed: 1 }
       ],
     },
-    //Long Sword
+    ////////////////
+    // Long Sword //
+    ////////////////
     {
       weaponName: "Iron Grace",
       type: "Long Sword",
@@ -1584,7 +1930,9 @@ export class DataService {
         { material: "Gajau Scale", needed: 1 }
       ],
     },
-    //Lance
+    ///////////
+    // Lance //
+    ///////////
     {
       weaponName: "Steel Lance",
       type: "Lance",
@@ -1749,7 +2097,9 @@ export class DataService {
         { material: "Gajau Scale", needed: 1 },
       ],
     },
-    //Gunlance
+    //////////////
+    // Gunlance //
+    //////////////
     {
       weaponName: "Steel Gunlance",
       type: "Gunlance",
@@ -1913,7 +2263,12 @@ export class DataService {
         { material: "Gajau Scale", needed: 1 },
       ],
     },
-    //Light Bowgun
+
+    //////////////////
+    // Light Bowgun //
+    //////////////////
+
+    // Light Bowgun - Ore
     {
       weaponName: "High Chain Blitz",
       type: "Light Bowgun",
@@ -1939,6 +2294,8 @@ export class DataService {
         { material: "Dragonvein Crystal", needed: 2 }
       ],
     },
+
+    // Light Bowgun - Bone
     {
       weaponName: "Hunter's Rifle",
       type: "Light Bowgun",
@@ -1973,6 +2330,8 @@ export class DataService {
         { material: "Quality Bone", needed: 3 }
       ],
     },
+
+    // Light Bowgun - Great Jagras
     {
       weaponName: "Jagras Blitz",
       type: "Light Bowgun",
@@ -1999,6 +2358,8 @@ export class DataService {
         { material: "Piercing Claw", needed: 1 },
       ],
     },
+
+    // Light Bowgun - Rathalos
     {
       weaponName: "Flame Blitz",
       type: "Light Bowgun",
@@ -2025,6 +2386,8 @@ export class DataService {
         { material: "Rathalos Medulla", needed: 1 },
       ],
     },
+
+    // Light Bowgun - Barroth
     {
       weaponName: "Carapace Rifle",
       type: "Light Bowgun",
@@ -2049,6 +2412,8 @@ export class DataService {
         { material: "Barroth Ridge", needed: 2 }
       ],
     },
+
+    // Light Bowgun - Jyuratodus
     {
       weaponName: "Madness Rifle",
       type: "Light Bowgun",
@@ -2076,10 +2441,546 @@ export class DataService {
         { material: "Gajau Scale", needed: 1 }
       ],
     },
-    //Charge Blade
-    //Switch Axe
-    //Insect Glaive
-    //Heavy Bowgun
+
+    //////////////////
+    // Charge Blade //
+    //////////////////
+
+    // Charge Blade - Ore
+    {
+      weaponName: "Elite Commission Axe",
+      type: "Charge Blade",
+      tree: "Ore",
+      treeIcon: "Ore",
+      level: 1,
+      materials: [
+        { material: "Dragonite Ore", quantity: 1 },
+        { material: "Machalite Ore", quantity: 1 },
+        { material: "Monster Bone Medium", quantity: 1 }
+      ]
+    },
+    {
+      weaponName: "Chrome Guardian",
+      type: "Charge Blade",
+      tree: "Ore",
+      treeIcon: "Ore",
+      level: 2,
+      materials: [
+        { material: "Fucium Ore", quantity: 2 },
+        { material: "Carbalite Ore", quantity: 2 },
+        { material: "Dragonite Ore", quantity: 3 },
+        { material: "Dragonvein Crystal", quantity: 2 }
+      ]
+    },
+
+    // Charge Blade - Bone
+    {
+      weaponName: "Bone Strongarm",
+      type: "Charge Blade",
+      tree: "Bone",
+      treeIcon: "Bone",
+      level: 1,
+      materials: [
+        { material: "Monster Bone Small", quantity: 1 }
+      ]
+    },
+    {
+      weaponName: "Hard Bone Strongarm",
+      type: "Charge Blade",
+      tree: "Bone",
+      treeIcon: "Bone",
+      level: 2,
+      materials: [
+        { material: "Monster Bone Large", quantity: 1 },
+        { material: "Monster Bone Medium", quantity: 1 },
+        { material: "Boulder Bone", quantity: 1 }
+      ]
+    },
+    {
+      weaponName: "Mighty Strongarm",
+      type: "Charge Blade",
+      tree: "Bone",
+      treeIcon: "Bone",
+      level: 3,
+      materials: [
+        { material: "Monster Hardbone", quantity: 2 },
+        { material: "Monster Keenbone", quantity: 2 },
+        { material: "Quality Bone", quantity: 3 }
+      ]
+    },
+
+    // Charge Blade - Jagras
+    {
+      weaponName: "Jagras Strongarm",
+      type: "Charge Blade",
+      tree: "Great Jagras",
+      treeIcon: "Great Jagras",
+      level: 1,
+      materials: [
+        { material: "Great Jagras Claw", quantity: 1 },
+        { material: "Great Jagras Hide", quantity: 1 },
+        { material: "Great Jagras Scale", quantity: 3 },
+        { material: "Sharp Claw", quantity: 1 }
+      ]
+    },
+    {
+      weaponName: "Jagras Escudo",
+      type: "Charge Blade",
+      tree: "Great Jagras",
+      treeIcon: "Great Jagras",
+      level: 2,
+      materials: [
+        { material: "Great Jagras Scale", quantity: 2 },
+        { material: "Great Jagras Claw", quantity: 2 },
+        { material: "Great Jagras Mane", quantity: 2 },
+        { material: "Piercing Claw", quantity: 1 }
+      ]
+    },
+
+    // Charge Blade - Tobi-Kadachi
+    {
+      weaponName: "Pulsar Strongarm",
+      type: "Charge Blade",
+      tree: "Tobi-Kadachi",
+      treeIcon: "Tobi-Kadachi",
+      level: 1,
+      materials: [
+        { material: "Tobi-Kadachi Claw", quantity: 1 },
+        { material: "Tobi-Kadachi Scale", quantity: 3 },
+        { material: "Tobi-Kadachi Pelt", quantity: 2 }
+      ]
+    },
+    {
+      weaponName: "Kadachi Kaina",
+      type: "Charge Blade",
+      tree: "Tobi-Kadachi",
+      treeIcon: "Tobi-Kadachi",
+      level: 2,
+      materials: [
+        { material: "Tobi-Kadachi Claw", quantity: 2 },
+        { material: "Tobi-Kadachi Scale", quantity: 2 },
+        { material: "Tobi-Kadachi Pelt", quantity: 2 },
+        { material: "Dragonvein Crystal", quantity: 2 }
+      ]
+    },
+
+    // Charge Blade - Jyuratodus
+    {
+      weaponName: "Mudslide Blade",
+      type: "Charge Blade",
+      tree: "Jyuratodus",
+      treeIcon: "Jyuratodus",
+      level: 1,
+      materials: [
+        { material: "Jyuratodus Fin", quantity: 1 },
+        { material: "Jyuratodus Shell", quantity: 2 },
+        { material: "Jyura Scale", quantity: 3 },
+        { material: "Aqua Sac", quantity: 1 }
+      ]
+    },
+    {
+      weaponName: "Jyura Depth",
+      type: "Charge Blade",
+      tree: "Jyuratodus",
+      treeIcon: "Jyuratodus",
+      level: 2,
+      materials: [
+        { material: "Jyuratodus Fin", quantity: 1 },
+        { material: "Jyura Carapace", quantity: 2 },
+        { material: "Jyura Scale", quantity: 2 },
+        { material: "Aqua Sac", quantity: 1 },
+        { material: "Gajau Scale", quantity: 1 }
+      ]
+    },
+
+    // Charge Blade - Diablos
+    {
+      weaponName: "Diablos Wall",
+      type: "Charge Blade",
+      tree: "Diablos",
+      treeIcon: "Diablos",
+      level: 1,
+      materials: [
+        { material: "Twisted Horn", quantity: 1 },
+        { material: "Diablos Fang", quantity: 2 },
+        { material: "Diablos Shell", quantity: 4 },
+        { material: "Monster Bone Large", quantity: 2 }
+      ]
+    },
+    {
+      weaponName: "Diablos Tyrannis",
+      type: "Charge Blade",
+      tree: "Diablos",
+      treeIcon: "Diablos",
+      level: 2,
+      materials: [
+        { material: "Majestic Horn", quantity: 2 },
+        { material: "Diablos Carapace", quantity: 2 },
+        { material: "Diablos Ridge", quantity: 2 },
+        { material: "Blos Medulla", quantity: 1 }
+      ]
+    },
+
+    ////////////////
+    // Switch Axe //
+    ////////////////
+
+    ///////////////////
+    // Insect Glaive //
+    ///////////////////
+
+    // Insect Glaive - Ore
+    {
+      weaponName: "Steel Blade",
+      type: "Insect Glaive",
+      tree: "Iron",
+      treeIcon: "assets/icons/materials/ore.png",
+      level: 1,
+      materials: [
+        { material: "Dragonite Ore", needed: 1 },
+        { material: "Machalite Ore", needed: 1 },
+        { material: "Monster Bone Medium", needed: 1 }
+      ],
+    },
+    {
+      weaponName: "Chrome Blade",
+      type: "Insect Glaive",
+      tree: "Iron",
+      treeIcon: "assets/icons/materials/ore.png",
+      level: 2,
+      materials: [
+        { material: "Fucium Ore", needed: 2 },
+        { material: "Carbalite Ore", needed: 2 },
+        { material: "Dragonite Ore", needed: 3 },
+        { material: "Dragonvein Crystal", needed: 2 }
+      ],
+    },
+
+    // Insect Glaive - Bone
+    {
+      weaponName: "Bone Rod",
+      type: "Insect Glaive",
+      tree: "Bone",
+      treeIcon: "assets/icons/materials/bone.png",
+      level: 1,
+      materials: [
+        { material: "Monster Bone Small", needed: 1 }
+      ],
+    },
+    {
+      weaponName: "Hard Bone Rod",
+      type: "Insect Glaive",
+      tree: "Bone",
+      treeIcon: "assets/icons/materials/bone.png",
+      level: 2,
+      materials: [
+        { material: "Monster Bone Large", needed: 1 },
+        { material: "Monster Bone Medium", needed: 1 },
+        { material: "Boulder Bone", needed: 1 }
+      ],
+    },
+    {
+      weaponName: "Aerial Rod",
+      type: "Insect Glaive",
+      tree: "Bone",
+      treeIcon: "assets/icons/materials/bone.png",
+      level: 3,
+      materials: [
+        { material: "Monster Hardbone", needed: 2 },
+        { material: "Monster Keenbone", needed: 2 },
+        { material: "Quality Bone", needed: 3 }
+      ],
+    },
+
+    // Insect Glaive - Anjanath
+    {
+      weaponName: "Flammenkaefer",
+      type: "Insect Glaive",
+      tree: "Anjanath",
+      treeIcon: "assets/icons/monsters/anjanath.png",
+      level: 1,
+      materials: [
+        { material: "Anjanath Fang", needed: 2 },
+        { material: "Anjanath Scale", needed: 1 },
+        { material: "Anjanath Pelt", needed: 2 },
+        { material: "Flame Sac", needed: 1 }
+      ],
+    },
+    {
+      weaponName: "Gnashing Flammenkaefer",
+      type: "Insect Glaive",
+      tree: "Anjanath",
+      treeIcon: "assets/icons/monsters/anjanath.png",
+      level: 2,
+      materials: [
+        { material: "Anjanath Pelt", needed: 4 },
+        { material: "Anjanath Nosebone", needed: 4 },
+        { material: "Firecell Stone", needed: 2 }
+      ],
+    },
+
+    // Insect Glaive - Rathalos
+    {
+      weaponName: "Flame Glaive",
+      type: "Insect Glaive",
+      tree: "Rathalos",
+      treeIcon: "assets/icons/monsters/rathalos.png",
+      level: 1,
+      materials: [
+        { material: "Rathalos Scale", needed: 1 },
+        { material: "Rathalos Webbing", needed: 2 },
+        { material: "Inferno Sac", needed: 1 },
+        { material: "Rathalos Marrow", needed: 2 }
+      ],
+    },
+    {
+      weaponName: "Rathmaul",
+      type: "Insect Glaive",
+      tree: "Rathalos",
+      treeIcon: "assets/icons/monsters/rathalos.png",
+      level: 2,
+      materials: [
+        { material: "Rathalos Scale", needed: 2 },
+        { material: "Rathalos Carapace", needed: 1 },
+        { material: "Rathalos Wing", needed: 1 },
+        { material: "Rathalos Medulla", needed: 1 }
+      ],
+    },
+
+    // Insect Glaive - Pukei-Pukei
+    {
+      weaponName: 'Blooming Glaive',
+      type: 'Insect Glaive',
+      tree: 'Pukei-Pukei',
+      treeIcon: 'Pukei-Pukei',
+      level: 1,
+      materials: [
+        { material: 'Pukei-Pukei Quill', quantity: 2 },
+        { material: 'Pukei-Pukei Scale', quantity: 2 },
+        { material: 'Poison Sac', quantity: 1 },
+        { material: 'Pukei-Pukei Tail', quantity: 1 }
+      ]
+    },
+    {
+      weaponName: 'Datura Blade',
+      type: 'Insect Glaive',
+      tree: 'Pukei-Pukei',
+      treeIcon: 'Pukei-Pukei',
+      level: 2,
+      materials: [
+        { material: 'Pukei-Pukei Scale', quantity: 2 },
+        { material: 'Pukei-Pukei Wing', quantity: 2 },
+        { material: 'Toxin Sac', quantity: 2 },
+        { material: 'Quality Bone', quantity: 3 }
+      ]
+    },
+
+    // Insect Glaive - Diablos
+    {
+      weaponName: 'Diablos Rod',
+      type: 'Insect Glaive',
+      tree: 'Diablos',
+      treeIcon: 'Diablos',
+      level: 1,
+      materials: [
+        { material: 'Twisted Horn', quantity: 1 },
+        { material: 'Diablos Fang', quantity: 2 },
+        { material: 'Diablos Shell', quantity: 4 },
+        { material: 'Monster Bone Large', quantity: 3 }
+      ]
+    },
+    {
+      weaponName: 'Tyrannis Glaive',
+      type: 'Insect Glaive',
+      tree: 'Diablos',
+      treeIcon: 'Diablos',
+      level: 2,
+      materials: [
+        { material: 'Majestic Horn', quantity: 2 },
+        { material: 'Diablos Carapace', quantity: 2 },
+        { material: 'Diablos Ridge', quantity: 2 },
+        { material: 'Blos Medulla', quantity: 1 }
+      ]
+    },
+
+    //////////////////
+    // Heavy Bowgun //
+    //////////////////
+
+    // Heavy Bowgun - Ore
+    {
+      weaponName: "Steel Assault",
+      type: "Heavy Bowgun",
+      tree: "Iron",
+      treeIcon: "assets/icons/materials/ore.png",
+      level: 1,
+      materials: [
+        { material: 'Dragonite Ore', needed: 1 },
+        { material: 'Machalite Ore', needed: 1 },
+        { material: 'Monster Bone Medium', needed: 1 }
+      ]
+    },
+    {
+      weaponName: "Chrome Assault",
+      type: "Heavy Bowgun",
+      tree: "Iron",
+      treeIcon: "assets/icons/materials/ore.png",
+      level: 2,
+      materials: [
+        { material: "Fucium Ore", needed: 2 },
+        { material: "Carbalite Ore", needed: 2 },
+        { material: "Dragonite Ore", needed: 3 },
+        { material: "Dragonvein Crystal", needed: 2 }
+      ]
+    },
+
+    // Heavy Bowgun - Bone
+    {
+      weaponName: "Bone Shooter",
+      type: "Heavy Bowgun",
+      tree: "Bone",
+      treeIcon: "assets/icons/materials/bone.png",
+      level: 1,
+      materials: [
+        { material: "Monster Bone Small", needed: 1 }
+      ]
+    },
+    {
+      weaponName: "Heavy Shooter",
+      type: "Heavy Bowgun",
+      tree: "Bone",
+      treeIcon: "assets/icons/materials/bone.png",
+      level: 2,
+      materials: [
+        { material: "Monster Bone Large", needed: 1 },
+        { material: "Monster Bone Medium", needed: 1 },
+        { material: "Boulder Bone", needed: 1 }
+      ]
+    },
+    {
+      weaponName: "Power Shooter",
+      type: "Heavy Bowgun",
+      tree: "Bone",
+      treeIcon: "assets/icons/materials/bone.png",
+      level: 3,
+      materials: [
+        { material: "Monster Hardbone", needed: 2 },
+        { material: "Monster Keenbone", needed: 2 },
+        { material: "Quality Bone", needed: 3 }
+      ]
+    },
+
+    // Heavy Bowgun - Jagras
+    {
+      weaponName: "Jagras Assault",
+      type: "Heavy Bowgun",
+      tree: "Great Jagras",
+      treeIcon: "assets/icons/monsters/jagras.png",
+      level: 1,
+      materials: [
+        { material: "Great Jagras Claw", needed: 1 },
+        { material: "Great Jagras Hide", needed: 1 },
+        { material: "Great Jagras Scale", needed: 3 },
+        { material: "Sharp Claw", needed: 1 },
+      ]
+    },
+    {
+      weaponName: "Jagras Cannon",
+      type: "Heavy Bowgun",
+      tree: "Great Jagras",
+      treeIcon: "assets/icons/monsters/jagras.png",
+      level: 2,
+      materials: [
+        { material: "Great Jagras Scale", needed: 2 },
+        { material: "Great Jagras Claw", needed: 2 },
+        { material: "Great Jagras Mane", needed: 2 },
+        { material: "Piercing Claw", needed: 1 },
+      ]
+    },
+
+    // Heavy Bowgun - Tobi-Kadachi
+    {
+      weaponName: "Pulsar Shooter",
+      type: "Heavy Bowgun",
+      tree: "Tobi-Kadachi",
+      treeIcon: "assets/icons/monsters/tobi.png",
+      level: 1,
+      materials: [
+        { material: "Tobi-Kadachi Claw", needed: 1 },
+        { material: "Tobi-Kadachi Scale", needed: 3 },
+        { material: "Tobi-Kadachi Pelt", needed: 2 },
+      ]
+    },
+    {
+      weaponName: "Kadachi Lion",
+      type: "Heavy Bowgun",
+      tree: "Tobi-Kadachi",
+      treeIcon: "assets/icons/monsters/tobi.png",
+      level: 2,
+      materials: [
+        { material: "Tobi-Kadachi Claw", needed: 2 },
+        { material: "Tobi-Kadachi Scale", needed: 2 },
+        { material: "Tobi-Kadachi Pelt", needed: 2 },
+        { material: "Dragonvein Crystal", needed: 2 }
+      ]
+    },
+
+    // Heavy Bowgun - Pukei-Pukei
+    {
+      weaponName: "Blooming Shooter",
+      type: "Heavy Bowgun",
+      tree: "Pukei-Pukei",
+      treeIcon: "assets/icons/monsters/puke.png",
+      level: 1,
+      materials: [
+        { material: "Pukei-Pukei Quill", needed: 2 },
+        { material: "Pukei-Pukei Scale", needed: 2 },
+        { material: "Poison Sac", needed: 1 },
+        { material: "Pukei-Pukei Tail", needed: 1 }
+      ]
+    },
+    {
+      weaponName: "Datura Blaster",
+      type: "Heavy Bowgun",
+      tree: "Pukei-Pukei",
+      treeIcon: "assets/icons/monsters/puke.png",
+      level: 2,
+      materials: [
+        { material: "Pukei-Pukei Scale", needed: 2 },
+        { material: "Pukei-Pukei Wing", needed: 2 },
+        { material: "Toxin Sac", needed: 2 },
+        { material: "Quality Bone", needed: 3 }
+      ]
+    },
+
+    // Heavy Bowgun - Diablos
+    {
+      weaponName: "Diablos Shooter",
+      type: "Heavy Bowgun",
+      tree: "Diablos",
+      treeIcon: "assets/icons/monsters/diab.png",
+      level: 1,
+      materials: [
+        { material: "Twisted Horn", needed: 1 },
+        { material: "Diablos Fang", needed: 2 },
+        { material: "Diablos Shell", needed: 4 },
+        { material: "Monster Bone Large", needed: 2 }
+      ]
+    },
+    {
+      weaponName: "Dual Threat",
+      type: "Heavy Bowgun",
+      tree: "Diablos",
+      treeIcon: "assets/icons/monsters/diab.png",
+      level: 2,
+      materials: [
+        { material: "Majestic Horn", needed: 2 },
+        { material: "Diablos Carapace", needed: 3 },
+        { material: "Diablos Ridge", needed: 3 },
+        { material: "Blos Medulla", needed: 1 }
+      ]
+    },
+
   ];
 
   constructor(private http: HttpClient) { }
